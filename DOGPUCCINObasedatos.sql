@@ -1,4 +1,3 @@
-
 CREATE TABLE Clientes (
     ID number primary key,
     Nombre varchar2(20),
@@ -8,26 +7,33 @@ CREATE TABLE Clientes (
     Telefono char(9),
     Calle varchar2(50),
     Ciudad varchar2(50),
-    Correo_Electronico varchar2(50)
+    Correo_Electronico varchar2(50),
+    Fecha_alta date,
+    Fecha_modificacion date
 );
-
-CREATE TABLE Usuarios (
-    ID number primary key,
-    Contraseña varchar2(15) not null,
-    Rol varchar2(10) not null,
-    foreign KEY (ID) references Clientes(ID) 
-);
-
 CREATE TABLE Protectoras (
-    CIF varchar2(20) primary key,
+    CIF VARCHAR(2) primary key,
     Nombre varchar2(100),
     Telefono char(9),
     Correo_Electronico varchar2(50),
     Calle varchar2(50),
     Ciudad varchar2(50),
     Redes_Sociales varchar2(100),
-    ID_Usuario number,  -- Agregamos la columna ID_Usuario
-    foreign KEY (ID_Usuario) references Usuarios(ID)
+    ID_Usuario number,
+    Fecha_alta date,
+    Fecha_modificacion date
+);
+
+CREATE TABLE Usuarios (
+    ID number primary key,
+    ID_Clientes number,
+    CIF_Protectoras VARCHAR(2),
+    Contraseña varchar2(15) not null,
+    Rol varchar2(10) not null,
+    Fecha_alta date,
+    Fecha_modificacion date,
+    foreign KEY (ID_Clientes) references Clientes(ID),
+    foreign KEY (CIF_Protectoras) references Protectoras(CIF)
 );
 
 
@@ -41,9 +47,11 @@ CREATE TABLE Perros (
     Ciudad varchar2(50),
     Adoptado char(1) check (Adoptado in ('S', 'N')),
     CIF varchar2(20), 
+    Fecha_alta date,
+    Fecha_modificacion date,
+    foto blob,
     FOREIGN KEY (CIF) REFERENCES Protectoras(CIF) 
 );
-
 
 CREATE TABLE Notificaciones (
     ID number primary key,
@@ -51,15 +59,17 @@ CREATE TABLE Notificaciones (
     Mensaje varchar2(500),
     Fecha_Envio date,
     Usuario_ID number,
+    Fecha_alta date,
+    Fecha_modificacion date,
     FOREIGN KEY (Usuario_ID) REFERENCES Usuarios(ID)
 );
 
-
 CREATE TABLE Patologias (
      ID number primary key, 
-    NOMBRE varchar2(50)
+    NOMBRE varchar2(50),
+    Fecha_alta date,
+    Fecha_modificacion date
 );
-
 
 CREATE TABLE Perros_Patologias (
     ID_Perros number,
@@ -67,6 +77,8 @@ CREATE TABLE Perros_Patologias (
     Descripcion varchar(100),
     primary KEY (ID_Perros, ID_Patologia),
     FOREIGN KEY (ID_Perros) REFERENCES Perros(ID),
+    Fecha_alta date,
+    Fecha_modificacion date,
     FOREIGN KEY (ID_Patologia) REFERENCES Patologias(ID)
 );
 
@@ -77,6 +89,8 @@ CREATE TABLE Reservan (
     Hora number,
     Fecha_cita date,
     Estado varchar2(50),
+    Fecha_alta date,
+    Fecha_modificacion date,
     primary key (Cliente_ID, Perro_ID),
     foreign key (Cliente_ID) references Clientes(ID),
     foreign key (Perro_ID) references Perros(ID)
@@ -86,6 +100,8 @@ CREATE TABLE Reservan (
 CREATE TABLE Solicitud_adopcion (
     Cliente_ID number,
     Perro_ID number,
+    Fecha_alta date,
+    Fecha_modificacion date,
     primary key (Cliente_ID, Perro_ID),
     foreign key (Cliente_ID) references Clientes(ID),
     foreign key (Perro_ID) references Perros(ID)
@@ -94,9 +110,35 @@ CREATE TABLE Solicitud_adopcion (
 
 CREATE TABLE Razas (
     Tipo varchar2(50) primary key,
+    Fecha_alta date,
+    Fecha_modificacion date,
     ID_Perros number,
     FOREIGN KEY (ID_Perros) REFERENCES Perros(ID)  
 );
+
+create or replace directory mi_directorio as 'C:\Users\damda\Downloads\fotos_oracle';
+/*GRANT READ ON DIRECTORY mi_directorio TO C##system;*/
+
+
+
+declare 
+    learc bfile;
+    tdato blob;
+begin 
+    insert into perros(id,nombre,foto)
+    values (1,'Firulais',empty_blob())
+    returning foto into tdato;
+    
+    learc := bfilename('mi_directorio','imagen1.jpg');
+    DBMS_OUTPUT.PUT_LINE('Archivo BFILE creado correctamente.');
+    DBMS_OUTPUT.PUT_LINE('Tamaño del archivo: ' || DBMS_LOB.GETLENGTH(learc));
+    DBMS_OUTPUT.PUT_LINE('Ruta del archivo definida correctamente.');
+
+end;    
+/
+
+SELECT * FROM ALL_DIRECTORIES WHERE DIRECTORY_NAME = 'mi_directorio';
+
 
 /*
     DROP TABLE CLIENTES;
@@ -110,6 +152,8 @@ CREATE TABLE Razas (
     drop table perros_patologias;
     drop table razas;
 */
+
+
 
 
 
