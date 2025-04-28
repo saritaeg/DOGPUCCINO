@@ -49,7 +49,7 @@ CREATE TABLE Perros (
     CIF varchar2(20), 
     Fecha_alta date,
     Fecha_modificacion date,
-    foto blob,
+    foto varchar2(20),
     FOREIGN KEY (CIF) REFERENCES Protectoras(CIF) 
 );
 
@@ -116,28 +116,7 @@ CREATE TABLE Razas (
     FOREIGN KEY (ID_Perros) REFERENCES Perros(ID)  
 );
 
-create or replace directory mi_directorio as 'C:\Users\damda\Downloads\fotos_oracle';
-/*GRANT READ ON DIRECTORY mi_directorio TO C##system;*/
 
-
-
-declare 
-    learc bfile;
-    tdato blob;
-begin 
-    insert into perros(id,nombre,foto)
-    values (1,'Firulais',empty_blob())
-    returning foto into tdato;
-    
-    learc := bfilename('mi_directorio','imagen1.jpg');
-    DBMS_OUTPUT.PUT_LINE('Archivo BFILE creado correctamente.');
-    DBMS_OUTPUT.PUT_LINE('Tamaño del archivo: ' || DBMS_LOB.GETLENGTH(learc));
-    DBMS_OUTPUT.PUT_LINE('Ruta del archivo definida correctamente.');
-
-end;    
-/
-
-SELECT * FROM ALL_DIRECTORIES WHERE DIRECTORY_NAME = 'mi_directorio';
 
 
 /*
