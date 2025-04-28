@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+        <ImageView fitHeight="513.0" fitWidth="900.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+            <image>
+                <Image url="@../../../../java/imagenes/img1.png" />
+            </image>
+        </ImageView>
+        <Button layoutX="113.0" layoutY="308.0" mnemonicParsing="false" style="-fx-background-color: #cec1ab;" text="Registrarse" textAlignment="CENTER" />
+        <Button layoutX="282.0" layoutY="308.0" mnemonicParsing="false" mouseTransparent="true" style="-fx-background-color: #cec1ab;" text="Iniciar Sesión" />
+    </children>
+</Pane>
