@@ -14,6 +14,5 @@ module org.example.proyecto {
 
     opens org.example.proyecto to javafx.fxml;
     exports org.example.proyecto;
-    exports org.example.proyecto.controlador;
-    opens org.example.proyecto.controlador to javafx.fxml;
+    opens org.example.proyecto.utils to javafx.fxml;
 }
