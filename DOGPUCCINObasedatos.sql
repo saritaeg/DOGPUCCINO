@@ -25,15 +25,14 @@ CREATE TABLE Protectoras (
     Redes_Sociales varchar2(100),
     ID_Usuario number,
     Fecha_alta date,
-    Fecha_modificacion date,
-    foreign key (ID_Usuario) REFERENCES Usuarios(ID)
+    Fecha_modificacion date
 );
 
 CREATE TABLE Usuarios (
     ID number primary key,
     ID_Clientes number,
     CIF_Protectoras char(9),
-    Contraseña varchar2(15) not null,
+    Contraseï¿½a varchar2(15) not null,
     Rol varchar2(10) not null,
     Fecha_alta date,
     Fecha_modificacion date,
@@ -54,7 +53,7 @@ CREATE TABLE Perros (
     CIF char(9), 
     Fecha_alta date,
     Fecha_modificacion date,
-    Foto varchar2(20), -- tenemos varchar, pero está pendiente configurarlo --
+    Foto varchar2(20), -- tenemos varchar, pero estï¿½ pendiente configurarlo --
     FOREIGN KEY (CIF) REFERENCES Protectoras(CIF) 
 );
 

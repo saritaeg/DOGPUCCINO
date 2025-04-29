@@ -25,8 +25,7 @@ CREATE TABLE Protectoras (
     Redes_Sociales varchar2(100),
     ID_Usuario number,
     Fecha_alta date,
-    Fecha_modificacion date,
-    foreign key (ID_Usuario) REFERENCES Usuarios(ID)
+    Fecha_modificacion date
 );
 
 CREATE TABLE Usuarios (
