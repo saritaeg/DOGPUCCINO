@@ -4,12 +4,25 @@ CREATE TABLE Clientes (
     Apellido1 varchar2(20),
     Apellido2 varchar2(20),
     Fecha_Nacimiento date,
-    Telefono char(9),
+    Telefono char(9) unique,
     Calle varchar2(50),
     Ciudad varchar2(50),
     Correo_Electronico varchar2(50) unique,
     Fecha_alta date,
     Fecha_modificacion date
+);
+CREATE TABLE Protectoras (
+    CIF char(9) primary key,
+    Nombre varchar2(100),
+    Telefono char(9) unique,
+    Correo_Electronico varchar2(50) unique,
+    Calle varchar2(50),
+    Ciudad varchar2(50),
+    Redes_Sociales varchar2(100),
+    ID_Usuario number,
+    Fecha_alta date,
+    Fecha_modificacion date
+    
 );
 
 CREATE TABLE Usuarios (
@@ -22,19 +35,6 @@ CREATE TABLE Usuarios (
     Fecha_modificacion date,
     foreign KEY (ID_Clientes) references Clientes(ID),
     foreign KEY (CIF_Protectoras) references Protectoras(CIF)
-);
-CREATE TABLE Protectoras (
-    CIF char(9) primary key,
-    Nombre varchar2(100),
-    Telefono char(9),
-    Correo_Electronico varchar2(50),
-    Calle varchar2(50),
-    Ciudad varchar2(50),
-    Redes_Sociales varchar2(100),
-    ID_Usuario number,
-    Fecha_alta date,
-    Fecha_modificacion date
-    
 );
 
 
@@ -50,7 +50,7 @@ CREATE TABLE Perros (
     CIF char(9), 
     Fecha_alta date,
     Fecha_modificacion date,
-    Foto varchar2(20), -- tenemos varchar, pero está pendiente configurarlo --
+    Foto varchar2(100), -- tenemos varchar, pero está pendiente configurarlo --
     FOREIGN KEY (CIF) REFERENCES Protectoras(CIF) 
 );
 
