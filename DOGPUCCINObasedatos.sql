@@ -50,7 +50,7 @@ CREATE TABLE Perros (
     CIF char(9), 
     Fecha_alta date,
     Fecha_modificacion date,
-    Foto varchar2(100),
+    Foto varchar2(20), -- tenemos varchar, pero está pendiente configurarlo --
     FOREIGN KEY (CIF) REFERENCES Protectoras(CIF) 
 );
 
@@ -121,21 +121,14 @@ CREATE TABLE Razas (
 
 
 /*
-    DROP TABLE CLIENTES;
-    DROP TABLE NOTIFICACIONES;
-    DROP TABLE PERROS;
-    DROP TABLE PROTECTORAS;
-    DROP TABLE RESERVAN;
+    DROP TABLE razas;
     DROP TABLE SOLICITUD_ADOPCION;
-    DROP TABLE USUARIOS;
+    DROP TABLE RESERVAN;
+    DROP TABLE perros_patologias;
     DROP TABLE patologias;
-    drop table perros_patologias;
-    drop table razas;
+    DROP TABLE notificaciones;
+    DROP TABLE perros;
+    DROP TABLE usuarios;
+    drop table protectoras;
+    drop table clientes;
 */
-
-
-
-
-
-
-
