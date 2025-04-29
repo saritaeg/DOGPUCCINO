@@ -11,19 +11,6 @@ CREATE TABLE Clientes (
     Fecha_alta date,
     Fecha_modificacion date
 );
-CREATE TABLE Protectoras (
-    CIF char(9) primary key,
-    Nombre varchar2(100),
-    Telefono char(9),
-    Correo_Electronico varchar2(50),
-    Calle varchar2(50),
-    Ciudad varchar2(50),
-    Redes_Sociales varchar2(100),
-    ID_Usuario number,
-    Fecha_alta date,
-    Fecha_modificacion date,
-    foreign key (ID_Usuario) REFERENCES Usuarios(ID)
-);
 
 CREATE TABLE Usuarios (
     ID number primary key,
@@ -35,6 +22,19 @@ CREATE TABLE Usuarios (
     Fecha_modificacion date,
     foreign KEY (ID_Clientes) references Clientes(ID),
     foreign KEY (CIF_Protectoras) references Protectoras(CIF)
+);
+CREATE TABLE Protectoras (
+    CIF char(9) primary key,
+    Nombre varchar2(100),
+    Telefono char(9),
+    Correo_Electronico varchar2(50),
+    Calle varchar2(50),
+    Ciudad varchar2(50),
+    Redes_Sociales varchar2(100),
+    ID_Usuario number,
+    Fecha_alta date,
+    Fecha_modificacion date
+    
 );
 
 
