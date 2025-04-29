@@ -49,7 +49,11 @@ CREATE TABLE Perros (
     CIF varchar2(20), 
     Fecha_alta date,
     Fecha_modificacion date,
+<<<<<<< HEAD
     foto varchar2(20), -- tenemos varchar, pero está pendiente configurarlo --
+=======
+    foto varchar2(20),
+>>>>>>> f37423e45f1a6aa416d9dc64701300698210b7fe
     FOREIGN KEY (CIF) REFERENCES Protectoras(CIF) 
 );
 
