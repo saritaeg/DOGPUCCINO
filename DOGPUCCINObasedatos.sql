@@ -7,12 +7,12 @@ CREATE TABLE Clientes (
     Telefono char(9),
     Calle varchar2(50),
     Ciudad varchar2(50),
-    Correo_Electronico varchar2(50),
+    Correo_Electronico varchar2(50) unique,
     Fecha_alta date,
     Fecha_modificacion date
 );
 CREATE TABLE Protectoras (
-    CIF VARCHAR(2) primary key,
+    CIF char(9) primary key,
     Nombre varchar2(100),
     Telefono char(9),
     Correo_Electronico varchar2(50),
@@ -21,13 +21,14 @@ CREATE TABLE Protectoras (
     Redes_Sociales varchar2(100),
     ID_Usuario number,
     Fecha_alta date,
-    Fecha_modificacion date
+    Fecha_modificacion date,
+    foreign key (ID_Usuario) REFERENCES Usuarios(ID)
 );
 
 CREATE TABLE Usuarios (
     ID number primary key,
     ID_Clientes number,
-    CIF_Protectoras VARCHAR(2),
+    CIF_Protectoras char(9),
     Contraseña varchar2(15) not null,
     Rol varchar2(10) not null,
     Fecha_alta date,
@@ -46,10 +47,10 @@ CREATE TABLE Perros (
     Calle varchar2(50),
     Ciudad varchar2(50),
     Adoptado char(1) check (Adoptado in ('S', 'N')),
-    CIF varchar2(20), 
+    CIF char(9), 
     Fecha_alta date,
     Fecha_modificacion date,
-    foto varchar2(20),
+    Foto varchar2(100),
     FOREIGN KEY (CIF) REFERENCES Protectoras(CIF) 
 );
 
@@ -66,19 +67,19 @@ CREATE TABLE Notificaciones (
 
 CREATE TABLE Patologias (
      ID number primary key, 
-    NOMBRE varchar2(50),
+    Nombre varchar2(50),
     Fecha_alta date,
     Fecha_modificacion date
 );
 
 CREATE TABLE Perros_Patologias (
+    primary KEY (ID_Perros, ID_Patologia),
     ID_Perros number,
     ID_Patologia number,
     Descripcion varchar(100),
-    primary KEY (ID_Perros, ID_Patologia),
-    FOREIGN KEY (ID_Perros) REFERENCES Perros(ID),
     Fecha_alta date,
     Fecha_modificacion date,
+    FOREIGN KEY (ID_Perros) REFERENCES Perros(ID),
     FOREIGN KEY (ID_Patologia) REFERENCES Patologias(ID)
 );
 
