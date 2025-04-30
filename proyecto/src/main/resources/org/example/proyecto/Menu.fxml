@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<HBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@EstiloMenu.css">
+
+    <!-- Panel izquierdo - Menú -->
+    <VBox styleClass="left-panel" prefWidth="250" spacing="20" style="-fx-padding: 20;">
+        <!-- Logo -->
+        <Label text="DOGPUCCINO" styleClass="logo titulo"/>
+
+        <!-- Botones del menú -->
+        <Button text="Perros" styleClass="menu-button boton-secundario"/>
+        <Button text="Notificaciones" styleClass="menu-button boton-secundario"/>
+        <Button text="Citas" styleClass="menu-button boton-secundario"/>
+        <Button text="Sobre nosotros" styleClass="menu-button boton-secundario"/>
+
+        <!-- Separador -->
+        <Separator styleClass="separator"/>
+    </VBox>
+
+    <!-- Panel derecho - Contenido -->
+    <VBox styleClass="right-panel" HBox.hgrow="ALWAYS" spacing="20" style="-fx-padding: 30;">
+        <!-- Título -->
+        <Label text="Información del Perro" styleClass="content-title titulo"/>
+
+        <!-- Campos de información -->
+        <GridPane hgap="30" vgap="10">
+            <!-- Fila 1 -->
+            <VBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <Label text="Nombre:" styleClass="info-label input-label"/>
+                <Label text="Nombre del perro" styleClass="info-value input-field"/>
+            </VBox>
+            <VBox GridPane.rowIndex="0" GridPane.columnIndex="1">
+                <Label text="Nombre:" styleClass="info-label input-label"/>
+                <Label text="Nombre del perro" styleClass="info-value input-field"/>
+            </VBox>
+
+            <!-- Fila 2 -->
+            <VBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+                <Label text="Raza:" styleClass="info-label input-label"/>
+                <Label text="Raza del perro" styleClass="info-value input-field"/>
+            </VBox>
+            <VBox GridPane.rowIndex="1" GridPane.columnIndex="1">
+                <Label text="Raza:" styleClass="info-label input-label"/>
+                <Label text="Raza del perro" styleClass="info-value input-field"/>
+            </VBox>
+
+            <!-- Fila 3 -->
+            <VBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+                <Label text="Sexo:" styleClass="info-label input-label"/>
+                <Label text="Macho/Hembra" styleClass="info-value input-field"/>
+            </VBox>
+            <VBox GridPane.rowIndex="2" GridPane.columnIndex="1">
+                <Label text="Sexo:" styleClass="info-label input-label"/>
+                <Label text="Macho/Hembra" styleClass="info-value input-field"/>
+            </VBox>
+
+            <!-- Fila 4 -->
+            <VBox GridPane.rowIndex="3" GridPane.columnIndex="0">
+                <Label text="Fecha nacimiento:" styleClass="info-label input-label"/>
+                <Label text="01/01/2020" styleClass="info-value input-field"/>
+            </VBox>
+            <VBox GridPane.rowIndex="3" GridPane.columnIndex="1">
+                <Label text="Fecha nacimiento:" styleClass="info-label input-label"/>
+                <Label text="01/01/2020" styleClass="info-value input-field"/>
+            </VBox>
+
+            <!-- Fila 5 -->
+            <VBox GridPane.rowIndex="4" GridPane.columnIndex="0">
+                <Label text="Adoptado:" styleClass="info-label input-label"/>
+                <Label text="Sí/No" styleClass="info-value input-field"/>
+            </VBox>
+            <VBox GridPane.rowIndex="4" GridPane.columnIndex="1">
+                <Label text="Adoptado:" styleClass="info-label input-label"/>
+                <Label text="Sí/No" styleClass="info-value input-field"/>
+            </VBox>
+
+            <!-- Fila 6 -->
+            <VBox GridPane.rowIndex="5" GridPane.columnIndex="0">
+                <Label text="Protectora:" styleClass="info-label input-label"/>
+                <Label text="Nombre protectora" styleClass="info-value input-field"/>
+            </VBox>
+            <VBox GridPane.rowIndex="5" GridPane.columnIndex="1">
+                <Label text="Protectora:" styleClass="info-label input-label"/>
+                <Label text="Nombre protectora" styleClass="info-value input-field"/>
+            </VBox>
+        </GridPane>
+
+        <!-- Botones de acción -->
+        <HBox alignment="CENTER" spacing="20" style="-fx-padding: 20 0 0 0;">
+            <Button text="MAS INFORMACION" styleClass="info-button boton-principal"/>
+            <Button text="MAS INFORMACION" styleClass="info-button boton-principal"/>
+        </HBox>
+    </VBox>
+</HBox>

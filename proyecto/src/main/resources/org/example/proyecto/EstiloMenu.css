@@ -1,0 +1,92 @@
+/* Estilos generales */
+.root {
+    -fx-background-color: #d6c4a8; /* Color de fondo beige */
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+/* Título principal */
+.titulo {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1F1F1F;
+}
+
+/* Panel izquierdo */
+.left-panel {
+    -fx-background-color: #ede4d3;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-border-color: #a8906a;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Panel derecho */
+.right-panel {
+    -fx-background-color: #f3ede2;
+}
+
+/* Etiquetas de los campos */
+.input-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+/* Campos de información */
+.input-field {
+    -fx-pref-width: 200px;
+    -fx-padding: 8 12;
+    -fx-background-color: white;
+    -fx-border-color: #a8906a;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.07), 3, 0.1, 0, 1);
+    -fx-font-size: 13.5px;
+    -fx-text-fill: #1F1F1F;
+}
+
+/* Botón principal */
+.boton-principal {
+    -fx-background-color: #ede4d3;
+    -fx-text-fill: black;
+    -fx-padding: 10 26;
+    -fx-background-radius: 15px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0.2, 0, 2);
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-border-color: #a8906a;
+    -fx-border-width: 1;
+}
+
+.boton-principal:hover {
+    -fx-background-color: #e0d2b8;
+}
+
+/* Botón secundario */
+.boton-secundario {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1f1f1f;
+    -fx-padding: 10 26;
+    -fx-background-radius: 15px;
+    -fx-border-color: #a8906a;
+    -fx-border-width: 1;
+    -fx-border-radius: 15px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+}
+
+.boton-secundario:hover {
+    -fx-background-color: #f3ede2;
+}
+
+/* Separador */
+.separator {
+    -fx-padding: 10 0;
+    -fx-border-color: #a8906a;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Efectos de hover para los botones del menú */
+.menu-button:hover {
+    -fx-background-color: #e0d2b8 !important;
+}
