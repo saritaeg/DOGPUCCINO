@@ -1,117 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.FontWeight?>
-<?import java.net.URL?>
-<VBox xmlns="http://javafx.com/javafx/11.0.14-internal"
-      xmlns:fx="http://javafx.com/fxml/1"
-      styleClass="main-container"
-      spacing="20"
-      style="-fx-background-color: linear-gradient(to bottom right, #EEF2FF, #E0E7FF); -fx-padding: 20;">
+
+<VBox spacing="20" style="-fx-background-color: linear-gradient(to bottom right, #EEF2FF, #E0E7FF); -fx-padding: 20;" styleClass="main-container" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
 
    <stylesheets>
-      <URL value="@EstiloregCli.css"/>
+      <URL value="@EstiloregCli.css" />
    </stylesheets>
 
    <StackPane>
-      <VBox styleClass="form-container"
-            style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);">
+      <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);" styleClass="form-container">
 
          <padding>
-            <Insets top="24" right="32" bottom="24" left="32"/>
+            <Insets bottom="24" left="32" right="32" top="24" />
          </padding>
 
-         <Label text="Registro" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #1F2937;">
+         <Label style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #1F2937;" text="Registro">
             <VBox.margin>
-               <Insets bottom="24"/>
+               <Insets bottom="24" />
             </VBox.margin>
          </Label>
 
          <GridPane hgap="24" vgap="16">
             <columnConstraints>
-               <ColumnConstraints percentWidth="33.33"/>
-               <ColumnConstraints percentWidth="33.33"/>
-               <ColumnConstraints percentWidth="33.33"/>
+               <ColumnConstraints percentWidth="33.0" />
+               <ColumnConstraints percentWidth="33.66" />
+               <ColumnConstraints percentWidth="33.33" />
             </columnConstraints>
 
             <VBox spacing="16" GridPane.columnIndex="0">
-               <Label text="Información Personal" styleClass="section-title"/>
+               <Label styleClass="section-title" text="Información Personal" />
 
                <VBox spacing="8">
-                  <Label text="Nombre" styleClass="field-label"/>
-                  <TextField fx:id="nombreField" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="Nombre" />
+                  <TextField fx:id="nombreField" styleClass="text-field" />
                </VBox>
 
                <VBox spacing="8">
-                  <Label text="1º Apellido" styleClass="field-label"/>
-                  <TextField fx:id="apellido1Field" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="1º Apellido" />
+                  <TextField fx:id="apellido1Field" styleClass="text-field" />
                </VBox>
 
                <VBox spacing="8">
-                  <Label text="2º Apellido" styleClass="field-label"/>
-                  <TextField fx:id="apellido2Field" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="2º Apellido" />
+                  <TextField fx:id="apellido2Field" styleClass="text-field" />
                </VBox>
 
                <VBox spacing="8">
-                  <Label text="Fecha Nacimiento" styleClass="field-label"/>
-                  <TextField fx:id="fechaNacimientoField" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="Fecha Nacimiento" />
+                  <TextField fx:id="fechaNacimientoField" styleClass="text-field" />
                </VBox>
             </VBox>
 
             <VBox spacing="16" GridPane.columnIndex="1">
-               <Label text="Información de Contacto" styleClass="section-title"/>
+               <Label styleClass="section-title" text="Información de Contacto" />
 
                <VBox spacing="8">
-                  <Label text="Nº Teléfono" styleClass="field-label"/>
-                  <TextField fx:id="telefonoField" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="Nº Teléfono" />
+                  <TextField fx:id="telefonoField" styleClass="text-field" />
                </VBox>
 
                <VBox spacing="8">
-                  <Label text="Provincia" styleClass="field-label"/>
-                  <TextField fx:id="provinciaField" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="Provincia" />
+                  <TextField fx:id="provinciaField" styleClass="text-field" />
                </VBox>
 
                <VBox spacing="8">
-                  <Label text="Correo electrónico" styleClass="field-label"/>
-                  <TextField fx:id="correoField" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="Correo electrónico" />
+                  <TextField fx:id="correoField" styleClass="text-field" />
                </VBox>
 
                <VBox spacing="8">
-                  <Label text="Ciudad" styleClass="field-label"/>
-                  <TextField fx:id="ciudadField" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="Ciudad" />
+                  <TextField fx:id="ciudadField" styleClass="text-field" />
                </VBox>
             </VBox>
 
             <VBox spacing="16" GridPane.columnIndex="2">
-               <Label text="Seguridad" styleClass="section-title"/>
+               <Label styleClass="section-title" text="Seguridad" />
 
                <VBox spacing="8">
-                  <Label text="Calle" styleClass="field-label"/>
-                  <TextField fx:id="calleField" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="Calle" />
+                  <TextField fx:id="calleField" styleClass="text-field" />
                </VBox>
 
                <VBox spacing="8">
-                  <Label text="Contraseña" styleClass="field-label"/>
-                  <PasswordField fx:id="passwordField" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="Contraseña" />
+                  <PasswordField fx:id="passwordField" styleClass="text-field" />
                </VBox>
 
                <VBox spacing="8">
-                  <Label text="Confirmar contraseña" styleClass="field-label"/>
-                  <PasswordField fx:id="confirmPasswordField" styleClass="text-field"/>
+                  <Label styleClass="field-label" text="Confirmar contraseña" />
+                  <PasswordField fx:id="confirmPasswordField" styleClass="text-field" />
                </VBox>
             </VBox>
+            <rowConstraints>
+               <RowConstraints />
+            </rowConstraints>
          </GridPane>
 
-         <HBox spacing="16" alignment="CENTER_LEFT">
+         <HBox alignment="CENTER_LEFT" spacing="16">
             <VBox.margin>
-               <Insets top="24"/>
+               <Insets top="24" />
             </VBox.margin>
 
-            <Button text="Registrarse" styleClass="primary-button"/>
-            <Button text="Volver" styleClass="secondary-button"/>
+            <Button styleClass="primary-button" text="Registrarse" />
+            <Button styleClass="secondary-button" text="Volver" />
          </HBox>
       </VBox>
    </StackPane>
