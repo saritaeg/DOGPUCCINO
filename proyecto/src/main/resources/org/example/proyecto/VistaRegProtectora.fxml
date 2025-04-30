@@ -9,10 +9,10 @@
         <URL value="@EstiloRegProtectora.css" />
     </stylesheets>
     <children>
-        <VBox alignment="TOP_CENTER" prefHeight="464.0" prefWidth="800.0" spacing="20" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <VBox alignment="TOP_CENTER" spacing="20" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
 
             <StackPane styleClass="header">
-                <Label styleClass="titulo" text="Registrar Protectora" />
+                <Label styleClass="titulo" text="Registrar Nueva Protectora" />
             </StackPane>
 
             <GridPane alignment="CENTER" hgap="30" maxWidth="700" vgap="15">
@@ -42,9 +42,9 @@
                     <Label styleClass="input-label" text="Redes Sociales" />
                     <TextField fx:id="redesField" promptText="Instagram, Twitter..." styleClass="input-field" />
                 </VBox>
-            <rowConstraints>
-               <RowConstraints />
-            </rowConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                </rowConstraints>
             </GridPane>
 
             <HBox alignment="CENTER" spacing="20">

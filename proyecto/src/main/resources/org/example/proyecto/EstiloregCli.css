@@ -1,66 +1,68 @@
-.main-container {
-    -fx-alignment: center;
+.root {
+    -fx-background-color: #d6c4a8; /* Color de fondo beige */
+    -fx-font-family: 'Segoe UI', sans-serif;
 }
 
-.form-container {
-    -fx-max-width: 1000;
-    -fx-pref-width: 1000;
-}
-
-.section-title {
-    -fx-font-size: 16;
+/* Título principal */
+.titulo {
+    -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-text-fill: #374151;
-    -fx-border-color: #E5E7EB;
-    -fx-border-width: 0 0 1 0;
-    -fx-padding: 0 0 8 0;
+    -fx-text-fill: #1F1F1F;
 }
 
-.field-label {
-    -fx-font-size: 12;
-    -fx-font-weight: bold;
-    -fx-text-fill: #4B5563;
+/* Cabecera */
+.header {
+    -fx-padding: 30 0 10 0;
 }
 
-.text-field {
+/* Etiquetas de los campos */
+.input-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+/* Campos de texto */
+.input-field {
+    -fx-pref-width: 320px;
+    -fx-padding: 8 12;
     -fx-background-color: white;
-    -fx-border-color: #D1D5DB;
-    -fx-border-radius: 4;
-    -fx-background-radius: 4;
-    -fx-padding: 8;
+    -fx-border-color: #a8906a;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.07), 3, 0.1, 0, 1);
+    -fx-font-size: 13.5px;
 }
 
-.text-field:focused {
-    -fx-border-color: #3B82F6;
-    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.2), 4, 0, 0, 0);
-}
-
-.primary-button {
-    -fx-background-color: #2563EB;
-    -fx-text-fill: white;
+/* Botón principal */
+.boton-principal {
+    -fx-background-color: #ede4d3;
+    -fx-text-fill: black;
+    -fx-padding: 10 26;
+    -fx-background-radius: 15px;
     -fx-font-weight: bold;
-    -fx-padding: 12 24;
-    -fx-background-radius: 6;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0.2, 0, 2);
     -fx-cursor: hand;
-    -fx-min-width: 250;
+    -fx-font-size: 14px;
 }
 
-.primary-button:hover {
-    -fx-background-color: #1D4ED8;
+.boton-principal:hover {
+    -fx-background-color: #e0d2b8;
 }
 
-.secondary-button {
-    -fx-background-color: white;
-    -fx-text-fill: #374151;
-    -fx-border-color: #D1D5DB;
-    -fx-border-radius: 6;
-    -fx-background-radius: 6;
+/* Botón secundario */
+.boton-secundario {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1f1f1f;
+    -fx-padding: 10 26;
+    -fx-background-radius: 15px;
+    -fx-border-color: #a8906a;
+    -fx-border-width: 1;
+    -fx-border-radius: 15px;
     -fx-font-weight: bold;
-    -fx-padding: 12 24;
     -fx-cursor: hand;
-    -fx-min-width: 250;
+    -fx-font-size: 14px;
 }
 
-.secondary-button:hover {
-    -fx-background-color: #F3F4F6;
+.boton-secundario:hover {
+    -fx-background-color: #f3ede2;
 }
