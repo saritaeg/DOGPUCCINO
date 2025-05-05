@@ -2,9 +2,9 @@
 
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
 
@@ -19,13 +19,9 @@
         </ImageView>
         <Button layoutX="135.0" layoutY="308.0" mnemonicParsing="false" style="-fx-background-color: #cec1ab;" text="Clientes" textAlignment="CENTER" />
         <Button layoutX="274.0" layoutY="308.0" mnemonicParsing="false" mouseTransparent="true" style="-fx-background-color: #cec1ab;" text="Protectora" />
-      <TextField layoutX="102.0" layoutY="232.0" prefHeight="25.0" prefWidth="305.0" text="¿CON QUE TIPO DE USUARIO TE QUIERES REGISTRAR? ">
-         <effect>
-            <DisplacementMap>
-               <mapData>
-                  <FloatMap />
-               </mapData>
-            </DisplacementMap>
-         </effect></TextField>
+      <Label layoutX="58.0" layoutY="199.0" prefHeight="27.0" prefWidth="366.0" text="¿Con que tipo de usuario te quieres registrar?">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
     </children>
 </Pane>
