@@ -19,7 +19,7 @@ CREATE TABLE Protectoras (
     CIF char(9) primary key,
     Nombre varchar2(100),
     Telefono char(9),
-    Correo_Electronico varchar2(50),
+    Correo_Electronico varchar2(50) unique,
     Calle varchar2(50),
     Ciudad varchar2(50),
     Redes_Sociales varchar2(100),
@@ -30,17 +30,20 @@ CREATE TABLE Protectoras (
 
 CREATE TABLE Usuarios (
     ID number primary key,
-    ID_Clientes number,
-    CIF_Protectoras char(9),
-    Contrase�a varchar2(15) not null,
+    ID_Clientes number unique,
+    CIF_Protectoras char(9) unique,
+    Contrasenia varchar2(15) unique not null,
     Rol varchar2(10) not null,
     Fecha_alta date,
     Fecha_modificacion date,
     foreign KEY (ID_Clientes) references Clientes(ID),
     foreign KEY (CIF_Protectoras) references Protectoras(CIF)
 );
-
-
+CREATE TABLE Razas (
+    Tipo varchar2(50) primary key,
+    Fecha_alta date,
+    Fecha_modificacion date
+);
 
 CREATE TABLE Perros (
     ID number primary key,
@@ -53,8 +56,10 @@ CREATE TABLE Perros (
     CIF char(9), 
     Fecha_alta date,
     Fecha_modificacion date,
-    Foto varchar2(20), -- tenemos varchar, pero est� pendiente configurarlo --
-    FOREIGN KEY (CIF) REFERENCES Protectoras(CIF) 
+    Foto varchar2(20),
+    FOREIGN KEY (CIF) REFERENCES Protectoras(CIF),
+    Raza varchar2(50),
+    FOREIGN KEY (Raza) REFERENCES Razas(Tipo)  
 );
 
 CREATE TABLE Notificaciones (
@@ -106,32 +111,22 @@ CREATE TABLE Solicitud_adopcion (
     Perro_ID number,
     Fecha_alta date,
     Fecha_modificacion date,
+    Estado varchar(20) check (Estado in ('Aceptada', 'Denegada','Pendiente')),
     primary key (Cliente_ID, Perro_ID),
     foreign key (Cliente_ID) references Clientes(ID),
     foreign key (Perro_ID) references Perros(ID)
 );
 
-
-CREATE TABLE Razas (
-    Tipo varchar2(50) primary key,
-    Fecha_alta date,
-    Fecha_modificacion date,
-    ID_Perros number,
-    FOREIGN KEY (ID_Perros) REFERENCES Perros(ID)  
-);
-
-
-
-
 /*
-    DROP TABLE razas;
+   
     DROP TABLE SOLICITUD_ADOPCION;
     DROP TABLE RESERVAN;
     DROP TABLE perros_patologias;
     DROP TABLE patologias;
     DROP TABLE notificaciones;
     DROP TABLE perros;
+    DROP TABLE razas;
     DROP TABLE usuarios;
     drop table protectoras;
     drop table clientes;
-*/
+    */
