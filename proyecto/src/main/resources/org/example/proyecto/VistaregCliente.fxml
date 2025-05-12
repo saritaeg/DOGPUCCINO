@@ -3,14 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<<<<<<< HEAD
-<AnchorPane prefHeight="620.0" prefWidth="1000.0" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
-=======
+
 <AnchorPane prefHeight="620.0" prefWidth="1000.0" stylesheets="@EstiloRegCli.css"
             xmlns="http://javafx.com/javafx/11.0.14-internal"
             xmlns:fx="http://javafx.com/fxml/1">
-
->>>>>>> f6112814eab812d01362f3efc63a69c781bbd47a
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1000.0" spacing="30"
             AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0"
