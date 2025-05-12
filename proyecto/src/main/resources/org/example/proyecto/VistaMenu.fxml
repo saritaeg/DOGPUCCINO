@@ -4,13 +4,10 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<<<<<<< HEAD
-<BorderPane prefHeight="460.0" prefWidth="679.0" stylesheets="@Perros.css">
-=======
 <BorderPane fx:id="root" prefHeight="460.0" prefWidth="679.0"
-            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml"
-            stylesheets="@Perros.css">
->>>>>>> f6112814eab812d01362f3efc63a69c781bbd47a
+            stylesheets="@Perros.css"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1">
 
     <top>
         <VBox spacing="10">
