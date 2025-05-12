@@ -4,20 +4,27 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@notificaciones.css"
             xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
 
     <top>
         <VBox spacing="10">
-            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="top-bar" padding="Insets(10)">
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="top-bar">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
                 <Button styleClass="back-button" text="←" />
                 <Label styleClass="title" text="DOGPUCCINO" />
             </HBox>
-            <HBox alignment="CENTER" spacing="20" styleClass="tabs-bar" padding="Insets(10)">
+            <HBox alignment="CENTER" spacing="20" styleClass="tabs-bar">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
                 <ToggleButton styleClass="tab-button" text="Perros" />
                 <ToggleButton selected="true" styleClass="tab-button-selected" text="Notificaciones" />
                 <ToggleButton styleClass="tab-button" text="Citas" />
@@ -27,20 +34,28 @@
     </top>
 
     <center>
-        <VBox alignment="TOP_CENTER" spacing="20" padding="Insets(10)">
-            <VBox styleClass="notification-card" spacing="5" padding="Insets(15)">
+        <VBox alignment="TOP_CENTER" spacing="20">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <VBox styleClass="notification-card" spacing="5">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
                 <Label styleClass="notification-title" text="Cambio en la solicitud" />
                 <Label styleClass="notification-message" wrapText="true"
                        text="Su solicitud de adopción ha sido aceptada, en breves le contactaremos para hablar más detalles de la adopción" />
             </VBox>
 
-            <!-- Notificación 2 -->
-            <VBox styleClass="notification-card" spacing="5" padding="Insets(15)">
+            <VBox styleClass="notification-card" spacing="5">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
                 <Label styleClass="notification-title" text="Cita cancelada" />
                 <Label styleClass="notification-message" wrapText="true"
                        text="Su cita ha sido cancelada porque el perro ya ha sido adoptado por otro cliente" />
             </VBox>
         </VBox>
     </center>
-
 </BorderPane>
