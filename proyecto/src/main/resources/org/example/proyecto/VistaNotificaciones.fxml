@@ -2,11 +2,10 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css"
-            xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
 
     <top>
         <VBox spacing="10">
@@ -35,20 +34,20 @@
                 <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
 
-            <TableView fx:id="notificacionesTable" prefHeight="200.0" prefWidth="850.0">
+            <TableView fx:id="notificacionesTable" prefHeight="311.0" prefWidth="880.0">
 
                 <columns>
-                    <TableColumn fx:id="tipoColumna" text="Tipo de Notificación" prefWidth="250">
+                    <TableColumn fx:id="tipoColumna" prefWidth="250" text="Tipo de Notificación">
                         <cellValueFactory>
                             <PropertyValueFactory property="tipoNotificacion" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn fx:id="mensajeColumna" text="Mensaje" prefWidth="400">
+                    <TableColumn fx:id="mensajeColumna" prefWidth="400" text="Mensaje">
                         <cellValueFactory>
                             <PropertyValueFactory property="mensaje" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn fx:id="fechaColumna" text="Fecha de Envío" prefWidth="200">
+                    <TableColumn fx:id="fechaColumna" prefWidth="200" text="Fecha de Envío">
                         <cellValueFactory>
                             <PropertyValueFactory property="fechaEnvio" />
                         </cellValueFactory>
