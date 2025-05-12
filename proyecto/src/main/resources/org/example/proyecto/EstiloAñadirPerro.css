@@ -5,11 +5,8 @@
 
 
 .header {
-<<<<<<< HEAD
-    -fx-background-color: #e3995b;
-=======
     -fx-background-color: #b2865b;
->>>>>>> af9373a6ef14dd28d49418582af373d285f64f99
+
     -fx-padding: 5px;
 }
 
