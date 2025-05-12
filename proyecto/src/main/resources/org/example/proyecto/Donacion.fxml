@@ -1,54 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.Insets?>
+
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml" stylesheets="@EstiloDonacion.css">
-
+<BorderPane stylesheets="@EstiloDonacion.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <HBox spacing="10" padding="10" styleClass="header">
-         <Button text="←" styleClass="back-button" />
-         <Label text="DOGPUCCINO" styleClass="title" />
+      <HBox spacing="10" styleClass="header">
+         <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
+         <Button styleClass="back-button" text="←" />
+         <Label styleClass="title" text="DOGPUCCINO" />
       </HBox>
    </top>
 
    <center>
-      <VBox spacing="20" alignment="CENTER" padding="20">
-         <Button text="DONACIÓN" styleClass="tab-button" />
+      <VBox alignment="CENTER" prefHeight="370.0" prefWidth="799.0" spacing="20">
+         <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
-         <VBox spacing="15" padding="20" styleClass="form-container">
+         <Button styleClass="tab-button" text="DONACIÓN" />
+
+         <VBox spacing="15" styleClass="form-container">
+            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+
             <HBox alignment="CENTER_LEFT" spacing="10">
-               <Label text="Tarjeta de crédito" styleClass="form-title" />
-               <ImageView fitWidth="40" fitHeight="30">
+               <Label styleClass="form-title" text="Tarjeta de crédito" />
+               <ImageView fitHeight="30" fitWidth="40">
                   <image>
                      <Image url="@creditcard_icon.png" />
                   </image>
                </ImageView>
             </HBox>
 
-            <HBox spacing="10" alignment="CENTER_LEFT">
-               <Label text="DONACIÓN:" styleClass="donation-label" />
+            <HBox alignment="CENTER_LEFT" spacing="10">
+               <Label styleClass="donation-label" text="DONACIÓN:" />
                <VBox>
                   <TextField prefWidth="100" />
-                  <Label text="(mínimo 3€)" styleClass="small-hint" />
                </VBox>
+               <Label styleClass="small-hint" text="(mínimo 3€)" />
             </HBox>
 
-            <HBox spacing="10" alignment="CENTER_LEFT">
-               <TextField promptText="Número de tarjeta" HBox.hgrow="ALWAYS" />
-               <Label text="🔒" />
+            <HBox alignment="CENTER_LEFT" spacing="10">
+               <TextField prefHeight="25.0" prefWidth="218.0" promptText="Número de tarjeta">
+
+               </TextField>
+
             </HBox>
 
             <TextField promptText="Nombre del titular" />
 
             <HBox spacing="10">
-               <TextField promptText="Fecha de vencimiento (MM/AA)" HBox.hgrow="ALWAYS" />
-               <TextField promptText="Código de seguridad" HBox.hgrow="ALWAYS" />
-               <Label text="❓" />
+               <DatePicker prefHeight="25.0" prefWidth="204.0" promptText="Fecha de vencimiento (MM/AA)" />
+               <TextField prefHeight="25.0" prefWidth="214.0" promptText="Código de seguridad">
+
+               </TextField>
             </HBox>
 
-            <Button text="PAGAR" styleClass="pay-button" />
+            <Button styleClass="pay-button" text="PAGAR" />
          </VBox>
       </VBox>
    </center>
