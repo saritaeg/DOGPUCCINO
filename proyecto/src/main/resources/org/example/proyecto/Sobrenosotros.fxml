@@ -2,10 +2,32 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
+<AnchorPane prefHeight="600" prefWidth="800" styleClass="root" stylesheets="@EstiloSobreNosotros.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SobreNosotrosController">
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button mnemonicParsing="false" text="Button" />
-   </children>
+   <VBox prefWidth="800" styleClass="header">
+      <Button fx:id="backButton" layoutX="20" layoutY="20" prefHeight="30.0" prefWidth="41.0" styleClass="back-button" text="←" />
+
+      <Label alignment="CENTER" prefWidth="800" styleClass="title-label" text="DOGPUCCINO" />
+   </VBox>
+
+   <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
+      <Button styleClass="nav-button" text="Perros" />
+      <Button styleClass="nav-button" text="Notificaciones" />
+      <Button styleClass="nav-button" text="Citas" />
+      <Button styleClass="nav-button, active" text="Sobre nosotros" />
+   </HBox>
+
+   <VBox layoutX="50.0" layoutY="247.0" prefWidth="700" styleClass="content-box">
+      <TextFlow styleClass="text-content">
+         <Text text="Dogpuccino no es una cafetería cualquiera. Somos un rincón especial donde el aroma del café recién hecho se mezcla con el cariño de nuestros amigos de cuatro patas. Aquí, cada taza tiene un propósito y cada visita puede cambiar una vida.&#10;&#10;" />
+
+         <Text text="Nuestro concepto nace del amor por los animales y el deseo de fomentar la adopción responsable. En Dogpuccino, puedes disfrutar de un delicioso café, té o postre mientras compartes tu tiempo con perritos en busca de un hogar. ¿La novedad? Ofrecemos un sistema de citas con los perros, para que puedas conocerlos en un ambiente tranquilo, relajado y sin presiones. Así, tanto tú como ellos pueden conectar de forma natural antes de tomar una decisión tan importante como la adopción.&#10;&#10;" />
+
+         <Text text="Trabajamos en colaboración con refugios locales para brindar una segunda oportunidad a estos peludos. Mientras tanto, ellos reciben amor, socialización y la posibilidad de encontrar a su persona ideal.&#10;&#10;" />
+
+         <Text styleClass="italic-text" text="Ven, siéntate, tómate un Dogpuccino... y quizá, encuentra a tu nuevo mejor amigo." />
+      </TextFlow>
+   </VBox>
 </AnchorPane>
