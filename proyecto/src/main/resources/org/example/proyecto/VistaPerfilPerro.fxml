@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="648.0" styleClass="main-container" stylesheets="@EstiloPerfilPerro.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dogadoption.controller.DogProfileController">
+    <top>
+        <AnchorPane prefHeight="100.0" styleClass="header-container">
+            <children>
+                <Button fx:id="backButton" layoutX="16.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleBackButton" styleClass="back-button">
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/back-arrow.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Label alignment="CENTER" layoutX="100.0" layoutY="30.0" styleClass="title-label" text="DOGPUCCINO" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <font>
+                        <Font name="Didot" size="32.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="16.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" spacing="24.0">
+                    <children>
+                        <AnchorPane>
+                            <children>
+                                <Rectangle arcHeight="8.0" arcWidth="8.0" fill="WHITE" height="120.0" stroke="#a881ff" strokeWidth="2.0" width="120.0" />
+                                <ImageView fx:id="dogImage" fitHeight="112.0" fitWidth="113.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/max.jpg" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <VBox alignment="CENTER_LEFT" prefHeight="120.0" prefWidth="200.0" spacing="8.0">
+                     <children>
+                        <TextField prefHeight="25.0" prefWidth="254.0" />
+                     </children>
+                        </VBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="16.0" />
+                    </VBox.margin>
+                </HBox>
+                <Label fx:id="dogAdditionalInfo" prefHeight="19.0" prefWidth="636.0" styleClass="dog-additional-info" text="Si quieres conocerlo, te invitamos a asistir una cita en nuestra cafetería. Disfruta de un café mientras compartes un rato especial con Max  ¡quién sabe, podrías encontrar a tu mejor amigo en una tarde de café y sonrisas! Agenda tu cita y ven a enamorarte. Max te está esperando." wrapText="true">
+                    <VBox.margin>
+                        <Insets left="24.0" right="24.0" />
+                    </VBox.margin>
+                </Label>
+                <HBox alignment="CENTER_RIGHT">
+                    <VBox.margin>
+                        <Insets right="24.0" />
+                    </VBox.margin>
+                </HBox>
+                  <Label fx:id="adoptionStatus" prefHeight="33.0" prefWidth="129.0" styleClass="adoption-status" text="NO ADOPTADO" />
+                <VBox prefHeight="98.0" prefWidth="470.0" spacing="8.0">
+                    <children>
+                        <Button fx:id="adoptButton" maxWidth="280.0" mnemonicParsing="false" onAction="#handleAdoptButton" prefWidth="280.0" styleClass="primary-button" text="SOLICITAR ADOPCIÓN" />
+                        <Button fx:id="appointmentButton" maxWidth="280.0" mnemonicParsing="false" onAction="#handleAppointmentButton" prefWidth="280.0" styleClass="secondary-button" text="SOLICITAR CITA" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="16.0" top="8.0" />
+                    </VBox.margin>
+                </VBox>
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="section-header" text="PATOLOGÍAS:">
+                            <VBox.margin>
+                                <Insets left="24.0" />
+                            </VBox.margin>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="16.0" />
+                    </VBox.margin>
+                </VBox>
+            <TextArea prefHeight="200.0" prefWidth="200.0" />
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </VBox>
+    </center>
+</BorderPane>

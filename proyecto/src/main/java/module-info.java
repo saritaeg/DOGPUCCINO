@@ -11,6 +11,7 @@ module org.example.proyecto {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    opens org.example.proyecto.controlador to javafx.fxml;
 
     opens org.example.proyecto to javafx.fxml;
     exports org.example.proyecto;
