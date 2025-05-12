@@ -17,6 +17,6 @@
             </image>
         </ImageView>
         <Button fx:id="btnRegistrarse" layoutX="113.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnRegistrarse" style="-fx-background-color: #cec1ab;" text="Registrarse" textAlignment="CENTER" />
-        <Button fx:id="btnIniciarSesion" layoutX="282.0" layoutY="308.0" mnemonicParsing="false" mouseTransparent="true" onAction="#btnIniciarSesion" style="-fx-background-color: #cec1ab;" text="Iniciar Sesión" />
+        <Button fx:id="btnIniciarSesion" layoutX="282.0" layoutY="308.0" mnemonicParsing="false"  onAction="#btnIniciarSesion" style="-fx-background-color: #cec1ab;" text="Iniciar Sesión" />
     </children>
 </Pane>

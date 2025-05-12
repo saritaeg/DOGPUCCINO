@@ -36,7 +36,6 @@ public class InicioControlador {
     @FXML
     private void btnIniciarSesion(ActionEvent event) {
         try{
-            System.out.println("presionado");
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicioSesion.fxml"));
             Parent root = fxmlLoader.load();
 
