@@ -1,56 +1,89 @@
-.header {
-    -fx-background-color: #6b4c1b;
-    -fx-padding: 10px;
-    -fx-alignment: center-left;
+.root {
+    -fx-background-color: #947850; /* Fondo suave general */
+    -fx-font-family: "Segoe UI", sans-serif;
 }
 
-.back-button {
-    -fx-font-size: 16px;
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
+/* Header (barra superior) */
+.header {
+    -fx-background-color: #523e27;
+    -fx-padding: 10 20;
 }
 
 .title {
-    -fx-font-size: 36px;
+    -fx-font-size: 32px;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
-    -fx-text-fill: white;
-    -fx-alignment: center;
 }
 
+.back-button {
+    -fx-font-size: 18px;
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+
+/* Botón principal DONACIÓN */
 .tab-button {
-    -fx-background-color: #d6c5ac;
+    -fx-background-color: #947850;
+    -fx-text-fill: black;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
-    -fx-font-size: 16px;
-    -fx-padding: 10px 20px;
-    -fx-background-radius: 20px;
+    -fx-padding: 8 16;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
 }
 
+/* Contenedor del formulario */
 .form-container {
-    -fx-background-color: #e6dcc9;
-    -fx-background-radius: 20px;
-    -fx-padding: 20px;
-    -fx-spacing: 10px;
+    -fx-background-color: #cebea3;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0.0, 0, 2);
 }
 
+/* Titulares y etiquetas */
 .form-title {
     -fx-font-size: 18px;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
 }
 
 .donation-label {
-    -fx-font-size: 16px;
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
 }
 
 .small-hint {
-    -fx-font-size: 10px;
-    -fx-text-fill: #444;
+    -fx-font-size: 12px;
+    -fx-text-fill: black;
+    -fx-font-style: italic;
 }
 
+/* Campos de texto */
+.text-field, .text-area, .date-picker {
+    -fx-background-color: white;
+    -fx-border-color: #70553a;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 6 10;
+    -fx-font-size: 14px;
+}
+
+/* Botón de pagar */
 .pay-button {
-    -fx-background-color: #d6ac75;
-    -fx-font-weight: bold;
+    -fx-background-color: #70553a;
+    -fx-text-fill: white;
     -fx-font-size: 16px;
-    -fx-background-radius: 20px;
-    -fx-padding: 10px 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-cursor: hand;
+}
+
+.pay-button:hover {
+    -fx-background-color: #523e27;
 }

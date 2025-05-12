@@ -4,22 +4,23 @@
 
 .header {
     -fx-background-color: #604825;
-    -fx-padding: 0 0 20 0;
+    -fx-padding: 10 20 10 20; /* espacio interno horizontal y vertical */
 }
 
 .title-label {
     -fx-font-family: "Times New Roman", serif;
-    -fx-font-size: 48px;
+    -fx-font-size: 40px;     /* No tan grande como 48, pero legible */
     -fx-text-fill: black;
-    -fx-padding: 20 0 0 0;
+    -fx-padding: 0 0 0 0;     /* Sin relleno vertical adicional */
 }
 
 .back-button {
     -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-size: 24px;
-    -fx-padding: 10;
+    -fx-padding: 0 10 0 0;
 }
+
 
 .button-container {
     -fx-padding: 20 0;
@@ -41,6 +42,7 @@
 .nav-button.active {
     -fx-background-color: #cebea3;
     -fx-font-weight: bold;
+
 }
 
 .content-box {

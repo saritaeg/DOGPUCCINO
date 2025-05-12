@@ -5,26 +5,23 @@
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
 
     <top>
         <VBox spacing="10">
-            <HBox alignment="CENTER_LEFT" prefHeight="97.0" prefWidth="900.0" spacing="10" styleClass="top-bar">
-                <padding>
-                    <Insets bottom="10" left="10" right="10" top="10" />
-                </padding>
-                <Button styleClass="back-button" text="←" />
-                <Label styleClass="title" text="DOGPUCCINO" />
+            <StackPane prefHeight="120.0" prefWidth="800" styleClass="header">
+                <Label styleClass="title-label" text="DOGPUCCINO" StackPane.alignment="CENTER"/>
+                <Button fx:id="backButton" styleClass="back-button" text="←" StackPane.alignment="CENTER_LEFT"/>
+            </StackPane>
+
+            <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
+                <Button styleClass="tab-button" text="Perros" />
+                <Button styleClass="tab-button, active" text="Notificaciones" />
+                <Button styleClass="tab-button" text="Citas" />
+                <Button styleClass="tab-button" text="Sobre nosotros" />
             </HBox>
-            <HBox alignment="CENTER" spacing="20" styleClass="tabs-bar">
-                <padding>
-                    <Insets bottom="10" left="10" right="10" top="10" />
-                </padding>
-                <ToggleButton styleClass="tab-button" text="Perros" />
-                <ToggleButton selected="true" styleClass="tab-button" text="Notificaciones" />
-                <ToggleButton styleClass="tab-button" text="Citas" />
-                <ToggleButton styleClass="tab-button" text="Sobre nosotros" />
-            </HBox>
+
+
         </VBox>
     </top>
 

@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -25,11 +23,7 @@
 
             <HBox alignment="CENTER_LEFT" spacing="10">
                <Label styleClass="form-title" text="Tarjeta de crédito" />
-               <ImageView fitHeight="30" fitWidth="40">
-                  <image>
-                     <Image url="@creditcard_icon.png" />
-                  </image>
-               </ImageView>
+
             </HBox>
 
             <HBox alignment="CENTER_LEFT" spacing="10">

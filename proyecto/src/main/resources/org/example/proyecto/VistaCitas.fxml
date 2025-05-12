@@ -4,7 +4,6 @@
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<?import java.awt.Insets?>
 <BorderPane fx:id="root" prefHeight="460.0" prefWidth="679.0" stylesheets="@EstiloMenu.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
 
     <top>
@@ -22,8 +21,10 @@
             </HBox>
         </VBox>
     </top>
+
     <center>
-            <TableView fx:id="citasTable" prefHeight="182.0" prefWidth="679.0">
+        <HBox alignment="CENTER" style="-fx-padding: 0 0 20 0;">
+            <TableView fx:id="citasTable" prefHeight="182.0" prefWidth="600.0">
                 <columns>
                     <TableColumn fx:id="cliente" prefWidth="100.0" text="Cliente">
                         <cellValueFactory>
@@ -57,5 +58,7 @@
                     </TableColumn>
                 </columns>
             </TableView>
+        </HBox>
     </center>
+
 </BorderPane>

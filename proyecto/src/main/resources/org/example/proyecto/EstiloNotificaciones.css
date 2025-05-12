@@ -1,6 +1,6 @@
 /* Fondo general y fuente */
 .root {
-    -fx-background-color: #947850;
+    -fx-background-color: #a88a5f;
     -fx-font-family: "Segoe UI", sans-serif;
 }
 
@@ -11,17 +11,19 @@
 }
 
 /* Título DOGPUCCINO */
-.title {
-    -fx-font-size: 36px;
+.header {
+    -fx-font-family: "Times New Roman", serif;
+    -fx-font-size: 48px;
     -fx-text-fill: black;
-    -fx-font-weight: bold;
+    -fx-padding: 20 0 0 0;
 }
 
 /* Botón de regreso */
 .back-button {
-    -fx-font-size: 20px;
     -fx-background-color: transparent;
     -fx-text-fill: black;
+    -fx-font-size: 24px;
+    -fx-padding: 10;
 }
 
 /* Barra de pestañas */
@@ -36,12 +38,12 @@
     -fx-border-radius: 30;
     -fx-background-radius: 30;
     -fx-padding: 10 20;
-    -fx-font-weight: bold;
+    -fx-font-weight: normal; /* Todos normales por defecto */
 }
 
-.tab-button:selected {
-    -fx-underline: true;
-    -fx-font-weight: bolder;
+.tab-button.active {
+    -fx-background-color: #cebea3;
+    -fx-font-weight: bold;
 }
 
 /* Contenedor de notificaciones */
