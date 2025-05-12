@@ -5,12 +5,16 @@
 
 
 .header {
+<<<<<<< HEAD
+    -fx-background-color: #e3995b;
+=======
     -fx-background-color: #b2865b;
+>>>>>>> af9373a6ef14dd28d49418582af373d285f64f99
     -fx-padding: 5px;
 }
 
 #titleLabel {
-    -fx-font-size: 24px;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-text-fill: #FFFFFF;
 }
@@ -60,7 +64,11 @@
 }
 
 .label {
+<<<<<<< HEAD
+    -fx-text-fill: #452d1a;
+=======
     -fx-text-fill: #b2865b;
+>>>>>>> af9373a6ef14dd28d49418582af373d285f64f99
     -fx-font-weight: bold;
     -fx-font-size: 12px;
 }
