@@ -1,11 +1,15 @@
 .root {
-    -fx-background-color: #6B4423;
+    -fx-background-color: #b2865b;
     -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
 .header {
+<<<<<<< HEAD
     -fx-background-color: #e3995b;
+=======
+    -fx-background-color: #b2865b;
+>>>>>>> af9373a6ef14dd28d49418582af373d285f64f99
     -fx-padding: 5px;
 }
 
@@ -28,7 +32,7 @@
 
 #addDogButton {
     -fx-background-color: #D2B48C;
-    -fx-text-fill: #4A3728;
+    -fx-text-fill: #b2865b;
     -fx-font-size: 14px;
     -fx-padding: 10px 20px;
     -fx-background-radius: 20px;
@@ -36,11 +40,11 @@
 }
 
 #addDogButton:hover {
-    -fx-background-color: #C1A37B;
+    -fx-background-color: #b2865b;
 }
 
 .form-container {
-    -fx-background-color: #DEB887;
+    -fx-background-color: #b2865b;
     -fx-background-radius: 15px;
     -fx-padding: 20px;
 }
@@ -49,18 +53,22 @@
 #imageContainer {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 10px;
-    -fx-border-color: #8B5E34;
+    -fx-border-color: #b2865b;
     -fx-border-width: 2px;
     -fx-border-radius: 10px;
 }
 
 #imageLabel {
-    -fx-text-fill: #8B5E34;
+    -fx-text-fill: #b2865b;
     -fx-font-size: 14px;
 }
 
 .label {
+<<<<<<< HEAD
     -fx-text-fill: #452d1a;
+=======
+    -fx-text-fill: #b2865b;
+>>>>>>> af9373a6ef14dd28d49418582af373d285f64f99
     -fx-font-weight: bold;
     -fx-font-size: 12px;
 }
@@ -69,30 +77,30 @@
     -fx-background-color: #F5DEB3;
     -fx-background-radius: 10px;
     -fx-padding: 8px;
-    -fx-text-fill: #4A3728;
-    -fx-border-color: #8B5E34;
+    -fx-text-fill: #b2865b;
+    -fx-border-color: #b2865b;
     -fx-border-width: 1px;
     -fx-border-radius: 10px;
 }
 
 .text-field:focused {
     -fx-background-color: #FFFFFF;
-    -fx-border-color: #6B4423;
+    -fx-border-color: #b2865b;
     -fx-border-width: 2px;
 }
 
 .text-area {
-    -fx-background-color: #F5DEB3;
+    -fx-background-color: #b2865b;
     -fx-background-radius: 10px;
-    -fx-border-color: #8B5E34;
+    -fx-border-color: #b2865b;
     -fx-border-width: 1px;
     -fx-border-radius: 10px;
-    -fx-text-fill: #4A3728;
+    -fx-text-fill: #b2865b;
 }
 
 .text-area:focused {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #6B4423;
+    -fx-background-color: #b2865b;
+    -fx-border-color: #b2865b;
     -fx-border-width: 2px;
 }
 
@@ -111,16 +119,16 @@
 }
 
 #submitButton:hover {
-    -fx-background-color: #6B4423;
+    -fx-background-color: #b2865b;
 }
 
 .root {
-   -fx-background-color: #6B4423;
+   -fx-background-color: #b2865b;
    -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .header {
-    -fx-background-color: #8B5E34;
+    -fx-background-color: #b2865b;
     -fx-padding: 8px;
 }
 
@@ -143,7 +151,7 @@
 
 #addDogButton {
     -fx-background-color: #D2B48C;
-    -fx-text-fill: #4A3728;
+    -fx-text-fill: #b2865b;
     -fx-font-size: 14px;
     -fx-padding: 8px 20px;
     -fx-background-radius: 20px;
@@ -163,13 +171,13 @@
 #imageContainer {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 10px;
-    -fx-border-color: #8B5E34;
+    -fx-border-color: #b2865b;
     -fx-border-width: 2px;
     -fx-border-radius: 10px;
 }
 
 #imageLabel {
-    -fx-text-fill: #8B5E34;
+    -fx-text-fill: #b2865b;
     -fx-font-size: 14px;
 }
 
