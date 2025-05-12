@@ -5,12 +5,12 @@
 
 
 .header {
-    -fx-background-color: #6B4423;
+    -fx-background-color: #e3995b;
     -fx-padding: 5px;
 }
 
 #titleLabel {
-    -fx-font-size: 24px;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-text-fill: #FFFFFF;
 }
@@ -60,7 +60,7 @@
 }
 
 .label {
-    -fx-text-fill: #4A3728;
+    -fx-text-fill: #452d1a;
     -fx-font-weight: bold;
     -fx-font-size: 12px;
 }

@@ -8,7 +8,205 @@
 .titulo {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-text-fill: #1F1F1F;
+    -fx-text-fill: #1F1F1F;.root {
+    -fx-background-color: #FDF6E3;
+    -fx-font-family: "System";
+}
+
+    .header {
+        -fx-background-color: #92400E;
+        -fx-padding: 15;
+        -fx-spacing: 10;
+        -fx-alignment: center-left;
+    }
+
+    .back-button {
+        -fx-background-color: transparent;
+        -fx-text-fill: white;
+        -fx-font-size: 18;
+        -fx-cursor: hand;
+    }
+
+    .title {
+        -fx-text-fill: white;
+        -fx-font-size: 24;
+        -fx-font-family: "Serif";
+        -fx-alignment: center;
+        -fx-padding: 0 0 0 20;
+    }
+
+    .navigation {
+        -fx-padding: 20;
+        -fx-spacing: 10;
+        -fx-alignment: center;
+    }
+
+    .nav-button {
+        -fx-background-color: #FDE68A;
+        -fx-text-fill: #92400E;
+        -fx-padding: 10 20;
+        -fx-background-radius: 20;
+        -fx-cursor: hand;
+    }
+
+    .nav-button:hover {
+        -fx-background-color: #FCD34D;
+    }
+
+    .content-area {
+        -fx-background-color: transparent;
+        -fx-padding: 20;
+    }
+
+    .dog-grid {
+        -fx-padding: 20;
+        -fx-background-color: rgba(251, 191, 36, 0.3);
+        -fx-background-radius: 10;
+    }
+
+    .dog-card {
+        -fx-background-color: #FEF3C7;
+        -fx-background-radius: 10;
+        -fx-padding: 15;
+        -fx-spacing: 10;
+    }
+
+    .dog-image {
+        -fx-background-radius: 60;
+        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 0);
+    }
+
+    .dog-info {
+        -fx-background-color: #FFFBEB;
+        -fx-background-radius: 10;
+        -fx-padding: 15;
+        -fx-spacing: 5;
+    }
+
+    .dog-info Label {
+        -fx-text-fill: #92400E;
+    }
+    .root {
+        -fx-background-color: #FDF6E3;
+        -fx-font-family: "System";
+    }
+
+    .header {
+        -fx-background-color: #92400E;
+        -fx-padding: 15;
+        -fx-spacing: 10;
+        -fx-alignment: center-left;
+    }
+
+    .back-button {
+        -fx-background-color: transparent;
+        -fx-text-fill: white;
+        -fx-font-size: 18;
+        -fx-cursor: hand;
+    }
+
+    .title {
+        -fx-text-fill: white;
+        -fx-font-size: 24;
+        -fx-font-family: "Serif";
+        -fx-alignment: center;
+        -fx-padding: 0 0 0 20;
+    }
+
+    .navigation {
+        -fx-padding: 20;
+        -fx-spacing: 10;
+        -fx-alignment: center;
+    }
+
+    .nav-button {
+        -fx-background-color: #FDE68A;
+        -fx-text-fill: #92400E;
+        -fx-padding: 10 20;
+        -fx-background-radius: 20;
+        -fx-cursor: hand;
+    }
+
+    .nav-button:hover {
+        -fx-background-color: #FCD34D;
+    }
+
+    .content-area {
+        -fx-background-color: transparent;
+        -fx-padding: 20;
+    }
+
+    .dog-grid {
+        -fx-padding: 20;
+        -fx-background-color: rgba(251, 191, 36, 0.3);
+        -fx-background-radius: 10;
+        -fx-hgap: 20;
+        -fx-vgap: 20;
+    }
+
+    .dog-card {
+        -fx-background-color: #FEF3C7;
+        -fx-background-radius: 10;
+        -fx-padding: 15;
+        -fx-spacing: 10;
+    }
+
+    .dog-image {
+        -fx-background-radius: 60;
+        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 0);
+    }
+
+    .dog-info {
+        -fx-background-color: #FFFBEB;
+        -fx-background-radius: 10;
+        -fx-padding: 15;
+        -fx-spacing: 5;
+    }
+
+    .dog-info Label {
+        -fx-text-fill: #92400E;
+    }
+
+    .more-info-button {
+        -fx-background-color: #FDE68A;
+        -fx-text-fill: #92400E;
+        -fx-padding: 10;
+        -fx-background-radius: 5;
+        -fx-font-weight: bold;
+        -fx-cursor: hand;
+    }
+
+    .more-info-button:hover {
+        -fx-background-color: #FCD34D;
+    }
+
+    .scroll-pane {
+        -fx-background-color: transparent;
+    }
+
+    .scroll-pane > .viewport {
+        -fx-background-color: transparent;
+    }
+    .more-info-button {
+        -fx-background-color: #FDE68A;
+        -fx-text-fill: #92400E;
+        -fx-padding: 10;
+        -fx-background-radius: 5;
+        -fx-font-weight: bold;
+        -fx-cursor: hand;
+    }
+
+    .more-info-button:hover {
+        -fx-background-color: #FCD34D;
+    }
+
+    .scroll-pane {
+        -fx-background-color: transparent;
+    }
+
+    .scroll-pane > .viewport {
+        -fx-background-color: transparent;
+    }
 }
 
 /* Panel izquierdo */
