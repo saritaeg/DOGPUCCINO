@@ -2,65 +2,12 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<<<<<<< HEAD
 <?import javafx.scene.image.*?>
-<?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      stylesheets="@../EstiloMenu.css"
-      styleClass="root">
-
-    <!-- Header -->
-    <HBox styleClass="header">
-        <Button styleClass="back-button" text="←"/>
-        <Label styleClass="title" text="DOGPUCCINO" HBox.hgrow="ALWAYS"/>
-    </HBox>
-
-    <!-- Navigation -->
-    <HBox styleClass="navigation">
-        <Button styleClass="nav-button" text="Perros"/>
-        <Button styleClass="nav-button" text="Notificaciones"/>
-        <Button styleClass="nav-button" text="Citas"/>
-        <Button styleClass="nav-button" text="Sobre nosotros"/>
-    </HBox>
-
-    <!-- Content Area -->
-    <ScrollPane fitToWidth="true" styleClass="content-area">
-        <GridPane hgap="20" vgap="20" styleClass="dog-grid">
-            <!-- Dog Card 1 -->
-            <VBox styleClass="dog-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                <ImageView styleClass="dog-image" fitWidth="120" fitHeight="120" preserveRatio="true"/>
-                <VBox styleClass="dog-info">
-                    <Label text="Nombre: "/>
-                    <Label text="Raza:  "/>
-                    <Label text="Sexo: "/>
-                    <Label text="Fecha nacimiento: "/>
-                    <Label text="Adoptado: "/>
-                    <Label text="Protectora:  "/>
-                </VBox>
-                <Button styleClass="more-info-button" text="MÁS INFORMACIÓN"/>
-            </VBox>
-
-            <!-- Dog Card 2 -->
-            <VBox styleClass="dog-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                <ImageView styleClass="dog-image" fitWidth="120" fitHeight="120" preserveRatio="true"/>
-                <VBox styleClass="dog-info">
-                    <Label text="Nombre: "/>
-                    <Label text="Raza: "/>
-                    <Label text="Sexo: "/>
-                    <Label text="Fecha nacimiento: "/>
-                    <Label text="Adoptado: "/>
-                    <Label text="Protectora:  "/>
-                </VBox>
-                <Button styleClass="more-info-button" text="MÁS INFORMACIÓN"/>
-            </VBox>
-        </GridPane>
-    </ScrollPane>
-</VBox>
-=======
-
-<BorderPane fx:id="root" prefHeight="460.0" prefWidth="679.0" stylesheets="@Menu.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="root" prefHeight="460.0" prefWidth="679.0"
+            stylesheets="@Menu.css"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1">
 
     <top>
         <VBox spacing="10">
@@ -82,7 +29,7 @@
         <HBox alignment="CENTER" spacing="20" styleClass="dog-list-container">
             <Button styleClass="nav-button" text="❮" />
 
-
+            <!-- Dog Card 1 -->
             <VBox prefHeight="334.0" prefWidth="236.0" spacing="10" styleClass="dog-card">
                 <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
                     <image>
@@ -111,7 +58,7 @@
                 <Button styleClass="info-button" text="MÁS INFORMACIÓN" />
             </VBox>
 
-
+            <!-- Dog Card 2 -->
             <VBox prefHeight="334.0" prefWidth="235.0" spacing="10" styleClass="dog-card">
                 <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
                     <image>
@@ -144,4 +91,3 @@
         </HBox>
     </center>
 </BorderPane>
->>>>>>> af9373a6ef14dd28d49418582af373d285f64f99
