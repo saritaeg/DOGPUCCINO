@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml" stylesheets="@EstiloDonacion.css">
+
+   <top>
+      <HBox spacing="10" padding="10" styleClass="header">
+         <Button text="←" styleClass="back-button" />
+         <Label text="DOGPUCCINO" styleClass="title" />
+      </HBox>
+   </top>
+
+   <center>
+      <VBox spacing="20" alignment="CENTER" padding="20">
+         <Button text="DONACIÓN" styleClass="tab-button" />
+
+         <VBox spacing="15" padding="20" styleClass="form-container">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+               <Label text="Tarjeta de crédito" styleClass="form-title" />
+               <ImageView fitWidth="40" fitHeight="30">
+                  <image>
+                     <Image url="@creditcard_icon.png" />
+                  </image>
+               </ImageView>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+               <Label text="DONACIÓN:" styleClass="donation-label" />
+               <VBox>
+                  <TextField prefWidth="100" />
+                  <Label text="(mínimo 3€)" styleClass="small-hint" />
+               </VBox>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+               <TextField promptText="Número de tarjeta" HBox.hgrow="ALWAYS" />
+               <Label text="🔒" />
+            </HBox>
+
+            <TextField promptText="Nombre del titular" />
+
+            <HBox spacing="10">
+               <TextField promptText="Fecha de vencimiento (MM/AA)" HBox.hgrow="ALWAYS" />
+               <TextField promptText="Código de seguridad" HBox.hgrow="ALWAYS" />
+               <Label text="❓" />
+            </HBox>
+
+            <Button text="PAGAR" styleClass="pay-button" />
+         </VBox>
+      </VBox>
+   </center>
+</BorderPane>
