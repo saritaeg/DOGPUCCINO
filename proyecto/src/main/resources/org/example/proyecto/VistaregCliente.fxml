@@ -3,13 +3,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<<<<<<< HEAD
-<AnchorPane prefHeight="590.0" prefWidth="911.0" stylesheets="@EstiloregCli.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
-=======
-<AnchorPane prefHeight="620.0" prefWidth="1000.0" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
->>>>>>> eff9fb90536e105631cc269399fa63012bb8beb7
+<AnchorPane prefHeight="620.0" prefWidth="1000.0" stylesheets="@EstiloRegCli.css"
+            xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1">
+
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1000.0" spacing="30" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1000.0" spacing="30"
+            AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
          <StackPane styleClass="header">
             <Label styleClass="titulo" text="Registrar Nuevo Cliente" />
@@ -56,6 +57,7 @@
                <Label styleClass="input-label" text="Confirmar contraseña" />
                <PasswordField fx:id="confirmPasswordField" promptText="Repite la contraseña" styleClass="input-field" />
             </VBox>
+
             <rowConstraints>
                <RowConstraints />
             </rowConstraints>
@@ -69,3 +71,4 @@
       </VBox>
    </children>
 </AnchorPane>
+
