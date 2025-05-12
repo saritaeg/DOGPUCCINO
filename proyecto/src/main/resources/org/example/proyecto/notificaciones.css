@@ -1,0 +1,76 @@
+/* Fondo general y fuente */
+.root {
+    -fx-background-color: #947850;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Barra superior */
+.top-bar {
+    -fx-padding: 10 20 10 20;
+    -fx-background-color: #523e27;
+}
+
+/* Título DOGPUCCINO */
+.title {
+    -fx-font-size: 36px;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+/* Botón de regreso */
+.back-button {
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+/* Barra de pestañas */
+.tabs-bar {
+    -fx-padding: 10;
+}
+
+/* Botones de pestañas */
+.tab-button {
+    -fx-background-color: #cebea3;
+    -fx-text-fill: black;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-padding: 10 20;
+    -fx-font-weight: bold;
+}
+
+.tab-button:selected {
+    -fx-underline: true;
+    -fx-font-weight: bolder;
+}
+
+/* Contenedor de notificaciones */
+.notification-container {
+    -fx-padding: 20;
+}
+
+/* Tarjetas individuales */
+.notification-card {
+    -fx-background-color: #cebea3;
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0.3, 0, 4);
+    -fx-alignment: top-center;
+    -fx-max-width: 600;
+    -fx-min-width: 400;
+}
+
+/* Título de cada notificación */
+.notification-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+
+/* Mensaje de notificación */
+.notification-message {
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}
