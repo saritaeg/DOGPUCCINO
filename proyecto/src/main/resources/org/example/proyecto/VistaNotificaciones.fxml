@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@notificaciones.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+
+    <top>
+        <VBox spacing="10">
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="top-bar">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <Button styleClass="back-button" text="←" />
+                <Label styleClass="title" text="DOGPUCCINO" />
+            </HBox>
+            <HBox alignment="CENTER" spacing="20" styleClass="tabs-bar">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <ToggleButton styleClass="tab-button" text="Perros" />
+                <ToggleButton selected="true" styleClass="tab-button-selected" text="Notificaciones" />
+                <ToggleButton styleClass="tab-button" text="Citas" />
+                <ToggleButton styleClass="tab-button" text="Sobre nosotros" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="20">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

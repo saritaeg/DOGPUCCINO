@@ -1,290 +1,69 @@
-/* Estilos generales */
 .root {
-    -fx-background-color: #d6c4a8; /* Color de fondo beige */
-    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-background-color: #947850;
+    -fx-font-family: "Segoe UI", sans-serif;
 }
 
-/* Título principal */
-.titulo {
-    -fx-font-size: 28px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #1F1F1F;.root {
-    -fx-background-color: #FDF6E3;
-    -fx-font-family: "System";
+.top-bar {
+    -fx-padding: 10 20 10 20;
+    -fx-background-color: #523e27;
 }
 
-    .header {
-        -fx-background-color: #92400E;
-        -fx-padding: 15;
-        -fx-spacing: 10;
-        -fx-alignment: center-left;
-    }
-
-    .back-button {
-        -fx-background-color: transparent;
-        -fx-text-fill: white;
-        -fx-font-size: 18;
-        -fx-cursor: hand;
-    }
-
-    .title {
-        -fx-text-fill: white;
-        -fx-font-size: 24;
-        -fx-font-family: "Serif";
-        -fx-alignment: center;
-        -fx-padding: 0 0 0 20;
-    }
-
-    .navigation {
-        -fx-padding: 20;
-        -fx-spacing: 10;
-        -fx-alignment: center;
-    }
-
-    .nav-button {
-        -fx-background-color: #FDE68A;
-        -fx-text-fill: #92400E;
-        -fx-padding: 10 20;
-        -fx-background-radius: 20;
-        -fx-cursor: hand;
-    }
-
-    .nav-button:hover {
-        -fx-background-color: #FCD34D;
-    }
-
-    .content-area {
-        -fx-background-color: transparent;
-        -fx-padding: 20;
-    }
-
-    .dog-grid {
-        -fx-padding: 20;
-        -fx-background-color: rgba(251, 191, 36, 0.3);
-        -fx-background-radius: 10;
-    }
-
-    .dog-card {
-        -fx-background-color: #FEF3C7;
-        -fx-background-radius: 10;
-        -fx-padding: 15;
-        -fx-spacing: 10;
-    }
-
-    .dog-image {
-        -fx-background-radius: 60;
-        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 0);
-    }
-
-    .dog-info {
-        -fx-background-color: #FFFBEB;
-        -fx-background-radius: 10;
-        -fx-padding: 15;
-        -fx-spacing: 5;
-    }
-
-    .dog-info Label {
-        -fx-text-fill: #92400E;
-    }
-    .root {
-        -fx-background-color: #FDF6E3;
-        -fx-font-family: "System";
-    }
-
-    .header {
-        -fx-background-color: #92400E;
-        -fx-padding: 15;
-        -fx-spacing: 10;
-        -fx-alignment: center-left;
-    }
-
-    .back-button {
-        -fx-background-color: transparent;
-        -fx-text-fill: white;
-        -fx-font-size: 18;
-        -fx-cursor: hand;
-    }
-
-    .title {
-        -fx-text-fill: white;
-        -fx-font-size: 24;
-        -fx-font-family: "Serif";
-        -fx-alignment: center;
-        -fx-padding: 0 0 0 20;
-    }
-
-    .navigation {
-        -fx-padding: 20;
-        -fx-spacing: 10;
-        -fx-alignment: center;
-    }
-
-    .nav-button {
-        -fx-background-color: #FDE68A;
-        -fx-text-fill: #92400E;
-        -fx-padding: 10 20;
-        -fx-background-radius: 20;
-        -fx-cursor: hand;
-    }
-
-    .nav-button:hover {
-        -fx-background-color: #FCD34D;
-    }
-
-    .content-area {
-        -fx-background-color: transparent;
-        -fx-padding: 20;
-    }
-
-    .dog-grid {
-        -fx-padding: 20;
-        -fx-background-color: rgba(251, 191, 36, 0.3);
-        -fx-background-radius: 10;
-        -fx-hgap: 20;
-        -fx-vgap: 20;
-    }
-
-    .dog-card {
-        -fx-background-color: #FEF3C7;
-        -fx-background-radius: 10;
-        -fx-padding: 15;
-        -fx-spacing: 10;
-    }
-
-    .dog-image {
-        -fx-background-radius: 60;
-        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 0);
-    }
-
-    .dog-info {
-        -fx-background-color: #FFFBEB;
-        -fx-background-radius: 10;
-        -fx-padding: 15;
-        -fx-spacing: 5;
-    }
-
-    .dog-info Label {
-        -fx-text-fill: #92400E;
-    }
-
-    .more-info-button {
-        -fx-background-color: #FDE68A;
-        -fx-text-fill: #92400E;
-        -fx-padding: 10;
-        -fx-background-radius: 5;
-        -fx-font-weight: bold;
-        -fx-cursor: hand;
-    }
-
-    .more-info-button:hover {
-        -fx-background-color: #FCD34D;
-    }
-
-    .scroll-pane {
-        -fx-background-color: transparent;
-    }
-
-    .scroll-pane > .viewport {
-        -fx-background-color: transparent;
-    }
-    .more-info-button {
-        -fx-background-color: #FDE68A;
-        -fx-text-fill: #92400E;
-        -fx-padding: 10;
-        -fx-background-radius: 5;
-        -fx-font-weight: bold;
-        -fx-cursor: hand;
-    }
-
-    .more-info-button:hover {
-        -fx-background-color: #FCD34D;
-    }
-
-    .scroll-pane {
-        -fx-background-color: transparent;
-    }
-
-    .scroll-pane > .viewport {
-        -fx-background-color: transparent;
-    }
-}
-
-/* Panel izquierdo */
-.left-panel {
-    -fx-background-color: #ede4d3;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
-    -fx-border-color: #a8906a;
-    -fx-border-width: 0 1 0 0;
-}
-
-/* Panel derecho */
-.right-panel {
-    -fx-background-color: #f3ede2;
-}
-
-/* Etiquetas de los campos */
-.input-label {
-    -fx-font-size: 14px;
-    -fx-text-fill: #333333;
-}
-
-/* Campos de información */
-.input-field {
-    -fx-pref-width: 200px;
-    -fx-padding: 8 12;
-    -fx-background-color: white;
-    -fx-border-color: #a8906a;
-    -fx-border-radius: 8px;
-    -fx-background-radius: 8px;
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.07), 3, 0.1, 0, 1);
-    -fx-font-size: 13.5px;
-    -fx-text-fill: #1F1F1F;
-}
-
-/* Botón principal */
-.boton-principal {
-    -fx-background-color: #ede4d3;
+.title {
+    -fx-font-size: 32px;
     -fx-text-fill: black;
-    -fx-padding: 10 26;
-    -fx-background-radius: 15px;
     -fx-font-weight: bold;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0.2, 0, 2);
-    -fx-cursor: hand;
-    -fx-font-size: 14px;
-    -fx-border-color: #a8906a;
-    -fx-border-width: 1;
 }
 
-.boton-principal:hover {
-    -fx-background-color: #e0d2b8;
-}
-
-/* Botón secundario */
-.boton-secundario {
+.back-button {
+    -fx-font-size: 18px;
     -fx-background-color: transparent;
-    -fx-text-fill: #1f1f1f;
-    -fx-padding: 10 26;
-    -fx-background-radius: 15px;
-    -fx-border-color: #a8906a;
-    -fx-border-width: 1;
-    -fx-border-radius: 15px;
+    -fx-text-fill: black;
+}
+
+.tabs-bar {
+    -fx-padding: 10;
+}
+
+.tab-button {
+    -fx-background-color: #cebea3;
+    -fx-text-fill: black;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-padding: 6 12;
     -fx-font-weight: bold;
-    -fx-cursor: hand;
-    -fx-font-size: 14px;
 }
 
-.boton-secundario:hover {
-    -fx-background-color: #f3ede2;
+.tab-button:selected {
+    -fx-underline: true;
 }
 
-/* Separador */
-.separator {
-    -fx-padding: 10 0;
-    -fx-border-color: #a8906a;
-    -fx-border-width: 1 0 0 0;
+.dog-list-container {
+    -fx-padding: 20;
 }
 
-/* Efectos de hover para los botones del menú */
-.menu-button:hover {
-    -fx-background-color: #e0d2b8 !important;
+.dog-card {
+    -fx-background-color: #cebea3;
+    -fx-padding: 10;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-alignment: center;
+}
+
+.dog-info Label {
+    -fx-text-fill: black;
+}
+
+.info-button {
+    -fx-background-color: #cebea3;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-padding: 8 16;
+}
+
+.nav-button {
+    -fx-font-size: 24px;
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
 }
