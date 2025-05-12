@@ -6,17 +6,14 @@
 <?import javafx.scene.layout.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.InicioControlador">
-
     <children>
         <ImageView fitHeight="513.0" fitWidth="900.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
-            <cursor>
-                <Cursor fx:constant="DEFAULT" />
-            </cursor>
             <image>
-                <Image url="@org/example/proyecto/imagenes/img1.png" />
+                <Image url="@imagenes/img1.png" />
             </image>
         </ImageView>
+
         <Button fx:id="btnRegistrarse" layoutX="113.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnRegistrarse" style="-fx-background-color: #cec1ab;" text="Registrarse" textAlignment="CENTER" />
-        <Button fx:id="btnIniciarSesion" layoutX="282.0" layoutY="308.0" mnemonicParsing="false"  onAction="#btnIniciarSesion" style="-fx-background-color: #cec1ab;" text="Iniciar Sesión" />
+        <Button fx:id="btnIniciarSesion" layoutX="282.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnIniciarSesion" style="-fx-background-color: #cec1ab;" text="Iniciar Sesión" />
     </children>
 </Pane>
