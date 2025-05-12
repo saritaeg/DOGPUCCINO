@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 
 <BorderPane fx:id="root" prefHeight="460.0" prefWidth="679.0"
-            stylesheets="@Menu.css"
+            stylesheets="@Perros.css"
             xmlns="http://javafx.com/javafx/17.0.12"
             xmlns:fx="http://javafx.com/fxml/1">
 

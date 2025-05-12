@@ -3,9 +3,35 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<BorderPane fx:id="root" prefHeight="460.0" prefWidth="679.0" stylesheets="@Sobrenosotros.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button mnemonicParsing="false" text="Button" />
-   </children>
-</AnchorPane>
+   <top>
+      <VBox spacing="10">
+         <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar">
+            <Button styleClass="back-button" text="←" />
+            <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
+         </HBox>
+
+         <HBox alignment="CENTER" spacing="15" styleClass="tabs-bar">
+            <ToggleButton styleClass="tab-button" text="Perros" />
+            <ToggleButton styleClass="tab-button" text="Notificaciones" />
+            <ToggleButton styleClass="tab-button" text="Citas" />
+            <ToggleButton selected="true" styleClass="tab-button" text="Sobre nosotros" />
+         </HBox>
+      </VBox>
+   </top>
+
+   <center>
+      <VBox alignment="CENTER" spacing="15" styleClass="about-section">
+         <Region styleClass="separator" />
+         <TextArea editable="false" wrapText="true" prefWidth="600.0" prefHeight="150.0" styleClass="about-text">
+            Dogpuccino no es una cafetería cualquiera. Somos un rincón especial donde el aroma del café recién hecho se mezcla con el cariño de nuestros amigos de cuatro patas. Aquí, cada taza tiene un propósito y cada visita puede cambiar una vida.
+            Nuestro concepto nace del amor por los animales y el deseo de fomentar la adopción responsable. En Dogpuccino, puedes disfrutar de un delicioso café, té o postre mientras compartes tu tiempo con perritos en busca de un hogar. ¿La novedad? Ofrecemos un sistema de citas con los perros, para que puedas conocerlos en un ambiente tranquilo, relajado y sin presiones. Así, tanto tú como ellos pueden conectar de forma natural antes de tomar una decisión tan importante como la adopción.
+            Trabajamos en colaboración con refugios locales para brindar una segunda oportunidad a estos peludos. Mientras tanto, ellos reciben amor, socialización y la posibilidad de encontrar a su persona ideal.
+            Ven, siéntate, tómate un Dogpuccino... y quizá, encuentra a tu nuevo mejor amigo.
+         </TextArea>
+      </VBox>
+   </center>
+
+
+</BorderPane>
