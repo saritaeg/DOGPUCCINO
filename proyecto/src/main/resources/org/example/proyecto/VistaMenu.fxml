@@ -5,6 +5,13 @@
 <?import javafx.scene.image.*?>
 
 <BorderPane fx:id="root" prefHeight="460.0" prefWidth="679.0"
+<<<<<<<< HEAD:proyecto/src/main/resources/org/example/proyecto/Perros.fxml
+            stylesheets="@Perros.css"
+========
+            stylesheets="@EstiloMenu.css"
+>>>>>>>> eff9fb90536e105631cc269399fa63012bb8beb7:proyecto/src/main/resources/org/example/proyecto/VistaMenu.fxml
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1">
 
     <top>
         <VBox spacing="10">

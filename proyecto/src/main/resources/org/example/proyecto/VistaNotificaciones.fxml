@@ -2,10 +2,11 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@notificaciones.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css"
+            xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
 
     <top>
         <VBox spacing="10">
@@ -35,20 +36,20 @@
             </padding>
 
             <!-- Tabla de Notificaciones -->
-            <TableView fx:id="notificacionesTable" prefHeight="318.0" prefWidth="880.0">
+            <TableView fx:id="notificacionesTable" prefHeight="200.0" prefWidth="850.0">
                 <!-- Definición de columnas -->
                 <columns>
-                    <TableColumn fx:id="tipoColumna" prefWidth="190.0" text="Tipo de Notificación">
+                    <TableColumn fx:id="tipoColumna" text="Tipo de Notificación" prefWidth="250">
                         <cellValueFactory>
                             <PropertyValueFactory property="tipoNotificacion" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn fx:id="mensajeColumna" prefWidth="526.0" text="Mensaje">
+                    <TableColumn fx:id="mensajeColumna" text="Mensaje" prefWidth="400">
                         <cellValueFactory>
                             <PropertyValueFactory property="mensaje" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn fx:id="fechaColumna" prefWidth="163.0" text="Fecha de Envío">
+                    <TableColumn fx:id="fechaColumna" text="Fecha de Envío" prefWidth="200">
                         <cellValueFactory>
                             <PropertyValueFactory property="fechaEnvio" />
                         </cellValueFactory>
@@ -58,4 +59,5 @@
 
         </VBox>
     </center>
+
 </BorderPane>
