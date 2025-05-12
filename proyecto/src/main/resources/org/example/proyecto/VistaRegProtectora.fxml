@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="435.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="435.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.RegProtectoraControlador">
     <stylesheets>
         <URL value="@EstiloRegProtectora.css" />
     </stylesheets>
@@ -38,12 +38,19 @@
                     <Label styleClass="input-label" text="Redes Sociales" />
                     <TextField fx:id="redesField" promptText="Instagram, Twitter..." styleClass="input-field" />
                 </VBox>
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+            </rowConstraints>
 
             </GridPane>
 
             <HBox alignment="CENTER" spacing="20">
-                <Button fx:id="btnRegistrar" styleClass="boton-principal" text="Registrarse" />
-                <Button fx:id="btnVolver" styleClass="boton-secundario" text="Volver" />
+                <Button fx:id="btnRegistrar" onAction="#btnRegistrar" styleClass="boton-principal" text="Registrarse" />
+                <Button fx:id="btnVolver" onAction="#btnVolver" styleClass="boton-secundario" text="Volver" />
             </HBox>
         </VBox>
     </children>

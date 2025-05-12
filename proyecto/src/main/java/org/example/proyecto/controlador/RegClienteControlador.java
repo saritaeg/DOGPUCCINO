@@ -1,4 +1,4 @@
-package tu.paquete;
+package org.example.proyecto.controlador;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
