@@ -35,9 +35,8 @@
                 <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
 
-            <!-- Tabla de Notificaciones -->
             <TableView fx:id="notificacionesTable" prefHeight="200.0" prefWidth="850.0">
-                <!-- Definición de columnas -->
+
                 <columns>
                     <TableColumn fx:id="tipoColumna" text="Tipo de Notificación" prefWidth="250">
                         <cellValueFactory>
