@@ -23,39 +23,39 @@
         </VBox>
     </top>
     <center>
-        <TableView fx:id="citasTable" prefHeight="182.0" prefWidth="679.0">
-            <columns>
-                <TableColumn fx:id="cliente" prefWidth="100.0" text="Cliente">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="cliente" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn fx:id="perro" prefWidth="122.0" text="Perro">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="perro" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn fx:id="hora" prefWidth="111.0" text="Hora">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="hora" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn fx:id="fechaCita" prefWidth="145.0" text="Fecha Cita">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="fechaCita" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn fx:id="donacion" prefWidth="87.0" text="Donacion">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="donacion" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn fx:id="estado" prefWidth="113.0" text="Estado">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="estado" />
-                    </cellValueFactory>
-                </TableColumn>
-            </columns>
-        </TableView>
+            <TableView fx:id="citasTable" prefHeight="182.0" prefWidth="679.0">
+                <columns>
+                    <TableColumn fx:id="cliente" prefWidth="100.0" text="Cliente">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="cliente" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="perro" prefWidth="122.0" text="Perro">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="perro" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="hora" prefWidth="111.0" text="Hora">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="hora" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="fechaCita" prefWidth="145.0" text="Fecha Cita">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="fechaCita" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="donacion" prefWidth="87.0" text="Donacion">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="donacion" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="estado" prefWidth="113.0" text="Estado">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="estado" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
     </center>
 </BorderPane>

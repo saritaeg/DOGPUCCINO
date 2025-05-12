@@ -6,10 +6,10 @@
 
 <AnchorPane prefHeight="600" prefWidth="800" styleClass="root" stylesheets="@EstiloSobreNosotros.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SobreNosotrosController">
 
-   <VBox prefWidth="800" styleClass="header">
+   <VBox prefHeight="96.0" prefWidth="800" styleClass="header">
       <Button fx:id="backButton" layoutX="20" layoutY="20" prefHeight="30.0" prefWidth="41.0" styleClass="back-button" text="←" />
 
-      <Label alignment="CENTER" prefWidth="800" styleClass="title-label" text="DOGPUCCINO" />
+      <Label alignment="CENTER" prefHeight="39.0" prefWidth="800" styleClass="title-label" text="DOGPUCCINO" />
    </VBox>
 
    <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
