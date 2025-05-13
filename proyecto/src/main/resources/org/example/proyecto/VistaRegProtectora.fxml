@@ -26,8 +26,9 @@
 
                     <Label styleClass="input-label" text="CIF" />
                     <TextField fx:id="txtCIF" promptText="Ej: 29551116G" styleClass="input-field" />
-               <Label text="Calle" />
-               <TextField prefHeight="51.0" prefWidth="280.0" promptText="Nombre de la Calle" styleClass="input-field"/>
+
+                    <Label text="Calle" />
+                    <TextField fx:id="txtCalle" prefHeight="51.0" prefWidth="280.0" promptText="Nombre de la Calle" styleClass="input-field" />
                 </VBox>
 
                 <VBox spacing="15" GridPane.columnIndex="1">
@@ -39,8 +40,9 @@
 
                     <Label styleClass="input-label" text="Redes Sociales" />
                     <TextField fx:id="txtRedes" promptText="Instagram, Twitter..." styleClass="input-field" />
-               <Label text="Contraseña" />
-               <TextField prefHeight="56.0" prefWidth="280.0" promptText="*****" styleClass="input-field" />
+
+                    <Label text="Contraseña" />
+                    <TextField fx:id="txtContraseña" accessibleRole="PASSWORD_FIELD" prefHeight="56.0" prefWidth="280.0" promptText="*****" styleClass="input-field" />
                 </VBox>
             </GridPane>
             <HBox alignment="CENTER" spacing="20">
