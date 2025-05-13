@@ -28,7 +28,7 @@
             <VBox alignment="TOP_CENTER" spacing="10">
                 <ImageView fitHeight="200" fitWidth="200">
                     <image>
-                        <Image url="@imagenes/img1.png" />
+                        <Image url="@../../../imagenes/img1.png" />
                     </image>
                 </ImageView>
             </VBox>

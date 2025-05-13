@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class UsuarioDAO {
     public static boolean registrarUsuario(int idCliente, String contrasenia) throws SQLException {
         String sql = """
-            INSERT INTO Usuarios (ID, ID_Clientes, Contrasenia, Fecha_Alta, Fecha_Modificacion)
+            INSERT INTO Usuarios (ID, ID_Clientes, Contraseña, Fecha_Alta, Fecha_Modificacion)
             VALUES (usuario_seq.NEXTVAL, ?, ?, ?, ?)
         """;
 

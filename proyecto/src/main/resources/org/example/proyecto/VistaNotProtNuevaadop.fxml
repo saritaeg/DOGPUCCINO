@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+
+    <top>
+        <VBox spacing="10">
+            <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar" xmlns:fx="http://javafx.com/fxml">
+                <Button styleClass="back-button" text="←" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
+                <Region HBox.hgrow="ALWAYS" />
+            </HBox>
+
+            <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
+                <Button styleClass="tab-button" text="Perros" />
+                <Button styleClass="tab-button, active" text="Notificaciones" />
+                <Button styleClass="tab-button" text="Citas" />
+                <Button styleClass="tab-button" text="Sobre nosotros" />
+            </HBox>
+            <HBox alignment="CENTER" spacing="10" styleClass="tabs-bar">
+                <ToggleButton selected="true"  styleClass="small-tab-button" text="SOLICITUD CITA" />
+                <ToggleButton styleClass="small-tab-button" style="-fx-font-weight: bold;" text="SOLICITUD ADOPCIÓN" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="20">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+
+            <TableView fx:id="notificacionesTable" prefHeight="311.0" prefWidth="880.0">
+
+                <columns>
+                    <TableColumn fx:id="mensjaecliente" prefWidth="438.0" text="Cliente">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="cliente" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="mensajeColumna" prefWidth="438.0" text="Mensaje">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="mensaje" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="fechaColumna" prefWidth="441.0" text="Fecha de Envío">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="fechaEnvio" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>
