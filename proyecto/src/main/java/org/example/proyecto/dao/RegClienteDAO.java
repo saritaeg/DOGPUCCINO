@@ -25,26 +25,26 @@ public class RegClienteDAO {
         String sqlID = "SELECT cliente_seq.CURRVAL FROM dual";
 
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
-             PreparedStatement stmtId = conn.prepareStatement(sqlID)) {
+             PreparedStatement prueba = conn.prepareStatement(sql);
+             PreparedStatement pruebaID = conn.prepareStatement(sqlID)) {
 
-            stmt.setString(1, nombre);
-            stmt.setString(2, apellido1);
-            stmt.setString(3, apellido2);
-            stmt.setDate(4, fechaNacimiento);
-            stmt.setString(5, telefono);
-            stmt.setString(6, calle);
-            stmt.setString(7, ciudad);
-            stmt.setString(8, correo);
+            prueba.setString(1, nombre);
+            prueba.setString(2, apellido1);
+            prueba.setString(3, apellido2);
+            prueba.setDate(4, fechaNacimiento);
+            prueba.setString(5, telefono);
+            prueba.setString(6, calle);
+            prueba.setString(7, ciudad);
+            prueba.setString(8, correo);
 
             Date hoy = Date.valueOf(LocalDate.now());
-            stmt.setDate(9, hoy);
-            stmt.setDate(10, hoy);
+            prueba.setDate(9, hoy);
+            prueba.setDate(10, hoy);
 
-            int rows = stmt.executeUpdate();
+            int rows = prueba.executeUpdate();
 
             if (rows > 0) {
-                try (ResultSet rs = stmtId.executeQuery()) {
+                try (ResultSet rs = pruebaID.executeQuery()) {
                     if (rs.next()) {
                         return rs.getInt(1);
                     }

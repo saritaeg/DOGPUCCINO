@@ -16,17 +16,17 @@ public class UsuarioDAO {
         """;
 
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement prueba = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, idCliente);
-            stmt.setString(2, contrasenia);
+            prueba.setInt(1, idCliente);
+            prueba.setString(2, contrasenia);
 
 
             Date hoy = Date.valueOf(LocalDate.now());
-            stmt.setDate(3, hoy);
-            stmt.setDate(4, hoy);
+            prueba.setDate(3, hoy);
+            prueba.setDate(4, hoy);
 
-            return stmt.executeUpdate() > 0;
+            return prueba.executeUpdate() > 0;
         }
     }
 }
