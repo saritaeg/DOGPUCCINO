@@ -1,18 +1,23 @@
 .root {
-    -fx-background-color: #947850; /* Fondo suave general */
+    -fx-background-color: #947850;
     -fx-font-family: "Segoe UI", sans-serif;
 }
 
-/* Header (barra superior) */
+/* Encabezado superior */
 .header {
+    -fx-background-color: transparent;
+}
+
+.top-bar {
+    -fx-padding: 10 20 10 20;
     -fx-background-color: #523e27;
-    -fx-padding: 10 20;
 }
 
 .title {
     -fx-font-size: 32px;
     -fx-text-fill: black;
     -fx-font-weight: bold;
+    -fx-font-family: "Times New Roman", serif;
 }
 
 .back-button {
@@ -49,7 +54,15 @@
     -fx-text-fill: black;
     -fx-font-weight: bold;
 }
-
+#addDogButton {
+    -fx-background-color: #cebea3;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
 .donation-label {
     -fx-font-size: 14px;
     -fx-text-fill: black;

@@ -9,10 +9,13 @@
 
     <top>
         <VBox spacing="10">
-            <StackPane prefHeight="120.0" prefWidth="800" styleClass="header">
-                <Label styleClass="title-label" text="DOGPUCCINO" StackPane.alignment="CENTER"/>
-                <Button fx:id="backButton" styleClass="back-button" text="←" StackPane.alignment="CENTER_LEFT"/>
-            </StackPane>
+            <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar"
+                  xmlns:fx="http://javafx.com/fxml">
+                <Button styleClass="back-button" text="←" />
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
+                <Region HBox.hgrow="ALWAYS"/>
+            </HBox>
 
             <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
                 <Button styleClass="tab-button" text="Perros" />
@@ -20,8 +23,6 @@
                 <Button styleClass="tab-button" text="Citas" />
                 <Button styleClass="tab-button" text="Sobre nosotros" />
             </HBox>
-
-
         </VBox>
     </top>
 

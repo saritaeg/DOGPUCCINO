@@ -1,41 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane stylesheets="@EstiloDonacion.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <HBox prefHeight="87.0" prefWidth="799.0" spacing="10" styleClass="header">
-         <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
-         <Button styleClass="back-button" text="←" />
-         <Label styleClass="title" text="DOGPUCCINO" />
-      </HBox>
+      <VBox spacing="10">
+         <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar">
+            <Button styleClass="back-button" text="←" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="title" text="DOGPUCCINO" />
+            <Region HBox.hgrow="ALWAYS" />
+         </HBox>
+
+         <StackPane prefHeight="60.0" prefWidth="799.0" style="-fx-padding: 5 0 5 0;">
+            <Button fx:id="addDogButton" text="DONACIÓN" />
+         </StackPane>
+      </VBox>
    </top>
 
-   <center>
-      <VBox alignment="CENTER" prefHeight="370.0" prefWidth="799.0" spacing="20">
-         <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+<center>
+      <VBox alignment="CENTER" prefHeight="520.0" prefWidth="799.0" spacing="20">
+         <padding><Insets bottom="120" left="20" right="20" top="0" /></padding>
 
-         <Button styleClass="tab-button" text="DONACIÓN" />
-
-         <VBox spacing="15" styleClass="form-container">
-            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+         <VBox prefHeight="336.0" prefWidth="759.0" spacing="10" styleClass="form-container">
+            <padding><Insets bottom="20" left="20" right="20" top="10" /></padding>
 
             <HBox alignment="CENTER_LEFT" spacing="10">
-               <Label styleClass="form-title" text="Tarjeta de crédito" />
+               <Label prefHeight="39.0" prefWidth="167.0" styleClass="form-title" text="Tarjeta de crédito" />
 
             </HBox>
 
             <HBox alignment="CENTER_LEFT" spacing="10">
                <Label styleClass="donation-label" text="DONACIÓN:" />
                <VBox>
-                  <TextField prefWidth="100" />
+                  <TextField prefHeight="32.0" prefWidth="101.0" />
                </VBox>
                <Label styleClass="small-hint" text="(mínimo 3€)" />
             </HBox>
 
             <HBox alignment="CENTER_LEFT" spacing="10">
-               <TextField prefHeight="25.0" prefWidth="399.0" promptText="Número de tarjeta">
+               <TextField prefHeight="32.0" prefWidth="719.0" promptText="Número de tarjeta">
 
                </TextField>
 
@@ -44,13 +50,15 @@
             <TextField prefHeight="25.0" prefWidth="711.0" promptText="Nombre del titular" />
 
             <HBox spacing="10">
-               <DatePicker prefHeight="25.0" prefWidth="204.0" promptText="Fecha de vencimiento (MM/AA)" />
-               <TextField prefHeight="25.0" prefWidth="214.0" promptText="Código de seguridad">
+               <DatePicker prefHeight="46.0" prefWidth="551.0" promptText="Fecha de vencimiento (MM/AA)" />
+               <TextField prefHeight="47.0" prefWidth="552.0" promptText="Código de seguridad">
 
                </TextField>
             </HBox>
-
-            <Button styleClass="pay-button" text="PAGAR" />
+            <Button prefHeight="33.0" prefWidth="95.0" styleClass="pay-button" text="PAGAR" />
+            <VBox.margin>
+               <Insets top="20" />
+            </VBox.margin>
          </VBox>
       </VBox>
    </center>

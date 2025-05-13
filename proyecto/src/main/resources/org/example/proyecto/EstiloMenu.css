@@ -12,6 +12,15 @@
     -fx-font-size: 32px;
     -fx-text-fill: black;
     -fx-font-weight: bold;
+    -fx-font-family: "Times New Roman", serif;
+}
+.small-tab-button {
+    -fx-font-size: 10px;
+    -fx-padding: 4 8;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-background-color: #cebea3;
+    -fx-text-fill: black;
 }
 
 .back-button {
@@ -19,18 +28,25 @@
     -fx-background-color: transparent;
     -fx-text-fill: black;
 }
-
+.back-button {
+    -fx-font-size: 18px;
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
 .tabs-bar {
     -fx-padding: 10;
 }
-
+.top-bar {
+    -fx-padding: 10 10 10 10;
+    -fx-background-color: #523e27;
+}
 .tab-button {
     -fx-background-color: #cebea3;
     -fx-text-fill: black;
     -fx-border-radius: 15;
     -fx-background-radius: 15;
     -fx-padding: 6 12;
-    -fx-font-weight: bold;
 }
 
 .tab-button:selected {

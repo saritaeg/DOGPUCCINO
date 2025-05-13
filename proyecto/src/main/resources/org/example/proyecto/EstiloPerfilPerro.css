@@ -1,94 +1,36 @@
-.main-container {
-    -fx-background-color: #E5D3B3;
+.root {
+    -fx-background-color: #947850;
+    -fx-font-family: "Segoe UI", sans-serif;
 }
 
-.header-container {
-    -fx-background-color: #795123;
+.top-bar {
+    -fx-padding: 10 20 10 20;
+    -fx-background-color: #523e27;
 }
 
-.title-label {
-    -fx-text-fill: white;
-    -fx-font-family: "Didot";
+.title {
     -fx-font-size: 32px;
-    -fx-font-weight: 100;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-family: "Times New Roman", serif;
 }
 
 .back-button {
+    -fx-font-size: 18px;
     -fx-background-color: transparent;
-    -fx-cursor: hand;
+    -fx-text-fill: black;
 }
 
-.back-button:hover {
-    -fx-opacity: 0.8;
-}
-
-.dog-description {
-    -fx-font-size: 13px;
-    -fx-text-fill: #333333;
-    -fx-line-spacing: 1.5;
-}
-
-.dog-additional-info {
-    -fx-font-size: 13px;
-    -fx-text-fill: #333333;
-    -fx-line-spacing: 1.5;
-}
-
-.adoption-status {
-    -fx-background-color: #BC8C4E;
-    -fx-text-fill: white;
-    -fx-font-size: 12px;
+.action-button {
+    -fx-background-color: #cebea3;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
-    -fx-padding: 8px 16px;
-    -fx-background-radius: 16px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
 }
 
-.primary-button {
-    -fx-background-color: #BC8C4E;
-    -fx-text-fill: white;
+.info-label {
+    -fx-text-fill: #cebea3;
     -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 12px 24px;
-    -fx-background-radius: 4px;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 2);
-}
-
-.primary-button:hover {
-    -fx-background-color: derive(#BC8C4E, 10%);
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 4);
-    -fx-translate-y: -1px;
-    -fx-transition: all 0.2s ease;
-}
-
-.secondary-button {
-    -fx-background-color: #E5D3B3;
-    -fx-border-color: #BC8C4E;
-    -fx-border-width: 1px;
-    -fx-text-fill: #795123;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 12px 24px;
-    -fx-background-radius: 4px;
-    -fx-border-radius: 4px;
-    -fx-cursor: hand;
-}
-
-.secondary-button:hover {
-    -fx-background-color: derive(#E5D3B3, 10%);
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 2);
-    -fx-translate-y: -1px;
-    -fx-transition: all 0.2s ease;
-}
-
-.section-header {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #795123;
-}
-
-.medical-conditions {
-    -fx-font-size: 13px;
-    -fx-text-fill: #333333;
-    -fx-line-spacing: 1.5;
+    -fx-background-color: #cebea3;
 }

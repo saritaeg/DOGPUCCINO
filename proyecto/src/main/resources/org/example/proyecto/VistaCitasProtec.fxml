@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="root" prefHeight="460.0" prefWidth="679.0" stylesheets="@EstiloMenu.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+
+    <top>
+        <VBox spacing="10">
+            <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar" xmlns:fx="http://javafx.com/fxml">
+                <Button styleClass="back-button" text="←" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label styleClass="title" text="DOGPUCCINO" />
+                <Region HBox.hgrow="ALWAYS" />
+            </HBox>
+
+
+            <HBox alignment="CENTER" spacing="15" styleClass="tabs-bar">
+                <ToggleButton styleClass="tab-button" text="Perros" />
+                <ToggleButton styleClass="tab-button" text="Notificaciones" />
+                <ToggleButton style="-fx-font-weight: bold;" styleClass="tab-button" text="_Citas" />
+                <ToggleButton prefWidth="110.0" styleClass="tab-button" text="Sobre nosotros" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox alignment="CENTER" style="-fx-padding: 0 0 20 0;">
+            <TableView fx:id="citasTable" prefHeight="182.0" prefWidth="600.0">
+                <columns>
+                    <TableColumn fx:id="cliente" prefWidth="100.0" text="Cliente">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="cliente" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="perro" prefWidth="122.0" text="Perro">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="perro" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="hora" prefWidth="111.0" text="Hora">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="hora" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="fechaCita" prefWidth="145.0" text="Fecha Cita">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="fechaCita" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="donacion" prefWidth="125.0" text="Donacion">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="donacion" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="estado" prefWidth="75.0" text="Estado">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="estado" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </HBox>
+    </center>
+
+</BorderPane>

@@ -12,6 +12,7 @@
     -fx-font-size: 32px;
     -fx-text-fill: black;
     -fx-font-weight: bold;
+    -fx-font-family: "Times New Roman", serif;
 }
 
 .back-button {

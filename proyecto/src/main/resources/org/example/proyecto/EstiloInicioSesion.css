@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: #D2C5B4;
+    -fx-background-color: #947850;
 }
 
 .main-container {
@@ -10,13 +10,13 @@
     -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-fill: #000000;
+    -fx-font-family: "Times New Roman", serif;
 }
 
 .form-container {
-    -fx-background-color: #A18B69;
+    -fx-background-color: #cebea3;
     -fx-padding: 30;
     -fx-background-radius: 5;
-    -fx-border-color: #8B4513;
     -fx-border-width: 1;
     -fx-border-radius: 5;
     -fx-max-width: 400;
@@ -32,7 +32,6 @@
 .input-field {
     -fx-background-color: white;
     -fx-background-radius: 3;
-    -fx-border-color: #8B4513;
     -fx-border-radius: 3;
     -fx-padding: 8;
     -fx-font-size: 14px;
@@ -40,7 +39,7 @@
 }
 
 .login-button {
-    -fx-background-color: #C4B5A3;
+    -fx-background-color: #cebea3;
     -fx-text-fill: #000000;
     -fx-font-weight: bold;
     -fx-padding: 10 20;
@@ -51,9 +50,9 @@
 }
 
 .login-button:hover {
-    -fx-background-color: #B3A492;
+    -fx-background-color: #cebea3;
 }
 
 .login-button:pressed {
-    -fx-background-color: #A29381;
+    -fx-background-color: #cebea3;
 }
