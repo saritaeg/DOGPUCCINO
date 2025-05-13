@@ -23,6 +23,9 @@ public class Usuario {
         this.idClientes = idClientes;
         this.cifProtectora = cifProtectora;
     }
+    public Usuario(String contrasenia) {
+        this.idUsuario = idUsuario;
+    }
 
     public Integer getIdUsuario() {
         return idUsuario;

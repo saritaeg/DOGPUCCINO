@@ -9,14 +9,14 @@ public class Clientes {
     private String apellido2;
     private String email;
     private String telefono;
-    private String ciudad;
+    private String provincia;
     private String calle;
     private LocalDate fechaNacimiento;
     private LocalDate fechaAlta;
     private LocalDate fechaModificacion;
 
     public Clientes(Integer idCliente, String nombre, String apellido1, String apellido2,
-                    String email, String telefono, String ciudad, String calle,
+                    String email, String telefono, String provincia, String calle,
                     LocalDate fechaNacimiento, LocalDate fechaAlta, LocalDate fechaModificacion) {
         this.idCliente = idCliente;
         this.nombre = nombre;
@@ -24,11 +24,25 @@ public class Clientes {
         this.apellido2 = apellido2;
         this.email = email;
         this.telefono = telefono;
-        this.ciudad = ciudad;
+        this.provincia = provincia;
         this.calle = calle;
         this.fechaNacimiento = fechaNacimiento;
         this.fechaAlta = fechaAlta;
         this.fechaModificacion = fechaModificacion;
+    }
+
+    public Clientes(String nombre, String apellido1, String apellido2,
+                    String email, String telefono, String provincia, String calle,
+                    LocalDate fechaNacimiento
+                   ) {
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.email = email;
+        this.telefono = telefono;
+        this.provincia = provincia;
+        this.calle = calle;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public Integer getIdCliente() {
@@ -79,12 +93,12 @@ public class Clientes {
         this.telefono = telefono;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    public String getProvincia() {
+        return provincia;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setProvincia(String ciudad) {
+        this.provincia = provincia;
     }
 
     public String getCalle() {

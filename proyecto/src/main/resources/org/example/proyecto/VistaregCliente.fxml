@@ -3,49 +3,46 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="620.0" prefWidth="1000.0" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.RegClienteControlador">
+<AnchorPane prefHeight="620.0" prefWidth="1000.0" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.RegClienteControlador">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1000.0" spacing="30" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-
          <StackPane styleClass="header">
             <Label styleClass="titulo" text="Registrar Nuevo Cliente" />
          </StackPane>
-
          <GridPane alignment="CENTER" hgap="40" maxWidth="900" vgap="18">
-
 
             <VBox spacing="14" GridPane.columnIndex="0">
                <Label styleClass="input-label" text="Nombre completo" />
-               <TextField fx:id="nombreField" promptText="Introduce tu nombre" styleClass="input-field" />
+               <TextField fx:id="txtNombre" promptText="Introduce tu nombre" styleClass="input-field" />
 
                <Label styleClass="input-label" text="Primer apellido" />
-               <TextField fx:id="apellido1Field" promptText="Introduce tu primer apellido" styleClass="input-field" />
+               <TextField fx:id="txtApellido" promptText="Introduce tu primer apellido" styleClass="input-field" />
 
                <Label styleClass="input-label" text="Segundo apellido" />
-               <TextField fx:id="apellido2Field" promptText="Introduce tu segundo apellido" styleClass="input-field" />
+               <TextField fx:id="txtApellido2" promptText="Introduce tu segundo apellido" styleClass="input-field" />
 
                <Label styleClass="input-label" text="Fecha de nacimiento" />
-               <TextField fx:id="fechaNacField" promptText="dd/mm/aaaa" styleClass="input-field" />
+               <DatePicker fx:id="txtFechaNacimiento" prefHeight="33.0" prefWidth="319.0" promptText="dd/mm/aa" />
 
                <Label styleClass="input-label" text="Provincia" />
-               <TextField fx:id="provinciaField" promptText="Introduce tu provincia" styleClass="input-field" />
+               <TextField fx:id="txtProvincia" promptText="Introduce tu provincia" styleClass="input-field" />
             </VBox>
 
             <VBox spacing="14" GridPane.columnIndex="1">
                <Label styleClass="input-label" text="Tipo de vía" />
-               <TextField fx:id="tipoViaField" promptText="Calle, Avenida..." styleClass="input-field" />
+               <ComboBox fx:id="txtTipoVia" prefHeight="34.0" prefWidth="320.0" />
 
                <Label styleClass="input-label" text="Teléfono" />
-               <TextField fx:id="telefonoField" promptText="000 000 000" styleClass="input-field" />
+               <TextField fx:id="txtTelefono" promptText="000 000 000" styleClass="input-field" />
 
                <Label styleClass="input-label" text="Correo electrónico" />
-               <TextField fx:id="emailField" promptText="ejemplo@correo.com" styleClass="input-field" />
+               <TextField fx:id="txtCorreo" promptText="ejemplo@correo.com" styleClass="input-field" />
 
                <Label styleClass="input-label" text="Contraseña" />
-               <PasswordField fx:id="passwordField" promptText="Mínimo 8 caracteres" styleClass="input-field" />
+               <PasswordField fx:id="txtContraseña" promptText="Mínimo 8 caracteres" styleClass="input-field" />
 
                <Label styleClass="input-label" text="Confirmar contraseña" />
-               <PasswordField fx:id="confirmPasswordField" promptText="Repite la contraseña" styleClass="input-field" />
+               <PasswordField fx:id="txtConfirmarContraseña" promptText="Repite la contraseña" styleClass="input-field" />
             </VBox>
 
          </GridPane>
@@ -54,5 +51,6 @@
             <Button fx:id="btnVolverCliente" onAction="#btnVolverCliente" styleClass="boton-secundario" text="Volver" />
          </HBox>
       </VBox>
+      <DatePicker layoutX="-203.0" layoutY="38.0" />
    </children>
 </AnchorPane>
