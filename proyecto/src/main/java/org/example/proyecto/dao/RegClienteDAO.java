@@ -1,22 +1,20 @@
+
 package org.example.proyecto.dao;
 
 import org.example.proyecto.utils.ConexionBaseDatos;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 
 public class RegClienteDAO {
 
-    public static boolean registrarCliente(
+    public static int registrarCliente(
             String nombre, String apellido1, String apellido2, Date fechaNacimiento,
             String telefono, String calle, String ciudad, String correo
     ) throws SQLException {
 
         String sql = """
-            INSERT INTO Cliente (
+            INSERT INTO Clientes (
                 ID, Nombre, Apellido1, Apellido2, Fecha_Nacimiento, Telefono,
                 Calle, Ciudad, Correo_Electronico, Fecha_Alta, Fecha_Modificacion
             ) VALUES (
@@ -24,8 +22,11 @@ public class RegClienteDAO {
             )
         """;
 
+        String sqlID = "SELECT cliente_seq.CURRVAL FROM dual";
+
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             PreparedStatement stmtId = conn.prepareStatement(sqlID)) {
 
             stmt.setString(1, nombre);
             stmt.setString(2, apellido1);
@@ -37,11 +38,19 @@ public class RegClienteDAO {
             stmt.setString(8, correo);
 
             Date hoy = Date.valueOf(LocalDate.now());
-            stmt.setDate(9, hoy);  // Fecha_Alta
-            stmt.setDate(10, hoy); // Fecha_Modificacion
+            stmt.setDate(9, hoy);
+            stmt.setDate(10, hoy);
 
-            return stmt.executeUpdate() > 0;
+            int rows = stmt.executeUpdate();
+
+            if (rows > 0) {
+                try (ResultSet rs = stmtId.executeQuery()) {
+                    if (rs.next()) {
+                        return rs.getInt(1);
+                    }
+                }
+            }
+            return -1;
         }
     }
 }
-
