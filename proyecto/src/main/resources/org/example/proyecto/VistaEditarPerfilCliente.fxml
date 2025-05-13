@@ -55,7 +55,7 @@
                         <PasswordField fx:id="txtConfirmarContraseña" promptText="Repite la contraseña" styleClass="input-field" />
                     </VBox>
                <TextField fx:id="txtCorreo1" layoutX="10.0" layoutY="204.0" promptText="Introduce tu contraseña" styleClass="input-field" />
-               <Label layoutX="10.0" layoutY="172.0" styleClass="input-label" text="Repetir contraseña" />
+               <Label layoutX="10.0" layoutY="172.0" styleClass="input-label" text="Confirmar contraseña" />
                <TextField fx:id="txtCorreo2" layoutX="10.0" layoutY="204.0" promptText="Repetir contraseña" styleClass="input-field" />
                 </VBox>
             <rowConstraints>
