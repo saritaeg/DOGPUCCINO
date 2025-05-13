@@ -117,60 +117,30 @@ CREATE TABLE Solicitud_adopcion (
     foreign key (Perro_ID) references Perros(ID)
 );
 
-CREATE SEQUENCE cliente_seq
-    START WITH 1
-    INCREMENT BY 1
-    NOCACHE
-    NOCYCLE;
 
-SELECT trigger_name, status FROM user_triggers WHERE trigger_name = 'CONTROLCLIENTES';
-ALTER TRIGGER CONTROLCLIENTES COMPILE;
-SHOW ERRORS TRIGGER CONTROLCLIENTES;
-SELECT * 
-FROM all_triggers 
-WHERE trigger_name = 'CONTROLCLIENTES';
 
-CREATE OR REPLACE TRIGGER CONTROLCLIENTES
-BEFORE INSERT ON CLIENTES
-FOR EACH ROW
-BEGIN
-    -- Asignar la fecha actual a los campos de fecha de alta y fecha de modificación
-    :NEW.Fecha_Alta := SYSDATE;
-    :NEW.Fecha_Modificacion := SYSDATE;
-    
-    -- Otros posibles controles, como establecer valores predeterminados
-    -- :NEW.CampoX := 'valor predeterminado';
-END;
-/
-SELECT sequence_name
-FROM user_sequences
-WHERE sequence_name = 'USUARIO_SEQ';
 
-CREATE SEQUENCE usuario_seq
-START WITH 1  -- Inicia la secuencia desde 1
-INCREMENT BY 1;  -- Incrementa de 1 en 1
+create sequence cliente_seq
+    start with 1
+    increment by 1;
 
-SELECT cliente_seq.CURRVAL FROM DUAL;
-SELECT cliente_seq.NEXTVAL FROM DUAL;
+create sequence usuario_seq
+    start with 1  -- Inicia la secuencia desde 1
+    increment by 1;  -- Incrementa de 1 en 1
 
-INSERT INTO Clientes (
-    ID, Nombre, Apellido1, Apellido2, Fecha_Nacimiento, Telefono,
-    Calle, Ciudad, Correo_Electronico, Fecha_Alta, Fecha_Modificacion
-) VALUES (
-    cliente_seq.NEXTVAL, :1, :2, :3, :4, :5, :6, :7, :8, :9, :10
-);
 
-CREATE OR REPLACE TRIGGER trg_usuarios_rol
-BEFORE INSERT ON USUARIOS
-FOR EACH ROW
-BEGIN
-  IF :NEW.ID_CLIENTES IS NOT NULL THEN
+
+create or replace trigger rolUsuarios
+before insert on USUARIOS
+for each row
+begin
+  if :NEW.ID_CLIENTES is not null then
     :NEW.ROL := 'CLIENTE';
-  ELSIF :NEW.CIF_PROTECTORAS IS NOT NULL THEN
+  elsif :NEW.CIF_PROTECTORAS is not null then
     :NEW.ROL := 'PROTECTORA';
-  ELSE
-    RAISE_APPLICATION_ERROR(-20001, 'Debe especificar ID_CLIENTES o CIF_PROTECTORAS para asignar el rol.');
-  END IF;
+  else
+    RAISE_APPLICATION_ERROR(-20001, 'Tiene que indicar or el idCLiente o el CIF de la protectora');
+  end if;
 END;
 /
 
