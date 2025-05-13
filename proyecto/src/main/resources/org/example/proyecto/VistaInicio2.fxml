@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.Inicio2Controlador">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.Inicio2Controlador">
 
     <children>
         <ImageView fitHeight="513.0" fitWidth="900.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
@@ -13,7 +13,7 @@
                 <Cursor fx:constant="DEFAULT" />
             </cursor>
             <image>
-                <Image url="@../../../../java/imagenes/img1.png" />
+                <Image url="@../../../imagenes/fondo.png" />
             </image>
         </ImageView>
         <Button fx:id="btnClientes" layoutX="135.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnClientes" text="Clientes" textAlignment="CENTER" />
