@@ -127,7 +127,7 @@ public class PerrosCliControlador {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasCliPasadas.fxml"));
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();
+            Stage stage = (Stage) btnCitasCliente.getScene().getWindow();
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -141,10 +141,10 @@ public class PerrosCliControlador {
     @FXML
     private void btnNosotrosCliente(ActionEvent event) {
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasCliPasadas.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaSobreNosotros.fxml"));
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();
+            Stage stage = (Stage) btnNosotrosCliente.getScene().getWindow();
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -155,17 +155,12 @@ public class PerrosCliControlador {
 
     }
     @FXML
-    private void btnMasPerrosCliente(ActionEvent event) {
-
-
-    }
-    @FXML
     private void btnMasInformacion(ActionEvent event) {
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasCliPasadas.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerfilPerro.fxml"));
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();
+            Stage stage = (Stage) btnMasInformacion.getScene().getWindow();
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -177,10 +172,28 @@ public class PerrosCliControlador {
     }
     @FXML
     private void btnMasInformacion2(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerfilPerro.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnMasInformacion2.getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    private void btnMasPerroCliente2(ActionEvent event) {
 
     }
     @FXML
-    private void btnMasPerroCliente2(ActionEvent event) {
+    private void btnMasPerrosCliente(ActionEvent event) {
+
 
     }
 
