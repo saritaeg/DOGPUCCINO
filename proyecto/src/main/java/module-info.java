@@ -1,4 +1,4 @@
-module org.example.proyecto {
+0module org.example.proyecto {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -12,7 +12,7 @@ module org.example.proyecto {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires java.desktop;
-    requires annotations;
+    requires com.oracle.database.jdbc;
     opens org.example.proyecto.controlador to javafx.fxml;
 
     opens org.example.proyecto to javafx.fxml;
