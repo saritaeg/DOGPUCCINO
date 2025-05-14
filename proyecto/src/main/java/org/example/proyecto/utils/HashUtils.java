@@ -1,4 +1,4 @@
-package org.example.proyecto.modelo;
+package org.example.proyecto.utils;
 import java.security.MessageDigest;
 import java.nio.charset.StandardCharsets;
 import org.mindrot.jbcrypt.BCrypt;
