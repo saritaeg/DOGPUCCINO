@@ -5,10 +5,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.awt.*;
+import javafx.scene.control.TextField;
+
 import javafx.event.ActionEvent;
 import java.nio.Buffer;
 import javafx.scene.control.Button;
+import org.example.proyecto.servicio.RegistroProtectoraServicio;
+import org.example.proyecto.utils.Alertas;
+
 import java.io.IOException;
 
 public class RegProtectoraControlador {
@@ -16,6 +20,25 @@ public class RegProtectoraControlador {
     private Button btnRegistrar;
     @FXML
     private Button btnVolver;
+
+    @FXML
+    private TextField txtNombre;
+    @FXML
+    private TextField txtCiudad;
+    @FXML
+    private TextField txtCIF;
+    @FXML
+    private TextField txtCalle;
+    @FXML
+    private TextField txtCorreo;
+    @FXML
+    private TextField txtTelefono;
+    @FXML
+    private TextField txtRedes;
+    @FXML
+    private TextField txtContraseña;
+
+
 
     @FXML
     private void btnVolver(ActionEvent event) {
@@ -33,5 +56,32 @@ public class RegProtectoraControlador {
 
     }
     @FXML
-    private void btnRegistrar(ActionEvent event) {}
+    private void btnRegistrar(ActionEvent event) {
+        try{
+            String nombre = txtNombre.getText();
+            String ciudad = txtCiudad.getText();
+            String cif = txtCIF.getText();
+            String calle = txtCalle.getText();
+            String correo = txtCorreo.getText();
+            String telefono = txtTelefono.getText();
+            String redes = txtRedes.getText();
+            String contraseña = txtContraseña.getText();
+
+            boolean exito = RegistroProtectoraServicio.registrarProtectorayUsuario(nombre,ciudad,cif,calle,correo,telefono,redes,contraseña);
+            if(exito){
+                Alertas.mostrarAlerta("Registro Conseguido", "La protectora se ha registrado con exito.");
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosCli.fxml"));
+                Parent root = fxmlLoader.load();
+
+                Stage stage = (Stage) btnRegistrar.getScene().getWindow();
+
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+            }else {
+                Alertas.mostrarAlerta("ERROR", "La protectora no se puede registrar con exito.");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="620.0" prefWidth="1000.0" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.RegClienteControlador">
+<AnchorPane prefHeight="620.0" prefWidth="1000.0" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.RegClienteControlador">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1000.0" spacing="30" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <StackPane styleClass="header">
@@ -44,6 +44,13 @@
                <Label styleClass="input-label" text="Confirmar contraseña" />
                <PasswordField fx:id="txtConfirmarContraseña" promptText="Repite la contraseña" styleClass="input-field" />
             </VBox>
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+            </rowConstraints>
 
          </GridPane>
          <HBox alignment="CENTER" spacing="25">
@@ -51,6 +58,5 @@
             <Button fx:id="btnVolverCliente" onAction="#btnVolverCliente" styleClass="boton-secundario" text="Volver" />
          </HBox>
       </VBox>
-      <DatePicker layoutX="-203.0" layoutY="38.0" />
    </children>
 </AnchorPane>

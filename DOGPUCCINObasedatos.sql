@@ -23,7 +23,6 @@ CREATE TABLE Protectoras (
     Calle varchar2(50),
     Ciudad varchar2(50),
     Redes_Sociales varchar2(100),
-    ID_Usuario number,
     Fecha_alta date,
     Fecha_modificacion date
 );
@@ -32,7 +31,7 @@ CREATE TABLE Usuarios (
     ID number primary key,
     ID_Clientes number unique,
     CIF_Protectoras char(9) unique,
-    Contrasenia varchar2(15) unique not null,
+    Contrasenia varchar2(15) not null,
     Rol varchar2(10) not null,
     Fecha_alta date,
     Fecha_modificacion date,
@@ -117,8 +116,35 @@ CREATE TABLE Solicitud_adopcion (
     foreign key (Perro_ID) references Perros(ID)
 );
 
+
+
+
+create sequence cliente_seq
+    start with 1
+    increment by 1;
+
+create sequence usuario_seq
+    start with 1  -- Inicia la secuencia desde 1
+    increment by 1;  -- Incrementa de 1 en 1
+
+
+
+create or replace trigger rolUsuarios
+before insert on USUARIOS
+for each row
+begin
+  if :NEW.ID_CLIENTES is not null then
+    :NEW.ROL := 'CLIENTE';
+  elsif :NEW.CIF_PROTECTORAS is not null then
+    :NEW.ROL := 'PROTECTORA';
+  else
+    RAISE_APPLICATION_ERROR(-20001, 'Tiene que indicar or el idCLiente o el CIF de la protectora');
+  end if;
+END;
+/
+
+
 /*
-   
     DROP TABLE SOLICITUD_ADOPCION;
     DROP TABLE RESERVAN;
     DROP TABLE perros_patologias;
