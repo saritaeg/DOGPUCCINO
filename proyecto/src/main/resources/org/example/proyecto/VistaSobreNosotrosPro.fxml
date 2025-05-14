@@ -13,8 +13,8 @@
 
 
    <HBox alignment="CENTER" layoutY="120.0" prefWidth="800" spacing="20" styleClass="button-container">
-      <Button fx:id="btnPerros" onAction="#btnPerros" styleClass="nav-button" text="Perros" />
       <Button fx:id="btnNotificaciones" onAction="#btnNotificaciones" styleClass="nav-button" text="Notificaciones" />
+      <Button fx:id="btnPerros" onAction="#btnPerros" styleClass="nav-button" text="Perros" />
       <Button fx:id="btnCitas" onAction="#btnCitas" styleClass="nav-button" text="Citas" />
       <Button fx:id="btnSobreNosotros" onAction="#btnSobreNosotros" styleClass="nav-button, active" text="Sobre nosotros" />
    </HBox>

@@ -3,12 +3,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500" prefWidth="700" stylesheets="@EstiloTramitarCita.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500" prefWidth="700" stylesheets="@EstiloTramitarCita.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.TramitarCitaControlador">
 
     <VBox styleClass="header" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
 
         <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar">
-            <Button styleClass="back-button" text="←" />
+            <Button fx:id="btnAtras" onAction="#btnAtras" styleClass="back-button" text="←" />
             <Region HBox.hgrow="ALWAYS" />
             <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
             <Region HBox.hgrow="ALWAYS" />
@@ -22,35 +22,42 @@
     <AnchorPane prefHeight="300.0" prefWidth="700.0" AnchorPane.topAnchor="130.0">
         <VBox alignment="CENTER" layoutX="50.0" layoutY="100.0" prefWidth="600.0" spacing="15.0" styleClass="dog-card">
 
-            <!-- Nueva sección para el Nombre -->
+
 
             <GridPane hgap="10" vgap="5">
-                <!-- Columna para el Nombre -->
-                <Label style="-fx-font-weight: bold;" prefHeight="15.0" prefWidth="75.0" text="Nombre:" GridPane.columnIndex="1" />
+
+                <Label prefHeight="15.0" prefWidth="75.0" style="-fx-font-weight: bold;" text="Nombre:" GridPane.columnIndex="1" />
                 <TextField prefHeight="42.0" prefWidth="233.0" GridPane.columnIndex="2" />
 
-                <!-- Espaciador más grande entre Nombre y Donación -->
                 <Region prefHeight="42.0" GridPane.columnIndex="3" />
 
-                <!-- Columna para la Donación -->
                 <HBox alignment="CENTER_LEFT" spacing="20.0" GridPane.columnIndex="4">
                     <VBox alignment="CENTER_RIGHT">
                         <Button styleClass="donation-button" text="DONACIÓN" />
                         <Label styleClass="donation-note" text="(mínimo 3€)" />
                     </VBox>
                 </HBox>
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+               <ColumnConstraints />
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+            </rowConstraints>
             </GridPane>
 
 
 
             <HBox alignment="CENTER" spacing="20.0">
-                <!-- Fecha de la cita -->
+
                 <VBox alignment="CENTER" prefHeight="61.0" prefWidth="366.0" spacing="5.0">
                     <Label styleClass="form-label" text="FECHA PARA LA CITA" />
                     <DatePicker fx:id="fechaCitaPicker" styleClass="form-picker" />
                 </VBox>
 
-                <!-- Hora de la cita -->
                 <VBox alignment="CENTER" prefHeight="61.0" prefWidth="365.0" spacing="5.0">
                     <Label styleClass="form-label" text="HORA PARA LA CITA" />
                     <ChoiceBox fx:id="horaCitaChoiceBox" prefHeight="23.0" prefWidth="117.0" styleClass="form-picker" />
@@ -58,7 +65,6 @@
                 </VBox>
             </HBox>
 
-            <!-- Botón para Solicitar la Cita -->
             <Button styleClass="submit-button" text="SOLICITAR CITA" />
         </VBox>
     </AnchorPane>

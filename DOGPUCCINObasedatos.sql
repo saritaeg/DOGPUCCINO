@@ -52,7 +52,6 @@ CREATE TABLE Perros (
     Calle varchar2(50),
     Ciudad varchar2(50),
     Adoptado char(1) check (Adoptado in ('S', 'N')),
-    CIF char(9), 
     Fecha_alta date,
     Fecha_modificacion date,
     Foto varchar2(20),

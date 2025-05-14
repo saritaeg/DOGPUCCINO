@@ -5,7 +5,7 @@
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.NotProtNuevacitaControlador">
+<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.NotProtNuevacitaControlador">
 
     <top>
         <VBox spacing="10">
@@ -16,8 +16,8 @@
             </HBox>
 
             <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
-                <Button fx:id="btnPerrosProtectora" onAction="#btnPerrosProtectora" styleClass="tab-button" text="Perros" />
                 <Button fx:id="btnNotificacionesProtectora" styleClass="tab-button, active" text="Notificaciones" />
+                <Button fx:id="btnPerrosProtectora" onAction="#btnPerrosProtectora" styleClass="tab-button" text="Perros" />
                 <Button fx:id="btnCitasProtectora" onAction="#btnCitasProtectora" styleClass="tab-button" text="Citas" />
                 <Button fx:id="btnSobreNosotrosProtectora" onAction="#btnSobreNosotrosProtectora" styleClass="tab-button" text="Sobre nosotros" />
             </HBox>

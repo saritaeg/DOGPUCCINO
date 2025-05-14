@@ -17,8 +17,8 @@
             </HBox>
 
             <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
-                <Button fx:id="btnPerros" onAction="#btnPerros" styleClass="tab-button" text="Perros" />
                 <Button fx:id="btnNotificaciones" onAction="#btnNotificaciones" styleClass="tab-button, active" text="Notificaciones" />
+                <Button fx:id="btnPerros" onAction="#btnPerros" styleClass="tab-button" text="Perros" />
                 <Button fx:id="btnCitas" onAction="#btnCitas" styleClass="tab-button" text="Citas" />
                 <Button fx:id="btnSobreNosotros" onAction="#btnSobreNosotros" styleClass="tab-button" text="Sobre nosotros" />
             </HBox>
