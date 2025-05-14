@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.Inicio2Controlador">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.Inicio2Controlador">
 
     <children>
         <ImageView fitHeight="513.0" fitWidth="900.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
@@ -16,7 +16,14 @@
                 <Image url="@../../../imagenes/fondo.png" />
             </image>
         </ImageView>
-        <Button fx:id="btnClientes" layoutX="135.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnClientes" text="Clientes" textAlignment="CENTER" />
-        <Button fx:id="btnProtectora" layoutX="274.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnProtectora" text="Protectora" />
+        <Button fx:id="btnClientes" layoutX="122.0" layoutY="323.0" mnemonicParsing="false" onAction="#btnClientes" style="-fx-background-color: #cec1ab;" text="Clientes" textAlignment="CENTER" />
+        <Button fx:id="btnProtectora" layoutX="287.0" layoutY="323.0" mnemonicParsing="false" onAction="#btnProtectora" style="-fx-background-color: #cec1ab;" text="Protectora" />
+        <Button fx:id="btnAtras" layoutX="129.0" layoutY="39.0" mnemonicParsing="false" onAction="#btnAtras" prefHeight="141.0" prefWidth="148.0" textFill="WHITE">
+            <style>
+                -fx-background-color: transparent;
+                -fx-border-color: transparent;
+            </style>
+        </Button>
+
     </children>
 </Pane>

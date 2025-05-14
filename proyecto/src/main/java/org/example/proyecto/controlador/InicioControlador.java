@@ -25,6 +25,7 @@ public class InicioControlador {
     @FXML
     private Button btnIniciarSesion;
 
+
     @FXML
     private void btnRegistrarse(ActionEvent event) {
         try {

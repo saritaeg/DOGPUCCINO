@@ -16,6 +16,8 @@ public class Inicio2Controlador {
     private Button btnClientes;
     @FXML
     private Button btnProtectora;
+    @FXML
+    private Button btnAtras;
 
     @FXML
     private void btnClientes(ActionEvent event) {
@@ -39,6 +41,21 @@ public class Inicio2Controlador {
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnProtectora.getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+    @FXML
+    private void btnAtras(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicio.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnAtras.getScene().getWindow();
 
             Scene scene = new Scene(root);
             stage.setScene(scene);

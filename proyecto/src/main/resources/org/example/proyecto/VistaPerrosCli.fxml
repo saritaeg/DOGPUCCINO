@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="root" prefHeight="460.0" prefWidth="679.0" stylesheets="@EstiloMenu.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.PerrosCliControlador">
+<BorderPane fx:id="root" prefHeight="520.0" prefWidth="735.0" stylesheets="@EstiloMenu.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.PerrosCliControlador">
 
     <top>
         <VBox spacing="10">
@@ -13,7 +13,7 @@
                 <Region HBox.hgrow="ALWAYS" />
                 <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="btnEditarPerfilCliente" mnemonicParsing="false" onAction="#btnEditarPerfilCliente" prefHeight="23.0" prefWidth="113.0" styleClass="tab-button" text="Editar Perfil">
+                <Button fx:id="btnEditarPerfilCliente" mnemonicParsing="false" onAction="#btnEditarPerfilCliente" prefHeight="32.0" prefWidth="110.0" styleClass="tab-button" text="Cliente">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
                             <image>
@@ -25,8 +25,8 @@
             </HBox>
 
             <HBox alignment="CENTER" spacing="15" styleClass="tabs-bar">
-                <Button fx:id="btnPerrosCliente" onAction="#btnPerrosCliente" style="-fx-font-weight: bold;" styleClass="tab-button" text="_Perros" />
                 <Button fx:id="btnNotificacionesCliente" onAction="#btnNotificacionesCliente" styleClass="tab-button" text="Notificaciones" />
+                <Button fx:id="btnPerrosCliente" onAction="#btnPerrosCliente" style="-fx-font-weight: bold;" styleClass="tab-button" text="_Perros" />
                 <Button fx:id="btnCitasCliente" onAction="#btnCitasCliente" styleClass="tab-button" text="Citas" />
                 <Button fx:id="btnNosotrosCliente" onAction="#btnNosotrosCliente" prefWidth="110.0" styleClass="tab-button" text="Sobre nosotros" />
             </HBox>
@@ -61,6 +61,18 @@
 
                     <Label text="Protectora:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                     <TextField fx:id="txtProtectoraCli" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
                 </GridPane>
                 <Button fx:id="btnMasInformacion" onAction="#btnMasInformacion" styleClass="info-button" text="MÁS INFORMACIÓN" />
             </VBox>
