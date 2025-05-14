@@ -72,7 +72,7 @@ public class NotProtNuevacitaControlador {
     @FXML
     private void btnSobreNosotrosProtectora(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaSobreNosotros.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaSobreNosotrosCli.fxml"));
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnSobreNosotrosProtectora.getScene().getWindow();

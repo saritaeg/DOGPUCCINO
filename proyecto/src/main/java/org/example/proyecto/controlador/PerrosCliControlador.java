@@ -141,7 +141,7 @@ public class PerrosCliControlador {
     @FXML
     private void btnNosotrosCliente(ActionEvent event) {
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaSobreNosotros.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaSobreNosotrosCli.fxml"));
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnNosotrosCliente.getScene().getWindow();

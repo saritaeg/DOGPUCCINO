@@ -10,9 +10,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class SobreNosotrosControlador {
+public class NotCliCancelacionControlador {
     @FXML
-    private Button btnVolverInicio;
+    private Button btnAtras;
     @FXML
     private Button btnPerros;
     @FXML
@@ -21,14 +21,18 @@ public class SobreNosotrosControlador {
     private Button btnCitas;
     @FXML
     private Button btnSobreNosotros;
+    @FXML
+    private Button btnCancelacionCita;
+    @FXML
+    private Button btnCambioEstado;
 
     @FXML
-    private void btnVolverInicio(ActionEvent event) {
+    private void btnAtras(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicio.fxml"));
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnVolverInicio.getScene().getWindow();
+            Stage stage = (Stage) btnAtras.getScene().getWindow();
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -53,7 +57,7 @@ public class SobreNosotrosControlador {
 
     }
     @FXML
-    private void btnNotificaciones (ActionEvent event) {
+    private void btnNotificaciones(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCancelacion.fxml"));
             Parent root = fxmlLoader.load();
@@ -70,7 +74,7 @@ public class SobreNosotrosControlador {
     @FXML
     private void btnCitas(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasCliPasadas.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasCliPendientes.fxml"));
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnCitas.getScene().getWindow();
@@ -97,5 +101,34 @@ public class SobreNosotrosControlador {
         }
 
     }
+    @FXML
+    private void btnCancelacionCita(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCancelacion.fxml"));
+            Parent root = fxmlLoader.load();
 
+            Stage stage = (Stage) btnCancelacionCita.getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    @FXML
+    private void btnCambioEstado(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCambioestad.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnCambioEstado.getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
