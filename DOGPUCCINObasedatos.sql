@@ -23,7 +23,6 @@ CREATE TABLE Protectoras (
     Calle varchar2(50),
     Ciudad varchar2(50),
     Redes_Sociales varchar2(100),
-    ID_Usuario number,
     Fecha_alta date,
     Fecha_modificacion date
 );
@@ -32,7 +31,7 @@ CREATE TABLE Usuarios (
     ID number primary key,
     ID_Clientes number unique,
     CIF_Protectoras char(9) unique,
-    Contrasenia varchar2(15) unique not null,
+    Contrasenia varchar2(15) not null,
     Rol varchar2(10) not null,
     Fecha_alta date,
     Fecha_modificacion date,

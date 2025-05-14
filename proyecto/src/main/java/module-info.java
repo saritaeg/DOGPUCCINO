@@ -1,4 +1,4 @@
-0module org.example.proyecto {
+module org.example.proyecto {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
