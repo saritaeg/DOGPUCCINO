@@ -10,7 +10,7 @@ public class RegClienteDAO {
 
     public static int registrarCliente(
             String nombre, String apellido1, String apellido2, Date fechaNacimiento,
-            String telefono, String calle, String ciudad, String correo
+            String telefono, String calle, String ciudad, String correo_electronico
     ) throws SQLException {
 
         String sql = """
@@ -35,7 +35,7 @@ public class RegClienteDAO {
             prueba.setString(5, telefono);
             prueba.setString(6, calle);
             prueba.setString(7, ciudad);
-            prueba.setString(8, correo);
+            prueba.setString(8, correo_electronico);
 
             Date hoy = Date.valueOf(LocalDate.now());
             prueba.setDate(9, hoy);

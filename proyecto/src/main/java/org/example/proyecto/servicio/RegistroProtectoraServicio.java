@@ -10,12 +10,12 @@ import java.time.LocalDate;
 public class RegistroProtectoraServicio {
     public static boolean registrarProtectorayUsuario(
             String nombre, String ciudad, String cif, String calle,
-            String correo, String telefono, String redes, String contraseña
+            String correo, String telefono, String redes, String contrasenia
     ) {
         try {
             boolean Protectora = RegProtectoraDAO.registrarProtectora(cif, nombre, calle, ciudad, correo, telefono, redes);
             if (Protectora) {
-                Boolean usuarioRegistrado = UsuarioDAO.registrarUsuarioParaProtectora(cif, contraseña);
+                Boolean usuarioRegistrado = UsuarioDAO.registrarUsuarioParaProtectora(cif, contrasenia);
                 if (usuarioRegistrado) {
                     return true;
                 } else

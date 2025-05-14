@@ -16,6 +16,8 @@ import org.example.proyecto.utils.ConexionBaseDatos;
 import org.mindrot.jbcrypt.BCrypt;
 import org.example.proyecto.dao.UsuarioDAO;
 
+import static org.example.proyecto.dao.UsuarioDAO.verificarContrasenia;
+
 public class InicioControlador {
     @FXML
     private Button btnRegistrarse;
@@ -63,50 +65,37 @@ public class InicioControlador {
     @FXML
     private void btnAcceso(ActionEvent event) throws SQLException {
         String email = emailField.getText();
-        String password = passwordField.getText();
+        String password = passwordField.getText().trim();  // Agregar trim para eliminar espacios al principio o final
 
-        // Primero, verificar si el correo existe en la base de datos
-        if (correoExiste(email)) {
-            // Si el correo existe, verificamos la contraseña
-            if (verificarContraseña(email, password)) {
-                String rol = obtenerRol(email);
-                String nombre = obtenerNombre(email);
 
-                if ("CLIENTE".equalsIgnoreCase(rol)) {
-                    cargarVista("/org/example/proyecto/VistaPerrosCli.fxml");
-                    mostrarBienvenida(nombre, "Cliente");
-                } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
-                    cargarVista("/org/example/proyecto/VistaPerrosProt.fxml");
-                    mostrarBienvenida(nombre, "Protectora");
-                } else {
-                    mostrarAlerta("El usuario no tiene un rol válido.");
-                }
+        if (verificarContrasenia(email, password)) {
+            String rol = obtenerRol(email);
+            String nombre = obtenerNombre(email);
+
+            if ("CLIENTE".equalsIgnoreCase(rol)) {
+                cargarVista("/org/example/proyecto/VistaPerrosCli.fxml");
+                mostrarBienvenida(nombre, "Cliente");
+            } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
+                cargarVista("/org/example/proyecto/VistaPerrosProt.fxml");
+                mostrarBienvenida(nombre, "Protectora");
             } else {
-                // Si la contraseña es incorrecta
-                mostrarAlerta("Contraseña incorrecta.");
+                mostrarAlerta("El usuario no tiene un rol válido.");
             }
         } else {
-            // Si el correo no existe
-            mostrarAlerta("Correo electrónico no encontrado.");
+            mostrarAlerta("Contraseña incorrecta.");
         }
+
     }
 
-    // Método para verificar si el correo existe en la base de datos
-    private boolean correoExiste(String email) throws SQLException {
-        // Aquí deberías llamar a la base de datos para comprobar si el correo existe
-        // Ejemplo de pseudocódigo: SELECT COUNT(*) FROM Usuarios WHERE email = ?
-        // Si el correo existe, devolver true, si no, devolver false
-        return UsuarioDAO.correoExiste(email);
+    private boolean correoExiste(String correo) throws SQLException {
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        return usuarioDAO.correoExiste(correo);
     }
 
-    // Método para verificar la contraseña con el correo proporcionado
-    private boolean verificarContraseña(String email, String password) throws SQLException {
-        // Aquí deberías verificar la contraseña usando el método adecuado (como BCrypt)
-        // Ejemplo de pseudocódigo: SELECT contrasenia FROM Usuarios WHERE email = ?
-        // Comparar la contraseña ingresada con la contraseña almacenada (hasheada)
-        String contraseniaGuardada = UsuarioDAO.obtenerContraseniaPorEmail(email); // Obtener la contraseña hasheada
-        return BCrypt.checkpw(password, contraseniaGuardada); // Verificar si la contraseña ingresada coincide con la hasheada
-    }
+
+
+
+
 
 
     private String obtenerNombre(String email) {
@@ -139,39 +128,7 @@ public class InicioControlador {
         System.out.println("Bienvenido, " + nombre + " (" + rol + ")");
     }
 
-    public static boolean verificarCredenciales(String correo, String contrasenia) throws SQLException {
-        String sql = """
-    SELECT u.Contrasenia FROM Usuarios u
-    JOIN Clientes c ON u.ID_Clientes = c.ID
-    WHERE c.Correo_Electronico = ? 
-    UNION
-    SELECT u.Contrasenia FROM Usuarios u
-    JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
-    WHERE p.Correo_Electronico = ?
-    """;
 
-        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, correo);
-            stmt.setString(2, correo);
-
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                String hashedPassword = rs.getString("Contrasenia");
-
-                if (hashedPassword != null && !hashedPassword.isEmpty()) {
-
-                    return BCrypt.checkpw(contrasenia, hashedPassword);
-                } else {
-                    System.err.println("Hash inválido para el usuario: " + correo);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
 
     private String obtenerRol(String email) {

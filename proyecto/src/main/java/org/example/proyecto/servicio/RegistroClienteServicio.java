@@ -13,15 +13,15 @@ public class RegistroClienteServicio {
     public static boolean registrarClienteYUsuario(
             String nombre, String apellido, String apellido2,
             LocalDate fechaNacimiento, String telefono, String tipoVia,
-            String provincia, String correo, String contraseña, String confirmarContraseña
+            String provincia, String correo, String contrasenia, String confirmarContrasenia
     ) throws SQLException {
 
-        if (!contraseña.equals(confirmarContraseña)) {
+        if (!contrasenia.equals(confirmarContrasenia)) {
             throw new IllegalArgumentException("Las contraseñas no coinciden.");
         }
 
         // Hashear la contraseña antes de guardarla
-        String hashedPassword = BCrypt.hashpw(contraseña, BCrypt.gensalt());
+        String hashedPassword = BCrypt.hashpw(contrasenia, BCrypt.gensalt());
 
         int idCliente = RegClienteDAO.registrarCliente(
                 nombre, apellido, apellido2,
