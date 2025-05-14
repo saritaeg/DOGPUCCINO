@@ -11,7 +11,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar" xmlns:fx="http://javafx.com/fxml">
                 <Button styleClass="back-button" text="←" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
+                <Label prefHeight="37.0" prefWidth="227.0" styleClass="title" text="DOGPUCCINO" />
                 <Region HBox.hgrow="ALWAYS" />
             </HBox>
 
@@ -20,6 +20,16 @@
                 <ToggleButton styleClass="tab-button" text="Notificaciones" />
                 <ToggleButton styleClass="tab-button" text="Citas" />
                 <ToggleButton prefWidth="110.0" styleClass="tab-button" text="Sobre nosotros" />
+                <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="113.0" styleClass="tab-button" text="Editar Perfil">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../imagenes/usuario.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
             </HBox>
         </VBox>
     </top>
