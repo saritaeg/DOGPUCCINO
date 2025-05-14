@@ -26,8 +26,10 @@
 
     <center>
         <VBox alignment="TOP_CENTER" spacing="15" styleClass="dog-list-wrapper">
+        <!-- Botón "Añadir perro +" -->
             <Button style="-fx-font-weight: bold;" text="AÑADIR PERRO +" styleClass="tab-button" />
 
+        <!-- Contenedor de las tarjetas de perros -->
             <HBox alignment="CENTER" prefHeight="363.0" prefWidth="679.0" spacing="20" styleClass="dog-list-container">
                 <Button styleClass="nav-button" text="❮" />
 
