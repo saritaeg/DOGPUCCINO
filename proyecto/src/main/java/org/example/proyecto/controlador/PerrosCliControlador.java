@@ -106,6 +106,19 @@ public class PerrosCliControlador {
     }
     @FXML
     private void btnNotificacionesCliente(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCancelacion.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
 
     }
     @FXML
