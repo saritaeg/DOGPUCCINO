@@ -3,6 +3,7 @@ package org.example.proyecto.servicio;
 import oracle.jdbc.driver.DBConversion;
 import org.example.proyecto.dao.RegClienteDAO;
 import org.example.proyecto.dao.UsuarioDAO;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -19,6 +20,9 @@ public class RegistroClienteServicio {
             throw new IllegalArgumentException("Las contraseñas no coinciden.");
         }
 
+        // Hashear la contraseña antes de guardarla
+        String hashedPassword = BCrypt.hashpw(contraseña, BCrypt.gensalt());
+
         int idCliente = RegClienteDAO.registrarCliente(
                 nombre, apellido, apellido2,
                 Date.valueOf(fechaNacimiento),
@@ -26,7 +30,7 @@ public class RegistroClienteServicio {
         );
 
         if (idCliente > 0) {
-            return UsuarioDAO.registrarUsuario(idCliente, contraseña);
+            return UsuarioDAO.registrarUsuario(idCliente, hashedPassword);
         } else {
             return false;
         }

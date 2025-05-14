@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="org.example.proyecto.controlador.InicioControlador" prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@EstiloInicioSesion.css" />
     </stylesheets>
@@ -21,7 +21,7 @@
                 <Label styleClass="input-label" text="Contraseña" />
                 <PasswordField fx:id="passwordField" styleClass="input-field" />
 
-                <Button styleClass="login-button" text="Acceso" />
+                <Button  fx:id="btnAcceso" onAction="#btnAcceso" styleClass="login-button" text="Acceso" />
             </VBox>
         </VBox>
     </children>

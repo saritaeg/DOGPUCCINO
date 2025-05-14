@@ -4,50 +4,219 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import javafx.event.ActionEvent;
-import java.nio.Buffer;
 import javafx.scene.control.Button;
 import java.io.IOException;
+import java.sql.*;
+import javafx.scene.control.TextField;
+import org.example.proyecto.utils.ConexionBaseDatos;
+import org.mindrot.jbcrypt.BCrypt;
+import org.example.proyecto.dao.UsuarioDAO;
 
 public class InicioControlador {
     @FXML
     private Button btnRegistrarse;
+
     @FXML
     private Button btnIniciarSesion;
 
     @FXML
+    private Button btnAcceso;
+
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
     private void btnRegistrarse(ActionEvent event) {
         try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicio2.fxml"));
-        Parent root = fxmlLoader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicio2.fxml"));
+            Parent root = fxmlLoader.load();
 
-        Stage stage = (Stage) btnRegistrarse.getScene().getWindow();
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        }catch (IOException e){
+            Stage stage = (Stage) btnRegistrarse.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
     @FXML
     private void btnIniciarSesion(ActionEvent event) {
-        try{
+        try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicioSesion.fxml"));
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnIniciarSesion.getScene().getWindow();
-
             Scene scene = new Scene(root);
             stage.setScene(scene);
-
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
+    @FXML
+    private void btnAcceso(ActionEvent event) throws SQLException {
+        String email = emailField.getText();
+        String password = passwordField.getText();
+
+        // Primero, verificar si el correo existe en la base de datos
+        if (correoExiste(email)) {
+            // Si el correo existe, verificamos la contraseña
+            if (verificarContraseña(email, password)) {
+                String rol = obtenerRol(email);
+                String nombre = obtenerNombre(email);
+
+                if ("CLIENTE".equalsIgnoreCase(rol)) {
+                    cargarVista("/org/example/proyecto/VistaPerrosCli.fxml");
+                    mostrarBienvenida(nombre, "Cliente");
+                } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
+                    cargarVista("/org/example/proyecto/VistaPerrosProt.fxml");
+                    mostrarBienvenida(nombre, "Protectora");
+                } else {
+                    mostrarAlerta("El usuario no tiene un rol válido.");
+                }
+            } else {
+                // Si la contraseña es incorrecta
+                mostrarAlerta("Contraseña incorrecta.");
+            }
+        } else {
+            // Si el correo no existe
+            mostrarAlerta("Correo electrónico no encontrado.");
+        }
+    }
+
+    // Método para verificar si el correo existe en la base de datos
+    private boolean correoExiste(String email) throws SQLException {
+        // Aquí deberías llamar a la base de datos para comprobar si el correo existe
+        // Ejemplo de pseudocódigo: SELECT COUNT(*) FROM Usuarios WHERE email = ?
+        // Si el correo existe, devolver true, si no, devolver false
+        return UsuarioDAO.correoExiste(email);
+    }
+
+    // Método para verificar la contraseña con el correo proporcionado
+    private boolean verificarContraseña(String email, String password) throws SQLException {
+        // Aquí deberías verificar la contraseña usando el método adecuado (como BCrypt)
+        // Ejemplo de pseudocódigo: SELECT contrasenia FROM Usuarios WHERE email = ?
+        // Comparar la contraseña ingresada con la contraseña almacenada (hasheada)
+        String contraseniaGuardada = UsuarioDAO.obtenerContraseniaPorEmail(email); // Obtener la contraseña hasheada
+        return BCrypt.checkpw(password, contraseniaGuardada); // Verificar si la contraseña ingresada coincide con la hasheada
+    }
+
+
+    private String obtenerNombre(String email) {
+        try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "C##DOGPUCCINO", "123456")) {
+            String sql = """
+            SELECT c.Nombre 
+            FROM Clientes c
+            WHERE c.Correo_Electronico = ? 
+            UNION 
+            SELECT p.Nombre 
+            FROM Protectoras p
+            WHERE p.Correo_Electronico = ?
+        """;
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, email);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getString("Nombre");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Usuario";
+    }
+
+    private void mostrarBienvenida(String nombre, String rol) {
+        System.out.println("Bienvenido, " + nombre + " (" + rol + ")");
+    }
+
+    public static boolean verificarCredenciales(String correo, String contrasenia) throws SQLException {
+        String sql = """
+    SELECT u.Contrasenia FROM Usuarios u
+    JOIN Clientes c ON u.ID_Clientes = c.ID
+    WHERE c.Correo_Electronico = ? 
+    UNION
+    SELECT u.Contrasenia FROM Usuarios u
+    JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
+    WHERE p.Correo_Electronico = ?
+    """;
+
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, correo);
+            stmt.setString(2, correo);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                String hashedPassword = rs.getString("Contrasenia");
+
+                if (hashedPassword != null && !hashedPassword.isEmpty()) {
+
+                    return BCrypt.checkpw(contrasenia, hashedPassword);
+                } else {
+                    System.err.println("Hash inválido para el usuario: " + correo);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+    private String obtenerRol(String email) {
+        try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "C##DOGPUCCINO", "123456")) {
+            String sql = """
+            SELECT u.Rol 
+            FROM Usuarios u
+            LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
+            LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
+            WHERE c.Correo_Electronico = ? OR p.Correo_Electronico = ?
+        """;
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, email);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getString("Rol");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private void cargarVista(String rutaFXML) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(rutaFXML));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnAcceso.getScene().getWindow();
+            stage.setScene(new Scene(root));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("No se pudo cargar la vista.");
+        }
+    }
+
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 }
