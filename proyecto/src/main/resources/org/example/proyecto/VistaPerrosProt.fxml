@@ -16,10 +16,10 @@
             </HBox>
 
             <HBox alignment="CENTER" spacing="15" styleClass="tabs-bar">
-                <ToggleButton fx:id="btnPerrosProtectora" onAction="#btnPerrosProtectora" style="-fx-font-weight: bold;" styleClass="tab-button" text="_Perros" />
-                <ToggleButton fx:id="btnNotificacionesProtectora" onAction="#btnNotificacionesProtectora" styleClass="tab-button" text="Notificaciones" />
-                <ToggleButton fx:id="btnCitasProtectora" onAction="#btnCitasProtectora" styleClass="tab-button" text="Citas" />
-                <ToggleButton fx:id="btnSobreNosotrosProtectora" onAction="#btnSobreNosotrosProtectora" prefWidth="110.0" styleClass="tab-button" text="Sobre nosotros" />
+                <Button fx:id="btnPerrosProtectora" onAction="#btnPerrosProtectora" style="-fx-font-weight: bold;" styleClass="tab-button" text="_Perros" />
+                <Button fx:id="btnNotificacionesProtectora" onAction="#btnNotificacionesProtectora" styleClass="tab-button" text="Notificaciones" />
+                <Button fx:id="btnCitasProtectora" onAction="#btnCitasProtectora" styleClass="tab-button" text="Citas" />
+                <Button fx:id="btnSobreNosotrosProtectora"  onAction="#btnSobreNosotrosProtectora" prefWidth="110.0" styleClass="tab-button" text="Sobre nosotros" />
                 <Button fx:id="btnEditarPerfilProtectora" mnemonicParsing="false" onAction="#btnEditarPerfilProtectora" prefHeight="23.0" prefWidth="113.0" styleClass="tab-button" text="Editar Perfil">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">

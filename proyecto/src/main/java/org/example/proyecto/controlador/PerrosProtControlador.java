@@ -17,13 +17,13 @@ public class PerrosProtControlador {
     @FXML
     private Button btnVolverAtras;
     @FXML
-    private ToggleButton btnPerrosProtectora;
+    private Button btnPerrosProtectora;
     @FXML
-    private ToggleButton btnNotificacionesProtectora;
+    private Button btnNotificacionesProtectora;
     @FXML
-    private ToggleButton btnCitasProtectora;
+    private Button btnCitasProtectora;
     @FXML
-    private ToggleButton btnSobreNosotrosProtectora;
+    private Button btnSobreNosotrosProtectora;
     @FXML
     private Button btnEditarPerfilProtectora;
     @FXML

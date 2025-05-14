@@ -31,7 +31,7 @@ CREATE TABLE Usuarios (
     ID number primary key,
     ID_Clientes number unique,
     CIF_Protectoras char(9) unique,
-    Contrasenia varchar2(15) not null,
+    Contrasenia varchar2(60) not null,
     Rol varchar2(10) not null,
     Fecha_alta date,
     Fecha_modificacion date,

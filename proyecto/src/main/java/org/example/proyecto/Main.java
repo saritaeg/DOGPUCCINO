@@ -9,7 +9,7 @@ import org.example.proyecto.utils.ConexionBaseDatos;
 
 
 import java.io.IOException;
-import java.sql.Connection;
+import java.sql.*;
 import java.util.Objects;
 
 public class Main extends Application   {
@@ -39,6 +39,5 @@ public class Main extends Application   {
             e.printStackTrace();
         }
     }
-
-    }
+}
 

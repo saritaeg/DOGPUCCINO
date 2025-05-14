@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:controller="org.example.proyecto.controlador.InicioControlador" prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="org.example.proyecto.controlador.InicioSesionControlador" prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@EstiloInicioSesion.css" />
     </stylesheets>
