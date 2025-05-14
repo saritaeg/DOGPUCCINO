@@ -70,7 +70,7 @@ public class RegProtectoraControlador {
             boolean exito = RegistroProtectoraServicio.registrarProtectorayUsuario(nombre,ciudad,cif,calle,correo,telefono,redes,contraseña);
             if(exito){
                 Alertas.mostrarAlerta("Registro Conseguido", "La protectora se ha registrado con exito.");
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosCli.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
                 Parent root = fxmlLoader.load();
 
                 Stage stage = (Stage) btnRegistrar.getScene().getWindow();
