@@ -123,18 +123,56 @@ public class PerrosCliControlador {
     }
     @FXML
     private void btnCitasCliente(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasCliPasadas.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
 
     }
     @FXML
     private void btnNosotrosCliente(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasCliPasadas.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
     }
     @FXML
     private void btnMasPerrosCliente(ActionEvent event) {
 
+
     }
     @FXML
     private void btnMasInformacion(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasCliPasadas.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
     }
     @FXML
