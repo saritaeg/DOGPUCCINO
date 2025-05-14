@@ -12,7 +12,7 @@
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires java.desktop;
-    requires annotations;
+    requires com.oracle.database.jdbc;
     opens org.example.proyecto.controlador to javafx.fxml;
 
     opens org.example.proyecto to javafx.fxml;
