@@ -93,6 +93,17 @@ public class Perro {
 
     public void setFechaAlta(LocalDate fechaAlta) {
         this.fechaAlta = fechaAlta;
+<<<<<<< HEAD
+=======
+    }
+
+    public LocalDate getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(LocalDate fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+>>>>>>> 0b2186c1a55b995a81f14d6e70090042470f41e9
     }
 
     public LocalDate getFechaModificacion() {
