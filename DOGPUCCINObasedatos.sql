@@ -49,12 +49,11 @@ CREATE TABLE Perros (
     Nombre varchar2(20),
     Fecha_Nacimiento date,
     Sexo char(1) check (Sexo in ('M', 'H')),
-    Calle varchar2(50),
-    Ciudad varchar2(50),
     Adoptado char(1) check (Adoptado in ('S', 'N')),
     Fecha_alta date,
     Fecha_modificacion date,
     Foto varchar2(20),
+    CIF char(9),
     FOREIGN KEY (CIF) REFERENCES Protectoras(CIF),
     Raza varchar2(50),
     FOREIGN KEY (Raza) REFERENCES Razas(Tipo)  
@@ -142,8 +141,8 @@ begin
 END;
 /
 
-
 /*
+
     DROP TABLE SOLICITUD_ADOPCION;
     DROP TABLE RESERVAN;
     DROP TABLE perros_patologias;
