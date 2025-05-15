@@ -141,7 +141,6 @@ begin
 END;
 /
 
-
 /*
    DROP TABLE solicitud_adopcion CASCADE CONSTRAINTS;
 DROP TABLE reservan CASCADE CONSTRAINTS;

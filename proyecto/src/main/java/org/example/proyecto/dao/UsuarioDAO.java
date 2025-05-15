@@ -65,7 +65,7 @@ public class UsuarioDAO {
             stmt.setString(2, correo);
 
             try (ResultSet rs = stmt.executeQuery()) {
-                return rs.next(); // Si hay resultado, existe
+                return rs.next();
             }
         }
     }
@@ -93,9 +93,6 @@ public class UsuarioDAO {
         }
         return false;
     }
-
-
-
 }
 
 

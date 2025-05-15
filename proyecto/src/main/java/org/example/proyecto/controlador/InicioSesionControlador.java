@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -18,7 +17,6 @@ import java.io.IOException;
 import java.sql.*;
 
 import static org.example.proyecto.utils.Alertas.mostrarAlerta;
-
 
 public class InicioSesionControlador {
     @FXML
@@ -36,21 +34,20 @@ public class InicioSesionControlador {
         String password = passwordField.getText().trim();
 
         if (email.isEmpty() || password.isEmpty()) {
-            mostrarAlerta("Por favor ingrese correo y contraseña.");
+            mostrarAlerta("Error", "Por favor ingrese correo y contraseña.");
             return;
         }
 
         try {
             if (!correoExiste(email)) {
-                mostrarAlerta("El correo no está registrado.");
+                mostrarAlerta("Error", "El correo no está registrado.");
                 return;
             }
 
-            // Obtener la contraseña hasheada desde la base
             String contraseniaHasheada = obtenerContraseniaHasheada(email);
 
             if (contraseniaHasheada == null) {
-                mostrarAlerta("No se pudo obtener la contraseña del usuario.");
+                mostrarAlerta("Error", "No se pudo obtener la contraseña del usuario.");
                 return;
             }
 
@@ -67,14 +64,14 @@ public class InicioSesionControlador {
                     cargarVista("/org/example/proyecto/VistaPerrosProt.fxml");
                     mostrarBienvenida(nombre, "Protectora");
                 } else {
-                    mostrarAlerta("El usuario no tiene un rol válido.");
+                    mostrarAlerta("Error", "El usuario no tiene un rol válido.");
                 }
             } else {
-                mostrarAlerta("Contraseña incorrecta.");
+                mostrarAlerta("Error", "Contraseña incorrecta.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            mostrarAlerta("Error en la base de datos: " + e.getMessage());
+            mostrarAlerta("Error", "Error en la base de datos: " + e.getMessage());
         }
     }
 
@@ -167,16 +164,8 @@ public class InicioSesionControlador {
 
         } catch (IOException e) {
             e.printStackTrace();
-            mostrarAlerta("No se pudo cargar la vista.");
+            mostrarAlerta("Error", "No se pudo cargar la vista.");
         }
-    }
-
-    private void mostrarAlerta(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
     }
 
     private void mostrarBienvenida(String nombre, String rol) {
