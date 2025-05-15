@@ -10,47 +10,31 @@ import java.util.List;
 
 public class PerrosCliDAO {
 
-    public List<Perro> obtenerPerrosCli() {
-        List<Perro> perros = new ArrayList<>();
+    public static List<Perro> obtenerPerrosCliente(String email) {
+        List<Perro> lista = new ArrayList<>();
         String sql = """
-        SELECT p.ID, p.Nombre, p.Fecha_Nacimiento, p.Sexo, p.Adoptado, p.Raza, p.Foto,
-               pr.Nombre AS nombre_protectora,
-               pa.Nombre AS nombre_patologia
+        SELECT p.Nombre, p.Fecha_Nacimiento, r.Tipo AS Raza, p.foto
         FROM Perros p
-        JOIN Protectoras pr ON p.CIF = pr.CIF
-        LEFT JOIN Perros_Patologias pp ON p.ID = pp.ID_Perros
-        LEFT JOIN Patologias pa ON pp.ID_Patologia = pa.ID
+        JOIN Razas r ON p.Raza = r.Tipo
+        WHERE p.Adoptado = 'N'
     """;
 
-        try (Connection connection = ConexionBaseDatos.getInstance().getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(sql)) {
-
-            while (resultSet.next()) {
-                Perro perro = new Perro(
-                        resultSet.getInt("ID"),
-                        resultSet.getString("Nombre"),
-                        resultSet.getDate("Fecha_Nacimiento").toString(),
-                        Perro.Adoptado.valueOf(resultSet.getString("Adoptado")),
-                        Perro.Sexo.valueOf(resultSet.getString("Sexo")),
-                        resultSet.getString("Raza"),
-                        resultSet.getString("Foto"),
-                        resultSet.getDate("Fecha_alta").toLocalDate(),
-                        resultSet.getDate("Fecha_modificacion").toLocalDate()
-
-                );
-
-                // Si quieres guardar la patología en el modelo, añade un campo en la clase Perro:
-                // perro.setPatologia(resultSet.getString("nombre_patologia"));
-
-                perros.add(perro);
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Perro p = new Perro();
+                p.setNombre(rs.getString("Nombre"));
+                p.setFechaNacimiento(rs.getInt("Edad"));
+                p.setRaza(rs.getString("Raza"));
+                p.setFoto(rs.getString("Ruta_Imagen"));
+                lista.add(p);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return perros;
+        return lista;
     }
+
 
 }

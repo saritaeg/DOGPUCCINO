@@ -58,10 +58,10 @@ public class InicioSesionControlador {
                 String nombre = obtenerNombre(email);
 
                 if ("CLIENTE".equalsIgnoreCase(rol)) {
-                    cargarVista("/org/example/proyecto/VistaPerrosCli.fxml");
+                    cargarVista("/org/example/proyecto/VistaPerrosCli.fxml",email);
                     mostrarBienvenida(nombre, "Cliente");
                 } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
-                    cargarVista("/org/example/proyecto/VistaPerrosProt.fxml");
+                    cargarVista("/org/example/proyecto/VistaPerrosProt.fxml",email);
                     mostrarBienvenida(nombre, "Protectora");
                 } else {
                     mostrarAlerta("Error", "El usuario no tiene un rol válido.");
@@ -154,13 +154,16 @@ public class InicioSesionControlador {
         return null;
     }
 
-    private void cargarVista(String rutaFXML) {
+    private void cargarVista(String rutaFXML,String email) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(rutaFXML));
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnAcceso.getScene().getWindow();
             stage.setScene(new Scene(root));
+
+            PerrosCliControlador controlador = loader.getController();
+            controlador.inicializarPerros(email); // crea este método
 
         } catch (IOException e) {
             e.printStackTrace();
