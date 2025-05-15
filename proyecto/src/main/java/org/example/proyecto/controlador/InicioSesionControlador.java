@@ -11,6 +11,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.proyecto.dao.UsuarioDAO;
+import org.example.proyecto.utils.ConexionBaseDatos;
+import org.example.proyecto.utils.Contraseña;
 
 import java.io.IOException;
 import java.sql.*;
@@ -29,96 +31,127 @@ public class InicioSesionControlador {
     private PasswordField passwordField;
 
     @FXML
-    private void btnAcceso(ActionEvent event) throws SQLException {
+    private void btnAcceso(ActionEvent event) {
         String email = emailField.getText().trim();
         String password = passwordField.getText().trim();
 
-        if (!correoExiste(email)) {
-            mostrarAlerta("El correo no está registrado.");
+        if (email.isEmpty() || password.isEmpty()) {
+            mostrarAlerta("Por favor ingrese correo y contraseña.");
             return;
         }
 
-        boolean contraseniaValida = UsuarioDAO.verificarContrasenia(email, password);
-
-        if (contraseniaValida) {
-            String rol = obtenerRol(email);
-            String nombre = obtenerNombre(email);
-
-            if ("CLIENTE".equalsIgnoreCase(rol)) {
-                cargarVista("/org/example/proyecto/VistaPerrosCli.fxml");
-                mostrarBienvenida(nombre, "Cliente");
-            } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
-                cargarVista("/org/example/proyecto/VistaPerrosProt.fxml");
-                mostrarBienvenida(nombre, "Protectora");
-            } else {
-                mostrarAlerta("El usuario no tiene un rol válido.");
+        try {
+            if (!correoExiste(email)) {
+                mostrarAlerta("El correo no está registrado.");
+                return;
             }
-        } else {
-            mostrarAlerta("Contraseña incorrecta.");
+
+            // Obtener la contraseña hasheada desde la base
+            String contraseniaHasheada = obtenerContraseniaHasheada(email);
+
+            if (contraseniaHasheada == null) {
+                mostrarAlerta("No se pudo obtener la contraseña del usuario.");
+                return;
+            }
+
+            boolean contraseniaValida = Contraseña.verificarContrasenia(password, contraseniaHasheada);
+
+            if (contraseniaValida) {
+                String rol = obtenerRol(email);
+                String nombre = obtenerNombre(email);
+
+                if ("CLIENTE".equalsIgnoreCase(rol)) {
+                    cargarVista("/org/example/proyecto/VistaPerrosCli.fxml");
+                    mostrarBienvenida(nombre, "Cliente");
+                } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
+                    cargarVista("/org/example/proyecto/VistaPerrosProt.fxml");
+                    mostrarBienvenida(nombre, "Protectora");
+                } else {
+                    mostrarAlerta("El usuario no tiene un rol válido.");
+                }
+            } else {
+                mostrarAlerta("Contraseña incorrecta.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error en la base de datos: " + e.getMessage());
         }
     }
 
-
-
-    public static boolean correoExiste(String correo) throws SQLException {
+    private boolean correoExiste(String correo) throws SQLException {
         return UsuarioDAO.correoExiste(correo);
     }
 
-
-
-
-    private String obtenerNombre(String email) {
-        try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "C##DOGPUCCINO", "123456")) {
-            String sql = """
-            SELECT c.Nombre 
-            FROM Clientes c
-            WHERE c.Correo_Electronico = ? 
-            UNION 
-            SELECT p.Nombre 
-            FROM Protectoras p
-            WHERE p.Correo_Electronico = ?
-        """;
-
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, email);
-            stmt.setString(2, email);
-
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return rs.getString("Nombre");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "Usuario";
-    }
-
-    private void mostrarBienvenida(String nombre, String rol) {
-        System.out.println("Bienvenido, " + nombre + " (" + rol + ")");
-    }
-
-
-
-
-    private String obtenerRol(String email) {
-        try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "C##DOGPUCCINO", "123456")) {
-            String sql = """
-            SELECT u.Rol 
+    private String obtenerContraseniaHasheada(String email) throws SQLException {
+        String sql = """
+            SELECT u.Contrasenia
             FROM Usuarios u
             LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
             LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
             WHERE c.Correo_Electronico = ? OR p.Correo_Electronico = ?
         """;
 
-            PreparedStatement stmt = conn.prepareStatement(sql);
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, email);
             stmt.setString(2, email);
 
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return rs.getString("Rol");
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("Contrasenia");
+                }
             }
-        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    private String obtenerNombre(String email) {
+        String sql = """
+            SELECT c.Nombre
+            FROM Clientes c
+            WHERE c.Correo_Electronico = ?
+            UNION
+            SELECT p.Nombre
+            FROM Protectoras p
+            WHERE p.Correo_Electronico = ?
+        """;
+
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            stmt.setString(2, email);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("Nombre");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "Usuario";
+    }
+
+    private String obtenerRol(String email) {
+        String sql = """
+            SELECT u.Rol
+            FROM Usuarios u
+            LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
+            LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
+            WHERE c.Correo_Electronico = ? OR p.Correo_Electronico = ?
+        """;
+
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            stmt.setString(2, email);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("Rol");
+                }
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
@@ -144,5 +177,9 @@ public class InicioSesionControlador {
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
+    }
+
+    private void mostrarBienvenida(String nombre, String rol) {
+        System.out.println("Bienvenido, " + nombre + " (" + rol + ")");
     }
 }

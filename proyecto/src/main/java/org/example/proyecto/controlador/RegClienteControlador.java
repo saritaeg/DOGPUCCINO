@@ -90,7 +90,7 @@ public class RegClienteControlador {
 
             boolean exito = RegistroClienteServicio.registrarClienteYUsuario(
                     nombre, apellido, apellido2, fechaNacimiento, telefono,
-                    tipoVia, provincia, correo, contraseña, confirmarContraseña
+                    tipoVia, provincia, correo, contraseña
             );
 
             if (exito) {

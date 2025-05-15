@@ -30,10 +30,11 @@
             <artifactId>javafx-fxml</artifactId>
             <version>17.0.12</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
         <dependency>
-            <groupId>org.mindrot</groupId>
-            <artifactId>jbcrypt</artifactId>
-            <version>0.4</version>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>6.4.5</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>

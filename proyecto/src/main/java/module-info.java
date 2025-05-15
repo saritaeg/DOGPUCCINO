@@ -13,7 +13,7 @@ module org.example.proyecto {
     requires java.sql;
     requires java.desktop;
     requires com.oracle.database.jdbc;
-    requires jbcrypt;
+    requires spring.security.crypto;
     opens org.example.proyecto.controlador to javafx.fxml;
 
     opens org.example.proyecto to javafx.fxml;

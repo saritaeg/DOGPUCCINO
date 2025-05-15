@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.proyecto.dao.UsuarioDAO;
 import org.example.proyecto.utils.ConexionBaseDatos;
+
 
 
 import java.io.IOException;
@@ -22,22 +24,8 @@ public class Main extends Application   {
         stage.show();
 
     }
-    public static void main(String[] args) {
-        launch();
-        try {
-            ConexionBaseDatos conexionBD = ConexionBaseDatos.getInstance();
-            Connection conexion = conexionBD.getConnection();
 
-            if (conexion != null && !conexion.isClosed()) {
-                System.out.println("Conexión exitosa a la base de datos.");
-                conexion.close();
-            } else {
-                System.out.println("La conexión no se pudo establecer.");
-            }
-        } catch (Exception e) {
-            System.err.println(" Error al conectar a la base de datos: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
+
+
 }
 

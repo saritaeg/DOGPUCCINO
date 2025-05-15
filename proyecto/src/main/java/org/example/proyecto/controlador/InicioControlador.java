@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.*;
 import javafx.scene.control.TextField;
 import org.example.proyecto.utils.ConexionBaseDatos;
-import org.mindrot.jbcrypt.BCrypt;
+
 import org.example.proyecto.dao.UsuarioDAO;
 
 
