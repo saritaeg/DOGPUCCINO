@@ -7,9 +7,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.example.proyecto.dao.PerrosCliDAO;
+import org.example.proyecto.modelo.Perro;
 
 import java.io.IOException;
+import java.util.List;
 
 public class PerrosCliControlador {
     @FXML
@@ -56,6 +61,79 @@ public class PerrosCliControlador {
     private Button btnMasInformacion2;
     @FXML
     private Button btnMasPerroCliente2;
+
+    @FXML
+    private ImageView imagenPerro1;
+    @FXML
+    private ImageView imagenPerro2;
+
+    private int indice = 0;
+    private List<Perro> listaPerros;
+
+    @FXML
+    public void initialize() {
+        perros = new PerrosCliDAO().obtenerPerrosCli();
+        mostrarPerros();
+    }
+    private void mostrarPerros() {
+        if (perros.isEmpty()) return;
+
+        Perro p1 = perros.get(indiceActual);
+        setDatosPerro(p1, txtNombreCli, txtRazaCli, txtSexoCli, txtFechaNacimientoCli, txtAdoptadoCli, txtProtectoraCli);
+
+        if (indiceActual + 1 < perros.size()) {
+            Perro p2 = perros.get(indiceActual + 1);
+            setDatosPerro(p2, txtNombreCli2, txtRazaCli2, txtSexoCli2, txtFechaNacimientoCli2, txtAdoptadoCli2, txtProtectoraCli2);
+        } else {
+            limpiarCampos(txtNombreCli2, txtRazaCli2, txtSexoCli2, txtFechaNacimientoCli2, txtAdoptadoCli2, txtProtectoraCli2);
+        }
+    }
+    private void setDatosPerro(Perro perro, TextField nombre, TextField raza, TextField sexo, TextField fechaNac, TextField adoptado, TextField protectora) {
+        nombre.setText(perro.getNombre());
+        raza.setText(perro.getRaza());
+        sexo.setText(perro.getSexo().toString());
+        fechaNac.setText(perro.getFechaNacimiento());
+        adoptado.setText(perro.getAdoptado().toString());
+        protectora.setText(perro.getProtectora()); // Asegúrate que Perro tenga este campo y getter
+    }
+
+    private void limpiarCampos(TextField... campos) {
+        for (TextField campo : campos) {
+            campo.setText("");
+        }
+    }
+
+
+    private void mostrarPerroEnPosicion(int pos, TextField nombre, TextField raza, TextField sexo,
+                                        TextField nacimiento, TextField adoptado, TextField protectora, ImageView imagen) {
+        if (pos < listaPerros.size()) {
+            Perro perro = listaPerros.get(pos);
+            nombre.setText(perro.getNombre());
+            raza.setText(perro.getRaza());
+            sexo.setText(perro.getSexo().name());
+            nacimiento.setText(perro.getFechaNacimiento());
+            adoptado.setText(perro.getAdoptado().name());
+            protectora.setText(""); // si no lo tienes aún, déjalo vacío o modifícalo
+
+            // Cargar imagen
+            try {
+                Image img = new Image("file:" + perro.getFoto()); // o usa URL/resource
+                imagen.setImage(img);
+            } catch (Exception e) {
+                imagen.setImage(null); // o imagen por defecto
+            }
+
+        } else {
+            nombre.setText("");
+            raza.setText("");
+            sexo.setText("");
+            nacimiento.setText("");
+            adoptado.setText("");
+            protectora.setText("");
+            imagen.setImage(null);
+        }
+    }
+
 
     @FXML
     private void btnVolverInicio(ActionEvent event) {
@@ -189,10 +267,18 @@ public class PerrosCliControlador {
 
     @FXML
     private void btnMasPerroCliente2(ActionEvent event) {
-
+        if (indice + 2 < listaPerros.size()) {
+            indice += 2;
+            mostrarPerros();
+        }
     }
+
     @FXML
     private void btnMasPerrosCliente(ActionEvent event) {
+        if (indice - 2 >= 0) {
+            indice -= 2;
+            mostrarPerros();
+        }
 
 
     }

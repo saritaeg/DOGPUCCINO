@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.proyecto.utils.ConexionBaseDatos;
 
-
 import java.io.IOException;
 import java.sql.*;
 import java.util.Objects;
