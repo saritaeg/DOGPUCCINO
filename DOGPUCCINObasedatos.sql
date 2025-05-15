@@ -46,16 +46,16 @@ CREATE TABLE Razas (
 
 CREATE TABLE Perros (
     ID number primary key,
+    CIF char(9),
+    Raza varchar2(50),
     Nombre varchar2(20),
     Fecha_Nacimiento date,
     Sexo char(1) check (Sexo in ('M', 'H')),
-    Adoptado char(1) check (Adoptado in ('S', 'N')),
+    Adoptado CHAR(1) DEFAULT 'N' CHECK (Adoptado IN ('S', 'N')),
     Fecha_alta date,
     Fecha_modificacion date,
     Foto varchar2(20),
-    CIF char(9),
     FOREIGN KEY (CIF) REFERENCES Protectoras(CIF),
-    Raza varchar2(50),
     FOREIGN KEY (Raza) REFERENCES Razas(Tipo)  
 );
 
@@ -141,16 +141,16 @@ begin
 END;
 /
 
-/*
 
-    DROP TABLE SOLICITUD_ADOPCION;
-    DROP TABLE RESERVAN;
-    DROP TABLE perros_patologias;
-    DROP TABLE patologias;
-    DROP TABLE notificaciones;
-    DROP TABLE perros;
-    DROP TABLE razas;
-    DROP TABLE usuarios;
-    drop table protectoras;
-    drop table clientes;
-    */
+/*
+   DROP TABLE solicitud_adopcion CASCADE CONSTRAINTS;
+DROP TABLE reservan CASCADE CONSTRAINTS;
+DROP TABLE perros_patologias CASCADE CONSTRAINTS;
+DROP TABLE patologias CASCADE CONSTRAINTS;
+DROP TABLE notificaciones CASCADE CONSTRAINTS;
+DROP TABLE perros CASCADE CONSTRAINTS;
+DROP TABLE razas CASCADE CONSTRAINTS;
+DROP TABLE usuarios CASCADE CONSTRAINTS;
+DROP TABLE protectoras CASCADE CONSTRAINTS;
+DROP TABLE clientes CASCADE CONSTRAINTS;
+*/

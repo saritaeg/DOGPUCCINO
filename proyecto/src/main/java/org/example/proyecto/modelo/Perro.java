@@ -1,14 +1,22 @@
 package org.example.proyecto.modelo;
+
+import java.time.LocalDate;
+
 public class Perro {
+    public enum Adoptado{S,N}
+    public enum Sexo{M,H}
+
     private int id;
     private String nombre;
     private String fechaNacimiento;
-    private String sexo;
+    private Adoptado adoptado;
+    private Sexo sexo;
     private String raza;
-    private String patologia;
-    private String descripcionPatologia;
+    private String foto;
+    private LocalDate fechaAlta;
+    private LocalDate fechaModificacion;
 
-    public Perro() {}
+
     public Perro(int id, String nombre, String fechaNacimiento, String sexo, String raza, String patologia, String descripcionPatologia) {
         this.id = id;
         this.nombre = nombre;
