@@ -15,6 +15,7 @@ import org.example.proyecto.dao.UsuarioDAO;
 import java.io.IOException;
 import java.sql.*;
 
+import static org.example.proyecto.utils.Alertas.mostrarAlerta;
 
 
 public class InicioSesionControlador {
@@ -27,13 +28,19 @@ public class InicioSesionControlador {
     @FXML
     private PasswordField passwordField;
 
-
     @FXML
     private void btnAcceso(ActionEvent event) throws SQLException {
-        String email = emailField.getText();
-        String password = passwordField.getText().trim();  // Agregar trim para eliminar espacios al principio o final
+        String email = emailField.getText().trim();
+        String password = passwordField.getText().trim();
 
-        if (UsuarioDAO.verificarContrasenia(email, password)) {
+        if (!correoExiste(email)) {
+            mostrarAlerta("El correo no está registrado.");
+            return;
+        }
+
+        boolean contraseniaValida = UsuarioDAO.verificarContrasenia(email, password);
+
+        if (contraseniaValida) {
             String rol = obtenerRol(email);
             String nombre = obtenerNombre(email);
 
@@ -49,13 +56,15 @@ public class InicioSesionControlador {
         } else {
             mostrarAlerta("Contraseña incorrecta.");
         }
-
     }
 
-    private boolean correoExiste(String correo) throws SQLException {
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        return usuarioDAO.correoExiste(correo);
+
+
+    public static boolean correoExiste(String correo) throws SQLException {
+        return UsuarioDAO.correoExiste(correo);
     }
+
+
 
 
     private String obtenerNombre(String email) {
