@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Usuario {
 
-    // Enum Rol: Utiliza mayúsculas por convención
     public enum Rol {
         CLIENTE, PROTECTORA
     }
@@ -17,7 +16,6 @@ public class Usuario {
     private Integer idClientes;
     private Integer cifProtectora;
 
-    // Constructor principal para la clase Usuario
     public Usuario(Integer idUsuario, String contrasenia, Rol rol, LocalDate fechaAlta,
                    LocalDate fechaModificacion, Integer idClientes, Integer cifProtectora) {
         this.idUsuario = idUsuario;
@@ -29,12 +27,11 @@ public class Usuario {
         this.cifProtectora = cifProtectora;
     }
 
-    // Constructor alternativo solo con la contraseña (modificado para estar completo)
     public Usuario(String contrasenia) {
         this.contrasenia = contrasenia;
     }
 
-    // Getters y setters
+
     public Integer getIdUsuario() {
         return idUsuario;
     }
