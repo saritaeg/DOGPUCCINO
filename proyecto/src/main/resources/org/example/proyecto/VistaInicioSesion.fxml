@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:controller="org.example.proyecto.controlador.InicioSesionControlador" prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.InicioSesionControlador">
     <stylesheets>
         <URL value="@EstiloInicioSesion.css" />
     </stylesheets>
@@ -12,7 +12,6 @@
         <VBox alignment="CENTER" spacing="20" styleClass="main-container" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
 
             <Label styleClass="titulo" text="Iniciar Sesión" />
-            <Button styleClass="back-button" text="←" />
 
             <VBox spacing="15" styleClass="form-container">
                 <Label styleClass="input-label" text="Correo electrónico" />
@@ -21,8 +20,9 @@
                 <Label styleClass="input-label" text="Contraseña" />
                 <PasswordField fx:id="passwordField" styleClass="input-field" />
 
-                <Button  fx:id="btnAcceso" onAction="#btnAcceso" styleClass="login-button" text="Acceso" />
+                <Button fx:id="btnAcceso" onAction="#btnAcceso" styleClass="login-button" text="Acceso" />
             </VBox>
         </VBox>
+         <Button fx:id="btnAtras" onAction="#btnAtras" prefHeight="52.0" prefWidth="66.0" styleClass="back-button" text="←" />
     </children>
 </AnchorPane>

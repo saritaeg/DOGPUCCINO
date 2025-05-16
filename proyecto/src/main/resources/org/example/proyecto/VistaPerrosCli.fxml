@@ -26,7 +26,7 @@
 
             <HBox alignment="CENTER" spacing="15" styleClass="tabs-bar">
                 <Button fx:id="btnNotificacionesCliente" onAction="#btnNotificacionesCliente" styleClass="tab-button" text="Notificaciones" />
-                <Button fx:id="btnPerrosCliente" onAction="#btnPerrosCliente" style="-fx-font-weight: bold;" styleClass="tab-button" text="_Perros" />
+                <Button fx:id="btnPerrosCliente" onAction="#btnPerrosCliente" style="-fx-font-weight: bold;" styleClass="tab-button" text="Perros" />
                 <Button fx:id="btnCitasCliente" onAction="#btnCitasCliente" styleClass="tab-button" text="Citas" />
                 <Button fx:id="btnNosotrosCliente" onAction="#btnNosotrosCliente" prefWidth="110.0" styleClass="tab-button" text="Sobre nosotros" />
             </HBox>

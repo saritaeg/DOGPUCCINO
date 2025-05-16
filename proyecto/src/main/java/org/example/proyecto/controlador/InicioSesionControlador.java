@@ -29,6 +29,23 @@ public class InicioSesionControlador {
     private PasswordField passwordField;
 
     @FXML
+    private Button btnAtras;
+
+
+    @FXML
+    private void btnAtras(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicio.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnAtras.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
     private void btnAcceso(ActionEvent event) {
         String email = emailField.getText().trim();
         String password = passwordField.getText().trim();
