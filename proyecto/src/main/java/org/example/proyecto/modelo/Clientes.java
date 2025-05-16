@@ -99,7 +99,7 @@ public class Clientes {
         return provincia;
     }
 
-    public void setProvincia(String ciudad) {
+    public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
 

@@ -80,7 +80,7 @@ public class RegClienteDAO {
         return cliente;
     }
 
-    public static boolean actualizarCliente(Clientes cliente) {
+    public static boolean actualizarCliente(Clientes cliente, String emailOriginal) {
         String sql = "UPDATE Clientes SET Nombre=?, Apellido1=?, Apellido2=?, Fecha_Nacimiento=?, Ciudad=?, Calle=?, Telefono=?, Correo_Electronico=? WHERE Correo_Electronico=?";
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -93,8 +93,7 @@ public class RegClienteDAO {
             ps.setString(6, cliente.getCalle());
             ps.setString(7, cliente.getTelefono());
             ps.setString(8, cliente.getEmail());
-            ps.setString(9, cliente.getEmail());
-
+            ps.setString(9, emailOriginal);
 
             int filas = ps.executeUpdate();
             return filas > 0;
@@ -104,4 +103,5 @@ public class RegClienteDAO {
             return false;
         }
     }
+
 }

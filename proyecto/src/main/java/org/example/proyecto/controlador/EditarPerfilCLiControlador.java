@@ -89,7 +89,7 @@ public class EditarPerfilCLiControlador {
         clienteActualizado.setTelefono(txtTelefono.getText());
         clienteActualizado.setEmail(txtCorreo.getText());
 
-        boolean clienteActualizadoOK = RegClienteDAO.actualizarCliente(clienteActualizado);
+        boolean clienteActualizadoOK = RegClienteDAO.actualizarCliente(clienteActualizado,emailCliente);
 
         boolean usuarioActualizadoOK = true;
         if (!pass.isEmpty()) {
