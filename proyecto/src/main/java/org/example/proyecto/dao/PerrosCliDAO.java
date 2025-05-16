@@ -25,7 +25,12 @@ public class PerrosCliDAO {
             while (rs.next()) {
                 Perro p = new Perro();
                 p.setNombre(rs.getString("Nombre"));
-                p.setFechaNacimiento(rs.getInt("Edad"));
+                Date fechaSQL = rs.getDate("Fecha_Nacimiento");
+                if (fechaSQL != null) {
+                    LocalDate fechaNacimiento = fechaSQL.toLocalDate();
+                    p.setFechaNacimiento(fechaNacimiento.toString());
+                }
+
                 p.setRaza(rs.getString("Raza"));
                 p.setFoto(rs.getString("Ruta_Imagen"));
                 lista.add(p);

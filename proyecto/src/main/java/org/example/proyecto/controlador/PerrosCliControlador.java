@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.example.proyecto.dao.PerrosCliDAO;
+import org.example.proyecto.modelo.Clientes;
 import org.example.proyecto.modelo.Perro;
 
 import java.io.FileInputStream;
@@ -68,13 +69,17 @@ public class PerrosCliControlador {
     @FXML
     private ImageView imagenPerro1;
     @FXML
+
     private ImageView imagenPerro2;
+    private String emailCliente;
 
     private int indice = 0;
     private List<Perro> perros;
 
-
     public void inicializarPerros(String emailCliente) {
+        perros = PerrosCliDAO.obtenerPerrosCliente(emailCliente);
+        mostrarPerros();
+        this.emailCliente = emailCliente;
         perros = PerrosCliDAO.obtenerPerrosCliente(emailCliente);
         mostrarPerros();
     }
@@ -132,19 +137,22 @@ public class PerrosCliControlador {
     }
     @FXML
     private void btnEditarPerfilCliente(ActionEvent event) {
-        try{
+        try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaEditarPerfilCliente.fxml"));
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnEditarPerfilCliente.getScene().getWindow();
 
+            EditarPerfilCLiControlador controlador = fxmlLoader.getController();
+
+            controlador.inicializarDatos(emailCliente);
+
+            Stage stage = (Stage) btnEditarPerfilCliente.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
 
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
     @FXML
     private void btnPerrosCliente(ActionEvent event) {

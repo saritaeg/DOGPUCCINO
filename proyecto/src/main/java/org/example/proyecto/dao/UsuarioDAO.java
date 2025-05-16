@@ -14,7 +14,8 @@ public class UsuarioDAO {
         String contraseniaHasheada = Contraseña.encriptarContrasenia(contrasenia);
 
         String sql = """
-        INSERT INTO Usuarios (ID, ID_Clientes, Contrasenia, Fecha_Alta, Fecha_Modificacion)
+        
+                INSERT INTO Usuarios (ID, ID_Clientes, Contrasenia, Fecha_Alta, Fecha_Modificacion)
         VALUES (usuario_seq.NEXTVAL, ?, ?, ?, ?)
         """;
 
@@ -34,9 +35,12 @@ public class UsuarioDAO {
     public static boolean registrarUsuarioParaProtectora(String cifProtectora, String contrasenia) throws SQLException {
         String contraseniaHasheada = Contraseña.encriptarContrasenia(contrasenia);
 
-        String sql = """
-        INSERT INTO Usuarios (ID, CIF_Protectoras, Contrasenia, Fecha_Alta, Fecha_Modificacion)
-        VALUES (usuario_seq.NEXTVAL, ?, ?, ?, ?)
+        String sql =
+                """
+        INSERT INTO Usuarios (ID, CIF_Protectoras, Contrasenia, Fecha_Alta,
+                Fecha_Modificacion)
+        VALUES (usuario_seq.
+                NEXTVAL, ?, ?, ?, ?)
         """;
 
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
@@ -54,7 +58,9 @@ public class UsuarioDAO {
 
     public static boolean correoExiste(String correo) throws SQLException {
         String sql = """
-            SELECT 1 FROM Clientes WHERE Correo_Electronico = ?
+            SELECT 1 FROM Clientes
+                WHERE
+                Correo_Electronico = ?
             UNION
             SELECT 1 FROM Protectoras WHERE Correo_Electronico = ?
         """;
@@ -70,12 +76,13 @@ public class UsuarioDAO {
         }
     }
 
-    public static boolean verificarContrasenia(String correo, String password) throws SQLException {
-        String sql = """
+    public static boolean verificarContrasenia(String correo, String password)
+                throws SQLException {
+                String sql = """
             SELECT u.Contrasenia
-            FROM Usuarios u
-            LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
-            LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
+            FROM Usuarios 
+                     LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
+                        LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
             WHERE c.Correo_Electronico = ? OR p.Correo_Electronico = ?
         """;
 
@@ -92,6 +99,23 @@ public class UsuarioDAO {
             }
         }
         return false;
+    }
+    public static boolean actualizarContraseña(String email, String nuevaContraseña) {
+
+        String sql = "UPDATE Usuarios SET Contrasenia = ? WHERE Correo_Electronico = ?";
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, nuevaContraseña);
+            ps.setString(2, email);
+
+            int filas = ps.executeUpdate();
+            return filas > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
 

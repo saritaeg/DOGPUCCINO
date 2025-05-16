@@ -16,6 +16,8 @@ public class Perro {
     private LocalDate fechaAlta;
     private LocalDate fechaModificacion;
 
+    public Perro() {}
+
 
     public Perro(int id, String nombre, String fechaNacimiento, Adoptado adoptado,
                  Sexo sexo, String raza, String foto, LocalDate fechaAlta,

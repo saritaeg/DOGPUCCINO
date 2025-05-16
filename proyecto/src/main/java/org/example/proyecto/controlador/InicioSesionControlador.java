@@ -154,7 +154,7 @@ public class InicioSesionControlador {
         return null;
     }
 
-    private void cargarVista(String rutaFXML,String email) {
+    private void cargarVista(String rutaFXML, String email) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(rutaFXML));
             Parent root = fxmlLoader.load();
@@ -162,8 +162,8 @@ public class InicioSesionControlador {
             Stage stage = (Stage) btnAcceso.getScene().getWindow();
             stage.setScene(new Scene(root));
 
-            PerrosCliControlador controlador = loader.getController();
-            controlador.inicializarPerros(email); // crea este método
+            PerrosCliControlador controlador = fxmlLoader.getController();
+            controlador.inicializarPerros(email);
 
         } catch (IOException e) {
             e.printStackTrace();
