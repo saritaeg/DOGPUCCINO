@@ -4,11 +4,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600" prefWidth="800" styleClass="root" stylesheets="@EstiloSobreNosotros.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.SobreNosotrosControlador">
+<AnchorPane prefHeight="600" prefWidth="800" styleClass="root" stylesheets="@EstiloSobreNosotros.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.SobreNosotrosProtControlador">
 
    <StackPane prefHeight="120.0" prefWidth="800" styleClass="header">
       <Label styleClass="title-label" text="DOGPUCCINO" StackPane.alignment="CENTER" />
-      <Button fx:id="btnVolverInicio" onAction="#btnVolverInicio" prefHeight="35.0" prefWidth="34.0" styleClass="back-button" text="←" StackPane.alignment="CENTER_LEFT" />
    </StackPane>
 
 

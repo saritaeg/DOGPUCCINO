@@ -11,21 +11,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class NotProtNuevacitaControlador {
+public class CitasProtControlador {
 
     @FXML
-    private Button btnPerrosProtectora;
+    private ToggleButton btnPerrosProtectora;
     @FXML
-    private Button btnNotificacionesProtectora;
+    private ToggleButton btnNotificacionesProtectora;
     @FXML
-    private Button btnCitasProtectora;
+    private ToggleButton btnCitasProtectora;
     @FXML
-    private Button btnSobreNosotrosProtectora;
-    @FXML
-    private ToggleButton btnSolicitudCitaProtectora;
-    @FXML
-    private ToggleButton btnSolicitudAdopcionProtectora;
-
+    private ToggleButton btnSobreNosotrosProtectora;
 
     @FXML
     private void btnPerrosProtectora(ActionEvent event) {
@@ -41,6 +36,7 @@ public class NotProtNuevacitaControlador {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void btnNotificacionesProtectora(ActionEvent event) {
         try {
@@ -54,21 +50,9 @@ public class NotProtNuevacitaControlador {
         }catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    @FXML
-    private void btnCitasProtectora(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasProtec.fxml"));
-            Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnCitasProtectora.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
     }
+
     @FXML
     private void btnSobreNosotrosProtectora(ActionEvent event) {
         try {
@@ -82,36 +66,5 @@ public class NotProtNuevacitaControlador {
         }catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-    @FXML
-    private void btnSolicitudCitaProtectora(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotProtNuevacita.fxml"));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) btnNotificacionesProtectora.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    private void btnSolicitudAdopcionProtectora(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotProtNuevaadop.fxml"));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) btnNotificacionesProtectora.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 }

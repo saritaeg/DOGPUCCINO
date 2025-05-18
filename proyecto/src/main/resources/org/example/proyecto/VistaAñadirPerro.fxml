@@ -4,16 +4,15 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:controller="org.example.proyecto.controlador.AñadirPerroControlador" prefHeight="500" prefWidth="700" stylesheets="@EstiloAñadirPerro.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500" prefWidth="700" stylesheets="@EstiloAñadirPerro.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.AñadirPerroControlador">
 
     <VBox styleClass="header" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
 
-        <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar"
-              xmlns:fx="http://javafx.com/fxml">
-            <Button styleClass="back-button" text="←" />
-            <Region HBox.hgrow="ALWAYS"/>
+        <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar" xmlns:fx="http://javafx.com/fxml">
+            <Button fx:id="btnVolverAtrasProtectora" onAction="#btnVolverAtrasProtectora" styleClass="back-button" text="←" />
+            <Region HBox.hgrow="ALWAYS" />
             <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
-            <Region HBox.hgrow="ALWAYS"/>
+            <Region HBox.hgrow="ALWAYS" />
         </HBox>
         <StackPane prefHeight="36.0" prefWidth="670.0" style="-fx-padding: 10 0 20 0;">
             <Button fx:id="addDogButton" text="AÑADIR PERRO +" />

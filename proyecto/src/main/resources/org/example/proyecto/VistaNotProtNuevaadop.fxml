@@ -5,12 +5,11 @@
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.NotProtNuevaadopControlador">
 
     <top>
         <VBox spacing="10">
             <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar" xmlns:fx="http://javafx.com/fxml">
-                <Button styleClass="back-button" text="←" />
                 <Region HBox.hgrow="ALWAYS" />
                 <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
                 <Region HBox.hgrow="ALWAYS" />
@@ -18,13 +17,13 @@
 
             <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
                 <Button styleClass="tab-button, active" text="Notificaciones" />
-                <Button styleClass="tab-button" text="Perros" />
-                <Button styleClass="tab-button" text="Citas" />
-                <Button styleClass="tab-button" text="Sobre nosotros" />
+                <Button fx:id="btnPerrosProtectora" styleClass="tab-button" text="Perros" />
+                <Button fx:id="btnCitasProtectora" styleClass="tab-button" text="Citas" />
+                <Button fx:id="btnSobreNosotrosProtectora" styleClass="tab-button" text="Sobre nosotros" />
             </HBox>
             <HBox alignment="CENTER" spacing="10" styleClass="tabs-bar">
-                <ToggleButton selected="true" styleClass="small-tab-button" text="SOLICITUD CITA" />
-                <ToggleButton style="-fx-font-weight: bold;" styleClass="small-tab-button" text="SOLICITUD ADOPCIÓN" />
+                <ToggleButton fx:id="btnSolicitudCitaProtectora" onAction="#btnSolicitudCitaProtectora" selected="true" styleClass="small-tab-button" text="SOLICITUD CITA" />
+                <ToggleButton fx:id="btnSolicitudAdopcionProtectora" onAction="#btnSolicitudAdopcionProtectora" style="-fx-font-weight: bold;" styleClass="small-tab-button" text="SOLICITUD ADOPCIÓN" />
             </HBox>
         </VBox>
     </top>
