@@ -80,6 +80,9 @@ public class PerrosCliControlador {
         this.emailCliente = emailCliente;
         perros = PerrosCliDAO.obtenerPerrosCliente(emailCliente);
         System.out.println("Número de perros obtenidos: " + perros.size());
+        for (Perro p : perros) {
+            System.out.println("Perro: " + p.getNombre());
+        }
         mostrarPerros();
 
     }
@@ -260,8 +263,10 @@ public class PerrosCliControlador {
 
     @FXML
     private void btnMasPerrosCliente(ActionEvent event) {
-        btnMasPerrosCliente(event);
-
+        if (indice + 2 < perros.size()) {
+            indice += 2;
+            mostrarPerros();
+        }
     }
 
 }

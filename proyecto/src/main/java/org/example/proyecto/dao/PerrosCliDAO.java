@@ -37,7 +37,9 @@ public class PerrosCliDAO {
                 p.setRaza(rs.getString("Raza"));
                 p.setFoto(rs.getString("Ruta_Imagen"));
                 p.setCifProtectora(rs.getString("CIF"));
+
                 lista.add(p);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
