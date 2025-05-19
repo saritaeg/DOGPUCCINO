@@ -39,6 +39,8 @@ public class RegProtectoraControlador {
     private TextField txtRedes;
     @FXML
     private TextField txtContraseña;
+    @FXML
+    private TextField txtConfirmarContraseña;
 
     @FXML
     private void btnMinimizar(ActionEvent event) {
@@ -80,9 +82,10 @@ public class RegProtectoraControlador {
             String telefono = txtTelefono.getText();
             String redes = txtRedes.getText();
             String contraseña = txtContraseña.getText();
+            String repetirContraseña = txtConfirmarContraseña.getText();
 
             boolean exito = RegistroProtectoraServicio.registrarProtectorayUsuario(
-                    nombre, ciudad, cif, calle, correo, telefono, redes, contraseña
+                    nombre, ciudad, cif, calle, correo, telefono, redes, contraseña, repetirContraseña
             );
 
             if (exito) {
