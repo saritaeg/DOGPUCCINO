@@ -90,7 +90,7 @@ public class RegProtectoraControlador {
 
             if (exito) {
                 Alertas.mostrarAlerta("Registro Conseguido", "La protectora se ha registrado con éxito.");
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicioSesion.fxml"));
                 Parent root = fxmlLoader.load();
 
                 Stage stage = (Stage) btnRegistrar.getScene().getWindow();

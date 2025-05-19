@@ -51,7 +51,6 @@ public class AñadirPerroControlador {
         Platform.exit();
     }
 
-
     @FXML
     private void btnVolverAtrasProtectora() {
         try {

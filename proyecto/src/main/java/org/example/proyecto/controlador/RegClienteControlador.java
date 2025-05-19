@@ -108,7 +108,7 @@ public class RegClienteControlador {
 
             if (exito) {
                 Alertas.mostrarAlerta("Éxito", "Cliente y usuario registrados correctamente.");
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosCli.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicioSesion.fxml"));
                 Parent root = fxmlLoader.load();
 
                 Stage stage = (Stage) btnRegistrarCliente.getScene().getWindow();
