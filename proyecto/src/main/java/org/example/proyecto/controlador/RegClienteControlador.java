@@ -95,7 +95,7 @@ public class RegClienteControlador {
             String apellido2 = txtApellido2.getText();
             LocalDate fechaNacimiento = txtFechaNacimiento.getValue();
             String provincia = txtProvincia.getText();
-            String tipoVia = txtTipoVia.getValue().toString();
+            String tipoVia = txtTipoVia.getValue();
             String telefono = txtTelefono.getText();
             String correo = txtCorreo.getText();
             String contraseña = txtContraseña.getText();
@@ -103,7 +103,7 @@ public class RegClienteControlador {
 
             boolean exito = RegistroClienteServicio.registrarClienteYUsuario(
                     nombre, apellido, apellido2, fechaNacimiento, telefono,
-                    tipoVia, provincia, correo, contraseña
+                    tipoVia, provincia, correo, contraseña, confirmarContraseña
             );
 
             if (exito) {
@@ -112,7 +112,6 @@ public class RegClienteControlador {
                 Parent root = fxmlLoader.load();
 
                 Stage stage = (Stage) btnRegistrarCliente.getScene().getWindow();
-
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
             } else {
@@ -126,6 +125,7 @@ public class RegClienteControlador {
             Alertas.mostrarAlerta("Error", "Ocurrió un error al registrar.");
         }
     }
+
 }
 
 

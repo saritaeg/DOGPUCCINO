@@ -9,8 +9,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class RegistroClienteServicio {
-
+public class EditarPerfilClienteServicio {
     private static boolean validarEmail(String email) {
         String regex = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
         return email != null && email.matches(regex);
@@ -85,5 +84,4 @@ public class RegistroClienteServicio {
         }
     }
 }
-
 

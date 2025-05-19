@@ -5,18 +5,22 @@
 
 <AnchorPane prefHeight="600" prefWidth="800" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.EditarPerfilCLiControlador">
     <children>
-        <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1000.0" spacing="30" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="800.0" spacing="30"
+              AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+              style="-fx-padding: 20;">
+
             <StackPane styleClass="header">
                 <Label styleClass="titulo" text="Editar Perfil" />
             </StackPane>
 
-            <GridPane alignment="CENTER" hgap="40" maxWidth="900" vgap="18">
+            <GridPane alignment="CENTER" hgap="40" maxWidth="700" vgap="18">
                 <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="430.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="430.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="340.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="340.0" />
                 </columnConstraints>
 
-                <VBox spacing="14" GridPane.columnIndex="0">
+                <VBox prefHeight="393.0" prefWidth="340.0" spacing="14" GridPane.columnIndex="0">
                     <Label styleClass="input-label" text="Nombre completo" />
                     <TextField fx:id="txtNombre" promptText="Introduce tu nombre" styleClass="input-field" />
 
@@ -27,18 +31,18 @@
                     <TextField fx:id="txtApellido2" promptText="Introduce tu segundo apellido" styleClass="input-field" />
 
                     <Label styleClass="input-label" text="Fecha de nacimiento" />
-                    <DatePicker fx:id="txtFechaNacimiento" prefHeight="33.0" prefWidth="433.0" promptText="dd/mm/aa" styleClass="date-picker" />
+                    <DatePicker fx:id="txtFechaNacimiento" prefHeight="33.0" prefWidth="340.0" promptText="dd/mm/aa" styleClass="date-picker" />
 
                     <Label styleClass="input-label" text="Provincia" />
                     <TextField fx:id="txtProvincia" promptText="Introduce tu provincia" styleClass="input-field" />
                 </VBox>
 
-                <VBox prefHeight="393.0" prefWidth="393.0" spacing="14" GridPane.columnIndex="1">
+                <VBox prefHeight="393.0" prefWidth="340.0" spacing="14" GridPane.columnIndex="1">
                     <Label styleClass="input-label" text="Tipo de vía" />
-                    <ComboBox fx:id="txtTipoVia" prefHeight="34.0" prefWidth="435.0" styleClass="combo-box" />
+                    <ComboBox fx:id="txtTipoVia" prefHeight="34.0" prefWidth="340.0" styleClass="combo-box" />
 
                     <Label styleClass="input-label" text="Teléfono" />
-                    <TextField fx:id="txtTelefono" prefHeight="36.0" prefWidth="302.0" promptText="000 000 000" styleClass="input-field" />
+                    <TextField fx:id="txtTelefono" prefHeight="36.0" prefWidth="340.0" promptText="000 000 000" styleClass="input-field" />
 
                     <Label styleClass="input-label" text="Correo electrónico" />
                     <TextField fx:id="txtCorreo" promptText="ejemplo@correo.com" styleClass="input-field" />
@@ -54,13 +58,17 @@
                         <Label styleClass="input-label" text="Confirmar nueva contraseña" />
                         <PasswordField fx:id="txtConfirmarContraseña" promptText="Repite la contraseña" styleClass="input-field" />
                     </VBox>
-               <TextField fx:id="txtCorreo1" layoutX="10.0" layoutY="204.0" promptText="Introduce tu contraseña" styleClass="input-field" />
-               <Label layoutX="10.0" layoutY="172.0" styleClass="input-label" text="Confirmar contraseña" />
-               <TextField fx:id="txtCorreo2" layoutX="10.0" layoutY="204.0" promptText="Repetir contraseña" styleClass="input-field" />
+
+                    <Label styleClass="input-label" text="Contraseña" />
+                    <TextField fx:id="txtCorreo1" promptText="Introduce tu contraseña" styleClass="input-field" />
+
+                    <Label styleClass="input-label" text="Confirmar contraseña" />
+                    <TextField fx:id="txtCorreo2" promptText="Repetir contraseña" styleClass="input-field" />
                 </VBox>
-            <rowConstraints>
-               <RowConstraints />
-            </rowConstraints>
+
+                <rowConstraints>
+                    <RowConstraints />
+                </rowConstraints>
             </GridPane>
 
             <VBox alignment="CENTER" spacing="8">
@@ -73,3 +81,4 @@
         </VBox>
     </children>
 </AnchorPane>
+
