@@ -71,6 +71,10 @@ public class EditarClienteDAO {
 
             String hashedPassword = Contraseña.encriptarContrasenia(nuevaContrasena);
 
+            // 🔍 Imprime los valores antes de ejecutar
+            System.out.println("Actualizando contraseña para ID: " + idCliente);
+            System.out.println("Contraseña (hashed): " + hashedPassword);
+
             ps.setString(1, hashedPassword);
             ps.setDate(2, java.sql.Date.valueOf(java.time.LocalDate.now()));
             ps.setInt(3, idCliente);
@@ -83,15 +87,15 @@ public class EditarClienteDAO {
             return false;
         }
     }
+
     public static Integer obtenerIdClientePorCorreo(String correo) {
-        String sql = "SELECT ID_Clientes FROM Usuarios WHERE ID_Clientes = (SELECT ID FROM Clientes WHERE Correo_Electronico = ?) OR CIF_Protectoras = (SELECT CIF FROM Protectoras WHERE Correo_Electronico = ?)";
+        String sql = "SELECT ID FROM Clientes WHERE Correo_Electronico = ?";
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, correo);
-            ps.setString(2, correo);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    return rs.getInt("ID_Clientes");
+                    return rs.getInt("ID");
                 }
             }
         } catch (SQLException e) {
@@ -99,5 +103,6 @@ public class EditarClienteDAO {
         }
         return null;
     }
+
 
 }
