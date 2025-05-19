@@ -34,8 +34,10 @@ public class EditarPerfilCLiControlador {
     private TextField txtTelefono;
     @FXML
     private TextField txtCorreo;
-    @FXML private PasswordField txtContraseña;
-    @FXML private PasswordField txtConfirmarContraseña;
+    @FXML
+    private PasswordField txtContraseña;
+    @FXML
+    private PasswordField txtConfirmarContraseña;
     @FXML
     private Button btnGuardarCambios;
     @FXML
