@@ -13,14 +13,12 @@
            fx:controller="org.example.proyecto.controlador.Inicio2Controlador">
 
     <children>
-        <!-- Fondo -->
         <ImageView fitHeight="600.0" fitWidth="800.0" preserveRatio="false" mouseTransparent="true">
             <image>
                 <Image url="@../../../imagenes/fondo.png" />
             </image>
         </ImageView>
 
-        <!-- Botón minimizar -->
         <Button fx:id="btnMinimizar" text="−" onAction="#btnMinimizar"
                 styleClass="boton-barra" StackPane.alignment="TOP_RIGHT">
             <StackPane.margin>
@@ -28,7 +26,7 @@
             </StackPane.margin>
         </Button>
 
-        <!-- Botón cerrar -->
+
         <Button fx:id="btnCerrar" text="X" onAction="#btnCerrar"
                 styleClass="boton-barra" StackPane.alignment="TOP_RIGHT">
             <StackPane.margin>
@@ -36,7 +34,7 @@
             </StackPane.margin>
         </Button>
 
-        <!-- Botón Clientes -->
+
         <Button fx:id="btnClientes" text="Clientes" onAction="#btnClientes"
                 styleClass="boton" StackPane.alignment="CENTER_LEFT">
             <StackPane.margin>
@@ -44,7 +42,6 @@
             </StackPane.margin>
         </Button>
 
-        <!-- Botón Protectora -->
         <Button fx:id="btnProtectora" text="Protectora" onAction="#btnProtectora"
                 styleClass="boton" StackPane.alignment="CENTER_RIGHT">
             <StackPane.margin>
