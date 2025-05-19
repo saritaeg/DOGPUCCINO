@@ -79,6 +79,7 @@ public class InicioSesionControlador {
                 if ("CLIENTE".equalsIgnoreCase(rol)) {
                     cargarVista("/org/example/proyecto/VistaPerrosCli.fxml", email);
                 } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
+
                     String cifProtectora = obtenerCif(email);
                     if (cifProtectora != null) {
                         Sesion.setCifProtectora(cifProtectora);

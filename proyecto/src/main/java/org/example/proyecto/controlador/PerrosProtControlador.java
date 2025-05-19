@@ -58,6 +58,7 @@ public class PerrosProtControlador {
     @FXML
     private void btnAñadirPerroProtectora(ActionEvent event) {
         try {
+
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaAñadirPerro.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) btnAñadirPerroProtectora.getScene().getWindow();

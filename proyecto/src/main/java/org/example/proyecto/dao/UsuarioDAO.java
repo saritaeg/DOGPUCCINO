@@ -76,47 +76,9 @@ public class UsuarioDAO {
         }
     }
 
-    public static boolean verificarContrasenia(String correo, String password)
-                throws SQLException {
-                String sql = """
-            SELECT u.Contrasenia
-            FROM Usuarios 
-                     LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
-                        LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
-            WHERE c.Correo_Electronico = ? OR p.Correo_Electronico = ?
-        """;
 
-        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, correo);
-            stmt.setString(2, correo);
 
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    String contraseniaHasheada = rs.getString("Contrasenia");
-                    return Contraseña.verificarContrasenia(password, contraseniaHasheada);
-                }
-            }
-        }
-        return false;
-    }
-    public static boolean actualizarContraseña(String email, String nuevaContraseña) {
 
-        String sql = "UPDATE Usuarios SET Contrasenia = ? WHERE Correo_Electronico = ?";
-        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-
-            ps.setString(1, nuevaContraseña);
-            ps.setString(2, email);
-
-            int filas = ps.executeUpdate();
-            return filas > 0;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 }
 
 

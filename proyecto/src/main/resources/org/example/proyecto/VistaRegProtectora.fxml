@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -13,6 +14,19 @@
 
             <StackPane styleClass="cabecera">
                 <Label styleClass="titulo" text="Registrar Nueva Protectora" />
+   
+   
+               <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" StackPane.alignment="TOP_RIGHT">
+                   <StackPane.margin>
+                       <Insets right="10" top="10" />
+                   </StackPane.margin>
+               </Button>
+   
+               <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" StackPane.alignment="TOP_RIGHT">
+                   <StackPane.margin>
+                       <Insets right="50" top="10" />
+                   </StackPane.margin>
+               </Button>
             </StackPane>
 
             <GridPane alignment="CENTER" hgap="30" maxWidth="700" vgap="15">

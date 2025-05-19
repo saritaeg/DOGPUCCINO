@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
-import org.example.proyecto.dao.RegClienteDAO;
+import org.example.proyecto.dao.EditarClienteDAO;
 import org.example.proyecto.dao.UsuarioDAO;
 import org.example.proyecto.modelo.Clientes;
 import org.example.proyecto.utils.Alertas;
@@ -44,15 +44,25 @@ public class EditarPerfilCLiControlador {
     @FXML
     private Button btnCancelar;
 
+    private int idCliente;  // Variable para almacenar el idCliente obtenido
     private String emailCliente;
 
     public void inicializarDatos(String email) {
         this.emailCliente = email;
+
+        // Obtener idCliente desde UsuarioDAO o EditarClienteDAO (según donde implementes el método)
+        Integer id = EditarClienteDAO.obtenerIdClientePorCorreo(emailCliente);
+        if (id != null) {
+            this.idCliente = id;
+        } else {
+            System.err.println("No se pudo obtener el idCliente para el correo: " + emailCliente);
+        }
+
         cargarDatosDesdeBD();
     }
 
     private void cargarDatosDesdeBD() {
-        Clientes cliente = RegClienteDAO.obtenerClientePorEmail(emailCliente);
+        Clientes cliente = EditarClienteDAO.obtenerClientePorEmail(emailCliente);
         if (cliente != null) {
             txtNombre.setText(cliente.getNombre());
             txtApellido.setText(cliente.getApellido1());
@@ -64,7 +74,6 @@ public class EditarPerfilCLiControlador {
             txtCorreo.setText(cliente.getEmail());
         }
     }
-
 
     @FXML
     private void btnGuardarCambios(ActionEvent event) {
@@ -89,11 +98,13 @@ public class EditarPerfilCLiControlador {
         clienteActualizado.setTelefono(txtTelefono.getText());
         clienteActualizado.setEmail(txtCorreo.getText());
 
-        boolean clienteActualizadoOK = RegClienteDAO.actualizarCliente(clienteActualizado,emailCliente);
+        boolean clienteActualizadoOK = EditarClienteDAO.actualizarCliente(clienteActualizado, emailCliente);
 
         boolean usuarioActualizadoOK = true;
         if (!pass.isEmpty()) {
-            usuarioActualizadoOK = UsuarioDAO.actualizarContraseña(emailCliente, pass);
+            // Aquí usas el idCliente que obtuviste para actualizar la contraseña
+            usuarioActualizadoOK = EditarClienteDAO.actualizarContrasenaPorId(idCliente, pass);
+            System.out.println("Actualización contraseña OK? " + usuarioActualizadoOK);
         }
 
         if (clienteActualizadoOK && usuarioActualizadoOK) {
@@ -105,6 +116,7 @@ public class EditarPerfilCLiControlador {
             Alertas.mostrarAlerta("Error", "No se pudieron actualizar los datos.");
         }
     }
+
     @FXML
     private void btnCancelar(ActionEvent event) {
         try {
@@ -118,8 +130,5 @@ public class EditarPerfilCLiControlador {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
-
 }
