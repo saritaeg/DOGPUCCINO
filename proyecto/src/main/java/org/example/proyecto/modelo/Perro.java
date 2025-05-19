@@ -3,8 +3,8 @@ package org.example.proyecto.modelo;
 import java.time.LocalDate;
 
 public class Perro {
-    public enum Adoptado{S,N}
-    public enum Sexo{M,H}
+    public enum Adoptado { S, N }
+    public enum Sexo { M, H }
 
     private int id;
     private String nombre;
@@ -15,13 +15,13 @@ public class Perro {
     private String foto;
     private LocalDate fechaAlta;
     private LocalDate fechaModificacion;
+    private String cifProtectora;
 
     public Perro() {}
 
-
     public Perro(int id, String nombre, String fechaNacimiento, Adoptado adoptado,
                  Sexo sexo, String raza, String foto, LocalDate fechaAlta,
-                 LocalDate fechaModificacion) {
+                 LocalDate fechaModificacion, String cifProtectora) {
         this.id = id;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
@@ -31,6 +31,7 @@ public class Perro {
         this.foto = foto;
         this.fechaAlta = fechaAlta;
         this.fechaModificacion = fechaModificacion;
+        this.cifProtectora = cifProtectora;
     }
 
     public int getId() {
@@ -95,18 +96,21 @@ public class Perro {
 
     public void setFechaAlta(LocalDate fechaAlta) {
         this.fechaAlta = fechaAlta;
-
-    }
-
-
-    public void setFechaModificacion(LocalDate fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-
     }
 
     public LocalDate getFechaModificacion() {
         return fechaModificacion;
     }
 
+    public void setFechaModificacion(LocalDate fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
 
+    public String getCifProtectora() {
+        return cifProtectora;
+    }
+
+    public void setCifProtectora(String cifProtectora) {
+        this.cifProtectora = cifProtectora;
+    }
 }
