@@ -3,7 +3,7 @@
     -fx-font-family: "Segoe UI", sans-serif;
 }
 
-/* Encabezado superior */
+
 .header {
     -fx-background-color: transparent;
 }
@@ -27,7 +27,7 @@
     -fx-cursor: hand;
 }
 
-/* Botón superior 'Añadir perro' */
+
 #addDogButton {
     -fx-background-color: #cebea3;
     -fx-text-fill: black;
@@ -38,7 +38,7 @@
     -fx-cursor: hand;
 }
 
-/* Contenedor del formulario */
+
 .form-container {
     -fx-background-color: #cebea3;
     -fx-padding: 20;
@@ -47,7 +47,6 @@
     -fx-spacing: 15;
 }
 
-/* Campos de texto */
 .text-field, .text-area {
     -fx-background-color: white;
     -fx-text-fill: black;
@@ -57,13 +56,12 @@
     -fx-padding: 6 8;
 }
 
-/* Etiquetas del formulario */
 Label {
     -fx-text-fill: black;
     -fx-font-weight: bold;
 }
 
-/* Área de imagen */
+
 #imageContainer {
     -fx-border-color: #523e27;
     -fx-border-width: 2;
@@ -72,7 +70,7 @@ Label {
     -fx-alignment: center;
 }
 
-/* Botón final 'AÑADIR' */
+
 #submitButton {
     -fx-background-color: #523e27;
     -fx-text-fill: white;
@@ -82,3 +80,20 @@ Label {
     -fx-padding: 10 20;
     -fx-cursor: hand;
 }
+
+.boton-barra {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-color: white;
+    -fx-border-radius: 3;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+}
+
+.boton-barra:hover {
+    -fx-background-color: #d9cbb0;
+    -fx-text-fill: white;
+}
+
