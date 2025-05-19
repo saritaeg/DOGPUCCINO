@@ -8,10 +8,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.example.proyecto.dao.UsuarioDAO;
 import org.example.proyecto.utils.ConexionBaseDatos;
-
-
-
-
 import java.io.IOException;
 import java.sql.*;
 import java.util.Objects;

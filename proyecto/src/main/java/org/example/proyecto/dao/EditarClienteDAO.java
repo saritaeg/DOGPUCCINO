@@ -2,6 +2,7 @@ package org.example.proyecto.dao;
 
 import org.example.proyecto.modelo.Clientes;
 import org.example.proyecto.utils.ConexionBaseDatos;
+import org.example.proyecto.utils.Contraseña;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -58,5 +59,50 @@ public class EditarClienteDAO {
             return false;
         }
     }
+    public static boolean actualizarContrasenaPorId(int idCliente, String nuevaContrasena) {
+        String sql = """
+        UPDATE Usuarios
+        SET Contrasenia = ?, Fecha_Modificacion = ?
+        WHERE ID_Clientes = ?
+    """;
+
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            String hashedPassword = Contraseña.encriptarContrasenia(nuevaContrasena);
+
+            // 🔍 Imprime los valores antes de ejecutar
+            System.out.println("Actualizando contraseña para ID: " + idCliente);
+            System.out.println("Contraseña (hashed): " + hashedPassword);
+
+            ps.setString(1, hashedPassword);
+            ps.setDate(2, java.sql.Date.valueOf(java.time.LocalDate.now()));
+            ps.setInt(3, idCliente);
+
+            int filas = ps.executeUpdate();
+            return filas > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static Integer obtenerIdClientePorCorreo(String correo) {
+        String sql = "SELECT ID FROM Clientes WHERE Correo_Electronico = ?";
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, correo);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("ID");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 }

@@ -5,6 +5,11 @@ package org.example.proyecto.utils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Base64;
 
 public class Contraseña {
@@ -27,4 +32,6 @@ public class Contraseña {
         }
         return passwordEncryptor.matches(contraseniaTextoPlano.trim(), contraseniaHasheada);
     }
+
+
 }

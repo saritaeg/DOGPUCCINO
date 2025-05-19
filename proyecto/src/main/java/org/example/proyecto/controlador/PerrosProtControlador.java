@@ -63,6 +63,7 @@ public class PerrosProtControlador {
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) btnAñadirPerroProtectora.getScene().getWindow();
             stage.setScene(new Scene(root));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
