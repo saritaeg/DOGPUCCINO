@@ -9,8 +9,9 @@
         <URL value="@EstiloInicioSesion.css" />
     </stylesheets>
     <children>
-        <VBox alignment="CENTER" spacing="20" styleClass="main-container" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
-
+        <VBox alignment="CENTER" spacing="20" styleClass="main-container"
+              AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
             <Label styleClass="titulo" text="Iniciar Sesión" />
 
             <VBox spacing="15" styleClass="form-container">
@@ -23,6 +24,15 @@
                 <Button fx:id="btnAcceso" onAction="#btnAcceso" styleClass="login-button" text="Acceso" />
             </VBox>
         </VBox>
-         <Button fx:id="btnAtras" onAction="#btnAtras" prefHeight="52.0" prefWidth="66.0" styleClass="back-button" text="←" />
+
+        <Button fx:id="btnAtras" onAction="#btnAtras" prefHeight="52.0" prefWidth="66.0"
+                styleClass="back-button" text="←"
+                AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" />
+
+        <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−"
+                AnchorPane.topAnchor="10" AnchorPane.rightAnchor="50" />
+
+        <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X"
+                AnchorPane.topAnchor="10" AnchorPane.rightAnchor="10" />
     </children>
 </AnchorPane>

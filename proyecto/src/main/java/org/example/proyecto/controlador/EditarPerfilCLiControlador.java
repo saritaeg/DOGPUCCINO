@@ -41,7 +41,7 @@ public class EditarPerfilCLiControlador {
     @FXML
     private Button btnCancelar;
 
-    private int idCliente;  // Variable para almacenar el idCliente obtenido
+    private int idCliente;
     private String emailCliente;
     @FXML
     private void btnMinimizar(ActionEvent event) {
