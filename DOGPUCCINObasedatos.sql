@@ -49,8 +49,6 @@ CREATE TABLE Perros (
     Nombre varchar2(20),
     Fecha_Nacimiento date,
     Sexo char(1) check (Sexo in ('M', 'H')),
-    Calle varchar2(50),
-    Ciudad varchar2(50),
     Adoptado char(1) check (Adoptado in ('S', 'N')),
     CIF char(9), 
     Fecha_alta date,
@@ -115,8 +113,20 @@ CREATE TABLE Solicitud_adopcion (
     foreign key (Cliente_ID) references Clientes(ID),
     foreign key (Perro_ID) references Perros(ID)
 );
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Labrador', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pitbull', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Golden Retriever', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Beagle', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pastor Alemán', SYSDATE, SYSDATE);
 
 
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (1, 'Displasia de cadera', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (2, 'Alergias cutáneas', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (3, 'Problemas cardíacos', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (4, 'Epilepsia', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (5, 'Leishmaniosis', SYSDATE, SYSDATE);
+SELECT * FROM Razas;
+SELECT * FROM Usuarios WHERE ID_Clientes = (SELECT ID FROM Clientes WHERE Correo_Electronico = 'aaa');
 
 
 create sequence cliente_seq
@@ -124,9 +134,14 @@ create sequence cliente_seq
     increment by 1;
 
 create sequence usuario_seq
-    start with 1  -- Inicia la secuencia desde 1
-    increment by 1;  -- Incrementa de 1 en 1
+    start with 1 
+    increment by 1; 
 
+CREATE SEQUENCE perros_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE;
 
 
 create or replace trigger rolUsuarios
@@ -143,6 +158,42 @@ begin
 END;
 /
 
+SELECT u.Contrasenia, u.Rol 
+FROM Usuarios u
+LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
+LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
+WHERE (c.Correo_Electronico = ? OR p.Correo_Electronico = ?)
+AND u.Contrasenia = ?
+/
+SELECT u.Rol
+FROM Usuarios u
+JOIN Clientes c ON u.ID_Clientes = c.ID
+WHERE c.Correo_Electronico = ?
+AND u.Contrasenia = ?
+/
+
+SELECT u.Contrasenia 
+FROM Usuarios u
+JOIN Clientes c ON u.ID_Clientes = c.ID
+WHERE c.Correo_Electronico = 'ola@gmail.com';
+
+SELECT u.Contrasenia 
+FROM Usuarios u
+LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
+LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
+WHERE c.Correo_Electronico = ? OR p.Correo_Electronico = 'hhh@gmail.com';
+
+SELECT u.Contrasenia 
+FROM Usuarios u
+JOIN Clientes c ON u.ID_Clientes = c.ID
+WHERE c.Correo_Electronico = 'hhh@gmail.com';
+
+SELECT u.Contrasenia, u.Rol
+FROM Usuarios u
+LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
+LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
+WHERE LOWER(TRIM(c.Correo_Electronico)) = 'ppp@gmail.com' OR LOWER(TRIM(p.Correo_Electronico)) = 'ppp@gmail.com';
+
 
 /*
     DROP TABLE SOLICITUD_ADOPCION;
@@ -155,4 +206,4 @@ END;
     DROP TABLE usuarios;
     drop table protectoras;
     drop table clientes;
-    */
+*/    
