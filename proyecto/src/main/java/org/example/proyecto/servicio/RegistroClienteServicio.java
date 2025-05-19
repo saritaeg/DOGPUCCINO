@@ -35,7 +35,6 @@ public class RegistroClienteServicio {
             String provincia, String correo, String contrasenia, String confirmarContraseña
     ) {
         try {
-            // Validaciones previas
             if (!validarEmail(correo)) {
                 throw new IllegalArgumentException("El correo electrónico no es válido.");
             }
