@@ -5,7 +5,7 @@
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="root" prefHeight="500.0" prefWidth="900.0" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.NotCliCancelacionControlador">
+<BorderPane fx:id="root" prefHeight="600" prefWidth="800" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.NotCliCancelacionControlador">
 
     <top>
         <VBox spacing="10">
