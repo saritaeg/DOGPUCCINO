@@ -66,18 +66,6 @@
 
                         <Label text="Protectora:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                         <TextField fx:id="txtProtectoraPro" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <columnConstraints>
-                     <ColumnConstraints />
-                     <ColumnConstraints />
-                  </columnConstraints>
-                  <rowConstraints>
-                     <RowConstraints />
-                     <RowConstraints />
-                     <RowConstraints />
-                     <RowConstraints />
-                     <RowConstraints />
-                     <RowConstraints />
-                  </rowConstraints>
                     </GridPane>
                     <Button fx:id="btnEditarPerroProtectora" onAction="#btnEditarPerroProtectora" styleClass="info-button" text="EDITAR" />
                 </VBox>
@@ -106,18 +94,6 @@
 
                         <Label text="Protectora:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                         <TextField fx:id="txtProtectoraPro2" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <columnConstraints>
-                     <ColumnConstraints />
-                     <ColumnConstraints />
-                  </columnConstraints>
-                  <rowConstraints>
-                     <RowConstraints />
-                     <RowConstraints />
-                     <RowConstraints />
-                     <RowConstraints />
-                     <RowConstraints />
-                     <RowConstraints />
-                  </rowConstraints>
                     </GridPane>
                     <Button fx:id="btnEditarPerroProtectora2" onAction="#btnEditarPerroProtectora2" styleClass="info-button" text="EDITAR" />
                 </VBox>

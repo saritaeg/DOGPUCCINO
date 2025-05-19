@@ -10,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.proyecto.dao.UsuarioDAO;
+import org.example.proyecto.modelo.Sesion;
 import org.example.proyecto.utils.ConexionBaseDatos;
 import org.example.proyecto.utils.Contraseña;
 
@@ -78,8 +79,21 @@ public class InicioSesionControlador {
                 if ("CLIENTE".equalsIgnoreCase(rol)) {
                     cargarVista("/org/example/proyecto/VistaPerrosCli.fxml", email);
                 } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
+<<<<<<< HEAD
+                    String cifProtectora = obtenerCif(email);
+                    if (cifProtectora != null) {
+                        Sesion.setCifProtectora(cifProtectora);
+                    } else {
+                        mostrarAlerta("Error", "No se pudo obtener el CIF de la protectora.");
+                        return;
+                    }
+                    cargarVista("/org/example/proyecto/VistaPerrosProt.fxml", email);
+                    mostrarBienvenida(nombre, "Protectora");
+            } else {
+=======
                     cargarVista("/org/example/proyecto/VistaPerrosProt.fxml", email);
                 } else {
+>>>>>>> 86e1e442bd28343cdfe9f781e36e16cdc21f5bed
                     mostrarAlerta("Error", "El usuario no tiene un rol válido.");
                 }
             } else {
@@ -93,6 +107,27 @@ public class InicioSesionControlador {
 
     private boolean correoExiste(String correo) throws SQLException {
         return UsuarioDAO.correoExiste(correo);
+    }
+    private String obtenerCif(String email) {
+        String sql = """
+        SELECT p.CIF
+        FROM Protectoras p
+        WHERE p.Correo_Electronico = ?
+    """;
+
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, email);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("CIF");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private String obtenerContraseniaHasheada(String email) throws SQLException {
