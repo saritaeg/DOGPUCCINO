@@ -2,6 +2,7 @@ package org.example.proyecto.controlador;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -78,14 +79,13 @@ public class PerrosProtControlador {
     @FXML
     private void btnAñadirPerroProtectora(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaAñadirPerro.fxml"));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) btnAñadirPerroProtectora.getScene().getWindow();
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaAñadirPerro.fxml"));
+            Parent root = loader.load();
             Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
-        }catch (IOException e) {
+            stage.show();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
