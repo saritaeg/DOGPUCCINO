@@ -3,7 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<<<<<<< HEAD
 <AnchorPane prefHeight="600" prefWidth="800" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.EditarPerfilProControlador">
+=======
+<AnchorPane prefHeight="600" prefWidth="800" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.EditarProtectoraControlador">
+>>>>>>> a7af45e2382a37de33edd003a203306b883f3f6a
     <children>
         <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1000.0" spacing="30" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <StackPane styleClass="header">
@@ -24,7 +28,11 @@
                     <TextField fx:id="txtNombre" promptText="Introduce tu nombre" styleClass="input-field" />
 
                     <Label styleClass="input-label" text="Correo electrónico" />
+<<<<<<< HEAD
                     <TextField fx:id="txtCorreo" promptText="ejemplo@correo.com" styleClass="input-field" />
+=======
+                    <TextField fx:id="txtCorreoElectronico" promptText="ejemplo@correo.com" styleClass="input-field" />
+>>>>>>> a7af45e2382a37de33edd003a203306b883f3f6a
 
                     <Label styleClass="input-label" text="Teléfono" />
                <TextField fx:id="txtTelefono" layoutX="10.0" layoutY="206.0" promptText="000 000 000" styleClass="input-field" />
@@ -38,12 +46,17 @@
                <TextField fx:id="txtCalle" layoutX="10.0" layoutY="74.0" prefHeight="36.0" prefWidth="302.0" promptText="Direccion" styleClass="input-field" />
 
                     <Label styleClass="input-label" text="Redes sociales" />
+<<<<<<< HEAD
                     <TextField fx:id="txtRedes" prefHeight="36.0" prefWidth="302.0" promptText="Introduce tus redes" styleClass="input-field" />
+=======
+                    <TextField fx:id="txtRedesSociales" prefHeight="36.0" prefWidth="302.0" promptText="Introduce tus redes" styleClass="input-field" />
+>>>>>>> a7af45e2382a37de33edd003a203306b883f3f6a
 
                     <HBox alignment="CENTER_LEFT" spacing="8">
                         <Label styleClass="input-label" text="Cambiar contraseña" />
                     </HBox>
 
+<<<<<<< HEAD
                     <VBox fx:id="passwordContainer" managed="false" spacing="14" visible="false">
                         <Label styleClass="input-label" text="Nueva contraseña" />
                         <PasswordField fx:id="txtContraseña" promptText="Mínimo 8 caracteres" styleClass="input-field" />
@@ -54,10 +67,12 @@
                     <TextField fx:id="txtContraseña" layoutX="10.0" layoutY="204.0" promptText="Introduce tu contraseña" styleClass="input-field" />
                     <Label layoutX="10.0" layoutY="172.0" styleClass="input-label" text="Confirmar contraseña" />
                     <TextField fx:id="txtContraseña1" layoutX="10.0" layoutY="204.0" promptText="Repetir contraseña" styleClass="input-field" />
+=======
+                    <PasswordField fx:id="txtNuevaContrasena" promptText="Mínimo 8 caracteres" styleClass="input-field" />
+                    <Label layoutX="10.0" layoutY="172.0" styleClass="input-label" text="Confirmar contraseña" />
+                    <PasswordField fx:id="txtConfirmarContrasena" promptText="Repite la contraseña" styleClass="input-field" />
+>>>>>>> a7af45e2382a37de33edd003a203306b883f3f6a
                 </VBox>
-                <rowConstraints>
-                    <RowConstraints />
-                </rowConstraints>
             </GridPane>
 
             <VBox alignment="CENTER" spacing="8">
