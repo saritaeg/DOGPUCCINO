@@ -47,28 +47,13 @@
                     <Label styleClass="input-label" text="Correo electrónico" />
                     <TextField fx:id="txtCorreo" promptText="ejemplo@correo.com" styleClass="input-field" />
 
-                    <HBox alignment="CENTER_LEFT" spacing="8">
-                        <Label styleClass="input-label" text="Cambiar contraseña" />
-                    </HBox>
-
-                    <VBox fx:id="passwordContainer" managed="false" spacing="14" visible="false">
-                        <Label styleClass="input-label" text="Nueva contraseña" />
-                        <PasswordField fx:id="txtContraseña" promptText="Mínimo 8 caracteres" styleClass="input-field" />
-
-                        <Label styleClass="input-label" text="Confirmar nueva contraseña" />
-                        <PasswordField fx:id="txtConfirmarContraseña" promptText="Repite la contraseña" styleClass="input-field" />
-                    </VBox>
 
                     <Label styleClass="input-label" text="Contraseña" />
-                    <TextField fx:id="txtCorreo1" promptText="Introduce tu contraseña" styleClass="input-field" />
+                    <PasswordField fx:id="txtContraseña" promptText="Introduce tu contraseña" styleClass="input-field" />
 
                     <Label styleClass="input-label" text="Confirmar contraseña" />
-                    <TextField fx:id="txtCorreo2" promptText="Repetir contraseña" styleClass="input-field" />
+                    <PasswordField fx:id="txtConfirmarContraseña" promptText="Repetir contraseña" styleClass="input-field" />
                 </VBox>
-
-                <rowConstraints>
-                    <RowConstraints />
-                </rowConstraints>
             </GridPane>
 
             <VBox alignment="CENTER" spacing="8">
@@ -76,9 +61,8 @@
                     <Button fx:id="btnGuardarCambios" onAction="#btnGuardarCambios" styleClass="boton-principal" text="Guardar Cambios" />
                     <Button fx:id="btnCancelar" onAction="#btnCancelar" styleClass="boton-secundario" text="Cancelar" />
                 </HBox>
-                <Label fx:id="lblMensaje" styleClass="mensaje-feedback" visible="false" />
+
             </VBox>
         </VBox>
     </children>
 </AnchorPane>
-
