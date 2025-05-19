@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+import org.example.proyecto.dao.EditarClienteDAO;
 import org.example.proyecto.dao.RegClienteDAO;
 import org.example.proyecto.dao.UsuarioDAO;
 import org.example.proyecto.modelo.Clientes;
@@ -52,7 +53,7 @@ public class EditarPerfilCLiControlador {
     }
 
     private void cargarDatosDesdeBD() {
-        Clientes cliente = RegClienteDAO.obtenerClientePorEmail(emailCliente);
+        Clientes cliente = EditarClienteDAO.obtenerClientePorEmail(emailCliente);
         if (cliente != null) {
             txtNombre.setText(cliente.getNombre());
             txtApellido.setText(cliente.getApellido1());
@@ -89,7 +90,7 @@ public class EditarPerfilCLiControlador {
         clienteActualizado.setTelefono(txtTelefono.getText());
         clienteActualizado.setEmail(txtCorreo.getText());
 
-        boolean clienteActualizadoOK = RegClienteDAO.actualizarCliente(clienteActualizado,emailCliente);
+        boolean clienteActualizadoOK = EditarClienteDAO.actualizarCliente(clienteActualizado,emailCliente);
 
         boolean usuarioActualizadoOK = true;
         if (!pass.isEmpty()) {

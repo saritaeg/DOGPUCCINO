@@ -79,7 +79,7 @@ public class InicioSesionControlador {
                 if ("CLIENTE".equalsIgnoreCase(rol)) {
                     cargarVista("/org/example/proyecto/VistaPerrosCli.fxml", email);
                 } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
-<<<<<<< HEAD
+
                     String cifProtectora = obtenerCif(email);
                     if (cifProtectora != null) {
                         Sesion.setCifProtectora(cifProtectora);
@@ -88,12 +88,7 @@ public class InicioSesionControlador {
                         return;
                     }
                     cargarVista("/org/example/proyecto/VistaPerrosProt.fxml", email);
-                    mostrarBienvenida(nombre, "Protectora");
             } else {
-=======
-                    cargarVista("/org/example/proyecto/VistaPerrosProt.fxml", email);
-                } else {
->>>>>>> 86e1e442bd28343cdfe9f781e36e16cdc21f5bed
                     mostrarAlerta("Error", "El usuario no tiene un rol válido.");
                 }
             } else {
