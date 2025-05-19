@@ -14,6 +14,8 @@
                 <Region HBox.hgrow="ALWAYS" />
                 <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
                 <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−"/>
+                <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X"/>
             </HBox>
 
             <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
