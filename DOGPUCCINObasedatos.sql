@@ -124,6 +124,11 @@ create sequence cliente_seq
 create sequence usuario_seq
     start with 1  -- Inicia la secuencia desde 1
     increment by 1;  -- Incrementa de 1 en 1
+    
+    CREATE SEQUENCE perros_seq
+START WITH 1
+INCREMENT BY 1;
+
 
 
 

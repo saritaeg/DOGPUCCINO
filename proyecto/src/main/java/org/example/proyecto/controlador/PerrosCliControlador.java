@@ -77,11 +77,11 @@ public class PerrosCliControlador {
     private List<Perro> perros;
 
     public void inicializarPerros(String emailCliente) {
-        perros = PerrosCliDAO.obtenerPerrosCliente(emailCliente);
-        mostrarPerros();
         this.emailCliente = emailCliente;
         perros = PerrosCliDAO.obtenerPerrosCliente(emailCliente);
+        System.out.println("Número de perros obtenidos: " + perros.size());
         mostrarPerros();
+
     }
 
     private void mostrarPerros() {
@@ -100,7 +100,8 @@ public class PerrosCliControlador {
             sexo.setText(perro.getSexo() != null ? perro.getSexo().name() : "");
             nacimiento.setText(perro.getFechaNacimiento());
             adoptado.setText(perro.getAdoptado() != null ? perro.getAdoptado().name() : "");
-            protectora.setText(perro.getNombre() != null ? perro.getNombre() : "");
+            protectora.setText(perro.getCifProtectora() != null ? perro.getCifProtectora() : "");
+
 
             try {
                 Image img = new Image("file:" + perro.getFoto());
@@ -109,6 +110,7 @@ public class PerrosCliControlador {
                 imagen.setImage(null);
             }
         } else {
+            System.out.println("No se encontro el perro");
             limpiarCampos(nombre, raza, sexo, nacimiento, adoptado, protectora);
             imagen.setImage(null);
         }
