@@ -1,7 +1,9 @@
 package org.example.proyecto.controlador;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -56,6 +58,17 @@ public class RegClienteControlador {
     public void initialize() {
         txtTipoVia.getItems().addAll("Calle", "Avenida");
     }
+    @FXML
+    private void btnMinimizar(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
+    private void btnCerrar(ActionEvent event) {
+        Platform.exit();
+    }
+
 
 
     @FXML
@@ -82,7 +95,7 @@ public class RegClienteControlador {
             String apellido2 = txtApellido2.getText();
             LocalDate fechaNacimiento = txtFechaNacimiento.getValue();
             String provincia = txtProvincia.getText();
-            String tipoVia = txtTipoVia.getValue().toString();
+            String tipoVia = txtTipoVia.getValue();
             String telefono = txtTelefono.getText();
             String correo = txtCorreo.getText();
             String contraseña = txtContraseña.getText();
@@ -90,16 +103,15 @@ public class RegClienteControlador {
 
             boolean exito = RegistroClienteServicio.registrarClienteYUsuario(
                     nombre, apellido, apellido2, fechaNacimiento, telefono,
-                    tipoVia, provincia, correo, contraseña
+                    tipoVia, provincia, correo, contraseña, confirmarContraseña
             );
 
             if (exito) {
                 Alertas.mostrarAlerta("Éxito", "Cliente y usuario registrados correctamente.");
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosCli.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicioSesion.fxml"));
                 Parent root = fxmlLoader.load();
 
                 Stage stage = (Stage) btnRegistrarCliente.getScene().getWindow();
-
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
             } else {
@@ -113,6 +125,7 @@ public class RegClienteControlador {
             Alertas.mostrarAlerta("Error", "Ocurrió un error al registrar.");
         }
     }
+
 }
 
 

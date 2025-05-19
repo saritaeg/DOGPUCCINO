@@ -56,9 +56,9 @@
                     <TextField fx:id="txtCorreo" promptText="ejemplo@correo.com" styleClass="input-field" />
 
                     <Label text="Contraseña" />
-                    <TextField fx:id="txtContraseña" accessibleRole="PASSWORD_FIELD" prefHeight="17.0" prefWidth="280.0" promptText="*****" styleClass="input-field" />
+                    <PasswordField fx:id="txtContraseña" accessibleRole="PASSWORD_FIELD" prefHeight="17.0" prefWidth="280.0" promptText="*****" styleClass="input-field" />
                <Label layoutX="10.0" layoutY="244.0" text="Repetir contraseña" />
-               <TextField fx:id="txtContraseña1" accessibleRole="PASSWORD_FIELD" layoutX="10.0" layoutY="274.0" prefHeight="17.0" prefWidth="280.0" promptText="*****" styleClass="input-field" />
+                    <PasswordField fx:id="txtConfirmarContraseña" accessibleRole="PASSWORD_FIELD" layoutX="10.0" layoutY="274.0" prefHeight="17.0" prefWidth="280.0" promptText="*****" styleClass="input-field" />
                 </VBox>
             <columnConstraints>
                <ColumnConstraints />

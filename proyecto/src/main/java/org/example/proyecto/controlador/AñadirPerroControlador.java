@@ -1,8 +1,10 @@
 package org.example.proyecto.controlador;
 
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -37,6 +39,17 @@ public class AñadirPerroControlador {
     private final String DB_URL = "jdbc:oracle:thin:@localhost:1521:XE";
     private final String DB_USER = "C##DOGPUCCINO";
     private final String DB_PASS = "123456";
+
+    @FXML
+    private void btnMinimizar(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
+    private void btnCerrar(ActionEvent event) {
+        Platform.exit();
+    }
 
     @FXML
     private void btnVolverAtrasProtectora() {

@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600" prefWidth="800" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.RegClienteControlador">
+<AnchorPane prefHeight="600" prefWidth="800" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.RegClienteControlador">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1000.0" spacing="30" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <StackPane styleClass="header">
             <Label styleClass="titulo" text="Registrar Nuevo Cliente" />
+   
+            <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" StackPane.alignment="TOP_RIGHT">
+               <StackPane.margin>
+                  <Insets right="50" top="10" />
+               </StackPane.margin>
+            </Button>
+   
+            <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" StackPane.alignment="TOP_RIGHT">
+               <StackPane.margin>
+                  <Insets right="10" top="10" />
+               </StackPane.margin>
+            </Button>
          </StackPane>
+
+
          <GridPane alignment="CENTER" hgap="40" maxWidth="900" vgap="18">
 
             <VBox spacing="14" GridPane.columnIndex="0">

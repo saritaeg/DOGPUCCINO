@@ -6,7 +6,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600" prefWidth="800" stylesheets="@EstiloAñadirPerro.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.AñadirPerroControlador">
+<AnchorPane prefHeight="600" prefWidth="800" stylesheets="@EstiloAñadirPerro.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.AñadirPerroControlador">
 
     <VBox styleClass="header" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
         <HBox alignment="CENTER_LEFT" prefHeight="89.0" spacing="10" styleClass="top-bar">
@@ -14,6 +14,9 @@
             <Region HBox.hgrow="ALWAYS" />
             <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
             <Region HBox.hgrow="ALWAYS" />
+
+           <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" />
+           <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" />
         </HBox>
         <StackPane prefHeight="36.0" style="-fx-padding: 10 0 20 0;">
             <Button fx:id="addDogButton" text="AÑADIR PERRO +" />
@@ -90,7 +93,7 @@
                 </VBox>
 
                 <HBox alignment="CENTER" style="-fx-padding: 10 0 0 0;">
-                    <Button fx:id="botonEnviar" text="AÑADIR" onAction="#handleAñadirPerro"/>
+                    <Button fx:id="botonEnviar" onAction="#handleAñadirPerro" text="AÑADIR" />
                 </HBox>
             </VBox>
         </HBox>

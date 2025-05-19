@@ -62,3 +62,20 @@
 .boton-secundario:hover {
     -fx-background-color: #f3ede2;
 }
+
+.boton-barra {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-color: white;
+    -fx-border-radius: 3;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+}
+
+.boton-barra:hover {
+    -fx-background-color: #d9cbb0;
+    -fx-text-fill: white;
+}
+

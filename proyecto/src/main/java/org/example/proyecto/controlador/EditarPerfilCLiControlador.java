@@ -4,16 +4,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-
+import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+
 import org.example.proyecto.dao.EditarClienteDAO;
 import org.example.proyecto.dao.UsuarioDAO;
 import org.example.proyecto.modelo.Clientes;
+import org.example.proyecto.servicio.EditarPerfilClienteServicio;
 import org.example.proyecto.utils.Alertas;
 
 import java.io.IOException;
@@ -30,7 +28,7 @@ public class EditarPerfilCLiControlador {
     @FXML
     private TextField txtProvincia;
     @FXML
-    private ComboBox txtTipoVia;
+    private ComboBox<String> txtTipoVia;
     @FXML
     private TextField txtTelefono;
     @FXML
@@ -77,16 +75,55 @@ public class EditarPerfilCLiControlador {
 
     @FXML
     private void btnGuardarCambios(ActionEvent event) {
-        String pass = txtContraseña.getText();
-        String passConfirm = txtConfirmarContraseña.getText();
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        String apellido2 = txtApellido2.getText();
+        var fechaNacimiento = txtFechaNacimiento.getValue();
+        String provincia = txtProvincia.getText();
+        String tipoVia = txtTipoVia.getValue();
+        String telefono = txtTelefono.getText();
+        String correo = txtCorreo.getText();
+        String contraseña = txtContraseña.getText();
+        String confirmarContraseña = txtConfirmarContraseña.getText();
 
-        if (!pass.isEmpty() || !passConfirm.isEmpty()) {
-            if (!pass.equals(passConfirm)) {
-                Alertas.mostrarAlerta("Error", "Las contraseñas no coinciden.");
-                return;
+
+        boolean exito = EditarPerfilClienteServicio.registrarClienteYUsuario(
+                nombre, apellido, apellido2,
+                fechaNacimiento, telefono,
+                tipoVia, provincia, correo,
+                contraseña, confirmarContraseña
+        );
+
+        if (exito) {
+            Clientes clienteActualizado = new Clientes();
+            clienteActualizado.setEmail(emailCliente);
+            clienteActualizado.setNombre(nombre);
+            clienteActualizado.setApellido1(apellido);
+            clienteActualizado.setApellido2(apellido2);
+            clienteActualizado.setFechaNacimiento(fechaNacimiento);
+            clienteActualizado.setProvincia(provincia);
+            clienteActualizado.setCalle(tipoVia);
+            clienteActualizado.setTelefono(telefono);
+            clienteActualizado.setEmail(correo);
+
+            boolean clienteActualizadoOK = EditarClienteDAO.actualizarCliente(clienteActualizado, emailCliente);
+
+            boolean usuarioActualizadoOK = true;
+            if (!contraseña.isEmpty()) {
+                usuarioActualizadoOK = UsuarioDAO.actualizarContraseña(emailCliente, contraseña);
+            }
+
+            if (clienteActualizadoOK && usuarioActualizadoOK) {
+                Alertas.mostrarAlerta("Éxito", "Datos actualizados correctamente.");
+                cargarDatosDesdeBD();
+                txtContraseña.clear();
+                txtConfirmarContraseña.clear();
+            } else {
+                Alertas.mostrarAlerta("Error", "No se pudieron actualizar los datos.");
             }
         }
 
+<<<<<<< HEAD
         Clientes clienteActualizado = new Clientes();
         clienteActualizado.setEmail(emailCliente);
         clienteActualizado.setNombre(txtNombre.getText());
@@ -115,6 +152,8 @@ public class EditarPerfilCLiControlador {
         } else {
             Alertas.mostrarAlerta("Error", "No se pudieron actualizar los datos.");
         }
+=======
+>>>>>>> 465ad5fdda1c99679d2edaeb134df90ff7b9800c
     }
 
     @FXML
@@ -132,3 +171,4 @@ public class EditarPerfilCLiControlador {
         }
     }
 }
+
