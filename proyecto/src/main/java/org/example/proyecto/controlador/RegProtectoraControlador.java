@@ -57,7 +57,7 @@ public class RegProtectoraControlador {
     }
     @FXML
     private void btnRegistrar(ActionEvent event) {
-        try{
+        try {
             String nombre = txtNombre.getText();
             String ciudad = txtCiudad.getText();
             String cif = txtCIF.getText();
@@ -67,21 +67,28 @@ public class RegProtectoraControlador {
             String redes = txtRedes.getText();
             String contraseña = txtContraseña.getText();
 
-            boolean exito = RegistroProtectoraServicio.registrarProtectorayUsuario(nombre,ciudad,cif,calle,correo,telefono,redes,contraseña);
-            if(exito){
-                Alertas.mostrarAlerta("Registro Conseguido", "La protectora se ha registrado con exito.");
+            boolean exito = RegistroProtectoraServicio.registrarProtectorayUsuario(
+                    nombre, ciudad, cif, calle, correo, telefono, redes, contraseña
+            );
+
+            if (exito) {
+                Alertas.mostrarAlerta("Registro Conseguido", "La protectora se ha registrado con éxito.");
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
                 Parent root = fxmlLoader.load();
 
                 Stage stage = (Stage) btnRegistrar.getScene().getWindow();
-
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
-            }else {
-                Alertas.mostrarAlerta("ERROR", "La protectora no se puede registrar con exito.");
+            } else {
+                Alertas.mostrarAlerta("ERROR", "La protectora no se pudo registrar con éxito.");
             }
+
+        } catch (IllegalArgumentException e) {
+            Alertas.mostrarAlerta("Error de Validación", e.getMessage());
+
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            Alertas.mostrarAlerta("Error", "Ocurrió un error inesperado: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
