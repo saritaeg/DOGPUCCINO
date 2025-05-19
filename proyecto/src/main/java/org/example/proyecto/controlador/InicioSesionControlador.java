@@ -46,6 +46,7 @@ public class InicioSesionControlador {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void btnAcceso(ActionEvent event) {
         String email = emailField.getText().trim();
@@ -76,9 +77,9 @@ public class InicioSesionControlador {
                 String nombre = obtenerNombre(email);
 
                 if ("CLIENTE".equalsIgnoreCase(rol)) {
-                    cargarVista("/org/example/proyecto/VistaPerrosCli.fxml",email);
-                    mostrarBienvenida(nombre, "Cliente");
+                    cargarVista("/org/example/proyecto/VistaPerrosCli.fxml", email);
                 } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
+<<<<<<< HEAD
                     String cifProtectora = obtenerCif(email);
                     if (cifProtectora != null) {
                         Sesion.setCifProtectora(cifProtectora);
@@ -89,6 +90,10 @@ public class InicioSesionControlador {
                     cargarVista("/org/example/proyecto/VistaPerrosProt.fxml", email);
                     mostrarBienvenida(nombre, "Protectora");
             } else {
+=======
+                    cargarVista("/org/example/proyecto/VistaPerrosProt.fxml", email);
+                } else {
+>>>>>>> 86e1e442bd28343cdfe9f781e36e16cdc21f5bed
                     mostrarAlerta("Error", "El usuario no tiene un rol válido.");
                 }
             } else {
@@ -208,8 +213,15 @@ public class InicioSesionControlador {
             Stage stage = (Stage) btnAcceso.getScene().getWindow();
             stage.setScene(new Scene(root));
 
-            PerrosCliControlador controlador = fxmlLoader.getController();
-            controlador.inicializarPerros(email);
+            Object controlador = fxmlLoader.getController();
+
+            if (controlador instanceof PerrosCliControlador) {
+                ((PerrosCliControlador) controlador).inicializarPerros(email);
+            } else if (controlador instanceof PerrosProtControlador) {
+                ((PerrosProtControlador) controlador).inicializarPerros(email);
+            } else {
+                mostrarAlerta("Error", "Controlador desconocido para esta vista.");
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -217,7 +229,5 @@ public class InicioSesionControlador {
         }
     }
 
-    private void mostrarBienvenida(String nombre, String rol) {
-        System.out.println("Bienvenido, " + nombre + " (" + rol + ")");
-    }
 }
+

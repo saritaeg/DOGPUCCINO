@@ -1,7 +1,9 @@
 package org.example.proyecto.controlador;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -18,12 +20,32 @@ import org.example.proyecto.dao.UsuarioDAO;
 
 
 
+
 public class InicioControlador {
     @FXML
     private Button btnRegistrarse;
 
     @FXML
     private Button btnIniciarSesion;
+
+    @FXML
+    private  Button btnCerrar;
+
+    @FXML
+    private Button btnMinimizar;
+
+    @FXML
+    private void btnMinimizar(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
+    private void btnCerrar(ActionEvent event) {
+        Platform.exit();
+    }
+
+
 
 
     @FXML
