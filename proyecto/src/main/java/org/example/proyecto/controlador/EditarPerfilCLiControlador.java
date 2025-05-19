@@ -32,14 +32,16 @@ public class EditarPerfilCLiControlador {
     private TextField txtTelefono;
     @FXML
     private TextField txtCorreo;
-    @FXML private PasswordField txtContraseña;
-    @FXML private PasswordField txtConfirmarContraseña;
+    @FXML
+    private PasswordField txtContraseña;
+    @FXML
+    private PasswordField txtConfirmarContraseña;
     @FXML
     private Button btnGuardarCambios;
     @FXML
     private Button btnCancelar;
 
-    private int idCliente;  // Variable para almacenar el idCliente obtenido
+    private int idCliente;
     private String emailCliente;
 
     public void inicializarDatos(String email) {
