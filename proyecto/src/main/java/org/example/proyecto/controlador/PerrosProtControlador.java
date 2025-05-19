@@ -122,6 +122,8 @@ public class PerrosProtControlador {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaEditarPerfilProtectora.fxml"));
             Parent root = fxmlLoader.load();
+            EditarProtectoraControlador controlador = fxmlLoader.getController();
+            controlador.inicializarDatos(emailProtectora);
             Stage stage = (Stage) btnEditarPerfilProtectora.getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {

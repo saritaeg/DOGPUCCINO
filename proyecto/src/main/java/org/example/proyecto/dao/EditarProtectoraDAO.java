@@ -72,7 +72,7 @@ public class EditarProtectoraDAO {
         String sql = """
     UPDATE Usuarios
     SET Contrasenia = ?, Fecha_Modificacion = ?
-    WHERE CIF = ?
+    WHERE CIF_PROTECTORAS = ?
     """;
 
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
@@ -95,14 +95,14 @@ public class EditarProtectoraDAO {
             return false;
         }
     }
-    public static Integer obtenerIdProtectoraPorCorreo(String correo) {
-        String sql = "SELECT ID FROM Protectoras WHERE Correo_Electronico = ?";
+    public static String obtenerCifProtectoraPorCorreo(String correo) {
+        String sql = "SELECT CIF FROM Protectoras WHERE Correo_Electronico = ?";
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, correo);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    return rs.getInt("ID");
+                    return rs.getString("CIF");
                 }
             }
         } catch (SQLException e) {
@@ -110,6 +110,7 @@ public class EditarProtectoraDAO {
         }
         return null;
     }
+
 
 
 
