@@ -46,6 +46,7 @@ public class EditarProtectoraDAO {
         }
         return protectora;
     }
+
     public static boolean actualizarProtectora(Protectoras protectora, String emailOriginal) {
         String sql = "UPDATE Protectoras SET Nombre=?, Telefono=?, Calle=?, Ciudad=?, Redes_Sociales=?, Fecha_Modificacion=?, Correo_Electronico=? WHERE Correo_Electronico=?";
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
@@ -68,9 +69,11 @@ public class EditarProtectoraDAO {
             return false;
         }
     }
+
     public static boolean actualizarContrasenaPorCIF(String cifProtectora, String nuevaContrasena) {
         String sql = """
-    UPDATE Usuarios
+    
+                UPDATE Usuarios
     SET Contrasenia = ?, Fecha_Modificacion = ?
     WHERE CIF = ?
     """;
@@ -110,7 +113,4 @@ public class EditarProtectoraDAO {
         }
         return null;
     }
-
-
-
 }

@@ -1,9 +1,7 @@
 package org.example.proyecto.controlador;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -45,16 +43,6 @@ public class EditarPerfilCLiControlador {
 
     private int idCliente;
     private String emailCliente;
-    @FXML
-    private void btnMinimizar(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setIconified(true);
-    }
-
-    @FXML
-    private void btnCerrar(ActionEvent event) {
-        Platform.exit();
-    }
 
     public void inicializarDatos(String email) {
         this.emailCliente = email;
@@ -139,3 +127,4 @@ public class EditarPerfilCLiControlador {
         }
     }
 }
+
