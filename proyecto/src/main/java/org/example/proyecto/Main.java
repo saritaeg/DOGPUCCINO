@@ -25,7 +25,6 @@ public class Main extends Application   {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
-
     }
 }
 
