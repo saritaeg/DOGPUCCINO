@@ -89,7 +89,7 @@ public class NotProtNuevaadopControlador {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotProtNuevacita.fxml"));
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnNotificacionesProtectora.getScene().getWindow();
+            Stage stage = (Stage) btnSolicitudCitaProtectora.getScene().getWindow();
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
