@@ -111,16 +111,11 @@ public class PerrosCliControlador {
             }
         } else {
             System.out.println("No se encontro el perro");
-            limpiarCampos(nombre, raza, sexo, nacimiento, adoptado, protectora);
             imagen.setImage(null);
         }
     }
 
-    private void limpiarCampos(TextField... campos) {
-        for (TextField campo : campos) {
-            campo.setText("");
-        }
-    }
+
 
     @FXML
     private void btnVolverInicio(ActionEvent event) {

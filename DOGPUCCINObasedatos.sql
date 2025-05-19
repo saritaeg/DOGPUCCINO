@@ -129,6 +129,39 @@ create sequence usuario_seq
 START WITH 1
 INCREMENT BY 1;
 
+INSERT INTO Protectoras (CIF, Nombre, Telefono, Correo_Electronico, Calle, Ciudad, Redes_Sociales, Fecha_alta, Fecha_modificacion)
+VALUES ('P12345678', 'Protectora Amigo Fiel', '123456789', 'amigo@fiel.com', 'Calle Luna 10', 'Sevilla', 'instagram.com/amigofiel', SYSDATE, SYSDATE);
+
+
+INSERT INTO Perros (ID, CIF, Raza, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Foto)
+VALUES (perros_seq.NEXTVAL, 'P12345678', 'Labrador', 'Max', TO_DATE('2019-05-01', 'YYYY-MM-DD'), 'M', 'N', SYSDATE, SYSDATE, 'max.jpg');
+
+INSERT INTO Perros (ID, CIF, Raza, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Foto)
+VALUES (perros_seq.NEXTVAL, 'P12345678', 'Beagle', 'Luna', TO_DATE('2020-03-15', 'YYYY-MM-DD'), 'H', 'N', SYSDATE, SYSDATE, 'luna.jpg');
+
+INSERT INTO Perros (ID, CIF, Raza, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Foto)
+VALUES (perros_seq.NEXTVAL, 'P12345678', 'Golden Retriever', 'Rocky', TO_DATE('2018-11-10', 'YYYY-MM-DD'), 'M', 'N', SYSDATE, SYSDATE, 'rocky.jpg');
+
+INSERT INTO Perros (ID, CIF, Raza, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Foto)
+VALUES (perros_seq.NEXTVAL, 'P12345678', 'Pastor Alemán', 'Nala', TO_DATE('2017-02-20', 'YYYY-MM-DD'), 'H', 'N', SYSDATE, SYSDATE, 'nala.jpg');
+
+INSERT INTO Perros (ID, CIF, Raza, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Foto)
+VALUES (perros_seq.NEXTVAL, 'P12345678', 'Pitbull', 'Toby', TO_DATE('2021-07-22', 'YYYY-MM-DD'), 'M', 'N', SYSDATE, SYSDATE, 'toby.jpg');
+
+INSERT INTO Perros (ID, CIF, Raza, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Foto)
+VALUES (perros_seq.NEXTVAL, 'P12345678', 'Labrador', 'Maya', TO_DATE('2022-01-05', 'YYYY-MM-DD'), 'H', 'N', SYSDATE, SYSDATE, 'maya.jpg');
+
+INSERT INTO Perros (ID, CIF, Raza, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Foto)
+VALUES (perros_seq.NEXTVAL, 'P12345678', 'Beagle', 'Simba', TO_DATE('2016-06-12', 'YYYY-MM-DD'), 'M', 'N', SYSDATE, SYSDATE, 'simba.jpg');
+
+INSERT INTO Perros (ID, CIF, Raza, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Foto)
+VALUES (perros_seq.NEXTVAL, 'P12345678', 'Golden Retriever', 'Coco', TO_DATE('2019-09-30', 'YYYY-MM-DD'), 'H', 'N', SYSDATE, SYSDATE, 'coco.jpg');
+
+INSERT INTO Perros (ID, CIF, Raza, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Foto)
+VALUES (perros_seq.NEXTVAL, 'P12345678', 'Pastor Alemán', 'Zeus', TO_DATE('2020-12-11', 'YYYY-MM-DD'), 'M', 'N', SYSDATE, SYSDATE, 'zeus.jpg');
+
+INSERT INTO Perros (ID, CIF, Raza, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Foto)
+VALUES (perros_seq.NEXTVAL, 'P12345678', 'Pitbull', 'Duna', TO_DATE('2021-08-08', 'YYYY-MM-DD'), 'H', 'N', SYSDATE, SYSDATE, 'duna.jpg');
 
 
 
@@ -146,6 +179,18 @@ begin
 END;
 /
 
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Labrador', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pitbull', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Golden Retriever', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Beagle', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pastor Alemán', SYSDATE, SYSDATE);
+
+
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (1, 'Displasia de cadera', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (2, 'Alergias cutáneas', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (3, 'Problemas cardíacos', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (4, 'Epilepsia', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (5, 'Leishmaniosis', SYSDATE, SYSDATE);
 
 
 
@@ -160,5 +205,5 @@ DROP TABLE razas CASCADE CONSTRAINTS;
 DROP TABLE usuarios CASCADE CONSTRAINTS;
 DROP TABLE protectoras CASCADE CONSTRAINTS;
 DROP TABLE clientes CASCADE CONSTRAINTS;
-DROP TABLE Usuarios CASCADE CONSTRAINTS;
+
 */
