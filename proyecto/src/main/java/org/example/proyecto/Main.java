@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.example.proyecto.dao.UsuarioDAO;
+import org.example.proyecto.modelo.Perro;
 import org.example.proyecto.utils.ConexionBaseDatos;
 import java.io.IOException;
 import java.sql.*;
@@ -22,5 +23,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+
 }
 

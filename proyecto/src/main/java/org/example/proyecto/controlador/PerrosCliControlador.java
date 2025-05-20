@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -21,236 +22,126 @@ import java.io.IOException;
 import java.util.List;
 
 public class PerrosCliControlador {
+    @FXML private TextField txtNombreCli, txtRazaCli, txtSexoCli, txtFechaNacimientoCli, txtAdoptadoCli, txtProtectoraCli;
+    @FXML private TextField txtNombreCli2, txtRazaCli2, txtSexoCli2, txtFechaNacimientoCli2, txtAdoptadoCli2, txtProtectoraCli2;
+
+    @FXML private Button btnVolverInicio, btnEditarPerfilCliente, btnPerrosCliente, btnNotificacionesCliente;
+    @FXML private Button btnCitasCliente, btnNosotrosCliente, btnMasPerrosCliente, btnMasInformacion, btnMasInformacion2, btnMasPerroCliente2, btnAnteriorPerrosCliente;
+
     @FXML
-    private TextField txtNombreCli;
-    @FXML
-    private TextField txtRazaCli;
-    @FXML
-    private TextField txtSexoCli;
-    @FXML
-    private TextField txtFechaNacimientoCli;
-    @FXML
-    private TextField txtAdoptadoCli;
-    @FXML
-    private TextField txtProtectoraCli;
-    @FXML
-    private TextField txtNombreCli2;
-    @FXML
-    private TextField txtRazaCli2;
-    @FXML
-    private TextField txtSexoCli2;
-    @FXML
-    private TextField txtFechaNacimientoCli2;
-    @FXML
-    private TextField txtAdoptadoCli2;
-    @FXML
-    private TextField txtProtectoraCli2;
-    @FXML
-    private Button btnVolverInicio;
-    @FXML
-    private Button btnEditarPerfilCliente;
-    @FXML
-    private Button btnPerrosCliente;
-    @FXML
-    private Button btnNotificacionesCliente;
-    @FXML
-    private Button btnCitasCliente;
-    @FXML
-    private Button btnNosotrosCliente;
-    @FXML
-    private Button btnMasPerrosCliente;
-    @FXML
-    private Button btnMasInformacion;
-    @FXML
-    private Button btnMasInformacion2;
-    @FXML
-    private Button btnMasPerroCliente2;
+    private ImageView imagen;
 
     @FXML
     private ImageView imagenPerro1;
+
     @FXML
-
     private ImageView imagenPerro2;
-    private String emailCliente;
-
-    private int indice = 0;
     private List<Perro> perros;
+    private int indice = 0;
+    private String emailCliente;
 
     public void inicializarPerros(String emailCliente) {
         this.emailCliente = emailCliente;
-        perros = PerrosCliDAO.obtenerPerrosCliente(emailCliente);
-        System.out.println("Número de perros obtenidos: " + perros.size());
-        for (Perro p : perros) {
-            System.out.println("Perro: " + p.getNombre());
-        }
+        cargarPerros();
         mostrarPerros();
+    }
 
+    private void cargarPerros() {
+        perros = PerrosCliDAO.obtenerPerrosCliente(emailCliente);
     }
 
     private void mostrarPerros() {
-        if (perros == null || perros.isEmpty()) return;
-
         mostrarPerroEnPosicion(indice, txtNombreCli, txtRazaCli, txtSexoCli, txtFechaNacimientoCli, txtAdoptadoCli, txtProtectoraCli, imagenPerro1);
         mostrarPerroEnPosicion(indice + 1, txtNombreCli2, txtRazaCli2, txtSexoCli2, txtFechaNacimientoCli2, txtAdoptadoCli2, txtProtectoraCli2, imagenPerro2);
     }
+    public void actualizarListaPerros() {
+        cargarPerros();
+        indice = 0;
+        mostrarPerros();
+    }
+    private boolean hayPerros() {
+        return perros != null && !perros.isEmpty();
+    }
+    @FXML
+    private void imagenClicada1() {
+        abrirDetallePerro(indice);
+    }
+
+    @FXML
+    private void imagenClicada2() {
+        abrirDetallePerro(indice + 1);
+    }
+    private void mostrarMensajeNoMasPerros() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText("No hay más perros para mostrar.");
+        alert.showAndWait();
+    }
+    private void cargarImagenSeguro(ImageView imageView, String rutaImagen) {
+        try {
+            Image img = new Image("file:" + rutaImagen);
+            imageView.setImage(img);
+        } catch (Exception e) {
+            imageView.setImage(new Image("/resources/imagenes/fondo.png"));
+        }
+    }
 
     private void mostrarPerroEnPosicion(int pos, TextField nombre, TextField raza, TextField sexo,
-                                        TextField nacimiento, TextField adoptado, TextField protectora, ImageView imagen) {
-        if (pos < perros.size()) {
-            Perro perro = perros.get(pos);
-            nombre.setText(perro.getNombre());
-            raza.setText(perro.getRaza());
-            sexo.setText(perro.getSexo() != null ? perro.getSexo().name() : "");
-            nacimiento.setText(perro.getFechaNacimiento());
-            adoptado.setText(perro.getAdoptado() != null ? perro.getAdoptado().name() : "");
-            protectora.setText(perro.getCifProtectora() != null ? perro.getCifProtectora() : "");
-
+                                        TextField fechaNacimiento, TextField adoptado, TextField protectora, ImageView imagen) {
+        if (pos >= 0 && pos < perros.size()) {
+            Perro p = perros.get(pos);
+            nombre.setText(p.getNombre());
+            raza.setText(p.getRaza());
+            sexo.setText(p.getSexo() != null ? p.getSexo().name() : "");
+            fechaNacimiento.setText(p.getFechaNacimiento());
+            adoptado.setText(p.getAdoptado() != null ? p.getAdoptado().name() : "");
+            protectora.setText(p.getCifProtectora() != null ? p.getCifProtectora() : "");
 
             try {
-                Image img = new Image("file:" + perro.getFoto());
+                Image img = new Image("file:" + p.getFoto());
                 imagen.setImage(img);
             } catch (Exception e) {
                 imagen.setImage(null);
             }
         } else {
-            System.out.println("No se encontro el perro");
+
+            nombre.setText("");
+            raza.setText("");
+            sexo.setText("");
+            fechaNacimiento.setText("");
+            adoptado.setText("");
+            protectora.setText("");
             imagen.setImage(null);
         }
     }
 
-
-
-    @FXML
-    private void btnVolverInicio(ActionEvent event) {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicio.fxml"));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) btnVolverInicio.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    private void btnEditarPerfilCliente(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaEditarPerfilCliente.fxml"));
-            Parent root = fxmlLoader.load();
-
-
-            EditarPerfilCLiControlador controlador = fxmlLoader.getController();
-
-            controlador.inicializarDatos(emailCliente);
-
-            Stage stage = (Stage) btnEditarPerfilCliente.getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    private void btnPerrosCliente(ActionEvent event) {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosCli.fxml"));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) btnPerrosCliente.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-    }
-    @FXML
-    private void btnNotificacionesCliente(ActionEvent event) {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCancelacion.fxml"));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-
-    }
-    @FXML
-    private void btnCitasCliente(ActionEvent event) {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasCliPasadas.fxml"));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) btnCitasCliente.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-
-    }
-    @FXML
-    private void btnNosotrosCliente(ActionEvent event) {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaSobreNosotrosCli.fxml"));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) btnNosotrosCliente.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-    }
     @FXML
     private void btnMasInformacion(ActionEvent event) {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerfilPerro.fxml"));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) btnMasInformacion.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
+        abrirDetallePerro(indice);
     }
+
     @FXML
     private void btnMasInformacion2(ActionEvent event) {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerfilPerro.fxml"));
-            Parent root = fxmlLoader.load();
+        abrirDetallePerro(indice + 1);
+    }
 
-            Stage stage = (Stage) btnMasInformacion2.getScene().getWindow();
+    private void abrirDetallePerro(int pos) {
+        if (pos >= 0 && pos < perros.size()) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerfilPerro.fxml"));
+                Parent root = loader.load();
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
+                PerfilPerroControlador controlador = loader.getController();
+                controlador.setPerro(perros.get(pos));
+                controlador.setEmailCliente(emailCliente);
 
-        }catch (IOException e){
-            e.printStackTrace();
+                Stage stage = (Stage) btnMasInformacion.getScene().getWindow();
+                stage.setScene(new Scene(root));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
     }
 
     @FXML
@@ -263,10 +154,70 @@ public class PerrosCliControlador {
 
     @FXML
     private void btnMasPerrosCliente(ActionEvent event) {
-        if (indice + 2 < perros.size()) {
-            indice += 2;
+        if (indice - 2 >= 0) {
+            indice -= 2;
             mostrarPerros();
         }
     }
 
+    @FXML
+    private void btnAnteriorPerrosCliente(ActionEvent event) {
+        if (indice - 2 >= 0) {
+            indice -= 2;
+            mostrarPerros();
+        }
+    }
+
+    @FXML
+    private void btnVolverInicio(ActionEvent event) {
+        cargarVista("/org/example/proyecto/VistaInicio.fxml", btnVolverInicio);
+    }
+
+    @FXML
+    private void btnEditarPerfilCliente(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaEditarPerfilCliente.fxml"));
+            Parent root = loader.load();
+
+            EditarPerfilCLiControlador controlador = loader.getController();
+            controlador.inicializarDatos(emailCliente);
+
+            Stage stage = (Stage) btnEditarPerfilCliente.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnPerrosCliente(ActionEvent event) {
+        cargarVista("/org/example/proyecto/VistaPerrosCli.fxml", btnPerrosCliente);
+    }
+
+    @FXML
+    private void btnNotificacionesCliente(ActionEvent event) {
+        cargarVista("/org/example/proyecto/VistaNotCliCancelacion.fxml", btnNotificacionesCliente);
+    }
+
+    @FXML
+    private void btnCitasCliente(ActionEvent event) {
+        cargarVista("/org/example/proyecto/VistaCitasCliPasadas.fxml", btnCitasCliente);
+    }
+
+    @FXML
+    private void btnNosotrosCliente(ActionEvent event) {
+        cargarVista("/org/example/proyecto/VistaSobreNosotrosCli.fxml", btnNosotrosCliente);
+    }
+
+    private void cargarVista(String rutaFXML, Button botonReferencia) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) botonReferencia.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
