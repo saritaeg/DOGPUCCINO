@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600" prefWidth="800" stylesheets="@EstiloEditarPerro.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.EditarPerroControlador">
+
+    <VBox styleClass="header" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <HBox alignment="CENTER_LEFT" prefHeight="89.0" spacing="10" styleClass="top-bar">
+            <Button fx:id="btnVolverAtrasProtectora" onAction="#btnVolverAtrasProtectora" styleClass="back-button" text="←" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" />
+            <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" />
+        </HBox>
+        <StackPane prefHeight="36.0" style="-fx-padding: 10 0 20 0;">
+            <Label styleClass="edit-title" text="EDITAR PERRO" />
+        </StackPane>
+    </VBox>
+
+    <VBox styleClass="form-container" AnchorPane.bottomAnchor="50" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="150">
+        <HBox alignment="CENTER" spacing="20">
+            <VBox alignment="CENTER" spacing="10">
+                <StackPane fx:id="imageContainer" prefHeight="200" prefWidth="200">
+                    <ImageView fx:id="dogImageView" fitHeight="200" fitWidth="200" preserveRatio="true" />
+                    <Label fx:id="imageLabel" text="IMAGEN" />
+                </StackPane>
+                <Button fx:id="selectImageButton" onAction="#seleccionarImagen" styleClass="image-button" text="Seleccionar imagen" />
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="15" HBox.hgrow="ALWAYS">
+                <HBox spacing="10">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="NOMBRE:" />
+                        <TextField fx:id="txtNombre" />
+                    </VBox>
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="FECHA NACIMIENTO:" />
+                        <TextField fx:id="txtFechaNacimiento" />
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="10">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="SEXO:" />
+                        <ComboBox fx:id="ComboBoxSexo" prefHeight="23.0" prefWidth="208.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="H" />
+                                    <String fx:value="M" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </VBox>
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="RAZA:" />
+                        <ComboBox fx:id="ComboBoxRaza" prefHeight="23.0" prefWidth="208.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Labrador" />
+                                    <String fx:value="Pastor Alemán" />
+                                    <String fx:value="Golden Retriever" />
+                                    <String fx:value="Bulldog" />
+                                    <String fx:value="Otro" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </VBox>
+                </HBox>
+
+                <VBox spacing="5">
+                    <Label text="PATOLOGÍA:" />
+                    <ComboBox fx:id="ComboBoxPatologias" prefHeight="23.0" prefWidth="210.0">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Ninguna" />
+                                <String fx:value="Displasia" />
+                                <String fx:value="Alergias" />
+                                <String fx:value="Epilepsia" />
+                                <String fx:value="Otras" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                </VBox>
+
+                <VBox spacing="5" VBox.vgrow="ALWAYS">
+                    <Label text="DESCRIPCION PATOLOGÍA:" />
+                    <TextArea fx:id="pathologyDescriptionArea" prefHeight="9.0" wrapText="true" />
+                </VBox>
+
+                <HBox alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+                    <Button fx:id="btnActualizarPerro" onAction="#btnActualizarPerro" styleClass="update-button" text="ACTUALIZAR" />
+                </HBox>
+            </VBox>
+        </HBox>
+    </VBox>
+</AnchorPane>
