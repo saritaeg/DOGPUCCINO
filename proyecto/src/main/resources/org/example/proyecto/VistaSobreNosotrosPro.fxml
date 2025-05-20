@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -8,6 +9,17 @@
 
    <StackPane prefHeight="120.0" prefWidth="800" styleClass="header">
       <Label styleClass="title-label" text="DOGPUCCINO" StackPane.alignment="CENTER" />
+   
+      <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="10" top="10" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="50" top="10" />
+         </StackPane.margin>
+      </Button>
    </StackPane>
 
 
