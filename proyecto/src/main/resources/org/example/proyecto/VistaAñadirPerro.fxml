@@ -30,6 +30,7 @@
                     <ImageView fx:id="dogImageView" fitHeight="200" fitWidth="200" preserveRatio="true" />
                     <Label fx:id="imageLabel" text="IMAGEN" />
                 </StackPane>
+                <Button text="Seleccionar imagen" onAction="#seleccionarImagen"/>
             </VBox>
 
             <VBox alignment="CENTER" spacing="15" HBox.hgrow="ALWAYS">

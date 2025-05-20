@@ -8,9 +8,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
+import java.io.File;
+
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -18,6 +29,7 @@ import javafx.event.ActionEvent;
 import org.example.proyecto.modelo.Sesion;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class AñadirPerroControlador {
 
@@ -35,6 +47,11 @@ public class AñadirPerroControlador {
     @FXML private ComboBox<String> pathologyComboBox;
     @FXML private TextArea pathologyDescriptionArea;
     @FXML private Button botonEnviar;
+    @FXML
+    private ImageView dogImageView;
+
+
+    private File imagenSeleccionada;
 
     private final String DB_URL = "jdbc:oracle:thin:@localhost:1521:XE";
     private final String DB_USER = "C##DOGPUCCINO";
@@ -50,6 +67,27 @@ public class AñadirPerroControlador {
     private void btnCerrar(ActionEvent event) {
         Platform.exit();
     }
+    @FXML
+    private void seleccionarImagen(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selecciona una imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg")
+        );
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            try {
+                Image image = new Image(selectedFile.toURI().toString());
+                dogImageView.setImage(image);
+
+                imagenSeleccionada = selectedFile;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+}
 
     @FXML
     private void btnVolverAtrasProtectora() {
@@ -92,11 +130,33 @@ public class AñadirPerroControlador {
             return;
         }
 
+        Path rutaImagenDestino = null;
+        if (imagenSeleccionada != null) {
+            try {
+                Path carpetaImagenes = Paths.get("imagenes");
+                if (!Files.exists(carpetaImagenes)) {
+                    Files.createDirectories(carpetaImagenes);
+                }
+
+                String nombreArchivo = UUID.randomUUID() + "_" + imagenSeleccionada.getName();
+                rutaImagenDestino = carpetaImagenes.resolve(nombreArchivo);
+
+                Files.copy(imagenSeleccionada.toPath(), rutaImagenDestino, StandardCopyOption.REPLACE_EXISTING);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                mostrarAlerta("Error", "No se pudo guardar la imagen.");
+                return;
+            }
+        }
+
+        String rutaFoto = (rutaImagenDestino != null) ? rutaImagenDestino.toString() : null;
+        String finalRutaFoto = rutaFoto;
         Task<Boolean> task = new Task<Boolean>() {
             @Override
             protected Boolean call() {
                 System.out.println("Inicio inserción perro...");
-                boolean resultado = insertarPerro(nombre, fechaNacimiento, sexo, raza);
+                boolean resultado = insertarPerro(nombre, fechaNacimiento, sexo, raza, finalRutaFoto);
                 System.out.println("Inserción perro terminada con resultado: " + resultado);
                 return resultado;
             }
@@ -123,29 +183,30 @@ public class AñadirPerroControlador {
         new Thread(task).start();
     }
 
-    private boolean insertarPerro(String nombre, LocalDate fechaNacimiento, String sexo, String raza) {
-        String sql = "INSERT INTO Perros (ID, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Raza, CIF) " +
-                "VALUES (perros_seq.nextval, ?, ?, ?, 'N', SYSDATE, SYSDATE, ?,?)";
+
+    private boolean insertarPerro(String nombre, LocalDate fechaNacimiento, String sexo, String raza, String foto) {
+        String sql = "INSERT INTO Perros (ID, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Raza, CIF, Foto) " +
+                "VALUES (perros_seq.nextval, ?, ?, ?, 'N', SYSDATE, SYSDATE, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            System.out.println("Conectado a la BD, preparando statement...");
             pstmt.setString(1, nombre);
             pstmt.setDate(2, Date.valueOf(fechaNacimiento));
             pstmt.setString(3, sexo);
             pstmt.setString(4, raza);
             pstmt.setString(5, Sesion.getCifProtectora());
+            pstmt.setString(6, foto);
 
             int filas = pstmt.executeUpdate();
-            System.out.println("Inserción ejecutada, filas afectadas: " + filas);
             return filas > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new RuntimeException(e);
+            return false;
         }
     }
+
 
 
 
