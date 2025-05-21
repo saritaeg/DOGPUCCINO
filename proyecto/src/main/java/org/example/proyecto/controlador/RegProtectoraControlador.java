@@ -1,6 +1,8 @@
 package org.example.proyecto.controlador;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -37,6 +39,20 @@ public class RegProtectoraControlador {
     private TextField txtRedes;
     @FXML
     private TextField txtContraseña;
+    @FXML
+    private TextField txtConfirmarContraseña;
+
+    @FXML
+    private void btnMinimizar(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
+    private void btnCerrar(ActionEvent event) {
+        Platform.exit();
+    }
+
 
 
 
@@ -57,7 +73,7 @@ public class RegProtectoraControlador {
     }
     @FXML
     private void btnRegistrar(ActionEvent event) {
-        try{
+        try {
             String nombre = txtNombre.getText();
             String ciudad = txtCiudad.getText();
             String cif = txtCIF.getText();
@@ -66,22 +82,30 @@ public class RegProtectoraControlador {
             String telefono = txtTelefono.getText();
             String redes = txtRedes.getText();
             String contraseña = txtContraseña.getText();
+            String repetirContraseña = txtConfirmarContraseña.getText();
 
-            boolean exito = RegistroProtectoraServicio.registrarProtectorayUsuario(nombre,ciudad,cif,calle,correo,telefono,redes,contraseña);
-            if(exito){
-                Alertas.mostrarAlerta("Registro Conseguido", "La protectora se ha registrado con exito.");
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosCli.fxml"));
+            boolean exito = RegistroProtectoraServicio.registrarProtectorayUsuario(
+                    nombre, ciudad, cif, calle, correo, telefono, redes, contraseña, repetirContraseña
+            );
+
+            if (exito) {
+                Alertas.mostrarAlerta("Registro Conseguido", "La protectora se ha registrado con éxito.");
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicioSesion.fxml"));
                 Parent root = fxmlLoader.load();
 
                 Stage stage = (Stage) btnRegistrar.getScene().getWindow();
-
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
-            }else {
-                Alertas.mostrarAlerta("ERROR", "La protectora no se puede registrar con exito.");
+            } else {
+                Alertas.mostrarAlerta("ERROR", "La protectora no se pudo registrar con éxito.");
             }
+
+        } catch (IllegalArgumentException e) {
+            Alertas.mostrarAlerta("Error de Validación", e.getMessage());
+
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            Alertas.mostrarAlerta("Error", "Ocurrió un error inesperado: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

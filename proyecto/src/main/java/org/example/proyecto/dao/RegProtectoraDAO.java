@@ -5,6 +5,7 @@ import org.example.proyecto.utils.ConexionBaseDatos;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
@@ -39,9 +40,25 @@ public class RegProtectoraDAO {
             protectora.setDate(8, hoy);
             protectora.setDate(9, hoy);
 
-
             int rows = protectora.executeUpdate();
             return rows > 0;
         }
     }
+
+    public static boolean existeProtectora(String cif) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM Protectoras WHERE CIF = ?";
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, cif);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+                return false;
+            }
+        }
+    }
 }
+
+
+

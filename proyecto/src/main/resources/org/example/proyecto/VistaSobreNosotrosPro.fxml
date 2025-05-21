@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600" prefWidth="800" styleClass="root" stylesheets="@EstiloSobreNosotros.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SobreNosotrosController">
+<AnchorPane prefHeight="600" prefWidth="800" styleClass="root" stylesheets="@EstiloSobreNosotros.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.SobreNosotrosProtControlador">
 
    <StackPane prefHeight="120.0" prefWidth="800" styleClass="header">
-      <Label styleClass="title-label" text="DOGPUCCINO" StackPane.alignment="CENTER"/>
-      <Button fx:id="backButton" styleClass="back-button" text="←" StackPane.alignment="CENTER_LEFT"/>
+      <Label styleClass="title-label" text="DOGPUCCINO" StackPane.alignment="CENTER" />
+   
+      <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="10" top="10" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="50" top="10" />
+         </StackPane.margin>
+      </Button>
    </StackPane>
 
 
    <HBox alignment="CENTER" layoutY="120.0" prefWidth="800" spacing="20" styleClass="button-container">
-      <Button styleClass="nav-button" text="Perros" />
-      <Button styleClass="nav-button" text="Notificaciones" />
-      <Button styleClass="nav-button" text="Citas" />
-      <Button styleClass="nav-button, active" text="Sobre nosotros" />
+      <Button fx:id="btnNotificaciones" onAction="#btnNotificaciones" styleClass="nav-button" text="Notificaciones" />
+      <Button fx:id="btnPerros" onAction="#btnPerros" styleClass="nav-button" text="Perros" />
+      <Button fx:id="btnCitas" onAction="#btnCitas" styleClass="nav-button" text="Citas" />
+      <Button fx:id="btnSobreNosotros" onAction="#btnSobreNosotros" styleClass="nav-button, active" text="Sobre nosotros" />
    </HBox>
 
    <VBox layoutX="50.0" layoutY="247.0" prefWidth="700" styleClass="content-box">

@@ -15,6 +15,8 @@ public class Clientes {
     private LocalDate fechaAlta;
     private LocalDate fechaModificacion;
 
+    public Clientes() {}
+
     public Clientes(Integer idCliente, String nombre, String apellido1, String apellido2,
                     String email, String telefono, String provincia, String calle,
                     LocalDate fechaNacimiento, LocalDate fechaAlta, LocalDate fechaModificacion) {
@@ -97,7 +99,7 @@ public class Clientes {
         return provincia;
     }
 
-    public void setProvincia(String ciudad) {
+    public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
 

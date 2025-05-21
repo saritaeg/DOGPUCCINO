@@ -31,7 +31,7 @@ CREATE TABLE Usuarios (
     ID number primary key,
     ID_Clientes number unique,
     CIF_Protectoras char(9) unique,
-    Contrasenia varchar2(15) not null,
+    Contrasenia varchar2(60) not null,
     Rol varchar2(10) not null,
     Fecha_alta date,
     Fecha_modificacion date,
@@ -46,16 +46,16 @@ CREATE TABLE Razas (
 
 CREATE TABLE Perros (
     ID number primary key,
+    CIF char(9),
+    Raza varchar2(50),
     Nombre varchar2(20),
     Fecha_Nacimiento date,
     Sexo char(1) check (Sexo in ('M', 'H')),
-    Adoptado char(1) check (Adoptado in ('S', 'N')),
-    CIF char(9), 
+    Adoptado CHAR(1) DEFAULT 'N' CHECK (Adoptado IN ('S', 'N')),
     Fecha_alta date,
     Fecha_modificacion date,
-    Foto varchar2(20),
+    Foto varchar2(600),
     FOREIGN KEY (CIF) REFERENCES Protectoras(CIF),
-    Raza varchar2(50),
     FOREIGN KEY (Raza) REFERENCES Razas(Tipo)  
 );
 
@@ -113,6 +113,23 @@ CREATE TABLE Solicitud_adopcion (
     foreign key (Cliente_ID) references Clientes(ID),
     foreign key (Perro_ID) references Perros(ID)
 );
+
+
+
+
+create sequence cliente_seq
+    start with 1
+    increment by 1;
+
+create sequence usuario_seq
+    start with 1  -- Inicia la secuencia desde 1
+    increment by 1;  -- Incrementa de 1 en 1
+    
+CREATE SEQUENCE perros_seq
+START WITH 1
+INCREMENT BY 1;
+
+
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Labrador', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pitbull', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Golden Retriever', SYSDATE, SYSDATE);
@@ -125,24 +142,6 @@ INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (2, '
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (3, 'Problemas cardíacos', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (4, 'Epilepsia', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (5, 'Leishmaniosis', SYSDATE, SYSDATE);
-SELECT * FROM Razas;
-SELECT * FROM Usuarios WHERE ID_Clientes = (SELECT ID FROM Clientes WHERE Correo_Electronico = 'aaa');
-
-
-create sequence cliente_seq
-    start with 1
-    increment by 1;
-
-create sequence usuario_seq
-    start with 1 
-    increment by 1; 
-
-CREATE SEQUENCE perros_seq
-  START WITH 1
-  INCREMENT BY 1
-  NOCACHE
-  NOCYCLE;
-
 
 create or replace trigger rolUsuarios
 before insert on USUARIOS
@@ -158,52 +157,19 @@ begin
 END;
 /
 
-SELECT u.Contrasenia, u.Rol 
-FROM Usuarios u
-LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
-LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
-WHERE (c.Correo_Electronico = ? OR p.Correo_Electronico = ?)
-AND u.Contrasenia = ?
-/
-SELECT u.Rol
-FROM Usuarios u
-JOIN Clientes c ON u.ID_Clientes = c.ID
-WHERE c.Correo_Electronico = ?
-AND u.Contrasenia = ?
-/
 
-SELECT u.Contrasenia 
-FROM Usuarios u
-JOIN Clientes c ON u.ID_Clientes = c.ID
-WHERE c.Correo_Electronico = 'ola@gmail.com';
-
-SELECT u.Contrasenia 
-FROM Usuarios u
-LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
-LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
-WHERE c.Correo_Electronico = ? OR p.Correo_Electronico = 'hhh@gmail.com';
-
-SELECT u.Contrasenia 
-FROM Usuarios u
-JOIN Clientes c ON u.ID_Clientes = c.ID
-WHERE c.Correo_Electronico = 'hhh@gmail.com';
-
-SELECT u.Contrasenia, u.Rol
-FROM Usuarios u
-LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
-LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
-WHERE LOWER(TRIM(c.Correo_Electronico)) = 'ppp@gmail.com' OR LOWER(TRIM(p.Correo_Electronico)) = 'ppp@gmail.com';
 
 
 /*
-    DROP TABLE SOLICITUD_ADOPCION;
-    DROP TABLE RESERVAN;
-    DROP TABLE perros_patologias;
-    DROP TABLE patologias;
-    DROP TABLE notificaciones;
-    DROP TABLE perros;
-    DROP TABLE razas;
-    DROP TABLE usuarios;
-    drop table protectoras;
-    drop table clientes;
-*/    
+   DROP TABLE solicitud_adopcion CASCADE CONSTRAINTS;
+DROP TABLE reservan CASCADE CONSTRAINTS;
+DROP TABLE perros_patologias CASCADE CONSTRAINTS;
+DROP TABLE patologias CASCADE CONSTRAINTS;
+DROP TABLE notificaciones CASCADE CONSTRAINTS;
+DROP TABLE perros CASCADE CONSTRAINTS;
+DROP TABLE razas CASCADE CONSTRAINTS;
+DROP TABLE usuarios CASCADE CONSTRAINTS;
+DROP TABLE protectoras CASCADE CONSTRAINTS;
+DROP TABLE clientes CASCADE CONSTRAINTS;
+DROP TABLE Usuarios CASCADE CONSTRAINTS;
+*/

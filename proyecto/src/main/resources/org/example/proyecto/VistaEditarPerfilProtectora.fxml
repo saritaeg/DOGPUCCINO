@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600" prefWidth="800" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.EditarProtectoraControlador">
+
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1000.0" spacing="30" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <StackPane styleClass="header">
+                <Label styleClass="titulo" text="Editar Perfil Protectora" />
+               <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" StackPane.alignment="TOP_RIGHT">
+                   <StackPane.margin>
+                       <Insets right="50" top="10" />
+                   </StackPane.margin>
+               </Button>
+   
+               <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" StackPane.alignment="TOP_RIGHT">
+                   <StackPane.margin>
+                       <Insets right="10" top="10" />
+                   </StackPane.margin>
+               </Button>
+            </StackPane>
+
+            <GridPane alignment="CENTER" hgap="40" maxWidth="900" vgap="18">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="430.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="430.0" />
+                </columnConstraints>
+
+                <VBox spacing="14" GridPane.columnIndex="0">
+                    <Label styleClass="input-label" text="Cif" />
+                    <TextField fx:id="txtCIF" promptText="Introduce tu CIF" styleClass="input-field" />
+
+                    <Label styleClass="input-label" text="Nombre" />
+                    <TextField fx:id="txtNombre" promptText="Introduce tu nombre" styleClass="input-field" />
+
+                    <Label styleClass="input-label" text="Correo electrónico" />
+
+                    <TextField fx:id="txtCorreo" promptText="ejemplo@correo.com" styleClass="input-field" />
+
+                    <TextField fx:id="txtCorreoElectronico" promptText="ejemplo@correo.com" styleClass="input-field" />
+
+
+                    <Label styleClass="input-label" text="Teléfono" />
+               <TextField fx:id="txtTelefono" layoutX="10.0" layoutY="206.0" promptText="000 000 000" styleClass="input-field" />
+
+                    <Label styleClass="input-label" text="Ciudad" />
+                    <TextField fx:id="txtCiudad" promptText="Introduce tu ciudad" styleClass="input-field" />
+                </VBox>
+
+                <VBox prefHeight="393.0" prefWidth="393.0" spacing="14" GridPane.columnIndex="1">
+                    <Label styleClass="input-label" text="Calle" />
+               <TextField fx:id="txtCalle" layoutX="10.0" layoutY="74.0" prefHeight="36.0" prefWidth="302.0" promptText="Direccion" styleClass="input-field" />
+
+                    <Label styleClass="input-label" text="Redes sociales" />
+
+                    <TextField fx:id="txtRedes" prefHeight="36.0" prefWidth="302.0" promptText="Introduce tus redes" styleClass="input-field" />
+
+                    <TextField fx:id="txtRedesSociales" prefHeight="36.0" prefWidth="302.0" promptText="Introduce tus redes" styleClass="input-field" />
+
+
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label styleClass="input-label" text="Cambiar contraseña" />
+                    </HBox>
+
+
+                    <VBox fx:id="passwordContainer" managed="false" spacing="14" visible="false">
+                        <Label styleClass="input-label" text="Nueva contraseña" />
+                        <PasswordField fx:id="txtContraseña" promptText="Mínimo 8 caracteres" styleClass="input-field" />
+
+                        <Label styleClass="input-label" text="Confirmar nueva contraseña" />
+                        <PasswordField fx:id="txtConfirmarContraseña" promptText="Repite la contraseña" styleClass="input-field" />
+                    </VBox>
+                    <TextField fx:id="txtContraseña" layoutX="10.0" layoutY="204.0" promptText="Introduce tu contraseña" styleClass="input-field" />
+                    <Label layoutX="10.0" layoutY="172.0" styleClass="input-label" text="Confirmar contraseña" />
+                    <TextField fx:id="txtContraseña1" layoutX="10.0" layoutY="204.0" promptText="Repetir contraseña" styleClass="input-field" />
+
+                    <PasswordField fx:id="txtNuevaContrasena" promptText="Mínimo 8 caracteres" styleClass="input-field" />
+                    <Label layoutX="10.0" layoutY="172.0" styleClass="input-label" text="Confirmar contraseña" />
+                    <PasswordField fx:id="txtConfirmarContrasena" promptText="Repite la contraseña" styleClass="input-field" />
+
+                </VBox>
+            <rowConstraints>
+               <RowConstraints />
+            </rowConstraints>
+            </GridPane>
+
+            <VBox alignment="CENTER" spacing="8">
+                <HBox alignment="CENTER" spacing="25">
+                    <Button fx:id="btnGuardarCambios" onAction="#btnGuardarCambios" styleClass="boton-principal" text="Guardar Cambios" />
+                    <Button fx:id="btnCancelar" onAction="#btnCancelar" styleClass="boton-secundario" text="Cancelar" />
+                </HBox>
+                <Label fx:id="lblMensaje" styleClass="mensaje-feedback" visible="false" />
+            </VBox>
+        </VBox>
+    </children>
+</AnchorPane>

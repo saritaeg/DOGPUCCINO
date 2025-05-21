@@ -3,17 +3,20 @@ package org.example.proyecto.modelo;
 import java.time.LocalDate;
 
 public class Usuario {
-    public enum rol{Cliente,Protectora}
+
+    public enum Rol {
+        CLIENTE, PROTECTORA
+    }
+
     private Integer idUsuario;
     private String contrasenia;
-    private rol rol;
+    private Rol rol;
     private LocalDate fechaAlta;
     private LocalDate fechaModificacion;
     private Integer idClientes;
     private Integer cifProtectora;
 
-
-    public Usuario(Integer idUsuario, String contrasenia, rol rol, LocalDate fechaAlta,
+    public Usuario(Integer idUsuario, String contrasenia, Rol rol, LocalDate fechaAlta,
                    LocalDate fechaModificacion, Integer idClientes, Integer cifProtectora) {
         this.idUsuario = idUsuario;
         this.contrasenia = contrasenia;
@@ -23,9 +26,11 @@ public class Usuario {
         this.idClientes = idClientes;
         this.cifProtectora = cifProtectora;
     }
+
     public Usuario(String contrasenia) {
-        this.idUsuario = idUsuario;
+        this.contrasenia = contrasenia;
     }
+
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -43,11 +48,11 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public rol getRol() {
+    public Rol getRol() {
         return rol;
     }
 
-    public void setRol(rol rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
     }
 
@@ -82,6 +87,4 @@ public class Usuario {
     public void setCifProtectora(Integer cifProtectora) {
         this.cifProtectora = cifProtectora;
     }
-
-
 }

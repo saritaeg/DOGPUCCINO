@@ -3,17 +3,45 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.InicioControlador">
+<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@EstiloInicio.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.InicioControlador">
+
     <children>
-        <ImageView fitHeight="513.0" fitWidth="508.0">
+        <ImageView fitHeight="600.0" fitWidth="800.0" preserveRatio="false"
+                   mouseTransparent="true" pickOnBounds="false">
             <image>
                 <Image url="@../../../imagenes/fondo.png" />
             </image>
         </ImageView>
 
+        <Button fx:id="btnMinimizar" text="−" onAction="#btnMinimizar" styleClass="boton-barra"
+                StackPane.alignment="TOP_RIGHT">
+            <StackPane.margin>
+                <Insets top="10" right="50" />
+            </StackPane.margin>
+        </Button>
 
-        <Button fx:id="btnRegistrarse" layoutX="113.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnRegistrarse" style="-fx-background-color: #cec1ab;" text="Registrarse" textAlignment="CENTER" />
-        <Button fx:id="btnIniciarSesion" layoutX="282.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnIniciarSesion" style="-fx-background-color: #cec1ab;" text="Iniciar Sesión" />
+        <Button fx:id="btnCerrar" text="X" onAction="#btnCerrar" styleClass="boton-barra"
+                StackPane.alignment="TOP_RIGHT">
+            <StackPane.margin>
+                <Insets top="10" right="10" />
+            </StackPane.margin>
+        </Button>
+
+        <Button fx:id="btnRegistrarse" text="Registrarse" onAction="#btnRegistrarse" styleClass="boton"
+                StackPane.alignment="CENTER_LEFT">
+            <StackPane.margin>
+                <Insets left="230" />
+            </StackPane.margin>
+        </Button>
+
+        <Button fx:id="btnIniciarSesion" text="Iniciar Sesión" onAction="#btnIniciarSesion" styleClass="boton"
+                StackPane.alignment="CENTER_RIGHT">
+            <StackPane.margin>
+                <Insets right="230" />
+            </StackPane.margin>
+        </Button>
+
     </children>
-</Pane>
+</StackPane>

@@ -1,93 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="root" prefHeight="460.0" prefWidth="679.0"
-            stylesheets="@EstiloMenu.css"
-            xmlns="http://javafx.com/javafx/17.0.12"
-            xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="root" prefHeight="600" prefWidth="800" stylesheets="@EstiloMenu.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.PerrosCliControlador">
 
     <top>
         <VBox spacing="10">
-            <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar"
-                  xmlns:fx="http://javafx.com/fxml">
-                <Button styleClass="back-button" text="←" />
-                <Region HBox.hgrow="ALWAYS"/>
+            <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar" xmlns:fx="http://javafx.com/fxml">
+                <Button fx:id="btnVolverInicio" onAction="#btnVolverInicio" styleClass="back-button" text="←" />
+                <Region HBox.hgrow="ALWAYS" />
                 <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
-                <Region HBox.hgrow="ALWAYS"/>
-                <Button styleClass="small-tab-button" text="Editar perfil" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnEditarPerfilCliente" mnemonicParsing="false" onAction="#btnEditarPerfilCliente" prefHeight="32.0" prefWidth="110.0" styleClass="tab-button" text="Cliente">
+                    <graphic>
+                        <ImageView fx:id="imagen" fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../imagenes/usuario.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
             </HBox>
 
             <HBox alignment="CENTER" spacing="15" styleClass="tabs-bar">
-                <ToggleButton style="-fx-font-weight: bold;" styleClass="tab-button" text="_Perros" />
-                <ToggleButton styleClass="tab-button" text="Notificaciones" />
-                <ToggleButton styleClass="tab-button" text="Citas" />
-                <ToggleButton prefWidth="110.0" styleClass="tab-button" text="Sobre nosotros" />
+                <Button fx:id="btnNotificacionesCliente" onAction="#btnNotificacionesCliente" styleClass="tab-button" text="Notificaciones" />
+                <Button fx:id="btnPerrosCliente" onAction="#btnPerrosCliente" style="-fx-font-weight: bold;" styleClass="tab-button" text="Perros" />
+                <Button fx:id="btnCitasCliente" onAction="#btnCitasCliente" styleClass="tab-button" text="Citas" />
+                <Button fx:id="btnNosotrosCliente" onAction="#btnNosotrosCliente" prefWidth="110.0" styleClass="tab-button" text="Sobre nosotros" />
             </HBox>
         </VBox>
     </top>
 
     <center>
         <HBox alignment="CENTER" spacing="20" styleClass="dog-list-container">
-            <Button styleClass="nav-button" text="❮" />
+            <Button fx:id="btnMasPerrosCliente" onAction="#btnMasPerrosCliente" styleClass="nav-button" text="❮" />
 
             <VBox prefHeight="334.0" prefWidth="236.0" spacing="10" styleClass="dog-card">
-                <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
-                    <image>
-                        <Image url="@dog1.png" />
-                    </image>
-                </ImageView>
+                <ImageView fx:id="imagenPerro1" fitHeight="100" fitWidth="100" preserveRatio="true" />
+
                 <GridPane hgap="5" vgap="5">
                     <Label text="Nombre:" GridPane.columnIndex="0" />
-                    <TextField GridPane.columnIndex="1" />
+                    <TextField fx:id="txtNombreCli" editable="false" GridPane.columnIndex="1" />
 
                     <Label text="Raza:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtRazaCli" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                     <Label text="Sexo:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtSexoCli" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                     <Label text="Fecha nacimiento:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <TextField fx:id="txtFechaNacimientoCli" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
                     <Label text="Adoptado:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <TextField fx:id="txtAdoptadoCli" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
                     <Label text="Protectora:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                    <TextField fx:id="txtProtectoraCli" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
                 </GridPane>
-                <Button styleClass="info-button" text="MÁS INFORMACIÓN" />
+                <Button fx:id="btnMasInformacion" onAction="#btnMasInformacion" styleClass="info-button" text="MÁS INFORMACIÓN" />
             </VBox>
 
             <VBox prefHeight="334.0" prefWidth="235.0" spacing="10" styleClass="dog-card">
-                <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
-                    <image>
-                        <Image url="@dog2.png" />
-                    </image>
-                </ImageView>
+                <ImageView fx:id="imagenPerro2" fitHeight="100" fitWidth="100" preserveRatio="true" />
+
                 <GridPane hgap="5" vgap="5">
                     <Label text="Nombre:" GridPane.columnIndex="0" />
-                    <TextField GridPane.columnIndex="1" />
+                    <TextField fx:id="txtNombreCli2" editable="false" GridPane.columnIndex="1" />
 
                     <Label text="Raza:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtRazaCli2" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                     <Label text="Sexo:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtSexoCli2" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                     <Label text="Fecha nacimiento:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <TextField fx:id="txtFechaNacimientoCli2" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
                     <Label text="Adoptado:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <TextField fx:id="txtAdoptadoCli2" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
                     <Label text="Protectora:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                    <TextField fx:id="txtProtectoraCli2" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
                 </GridPane>
-                <Button styleClass="info-button" text="MÁS INFORMACIÓN" />
+                <Button fx:id="btnMasInformacion2" onAction="#btnMasInformacion2" styleClass="info-button" text="MÁS INFORMACIÓN" />
             </VBox>
 
-            <Button styleClass="nav-button" text="❯" />
+            <Button fx:id="btnMasPerroCliente2" onAction="#btnMasPerroCliente2" styleClass="nav-button" text="❯" />
         </HBox>
     </center>
 </BorderPane>

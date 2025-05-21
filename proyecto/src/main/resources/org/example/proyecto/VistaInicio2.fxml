@@ -1,22 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.Inicio2Controlador">
+<StackPane prefHeight="600.0" prefWidth="800.0"
+           stylesheets="@EstiloInicio.css"
+           xmlns="http://javafx.com/javafx/17.0.12"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="org.example.proyecto.controlador.Inicio2Controlador">
 
     <children>
-        <ImageView fitHeight="513.0" fitWidth="900.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
-            <cursor>
-                <Cursor fx:constant="DEFAULT" />
-            </cursor>
+        <ImageView fitHeight="600.0" fitWidth="800.0" preserveRatio="false" mouseTransparent="true">
             <image>
                 <Image url="@../../../imagenes/fondo.png" />
             </image>
         </ImageView>
-        <Button fx:id="btnClientes" layoutX="135.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnClientes" text="Clientes" textAlignment="CENTER" />
-        <Button fx:id="btnProtectora" layoutX="274.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnProtectora" text="Protectora" />
+
+        <Button fx:id="btnMinimizar" text="−" onAction="#btnMinimizar"
+                styleClass="boton-barra" StackPane.alignment="TOP_RIGHT">
+            <StackPane.margin>
+                <Insets top="10" right="50" />
+            </StackPane.margin>
+        </Button>
+
+
+        <Button fx:id="btnCerrar" text="X" onAction="#btnCerrar"
+                styleClass="boton-barra" StackPane.alignment="TOP_RIGHT">
+            <StackPane.margin>
+                <Insets top="10" right="10" />
+            </StackPane.margin>
+        </Button>
+
+
+        <Button fx:id="btnClientes" text="Clientes" onAction="#btnClientes"
+                styleClass="boton" StackPane.alignment="CENTER_LEFT">
+            <StackPane.margin>
+                <Insets left="230" />
+            </StackPane.margin>
+        </Button>
+
+        <Button fx:id="btnProtectora" text="Protectora" onAction="#btnProtectora"
+                styleClass="boton" StackPane.alignment="CENTER_RIGHT">
+            <StackPane.margin>
+                <Insets right="230" />
+            </StackPane.margin>
+        </Button>
     </children>
-</Pane>
+</StackPane>

@@ -1,0 +1,972 @@
+[33mcommit 9496dece38809911f2d79734cf51dcb5843f5f08[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 54b2d46 0b2186c
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Thu May 15 13:05:47 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit 54b2d467b9b0eae718db2e5f49ebff0cbeefe066[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Thu May 15 13:04:22 2025 +0200
+
+    contraseñacabada
+
+[33mcommit 0b2186c1a55b995a81f14d6e70090042470f41e9[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Thu May 15 11:47:26 2025 +0200
+
+    registro102
+
+[33mcommit f20ead3d167c7fe6cc2148ed2d7bc699a4c1e2d0[m
+Merge: c2372ec 2268350
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Thu May 15 09:29:36 2025 +0200
+
+    cambios
+
+[33mcommit c2372ec83866cc7685ccc4442b6cfd6285b46f83[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Thu May 15 09:25:46 2025 +0200
+
+    contraseña
+
+[33mcommit 2268350f704c118a2dd7d0a6d71051fb713f0a71[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Thu May 15 09:03:55 2025 +0200
+
+    registro101
+
+[33mcommit 94e4d8e597d5d5c85804c9ecc2b19c258c8caa00[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Thu May 15 08:38:22 2025 +0200
+
+    registro100
+
+[33mcommit c9885b65a97a24e7759b271b7a040641df84d475[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Thu May 15 00:10:19 2025 +0200
+
+    vistas137
+
+[33mcommit 7a95059da3061eb58dd6e9c1f3c03341fb21b464[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 23:44:46 2025 +0200
+
+    vistas136
+
+[33mcommit 320b2bb7bb878098d384d90ad47fd835cd9b5438[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 23:29:59 2025 +0200
+
+    vistas135
+
+[33mcommit 9edf66b51f41a9420957d6838d65b70a399ea6f0[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 23:17:24 2025 +0200
+
+    vistas134
+
+[33mcommit dfed2c9f69de027918c0f18a4ffa4e52f52bb0ec[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 21:38:46 2025 +0200
+
+    vistas112
+
+[33mcommit 711b5a6c4c8e1590d2374adbf1835c71350ff3d8[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 20:42:46 2025 +0200
+
+    vistas10
+
+[33mcommit ca689e7f7544b3dac013f8dcae09629a938a436c[m
+Author: Sara espino <sespinogallardo@safareyes.es>
+Date:   Wed May 14 19:10:37 2025 +0200
+
+    contraseñadloscojines
+
+[33mcommit 40df40be4c10fb8523a72802efbca8209440ca3a[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed May 14 14:24:30 2025 +0200
+
+    contraseña
+
+[33mcommit 2c4d67bd23cfec528decb19d9e7e7e52b8bdee8f[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Wed May 14 13:10:59 2025 +0200
+
+    controladores
+    
+    # Conflicts:
+    #       proyecto/src/main/resources/org/example/proyecto/VistaPerrosProt.fxml
+
+[33mcommit d2c57c5338e5422a68d3dec4f1126bb13901a852[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 12:57:41 2025 +0200
+
+    registro99
+
+[33mcommit 8433c34eab692f1c0bb7beaae36b8543952d6356[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 12:30:04 2025 +0200
+
+    registro09
+
+[33mcommit ff6224c3635ba53f9582156412a7e35b29e4f8d0[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 11:45:30 2025 +0200
+
+    registro34
+
+[33mcommit 3b4b5a1a834c172f48f862c10a6130f17bd9a301[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 10:48:09 2025 +0200
+
+    registro29
+
+[33mcommit 0d440533e4336e1cd78ad9ecdf0b1c16324acb2b[m
+Merge: 0179b71 5f2fc1e
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 10:30:31 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit 0179b71eab71fba45bf929b325d70558f33985b9[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 10:30:20 2025 +0200
+
+    registro289
+
+[33mcommit 5f2fc1e9cd2e98948d1c6249ec73eb030e69db3c[m
+Merge: b0d95bb 8976502
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Wed May 14 10:22:29 2025 +0200
+
+    control
+
+[33mcommit b0d95bb48996f12e72cd05344face2fc9ca83df9[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Wed May 14 10:21:31 2025 +0200
+
+    contro
+
+[33mcommit 89765029f0a11ae143c47f3d2ffd5b91e7590c8b[m
+Merge: 3c6c554 7736394
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 10:19:07 2025 +0200
+
+    registro27
+
+[33mcommit 3c6c554f186bcbfff2ec8db30cdaeaa902d65ad1[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 10:17:17 2025 +0200
+
+    registro27
+
+[33mcommit 7736394b17e654b2c920e30b60f6038a46c79a48[m
+Merge: 2404273 fbbeaef
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Wed May 14 09:34:57 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit 240427329b054515ca78e71d8d5246f184e742fd[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Wed May 14 09:24:50 2025 +0200
+
+    perfil pro
+
+[33mcommit fbbeaef9586daae45ee82cbb20b56d922a89ed55[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 09:07:25 2025 +0200
+
+    sql67
+
+[33mcommit 4468a02b41591fcd0a5251bf15c877b87330d190[m
+Merge: e0b0733 ace03c4
+Author: Sara espino <sespinogallardo@safareyes.es>
+Date:   Wed May 14 08:45:43 2025 +0200
+
+    Resuelto merge con cambios remotos de GitHub
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit e0b073385bb55e40072b44f6ed4f7ddd807ac2bb[m
+Author: Sara espino <sespinogallardo@safareyes.es>
+Date:   Wed May 14 08:39:33 2025 +0200
+
+    sara
+
+[33mcommit ace03c49ffd52748f91f897983cd9a6edae2ad15[m
+Merge: 5944db8 d26b31c
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed May 14 08:24:30 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit 5944db81d0221323255574811fa225158171f9c4[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed May 14 08:22:57 2025 +0200
+
+    Tu mensaje de commit
+
+[33mcommit d26b31c5c60ea92b1db2314a35d65668d4fb103d[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 08:08:17 2025 +0200
+
+    registro26
+
+[33mcommit 3ddf4cb75d84f7e7741414cca039c04292b83336[m
+Merge: f60e86b 0d67404
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed May 14 08:03:31 2025 +0200
+
+    sql34
+
+[33mcommit 22b427d25d218a69f6b3fbbb288fffd3a99f4772[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue May 13 21:30:20 2025 +0200
+
+    vistas16
+
+[33mcommit 57782243b1615f50982775ac4d67376ba0f45673[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue May 13 21:22:46 2025 +0200
+
+    vistas15
+
+[33mcommit 12bedf5c5cc620ba6889f4ee7bdeb2a6d79c4c86[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue May 13 19:56:46 2025 +0200
+
+    vistas14
+
+[33mcommit d0f92c12c61a4360f761946e00da5ee9a5930d62[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue May 13 19:34:14 2025 +0200
+
+    sql
+
+[33mcommit 3d1bb5ee4dc41765036b54d51ee62c0caf2473b9[m
+Merge: b301387 0d67404
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue May 13 14:13:10 2025 +0200
+
+    vistas
+
+[33mcommit b3013879d79954e97e4352e23a7c1b2f5e41817b[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue May 13 14:12:10 2025 +0200
+
+    script
+
+[33mcommit f60e86bd4284d9e9013c8409836ca2df4265cc6f[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue May 13 13:49:23 2025 +0200
+
+    registro23
+
+[33mcommit 0d67404f359d0aa9681bb83bb4c6c330e0697ce8[m
+Merge: b8955e7 d9f2001
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue May 13 13:46:48 2025 +0200
+
+    vistas4
+
+[33mcommit b8955e78405bdff836d74e7e6b7ebf2fc020a96f[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue May 13 13:43:19 2025 +0200
+
+    vistas3
+
+[33mcommit d9f20014be89c9851411611e20b24108e9ef1fc1[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Tue May 13 13:30:07 2025 +0200
+
+    boton editar perfil
+
+[33mcommit 64c781607d2ae8fb762fc8b916010ee6830a37d0[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Tue May 13 13:19:32 2025 +0200
+
+    vistaeditarperfil
+
+[33mcommit c7d3c21eb0e1361e2a0ea043ce3440a235d6cea0[m
+Merge: 18a9b80 dc860d6
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue May 13 12:52:19 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit 18a9b80cb0cf6239dadf34600967ae2173cea8de[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue May 13 12:51:53 2025 +0200
+
+    registro2
+
+[33mcommit dc860d628210d7ebeb3660aa643a7236cbe40e07[m
+Merge: 0dab62d 74c4dcd
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue May 13 12:44:17 2025 +0200
+
+    vistas
+
+[33mcommit 0dab62d57fa8958fbf9a21b655e64e1d8b481579[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue May 13 12:43:14 2025 +0200
+
+    vistas
+
+[33mcommit 74c4dcd2eb5adcf74115e86db10ffe10930d512f[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Tue May 13 12:36:48 2025 +0200
+
+    fondo
+
+[33mcommit 961200d0611452ec42ec12bea4f1263bb52ce400[m
+Merge: d60b4ee ebaef74
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue May 13 11:42:41 2025 +0200
+
+    vistas
+
+[33mcommit d60b4eeeaafd478e295989af409203d7d5831ea3[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue May 13 11:40:11 2025 +0200
+
+    vistasss
+
+[33mcommit ebaef74c5fac8746f9b91e272b31451a99c5e48b[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue May 13 10:47:28 2025 +0200
+
+    dt18
+
+[33mcommit 1ea5d63c3bc9eb640dba3c43d9b34db280d00524[m
+Merge: f5b0566 81e107a
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue May 13 10:06:33 2025 +0200
+
+    vistas
+
+[33mcommit f5b056697d357b62b9158587be54483bd6108e96[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue May 13 10:02:53 2025 +0200
+
+    vistas
+
+[33mcommit 81e107a225dc58bc4b2a037eb378cdded7ad907d[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue May 13 09:55:33 2025 +0200
+
+    dt17
+
+[33mcommit ab74107c7d99924990f1a184835becb94bad273b[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 23:40:00 2025 +0200
+
+    vistas13
+
+[33mcommit 8c63950c64e6d9c61eca0d6fa14946a1bdfb367b[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 23:15:21 2025 +0200
+
+    vistas122
+
+[33mcommit c1d2df68c4e400ae0478c158de53c40058bdeb8b[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 22:50:43 2025 +0200
+
+    vistas12
+
+[33mcommit 54b8463dfcae6f7ef01d3b48873e1cdcd01f3a03[m
+Merge: a43bb59 972bb3e
+Author: Sara espino <sespinogallardo@safareyes.es>
+Date:   Mon May 12 22:11:07 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit a43bb59c18718aecb572c0e0b33f98ec16239575[m
+Author: Sara espino <sespinogallardo@safareyes.es>
+Date:   Mon May 12 22:07:12 2025 +0200
+
+    lunestarde
+
+[33mcommit 972bb3ebff6380fea4918ea38b2918f2ff3d07da[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 21:53:51 2025 +0200
+
+    vistas1
+
+[33mcommit 9f300fe8851343ad5e38e46b8b76faa05ca1c157[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 21:32:55 2025 +0200
+
+    vistas
+
+[33mcommit fabda811542b8d80bb98fcb8ed80ec5d8d4e920a[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Mon May 12 14:10:37 2025 +0200
+
+    Guardando cambios antes de hacer pull
+    
+    # Conflicts:
+    #       proyecto/src/main/resources/org/example/proyecto/VistaPerfilPerro.fxml
+    #       proyecto/src/main/resources/org/example/proyecto/VistaregCliente.fxml
+
+[33mcommit eff9338e572185dcbf5fa9e99ff1ec498498be89[m
+Merge: a868d1b 01b2bf8
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 14:13:44 2025 +0200
+
+    dt15
+
+[33mcommit a868d1b015f2b1dbda9491f6a2d1d636232cd678[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 14:12:44 2025 +0200
+
+    dt15
+
+[33mcommit 01b2bf88e580b5912af67e5cee902c85838ea052[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 14:08:28 2025 +0200
+
+    cita
+
+[33mcommit ee8d6284e65f33c2ae41eb6501c0e268bfa87f75[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 14:08:19 2025 +0200
+
+    dt15
+
+[33mcommit c08f72d21802e1e2bec07e888a40dca35c81fb9e[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 13:46:39 2025 +0200
+
+    citas
+
+[33mcommit 8e40c33555a263f7fc0b9f4d44ebaeae1fad429a[m
+Merge: ad15eda 4aec57d
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 13:15:39 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit ad15eda2303475511cdbb0bb7762ab265d55c8ca[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 13:15:25 2025 +0200
+
+    dt13
+
+[33mcommit 4aec57d471dbdae9ce638a8c9a1ffe6515ccd979[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 13:09:13 2025 +0200
+
+    da
+
+[33mcommit c1f4f7a92c63a9146f44bc96db072789c2e27359[m
+Merge: 950ac17 e8ce36b
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 13:04:37 2025 +0200
+
+    noti
+
+[33mcommit 950ac179345d4f3b53b6b4d19bb09d0077691844[m
+Merge: d84a6ee f611281
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 13:02:48 2025 +0200
+
+    noti
+
+[33mcommit e8ce36b71f81c64784f9ea1077ec8b746ea9ff63[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 13:02:24 2025 +0200
+
+    dt12
+
+[33mcommit e81a1f4afd7a1a4600c93863744e977759d7f0b1[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 13:01:05 2025 +0200
+
+    dt11
+
+[33mcommit 8b067dd2357a4c3cd0648d7fa32623e44fad9548[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 13:00:09 2025 +0200
+
+    dt10
+
+[33mcommit d84a6ee692037d13e31c0aaf80ac936a51b41f8c[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 12:58:35 2025 +0200
+
+    agag
+
+[33mcommit f6112814eab812d01362f3efc63a69c781bbd47a[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 12:56:49 2025 +0200
+
+    dt9
+
+[33mcommit c747b8e41baf3b8f41f1fbfc49dbf3617d03aca0[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 12:53:27 2025 +0200
+
+    dt8
+
+[33mcommit 72e4e9efe8732186a16c89d29a612147bc170764[m
+Merge: bf7f44b eff9fb9
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 12:48:55 2025 +0200
+
+    noti
+
+[33mcommit bf7f44ba951dc343b0c67c2b5e7b32237575bbad[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 12:36:57 2025 +0200
+
+    sfs
+
+[33mcommit eff9fb90536e105631cc269399fa63012bb8beb7[m
+Merge: affef95 c496b0b
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 12:35:18 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit affef955b1be9965187d04e0cce37577e8ef65bd[m
+Merge: 5250e70 464b36e
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 12:34:30 2025 +0200
+
+    dt6
+
+[33mcommit c496b0b125dba2b949a4fab647a5bcc85eeba668[m
+Merge: 7765a9e 464b36e
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Mon May 12 12:34:16 2025 +0200
+
+    vistasobrenosotros
+
+[33mcommit 5250e7042a73e04061a99d2444e018fc483ee21e[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 12:33:17 2025 +0200
+
+    dt6
+
+[33mcommit 7765a9e12600330ca2dbc12017b827ee1d4f6471[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Mon May 12 12:33:15 2025 +0200
+
+    vistasobrenosotros
+
+[33mcommit 300f8227000f7bc5f5084efaa4df1232c8dac9af[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 12:33:08 2025 +0200
+
+    dt5
+
+[33mcommit 464b36e078ba53739e5282ea3f6113d16b69bbc7[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 12:26:11 2025 +0200
+
+    noti
+
+[33mcommit 498e29e7c3f915ed47e2465ddb0f8e0a27360245[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 12:10:22 2025 +0200
+
+    dt4
+
+[33mcommit 447eb2f29ed186d52835d430a6bdf6cf05260635[m
+Merge: 64dce89 176590e
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 12:08:34 2025 +0200
+
+    sgs
+
+[33mcommit 64dce89e9a77e9cb5a9ca4c9d2ff73c6cbe1d133[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 12:06:28 2025 +0200
+
+    gdg
+
+[33mcommit 176590eb1b78a3302199026709192393a39e22c8[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 12:04:42 2025 +0200
+
+    dt3
+
+[33mcommit c71f0136c6ab46275d1296af2e26d67f3203a72a[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 11:53:42 2025 +0200
+
+    dt2
+
+[33mcommit b4e5eadb068655acb570fc9dc5e3decc2a97578f[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 10:17:10 2025 +0200
+
+    dt1
+
+[33mcommit 93bf16f0060ac8c5b01ba851c80acd00007c6ae2[m
+Merge: 82a27fb 08f0aeb
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Mon May 12 10:02:17 2025 +0200
+
+    p
+
+[33mcommit 08f0aeb583fbdfcea1bca6cb060f5b8db1d8cf96[m
+Merge: 6bd47cb af9373a
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 09:55:39 2025 +0200
+
+    dw
+
+[33mcommit 82a27fb5130e031fbd71a5db7338f54362e75484[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Mon May 12 09:05:52 2025 +0200
+
+    Añadido el archivo Sobrenosotros.fxml
+
+[33mcommit 6bd47cb40580e40666e6c91282f2b5bd453f077b[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon May 12 09:53:45 2025 +0200
+
+    dhwe
+
+[33mcommit af9373a6ef14dd28d49418582af373d285f64f99[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 09:52:54 2025 +0200
+
+    gdw
+
+[33mcommit 90b870a35723f1a3cb930d32eb13d817d3bd714b[m
+Merge: 14dd48e 4917b1a
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 12 08:32:57 2025 +0200
+
+    proyecto9
+
+[33mcommit 4917b1a57c5d09fea24f6bb717a4837b21e4830f[m
+Merge: 19c4ddf 4d4804a
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 5 10:46:37 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit 19c4ddf8e52e31ea6affcf2e411dc20e8f6c9527[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 5 10:46:02 2025 +0200
+
+    sql34
+
+[33mcommit 14dd48e2ff71bc45e489a23a121b7a5792aafb5f[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon May 5 08:40:14 2025 +0200
+
+    proyecto8
+
+[33mcommit 4d4804a6f0a34a59b46edb925b4a2ccb99192917[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed Apr 30 18:47:45 2025 +0200
+
+    jjj
+
+[33mcommit d1851e225872c1555540329fbad9b3e74ce96cc5[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed Apr 30 18:35:00 2025 +0200
+
+    jj
+
+[33mcommit 793ccd063ff3a3e5175037913e624e6ffa90cf40[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed Apr 30 14:09:24 2025 +0200
+
+    perro
+
+[33mcommit ae3abb0814588df1daac2880ef705471a50ef842[m
+Merge: 350ad0a f44e513
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Wed Apr 30 13:00:47 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit f44e513f3ee97c79cbbd31af9c8ea40c9387ac6f[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Wed Apr 30 09:45:25 2025 +0200
+
+    Vistas
+
+[33mcommit 350ad0a6397f7ca1a3c098555d0de32e35bc7bc8[m
+Merge: 14f6492 05ea03e
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue Apr 29 12:48:38 2025 +0200
+
+    Resuelto conflicto descartando cambios locales en dataSources.xml
+
+[33mcommit 14f6492767400ed2ee6a60761893a42b6ef578d5[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue Apr 29 12:44:40 2025 +0200
+
+    proyecto7
+
+[33mcommit 05ea03eeb0678f4428b6ac85fa828fe1b6e51ff0[m
+Merge: 2c4494c 76f10e1
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 12:43:02 2025 +0200
+
+    pull
+
+[33mcommit 2c4494cbe5437571f3cef40a3877c7045bf4f073[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 12:41:02 2025 +0200
+
+    conexionbade
+
+[33mcommit 76f10e1afaf6afdc5a0e3790b8ebd5fd92692d93[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 10:56:18 2025 +0200
+
+    act
+
+[33mcommit 04bcfc08a9ab679f64b9962aa841491157df33a2[m
+Merge: db93613 97a612a
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 10:47:41 2025 +0200
+
+    act
+
+[33mcommit db93613b0530e475ab8aaa8bd397c30f0cec2cdc[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 10:46:10 2025 +0200
+
+    act
+
+[33mcommit 97a612ad1361f06a93b434b4b5f6ef6a8194e1e3[m
+Merge: 362d229 276c08c
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue Apr 29 10:29:50 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit 362d2290750144a4aad5ac8b27f6b38708834ebc[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue Apr 29 10:29:05 2025 +0200
+
+    proyecto3
+
+[33mcommit 276c08c19c3165bb2be78bf883dff5c3e4a71f64[m
+Merge: 9e8f820 3364bbc
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 09:46:59 2025 +0200
+
+    fusionramasara
+
+[33mcommit 3364bbc3d3dcc00a6cda11b9510dca959b31cb62[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 09:45:30 2025 +0200
+
+    basedatossub
+
+[33mcommit 9e8f8204ed542e942d95566918b291dd8fa40e19[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 09:27:54 2025 +0200
+
+    basedatosact
+
+[33mcommit 0952cd867285566277af4c01dc5a409719b265dd[m
+Merge: 18e924f 8e0a790
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue Apr 29 09:20:12 2025 +0200
+
+    sql
+
+[33mcommit 18e924f9aba527f57c45aedbf606130f24535419[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Tue Apr 29 09:16:08 2025 +0200
+
+    sql
+
+[33mcommit 8e0a790e97d0bf30d44bd797c4d2cb9c1f4f1d7e[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 09:15:36 2025 +0200
+
+    act
+
+[33mcommit 5b40374cdbf1cd297a2472423486be3e055dc574[m
+Merge: 24ea450 f37423e
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 08:48:40 2025 +0200
+
+    prueba
+
+[33mcommit 24ea4503259e5b7879dcd0352d3f9db79fc5b338[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Apr 29 08:47:12 2025 +0200
+
+    rueba
+
+[33mcommit f37423e45f1a6aa416d9dc64701300698210b7fe[m
+Merge: 4ef9b03 ccd53dd
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon Apr 28 11:56:12 2025 +0200
+
+    Merge branch 'main' of https://github.com/saritaeg/DOGPUCCINO
+
+[33mcommit 4ef9b03ae3d7f49d4d156668f004ed9566522a0d[m
+Merge: f108e2a 73abfce
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon Apr 28 11:56:06 2025 +0200
+
+    sql1
+
+[33mcommit ccd53dd5ce57ac3d5fb7f65d030f1be9bb9474f3[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Mon Apr 28 11:55:22 2025 +0200
+
+    d
+
+[33mcommit f108e2a387458b23873c8655e1887575e2e22ab3[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Mon Apr 28 11:47:57 2025 +0200
+
+    sql
+
+[33mcommit 73abfce18e033d5ac3f5de748540f7ae546aedee[m
+Author: rubenromero17 <ruromeroaponte@safareyes.es>
+Date:   Fri Apr 25 14:11:34 2025 +0200
+
+    proyecto2
+
+[33mcommit ba152a1d53491d4b6f7253f9f5c6d9aee0d11343[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Fri Apr 25 13:52:08 2025 +0200
+
+    vista
+
+[33mcommit b312d0c6d3eab777be5b585c591ec06b61531081[m
+Author: rmpablo06 <prodriguezmoray@safareyes.es>
+Date:   Fri Apr 25 10:50:25 2025 +0200
+
+    pablo
+
+[33mcommit 17b3942476c29cdfbac4e8eac3a6780e0d6130d1[m
+Merge: 2e0e9b3 ed1255c
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Fri Apr 25 09:51:44 2025 +0200
+
+    scripbase
+
+[33mcommit ed1255cc5e22ccacf97e7c196bcec8b693398711[m[33m ([m[1;31morigin/ramasara[m[33m)[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Fri Apr 25 09:51:06 2025 +0200
+
+    scriptbasedatos
+
+[33mcommit 2e0e9b3b3bb15c2ccec2730cc53bfe6288e94abc[m
+Merge: 209ff3c 380b5d0
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed Apr 23 14:27:30 2025 +0200
+
+    fusion ramasara
+
+[33mcommit 380b5d0e8e29d99952e1b96a9e47fcb19829ce77[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed Apr 23 14:26:46 2025 +0200
+
+    dia subido
+
+[33mcommit 209ff3c566b85123af666e06f009a828bb3ba719[m
+Merge: 3b226a1 bd7b9fd
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed Apr 23 10:35:12 2025 +0200
+
+    fusion con ramasara
+
+[33mcommit bd7b9fde94c4fe0761c772f436337fd196583a35[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed Apr 23 10:32:19 2025 +0200
+
+    proyecto java
+
+[33mcommit 3b226a18d945e2c1019ed82a2b5c84313ac67c66[m
+Merge: d13c9bc f8d55e3
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed Apr 23 10:15:43 2025 +0200
+
+    resuelvo conflicto y hago fusion con ramasara
+
+[33mcommit f8d55e38680173d01f7904a942b19bcfc9cca4d3[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed Apr 23 10:02:07 2025 +0200
+
+    elimino cosas q no valen
+
+[33mcommit e9ad05091fdefe998a84fd4f96917b3aa16f74e2[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed Apr 23 09:46:32 2025 +0200
+
+    actualizacion
+
+[33mcommit 02c088a0a61dd987fd0d2a957c621567bc28b40f[m
+Author: saritaeg <sespinogallardo@safareyes.es>
+Date:   Wed Apr 9 09:23:43 2025 +0200
+
+    Add files via upload
+    
+    enlace drawio
+
+[33mcommit f83b830a7c7ed2439aa5230f35f853c186fea91e[m
+Author: saritaeg <sespinogallardo@safareyes.es>
+Date:   Wed Apr 9 09:21:09 2025 +0200
+
+    Add files via upload
+
+[33mcommit 39382b40e7fe5a6a8b2e74eb67a6d00fdef06113[m
+Author: saritaeg <sespinogallardo@safareyes.es>
+Date:   Wed Apr 9 08:19:24 2025 +0200
+
+    Initial commit
+
+[33mcommit d13c9bcf899b1f6deb6d252c8c80e8873b54caa7[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed Apr 23 09:46:32 2025 +0200
+
+    actualizacion
+
+[33mcommit b7cb781b6a7d2c2943be83669752b17fb09d7eb3[m
+Author: saritaeg <sespinogallardo@safareyes.es>
+Date:   Wed Apr 9 09:23:43 2025 +0200
+
+    Add files via upload
+    
+    enlace drawio
+
+[33mcommit 048a367eecabdb1a578853698173d5cde3ea9475[m
+Author: saritaeg <sespinogallardo@safareyes.es>
+Date:   Wed Apr 9 09:21:09 2025 +0200
+
+    Add files via upload
+
+[33mcommit 459025721ee7b4358783f4423455c079e3de725a[m
+Author: saritaeg <sespinogallardo@safareyes.es>
+Date:   Wed Apr 9 08:19:24 2025 +0200
+
+    Initial commit
+
+[33mcommit e0b06d37f064527bf6a4da7eff6b47cec2b407fd[m[33m ([m[1;31morigin/ramaruben[m[33m, [m[1;31morigin/ramapablo[m[33m)[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Wed Mar 19 13:34:27 2025 +0100
+
+    examen
+
+[33mcommit 20658a54a63d2aed6409fd5d219666243a19f530[m
+Author: Sara <sespinogallardo@safareyes.es>
+Date:   Tue Mar 18 13:03:22 2025 +0100
+
+    actualizado
+
+[33mcommit f3c4cbaad315862b576b0109c0606fab117bac68[m
+Author: Sara Espino <sespinogallardo@safareyes.es>
+Date:   Mon Nov 11 08:58:33 2024 +0100
+
+    t1
