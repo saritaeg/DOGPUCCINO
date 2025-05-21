@@ -26,27 +26,17 @@
 
             <GridPane hgap="10" vgap="5">
 
-                <Label prefHeight="15.0" prefWidth="75.0" style="-fx-font-weight: bold;" text="Nombre:" GridPane.columnIndex="1" />
-                <TextField prefHeight="42.0" prefWidth="233.0" GridPane.columnIndex="2" />
+                <Label prefHeight="15.0" prefWidth="143.0" style="-fx-font-weight: bold;" text="Correo Electrónico:" GridPane.columnIndex="1" />
+                <TextField fx:id="emailTextField" prefHeight="42.0" prefWidth="268.0" GridPane.columnIndex="2" />
 
                 <Region prefHeight="42.0" GridPane.columnIndex="3" />
 
                 <HBox alignment="CENTER_LEFT" spacing="20.0" GridPane.columnIndex="4">
                     <VBox alignment="CENTER_RIGHT">
-                        <Button styleClass="donation-button" text="DONACIÓN" />
+                        <ChoiceBox fx:id="donacionChoiceBox" prefHeight="23.0" prefWidth="117.0" styleClass="form-picker" />
                         <Label styleClass="donation-note" text="(mínimo 3€)" />
                     </VBox>
                 </HBox>
-            <columnConstraints>
-               <ColumnConstraints />
-               <ColumnConstraints />
-               <ColumnConstraints />
-               <ColumnConstraints />
-               <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-               <RowConstraints />
-            </rowConstraints>
             </GridPane>
 
 
@@ -55,7 +45,7 @@
 
                 <VBox alignment="CENTER" prefHeight="61.0" prefWidth="366.0" spacing="5.0">
                     <Label styleClass="form-label" text="FECHA PARA LA CITA" />
-                    <DatePicker fx:id="fechaCitaPicker" styleClass="form-picker" />
+                    <DatePicker fx:id="datePickerFecha" styleClass="form-picker" />
                 </VBox>
 
                 <VBox alignment="CENTER" prefHeight="61.0" prefWidth="365.0" spacing="5.0">
@@ -65,7 +55,7 @@
                 </VBox>
             </HBox>
 
-            <Button styleClass="submit-button" text="SOLICITAR CITA" />
+            <Button fx:id="btnConfirmar" onAction="#btnConfirmar"  styleClass="submit-button" text="SOLICITAR CITA" />
         </VBox>
     </AnchorPane>
 
