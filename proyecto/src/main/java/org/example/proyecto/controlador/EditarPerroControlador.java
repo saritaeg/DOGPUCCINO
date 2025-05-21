@@ -4,31 +4,24 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.example.proyecto.dao.PerroDAO;
+import org.example.proyecto.dao.PerrosPatologiaDAO;
 import org.example.proyecto.modelo.Perro;
+
 import java.io.File;
 
-/* public class EditarPerroControlador {
-    @FXML
-    private TextField txtNombre;
-    @FXML
-    private TextField txtFechaNacimiento;
-    @FXML
-    private ComboBox<String> ComboBoxSexo;
-    @FXML
-    private ComboBox<String> ComboBoxRaza;
-    @FXML
-    private ComboBox<String> ComboBoxPatologias;
-    @FXML
-    private TextArea pathologyDescriptionArea;
-    @FXML
-    private ImageView dogImageView;
-    @FXML
-    private Label imageLabel;
-    @FXML
-    private StackPane imageContainer;
+public class EditarPerroControlador {
+
+    @FXML private TextField txtNombre;
+    @FXML private TextField txtFechaNacimiento;
+    @FXML private ComboBox<String> ComboBoxSexo;
+    @FXML private ComboBox<String> ComboBoxRaza;
+    @FXML private ComboBox<String> ComboBoxPatologias;
+    @FXML private TextArea pathologyDescriptionArea;
+    @FXML private ImageView dogImageView;
+    @FXML private Label imageLabel;
 
     private Stage stage;
     private Perro perro;
@@ -41,7 +34,15 @@ import java.io.File;
     public void setPerro(Perro perro) {
         this.perro = perro;
         cargarDatosPerro();
+        cargarPatologiaYDescripcion();
+    }
 
+    @FXML
+    public void initialize() {
+        ComboBoxSexo.getItems().addAll("M", "H");
+        ComboBoxRaza.getItems().addAll(PerroDAO.obtenerRazas());
+        ComboBoxPatologias.getItems().addAll(PerrosPatologiaDAO.obtenerTodasPatologias()); // Asumiendo que tienes este método
+    }
 
     private void cargarDatosPerro() {
         if (perro != null) {
@@ -49,8 +50,6 @@ import java.io.File;
             txtFechaNacimiento.setText(perro.getFechaNacimiento());
             ComboBoxSexo.setValue(perro.getSexo().toString());
             ComboBoxRaza.setValue(perro.getRaza());
-            ComboBoxPatologias.setValue(perro.getPatologia());
-            pathologyDescriptionArea.setText(perro.getDescripcionPatologia());
 
             if (perro.getFoto() != null && !perro.getFoto().isEmpty()) {
                 Image image = new Image(perro.getFoto());
@@ -60,23 +59,21 @@ import java.io.File;
         }
     }
 
+    private void cargarPatologiaYDescripcion() {
+        if (perro != null) {
+            String[] patologiaDescripcion = PerrosPatologiaDAO.obtenerPatologiaYDescripcionPorPerro(perro.getId());
+
+            if (patologiaDescripcion[0] != null) {
+                ComboBoxPatologias.setValue(patologiaDescripcion[0]);
+            }
+            if (patologiaDescripcion[1] != null) {
+                pathologyDescriptionArea.setText(patologiaDescripcion[1]);
+            }
+        }
+    }
 
     @FXML
     private void btnVolverAtrasProtectora() {
-        if (stage != null) {
-            stage.close();
-        }
-    }
-
-    @FXML
-    private void btnMinimizar() {
-        if (stage != null) {
-            stage.setIconified(true);
-        }
-    }
-
-    @FXML
-    private void btnCerrar() {
         if (stage != null) {
             stage.close();
         }
@@ -102,17 +99,22 @@ import java.io.File;
     @FXML
     private void btnActualizarPerro() {
         if (validarCampos()) {
-            perro.setNombre(nameField.getText());
-            perro.setFechaNacimiento(birthDateField.getText());
-            perro.setSexo(genderComboBox.getValue());
-            perro.setRaza(breedComboBox.getValue());
-            perro.setPatologia(pathologyComboBox.getValue());
-            perro.setDescripcionPatologia(pathologyDescriptionArea.getText());
+            perro.setNombre(txtNombre.getText());
+            perro.setFechaNacimiento(txtFechaNacimiento.getText());
+            perro.setSexo(Perro.Sexo.valueOf(ComboBoxSexo.getValue()));
+            perro.setRaza(ComboBoxRaza.getValue());
 
             if (imagePath != null) {
-                perro.setImagenUrl(imagePath);
+                perro.setFoto(imagePath);
             }
 
+            // Actualizar datos en tabla Perros
+            PerroDAO.actualizarPerro(perro);
+
+            // Actualizar patología y descripción en tabla Perros_Patologias
+            PerrosPatologiaDAO.actualizarPatologiaDescripcion(perro.getId(),
+                    ComboBoxPatologias.getValue(),
+                    pathologyDescriptionArea.getText());
 
             mostrarMensajeExito();
             stage.close();
@@ -120,12 +122,24 @@ import java.io.File;
     }
 
     private boolean validarCampos() {
-        if (nameField.getText().isEmpty()) {
+        if (txtNombre.getText().isEmpty()) {
             mostrarError("El nombre es obligatorio");
             return false;
         }
-        if (birthDateField.getText().isEmpty()) {
+        if (txtFechaNacimiento.getText().isEmpty()) {
             mostrarError("La fecha de nacimiento es obligatoria");
+            return false;
+        }
+        if (ComboBoxSexo.getValue() == null) {
+            mostrarError("El sexo es obligatorio");
+            return false;
+        }
+        if (ComboBoxRaza.getValue() == null) {
+            mostrarError("La raza es obligatoria");
+            return false;
+        }
+        if (ComboBoxPatologias.getValue() == null) {
+            mostrarError("La patología es obligatoria");
             return false;
         }
         return true;
@@ -147,4 +161,7 @@ import java.io.File;
         alert.showAndWait();
     }
 }
-*/
+
+
+
+

@@ -31,6 +31,8 @@ import org.example.proyecto.modelo.Sesion;
 import java.io.IOException;
 import java.util.UUID;
 
+
+
 public class AñadirPerroControlador {
 
     @FXML private Button btnVolverAtrasProtectora;
@@ -53,6 +55,8 @@ public class AñadirPerroControlador {
 
     private File imagenSeleccionada;
 
+    private String cifProtectora;
+
     private final String DB_URL = "jdbc:oracle:thin:@localhost:1521:XE";
     private final String DB_USER = "C##DOGPUCCINO";
     private final String DB_PASS = "123456";
@@ -66,6 +70,10 @@ public class AñadirPerroControlador {
     @FXML
     private void btnCerrar(ActionEvent event) {
         Platform.exit();
+    }
+
+    public void setCifProtectora(String cifProtectora) {
+        this.cifProtectora = cifProtectora;
     }
     @FXML
     private void seleccionarImagen(ActionEvent event) {
@@ -92,14 +100,22 @@ public class AñadirPerroControlador {
     @FXML
     private void btnVolverAtrasProtectora() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
-            Parent root = fxmlLoader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
+            Parent root = loader.load();
+
+            PerrosProtControlador controlador = loader.getController();
+            String cif = Sesion.getCifProtectora();  // Obtener el CIF desde la sesión
+            controlador.inicializarPerros(cif);     // Pasar el CIF al controlador
+
             Stage stage = (Stage) btnVolverAtrasProtectora.getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
+
 
     @FXML
     public void initialize() {
@@ -195,8 +211,10 @@ public class AñadirPerroControlador {
             pstmt.setDate(2, Date.valueOf(fechaNacimiento));
             pstmt.setString(3, sexo);
             pstmt.setString(4, raza);
-            pstmt.setString(5, Sesion.getCifProtectora());
+            pstmt.setString(5, Sesion.getCifProtectora()); // Aquí se pone el CIF de la protectora
             pstmt.setString(6, foto);
+
+            System.out.println("Insertando perro con CIF: " + Sesion.getCifProtectora());
 
             int filas = pstmt.executeUpdate();
             return filas > 0;
@@ -206,6 +224,7 @@ public class AñadirPerroControlador {
             return false;
         }
     }
+
 
 
 
