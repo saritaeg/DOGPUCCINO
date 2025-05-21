@@ -47,6 +47,10 @@ public class PerrosProtControlador {
 
     private Usuario usuario;
 
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public void inicializarPerros(Usuario usuario) {
         this.usuario = usuario;
         perros = PerrosProtDAO.obtenerPerrosProtectora(usuario.getCifProtectora());
@@ -100,8 +104,23 @@ public class PerrosProtControlador {
 
     @FXML
     private void btnCitasProtectora(ActionEvent event) {
-        cargarVista("/org/example/proyecto/VistaCitasProtec.fxml", btnCitasProtectora);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasProtec.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Obtener controlador y pasar usuario
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof CitasProtControlador) {
+                ((CitasProtControlador) controlador).setUsuario(usuario);
+            }
+
+            Stage stage = (Stage) btnCitasProtectora.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     private void btnSobreNosotrosProtectora(ActionEvent event) {
