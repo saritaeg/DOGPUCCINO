@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.proyecto.dao.UsuarioDAO;
 import org.example.proyecto.modelo.Sesion;
+import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.ConexionBaseDatos;
 import org.example.proyecto.utils.Contraseña;
 
@@ -22,6 +23,13 @@ import java.sql.*;
 import static org.example.proyecto.utils.Alertas.mostrarAlerta;
 
 public class InicioSesionControlador {
+
+    private Usuario usuario;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @FXML
     private Button btnAcceso;
 

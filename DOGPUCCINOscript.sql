@@ -160,7 +160,9 @@ END;
 
 
 
+
 /*
+
    DROP TABLE solicitud_adopcion CASCADE CONSTRAINTS;
 DROP TABLE reservan CASCADE CONSTRAINTS;
 DROP TABLE perros_patologias CASCADE CONSTRAINTS;

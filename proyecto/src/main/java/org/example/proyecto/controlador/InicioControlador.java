@@ -67,7 +67,6 @@ public class InicioControlador {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicioSesion.fxml"));
             Parent root = fxmlLoader.load();
-
             Stage stage = (Stage) btnIniciarSesion.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
