@@ -107,7 +107,6 @@ public class AñadirPerroControlador {
     }
     @FXML
     private void handleAñadirPerro(ActionEvent event) {
-        System.out.println("Botón pulsado");
 
         String nombre = nameField.getText();
         String fechaNacimientoStr = birthDateField.getText();

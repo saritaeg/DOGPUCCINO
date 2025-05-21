@@ -54,38 +54,6 @@ public class PerrosCliControlador {
         mostrarPerroEnPosicion(indice, txtNombreCli, txtRazaCli, txtSexoCli, txtFechaNacimientoCli, txtAdoptadoCli, txtProtectoraCli, imagenPerro1);
         mostrarPerroEnPosicion(indice + 1, txtNombreCli2, txtRazaCli2, txtSexoCli2, txtFechaNacimientoCli2, txtAdoptadoCli2, txtProtectoraCli2, imagenPerro2);
     }
-    public void actualizarListaPerros() {
-        cargarPerros();
-        indice = 0;
-        mostrarPerros();
-    }
-    private boolean hayPerros() {
-        return perros != null && !perros.isEmpty();
-    }
-    @FXML
-    private void imagenClicada1() {
-        abrirDetallePerro(indice);
-    }
-
-    @FXML
-    private void imagenClicada2() {
-        abrirDetallePerro(indice + 1);
-    }
-    private void mostrarMensajeNoMasPerros() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Información");
-        alert.setHeaderText(null);
-        alert.setContentText("No hay más perros para mostrar.");
-        alert.showAndWait();
-    }
-    private void cargarImagenSeguro(ImageView imageView, String rutaImagen) {
-        try {
-            Image img = new Image("file:" + rutaImagen);
-            imageView.setImage(img);
-        } catch (Exception e) {
-            imageView.setImage(new Image("/resources/imagenes/fondo.png"));
-        }
-    }
 
     private void mostrarPerroEnPosicion(int pos, TextField nombre, TextField raza, TextField sexo,
                                         TextField fechaNacimiento, TextField adoptado, TextField protectora, ImageView imagen) {
@@ -160,13 +128,6 @@ public class PerrosCliControlador {
         }
     }
 
-    @FXML
-    private void btnAnteriorPerrosCliente(ActionEvent event) {
-        if (indice - 2 >= 0) {
-            indice -= 2;
-            mostrarPerros();
-        }
-    }
 
     @FXML
     private void btnVolverInicio(ActionEvent event) {
@@ -208,7 +169,6 @@ public class PerrosCliControlador {
     private void btnNosotrosCliente(ActionEvent event) {
         cargarVista("/org/example/proyecto/VistaSobreNosotrosCli.fxml", btnNosotrosCliente);
     }
-
     private void cargarVista(String rutaFXML, Button botonReferencia) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -220,4 +180,6 @@ public class PerrosCliControlador {
             e.printStackTrace();
         }
     }
+
+
 }
