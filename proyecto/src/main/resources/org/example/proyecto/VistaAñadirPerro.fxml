@@ -66,7 +66,6 @@
                                     <String fx:value="Pastor Alemán" />
                                     <String fx:value="Golden Retriever" />
                                     <String fx:value="Bulldog" />
-                                    <String fx:value="Otro" />
                                 </FXCollections>
                             </items>
                         </ComboBox>

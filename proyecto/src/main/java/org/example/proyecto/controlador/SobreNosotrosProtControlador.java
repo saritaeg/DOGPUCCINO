@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
 
@@ -28,6 +29,12 @@ public class SobreNosotrosProtControlador {
     @FXML
     private Button btnMinimizar;
 
+    private Usuario usuario;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @FXML
     private void btnMinimizar(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -46,14 +53,17 @@ public class SobreNosotrosProtControlador {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnPerros.getScene().getWindow();
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
+            PerrosProtControlador controlador = fxmlLoader.getController();
+
+            controlador.inicializarPerros(usuario);
+
+
+            Stage stage = (Stage) btnPerros.getScene().getWindow();
+            stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
     @FXML
     private void btnNotificaciones (ActionEvent event) {

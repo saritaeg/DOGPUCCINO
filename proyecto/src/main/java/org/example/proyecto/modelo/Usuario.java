@@ -14,10 +14,10 @@ public class Usuario {
     private LocalDate fechaAlta;
     private LocalDate fechaModificacion;
     private Integer idClientes;
-    private Integer cifProtectora;
+    private String cifProtectora;
 
     public Usuario(Integer idUsuario, String contrasenia, Rol rol, LocalDate fechaAlta,
-                   LocalDate fechaModificacion, Integer idClientes, Integer cifProtectora) {
+                   LocalDate fechaModificacion, Integer idClientes, String cifProtectora) {
         this.idUsuario = idUsuario;
         this.contrasenia = contrasenia;
         this.rol = rol;
@@ -80,11 +80,11 @@ public class Usuario {
         this.idClientes = idClientes;
     }
 
-    public Integer getCifProtectora() {
+    public String getCifProtectora() {
         return cifProtectora;
     }
 
-    public void setCifProtectora(Integer cifProtectora) {
+    public void setCifProtectora(String cifProtectora) {
         this.cifProtectora = cifProtectora;
     }
 }

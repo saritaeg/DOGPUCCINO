@@ -1,6 +1,7 @@
 package org.example.proyecto.dao;
 
 import org.example.proyecto.modelo.ResultadoLogin;
+import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.Contraseña;
 import org.example.proyecto.utils.ConexionBaseDatos;
 
@@ -74,6 +75,43 @@ public class UsuarioDAO {
                 return rs.next();
             }
         }
+
+
+    }
+
+    public static Usuario obtenerUsuarioPorCorreo(String correo) {
+        String sql = """
+        SELECT u.ID, u.Contrasenia, u.Rol, u.Fecha_Alta, u.Fecha_Modificacion,
+               u.ID_Clientes, u.CIF_Protectoras
+        FROM Usuarios u
+        LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
+        LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
+        WHERE c.Correo_Electronico = ? OR p.Correo_Electronico = ?
+    """;
+
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, correo);
+            stmt.setString(2, correo);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    int id = rs.getInt("ID");
+                    String contrasenia = rs.getString("Contrasenia");
+                    String rolStr = rs.getString("Rol");
+                    Usuario.Rol rol = Usuario.Rol.valueOf(rolStr.toUpperCase());
+                    LocalDate fechaAlta = rs.getDate("Fecha_Alta").toLocalDate();
+                    LocalDate fechaMod = rs.getDate("Fecha_Modificacion").toLocalDate();
+                    Integer idCliente = rs.getObject("ID_Clientes") != null ? rs.getInt("ID_Clientes") : null;
+                    String cif = rs.getString("CIF_Protectoras") != null ? rs.getString("CIF_Protectoras") : null;
+
+                    return new Usuario(id, contrasenia, rol, fechaAlta, fechaMod, idCliente, cif);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
+import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
 
@@ -26,6 +27,12 @@ public class NotProtNuevaadopControlador {
     private ToggleButton btnSolicitudCitaProtectora;
     @FXML
     private ToggleButton btnSolicitudAdopcionProtectora;
+
+    private Usuario usuario;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     @FXML
     private void btnMinimizar(ActionEvent event) {
@@ -46,11 +53,15 @@ public class NotProtNuevaadopControlador {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnPerrosProtectora.getScene().getWindow();
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-        }catch (IOException e) {
+            PerrosProtControlador controlador = fxmlLoader.getController();
+
+            controlador.inicializarPerros(usuario);
+
+
+            Stage stage = (Stage) btnPerrosProtectora.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

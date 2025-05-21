@@ -41,10 +41,114 @@ public class PerrosProtControlador {
     @FXML private Button btnEditarPerroProtectora2;
 
     private List<Perro> perros;
+<<<<<<< Updated upstream
+    private int indice = 0;
+
+    private Usuario usuario;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public void inicializarPerros(Usuario usuario) {
+        this.usuario = usuario;
+        perros = PerrosProtDAO.obtenerPerrosProtectora(usuario.getCifProtectora());
+        mostrarPerros();
+    }
+
+    private void mostrarPerros() {
+        mostrarPerroEnPosicion(indice, txtNombrePro, txtRazaPro, txtSexoPro, txtFechaNacimientoPro, txtAdoptadoPro, txtProtectoraPro);
+        mostrarPerroEnPosicion(indice + 1, txtNombrePro2, txtRazaPro2, txtSexoPro2, txtFechaNacimientoPro2, txtAdoptadoPro2, txtProtectoraPro2);
+    }
+
+    private void mostrarPerroEnPosicion(int pos, TextField nombre, TextField raza, TextField sexo,
+                                        TextField fechaNacimiento, TextField adoptado, TextField protectora) {
+        if (pos >= 0 && pos < perros.size()) {
+            Perro p = perros.get(pos);
+            nombre.setText(p.getNombre());
+            raza.setText(p.getRaza());
+            sexo.setText(p.getSexo() != null ? p.getSexo().name() : "");
+            fechaNacimiento.setText(p.getFechaNacimiento());
+            if (p.getAdoptado() != null) {
+                adoptado.setText(p.getAdoptado() == Perro.Adoptado.S ? "Sí" : "No");
+            } else {
+                adoptado.setText("");
+            }
+            protectora.setText(p.getCifProtectora());
+        } else {
+            limpiarCampos(nombre, raza, sexo, fechaNacimiento, adoptado, protectora);
+        }
+    }
+
+    private void limpiarCampos(TextField... campos) {
+        for (TextField campo : campos) {
+            campo.clear();
+        }
+    }
+
+    @FXML
+    private void btnVolverAtras(ActionEvent event) {
+        cargarVista("/org/example/proyecto/VistaInicio.fxml", btnVolverAtras);
+    }
+
+    @FXML
+    private void btnPerrosProtectora(ActionEvent event) {
+        cargarVista("/org/example/proyecto/VistaPerrosProt.fxml", btnPerrosProtectora);
+    }
+
+    @FXML
+    private void btnNotificacionesProtectora(ActionEvent event) {
+        cargarVista("/org/example/proyecto/VistaNotProtNuevacita.fxml", btnNotificacionesProtectora);
+
+    }
+
+    @FXML
+    private void btnCitasProtectora(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasProtec.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Obtener controlador y pasar usuario
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof CitasProtControlador) {
+                ((CitasProtControlador) controlador).setUsuario(usuario);
+            }
+
+            Stage stage = (Stage) btnCitasProtectora.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    private void btnSobreNosotrosProtectora(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaSobreNosotrosPro.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Obtener controlador y pasar usuario
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof SobreNosotrosProtControlador) {
+                ((SobreNosotrosProtControlador) controlador).setUsuario(usuario);
+            }
+
+            Stage stage = (Stage) btnSobreNosotrosProtectora.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnEditarPerfilProtectora(ActionEvent event) {
+=======
     private String emailProtectora;
 
     @FXML
     private void btnVolverAtras(ActionEvent event) {
+>>>>>>> Stashed changes
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicio.fxml"));
             Parent root = fxmlLoader.load();

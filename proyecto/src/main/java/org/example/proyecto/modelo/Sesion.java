@@ -1,13 +1,14 @@
 package org.example.proyecto.modelo;
 
 public class Sesion {
-    private static String cifProtectora;
+    private static Usuario usuario;
 
-    public static void setCifProtectora(String cif) {
-        cifProtectora = cif;
+    public static Usuario getUsuario() {
+        return usuario;
     }
 
-    public static String getCifProtectora() {
-        return cifProtectora;
+    public static void setUsuario(Usuario usuario) {
+        Sesion.usuario = usuario;
     }
+
 }
