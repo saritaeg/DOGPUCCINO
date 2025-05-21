@@ -41,7 +41,7 @@ import java.io.File;
     public void setPerro(Perro perro) {
         this.perro = perro;
         cargarDatosPerro();
-    }
+
 
     private void cargarDatosPerro() {
         if (perro != null) {
