@@ -100,10 +100,9 @@ public class InicioSesionControlador {
                 if ("CLIENTE".equalsIgnoreCase(rol)) {
                     cargarVista("/org/example/proyecto/VistaPerrosCli.fxml", email);
                 } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
-
-                    String cifProtectora = obtenerCif(email);
-                    if (cifProtectora != null) {
-                        Sesion.setCifProtectora(cifProtectora);
+                    usuario = UsuarioDAO.obtenerUsuarioPorCorreo(email);
+                    if (usuario != null) {
+                        Sesion.setUsuario(usuario);
                     } else {
                         mostrarAlerta("Error", "No se pudo obtener el CIF de la protectora.");
                         return;
@@ -234,7 +233,7 @@ public class InicioSesionControlador {
             if (controlador instanceof PerrosCliControlador) {
                 ((PerrosCliControlador) controlador).inicializarPerros(email);
             } else if (controlador instanceof PerrosProtControlador) {
-                ((PerrosProtControlador) controlador).inicializarPerros(email);
+                ((PerrosProtControlador) controlador).inicializarPerros(usuario);
             } else {
                 mostrarAlerta("Error", "Controlador desconocido para esta vista.");
             }

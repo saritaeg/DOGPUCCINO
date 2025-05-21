@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import org.example.proyecto.dao.PerrosProtDAO;
 import org.example.proyecto.modelo.Perro;
+import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
 import java.util.List;
@@ -44,11 +45,11 @@ public class PerrosProtControlador {
     private List<Perro> perros;
     private int indice = 0;
 
-    private String cifProtectora;  // ahora usamos cif en vez de email
+    private Usuario usuario;
 
-    public void inicializarPerros(String cifProtectora) {
-        this.cifProtectora = cifProtectora;
-        perros = PerrosProtDAO.obtenerPerrosProtectora(cifProtectora);
+    public void inicializarPerros(Usuario usuario) {
+        this.usuario = usuario;
+        perros = PerrosProtDAO.obtenerPerrosProtectora(usuario.getCifProtectora());
         mostrarPerros();
     }
 
@@ -114,7 +115,7 @@ public class PerrosProtControlador {
             Parent root = loader.load();
 
             EditarProtectoraControlador controlador = loader.getController();
-            controlador.inicializarDatos(cifProtectora); // Pasamos cif en vez de email
+            controlador.inicializarDatos(String.valueOf(usuario.getCifProtectora())); // Pasamos cif en vez de email
 
             Stage stage = (Stage) btnEditarPerfilProtectora.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -130,13 +131,13 @@ public class PerrosProtControlador {
             Parent root = loader.load();
 
             AñadirPerroControlador controlador = loader.getController();
-            controlador.setCifProtectora(cifProtectora);  // Pasamos cif en vez de email
+            controlador.setUsuario(usuario);
 
             Stage stage = (Stage) btnAñadirPerroProtectora.getScene().getWindow();
             stage.setScene(new Scene(root));
 
             stage.setOnHiding(e -> {
-                perros = PerrosProtDAO.obtenerPerrosProtectora(cifProtectora);
+                perros = PerrosProtDAO.obtenerPerrosProtectora(String.valueOf(usuario.getCifProtectora()));
                 indice = 0;
                 mostrarPerros();
             });
