@@ -161,7 +161,3 @@ public class EditarPerroControlador {
         alert.showAndWait();
     }
 }
-
-
-
-

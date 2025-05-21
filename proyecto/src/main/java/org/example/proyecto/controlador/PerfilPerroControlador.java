@@ -70,17 +70,18 @@ public class PerfilPerroControlador {
     @FXML
     private void btnCita(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaTramitarCita.fxml"));
-            Parent root = fxmlLoader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaTramitarCita.fxml"));
+            Parent root = loader.load();
+
+            TramitarCitaControlador controlador = loader.getController();
+            controlador.setPerro(perro);
+            controlador.setEmailCliente(emailCliente);
 
             Stage stage = (Stage) btnMenu.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
+            stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private Perro perro;
@@ -129,6 +130,7 @@ public class PerfilPerroControlador {
 
     private void mostrarDatosPerro() {
         if (perro != null) {
+            System.out.println("ID del perro: " + perro.getId());
             txtInf.setText("Nombre: " + perro.getNombre() + "\n"
                     + "Raza: " + perro.getRaza() + "\n"
                     + "Sexo: " + perro.getSexo() + "\n"

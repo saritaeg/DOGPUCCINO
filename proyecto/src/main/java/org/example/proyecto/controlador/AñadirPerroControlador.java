@@ -27,12 +27,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javafx.event.ActionEvent;
 import org.example.proyecto.modelo.Sesion;
-import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
 import java.util.UUID;
-
-
 
 public class AñadirPerroControlador {
 
@@ -56,8 +53,6 @@ public class AñadirPerroControlador {
 
     private File imagenSeleccionada;
 
-    private Usuario usuario;
-
     private final String DB_URL = "jdbc:oracle:thin:@localhost:1521:XE";
     private final String DB_USER = "C##DOGPUCCINO";
     private final String DB_PASS = "123456";
@@ -68,16 +63,10 @@ public class AñadirPerroControlador {
         stage.setIconified(true);
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
     @FXML
     private void btnCerrar(ActionEvent event) {
         Platform.exit();
     }
-
-
     @FXML
     private void seleccionarImagen(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -103,13 +92,8 @@ public class AñadirPerroControlador {
     @FXML
     private void btnVolverAtrasProtectora() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
-            Parent root = loader.load();
-
-            PerrosProtControlador controlador = loader.getController();
-            String cif = String.valueOf(Sesion.getUsuario().getCifProtectora());  // Obtener el CIF desde la sesión
-            controlador.inicializarPerros(usuario);     // Pasar el CIF al controlador
-
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
+            Parent root = fxmlLoader.load();
             Stage stage = (Stage) btnVolverAtrasProtectora.getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {
@@ -117,15 +101,13 @@ public class AñadirPerroControlador {
         }
     }
 
-
-
-
     @FXML
     public void initialize() {
         botonEnviar.setOnAction(this::handleAñadirPerro);
     }
     @FXML
     private void handleAñadirPerro(ActionEvent event) {
+        System.out.println("Botón pulsado");
 
         String nombre = nameField.getText();
         String fechaNacimientoStr = birthDateField.getText();
@@ -213,10 +195,8 @@ public class AñadirPerroControlador {
             pstmt.setDate(2, Date.valueOf(fechaNacimiento));
             pstmt.setString(3, sexo);
             pstmt.setString(4, raza);
-            pstmt.setString(5, usuario.getCifProtectora());
+            pstmt.setString(5, Sesion.getCifProtectora());
             pstmt.setString(6, foto);
-
-            System.out.println("Insertando perro con CIF: " + String.valueOf(Sesion.getUsuario().getCifProtectora()));
 
             int filas = pstmt.executeUpdate();
             return filas > 0;
@@ -226,7 +206,6 @@ public class AñadirPerroControlador {
             return false;
         }
     }
-
 
 
 
