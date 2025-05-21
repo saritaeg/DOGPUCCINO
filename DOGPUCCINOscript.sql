@@ -71,7 +71,7 @@ CREATE TABLE Notificaciones (
 );
 
 CREATE TABLE Patologias (
-     ID number primary key, 
+     ID number primary key,
     Nombre varchar2(50),
     Fecha_alta date,
     Fecha_modificacion date
@@ -89,17 +89,17 @@ CREATE TABLE Perros_Patologias (
 );
 
 CREATE TABLE Reservan (
-    Cliente_ID number,
-    Perro_ID number,
-    Donacion varchar2(50),
-    Hora number,
-    Fecha_cita date,
-    Estado varchar2(50),
-    Fecha_alta date,
-    Fecha_modificacion date,
-    primary key (Cliente_ID, Perro_ID),
-    foreign key (Cliente_ID) references Clientes(ID),
-    foreign key (Perro_ID) references Perros(ID)
+    Cliente_ID NUMBER,
+    Perro_ID NUMBER,
+    Donacion VARCHAR2(50),
+    Hora NUMBER,
+    Fecha_cita DATE,
+    Estado VARCHAR2(50),
+    Fecha_alta DATE,
+    Fecha_modificacion DATE,
+    CONSTRAINT pk_reservan PRIMARY KEY (Cliente_ID, Perro_ID, Fecha_cita),
+    CONSTRAINT fk_reservan_cliente FOREIGN KEY (Cliente_ID) REFERENCES Clientes(ID),
+    CONSTRAINT fk_reservan_perro FOREIGN KEY (Perro_ID) REFERENCES Perros(ID)
 );
 
 
@@ -122,12 +122,11 @@ create sequence cliente_seq
     increment by 1;
 
 create sequence usuario_seq
-    start with 1  -- Inicia la secuencia desde 1
-    increment by 1;  -- Incrementa de 1 en 1
-    
+    start with 1  
+    increment by 1;  
 CREATE SEQUENCE perros_seq
-START WITH 1
-INCREMENT BY 1;
+    START WITH 1
+    INCREMENT BY 1;
 
 
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Labrador', SYSDATE, SYSDATE);
@@ -137,9 +136,8 @@ INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Beagle', SYSDA
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pastor Alemán', SYSDATE, SYSDATE);
 
 
-INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (1, 'Displasia de cadera', SYSDATE, SYSDATE);
-INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (2, 'Alergias cutáneas', SYSDATE, SYSDATE);
-INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (3, 'Problemas cardíacos', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (1, 'Displasia', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (2, 'Alergias', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (4, 'Epilepsia', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (5, 'Leishmaniosis', SYSDATE, SYSDATE);
 
@@ -160,7 +158,9 @@ END;
 
 
 
+
 /*
+
    DROP TABLE solicitud_adopcion CASCADE CONSTRAINTS;
 DROP TABLE reservan CASCADE CONSTRAINTS;
 DROP TABLE perros_patologias CASCADE CONSTRAINTS;
