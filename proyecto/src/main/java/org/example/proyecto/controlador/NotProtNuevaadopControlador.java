@@ -73,6 +73,7 @@ public class NotProtNuevaadopControlador {
 
             Stage stage = (Stage) btnNotificacionesProtectora.getScene().getWindow();
 
+
             Scene scene = new Scene(root);
             stage.setScene(scene);
         }catch (IOException e) {

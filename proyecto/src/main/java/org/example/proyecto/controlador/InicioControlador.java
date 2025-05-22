@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 import java.sql.*;
 import javafx.scene.control.TextField;
+import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.ConexionBaseDatos;
 
 import org.example.proyecto.dao.UsuarioDAO;
@@ -67,11 +68,16 @@ public class InicioControlador {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicioSesion.fxml"));
             Parent root = fxmlLoader.load();
+
             Stage stage = (Stage) btnIniciarSesion.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public void setUsuario(Usuario usuario) {
     }
 }

@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
 
@@ -116,4 +117,7 @@ public class SobreNosotrosControlador {
 
     }
 
+    public void setUsuario(Usuario usuario) {
+
+    }
 }

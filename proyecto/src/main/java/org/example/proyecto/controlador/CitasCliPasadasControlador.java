@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.example.proyecto.dao.PerrosProtDAO;
+import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
 
@@ -27,6 +29,17 @@ public class CitasCliPasadasControlador {
     private Button btnCitasPasadas;
     @FXML
     private Button btnCitasPendientes;
+
+    private Usuario usuario;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    public void inicializarCitas(Usuario usuario) {
+        this.usuario = usuario;
+
+    }
+
 
     @FXML
     private void btnMinimizar(ActionEvent event) {
@@ -63,6 +76,11 @@ public class CitasCliPasadasControlador {
 
             Stage stage = (Stage) btnPerros.getScene().getWindow();
 
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof PerrosCliControlador) {
+                ((PerrosCliControlador) controlador).setUsuario(usuario);
+            }
+
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (IOException e) {
@@ -77,6 +95,11 @@ public class CitasCliPasadasControlador {
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnNotificaciones.getScene().getWindow();
+
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof NotCliCancelacionControlador) {
+                ((NotCliCancelacionControlador) controlador).setUsuario(usuario);
+            }
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -93,6 +116,12 @@ public class CitasCliPasadasControlador {
 
             Stage stage = (Stage) btnCitas.getScene().getWindow();
 
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof CitasCliPendientesControlador) {
+                ((CitasCliPendientesControlador) controlador).setUsuario(usuario);
+            }
+
+
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (IOException e) {
@@ -107,6 +136,11 @@ public class CitasCliPasadasControlador {
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnSobreNosotros.getScene().getWindow();
+
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof SobreNosotrosControlador) {
+                ((SobreNosotrosControlador) controlador).setUsuario(usuario);
+            }
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -123,6 +157,11 @@ public class CitasCliPasadasControlador {
 
             Stage stage = (Stage) btnCitasPasadas.getScene().getWindow();
 
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof CitasCliPasadasControlador) {
+                ((CitasCliPasadasControlador) controlador).setUsuario(usuario);
+            }
+
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (IOException e) {
@@ -137,6 +176,11 @@ public class CitasCliPasadasControlador {
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnCitasPendientes.getScene().getWindow();
+
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof CitasCliPendientesControlador) {
+                ((CitasCliPendientesControlador) controlador).setUsuario(usuario);
+            }
 
             Scene scene = new Scene(root);
             stage.setScene(scene);

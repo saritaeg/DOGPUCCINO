@@ -3,7 +3,7 @@ package org.example.proyecto.modelo;
 public class ResultadoLogin {
     private boolean esValido;
     private String rol;
-    private String contrasenia;  // hash almacenado
+    private String contrasenia;
 
     public ResultadoLogin(boolean esValido, String rol, String contrasenia) {
         this.esValido = esValido;

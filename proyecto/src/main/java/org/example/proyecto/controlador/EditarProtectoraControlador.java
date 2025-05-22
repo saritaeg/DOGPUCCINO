@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import org.example.proyecto.dao.EditarProtectoraDAO;
 import org.example.proyecto.modelo.Protectoras;
+import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.Alertas;
 
 import java.io.IOException;
@@ -36,6 +37,12 @@ public class EditarProtectoraControlador {
 
     @FXML
     private Button btnMinimizar;
+
+    private Usuario usuario;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     @FXML
     private void btnMinimizar(ActionEvent event) {
@@ -62,6 +69,8 @@ public class EditarProtectoraControlador {
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnCancelar.getScene().getWindow();
+            setUsuario(this.usuario);
+
 
             Scene scene = new Scene(root);
             stage.setScene(scene);

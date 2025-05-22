@@ -14,6 +14,14 @@ public class SesionUsuario {
         return instancia;
     }
 
+    public static void setInstancia(SesionUsuario instancia) {
+        SesionUsuario.instancia = instancia;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public void iniciarSesion(Usuario usuario) {
         this.usuario = usuario;
     }

@@ -15,11 +15,13 @@ import javafx.stage.Stage;
 import org.example.proyecto.dao.PerrosCliDAO;
 import org.example.proyecto.modelo.Clientes;
 import org.example.proyecto.modelo.Perro;
+import org.example.proyecto.modelo.Usuario;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+
 
 public class PerrosCliControlador {
     @FXML private TextField txtNombreCli, txtRazaCli, txtSexoCli, txtFechaNacimientoCli, txtAdoptadoCli, txtProtectoraCli;
@@ -40,11 +42,17 @@ public class PerrosCliControlador {
     private int indice = 0;
     private String emailCliente;
 
-    public void inicializarPerros(String emailCliente) {
-        this.emailCliente = emailCliente;
+    private Usuario usuario;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    public void inicializar(Usuario usuario) {
+        this.usuario = usuario;
         cargarPerros();
         mostrarPerros();
     }
+
 
     private void cargarPerros() {
         perros = PerrosCliDAO.obtenerPerrosCliente(emailCliente);
@@ -131,7 +139,15 @@ public class PerrosCliControlador {
 
     @FXML
     private void btnVolverInicio(ActionEvent event) {
-        cargarVista("/org/example/proyecto/VistaInicio.fxml", btnVolverInicio);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaInicio.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) btnVolverInicio.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -152,34 +168,77 @@ public class PerrosCliControlador {
 
     @FXML
     private void btnPerrosCliente(ActionEvent event) {
-        cargarVista("/org/example/proyecto/VistaPerrosCli.fxml", btnPerrosCliente);
-    }
-
-    @FXML
-    private void btnNotificacionesCliente(ActionEvent event) {
-        cargarVista("/org/example/proyecto/VistaNotCliCancelacion.fxml", btnNotificacionesCliente);
-    }
-
-    @FXML
-    private void btnCitasCliente(ActionEvent event) {
-        cargarVista("/org/example/proyecto/VistaCitasCliPasadas.fxml", btnCitasCliente);
-    }
-
-    @FXML
-    private void btnNosotrosCliente(ActionEvent event) {
-        cargarVista("/org/example/proyecto/VistaSobreNosotrosCli.fxml", btnNosotrosCliente);
-    }
-    private void cargarVista(String rutaFXML, Button botonReferencia) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
-            Parent root = loader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosCli.fxml"));
+            Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) botonReferencia.getScene().getWindow();
+            Stage stage = (Stage) btnPerrosCliente.getScene().getWindow();
+
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof PerrosCliControlador) {
+                ((PerrosCliControlador) controlador).setUsuario(usuario);
+            }
+
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    @FXML
+    private void btnNotificacionesCliente(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCancelacion.fxml"));
+            Parent root = fxmlLoader.load();
 
+            Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();
+
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof NotCliCancelacionControlador) {
+                ((NotCliCancelacionControlador) controlador).setUsuario(usuario);
+            }
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnCitasCliente(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasCliPasadas.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnCitasCliente.getScene().getWindow();
+
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof CitasCliPasadasControlador) {
+                ((CitasCliPasadasControlador) controlador).setUsuario(usuario);
+            }
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnNosotrosCliente(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaSobreNosotrosCli.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnNosotrosCliente.getScene().getWindow();
+
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof SobreNosotrosControlador) {
+                ((SobreNosotrosControlador) controlador).setUsuario(usuario);
+            }
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
+

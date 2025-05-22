@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.proyecto.dao.UsuarioDAO;
 import org.example.proyecto.modelo.Sesion;
+import org.example.proyecto.modelo.SesionUsuario;
 import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.ConexionBaseDatos;
 import org.example.proyecto.utils.Contraseña;
@@ -98,17 +99,29 @@ public class InicioSesionControlador {
                 String nombre = obtenerNombre(email);
 
                 if ("CLIENTE".equalsIgnoreCase(rol)) {
+                    usuario = UsuarioDAO.obtenerUsuarioPorCorreo(email);
+                    if (usuario != null) {
+
+                        Sesion.setUsuario(usuario);
+                        SesionUsuario.getInstancia().setUsuario(usuario);
+                    } else {
+                        mostrarAlerta("Error", "No se pudo obtener el Nif del cliente.");
+                        return;
+                    }
                     cargarVista("/org/example/proyecto/VistaPerrosCli.fxml", email);
                 } else if ("PROTECTORA".equalsIgnoreCase(rol)) {
                     usuario = UsuarioDAO.obtenerUsuarioPorCorreo(email);
                     if (usuario != null) {
+
                         Sesion.setUsuario(usuario);
+                        SesionUsuario.getInstancia().setUsuario(usuario);
+
                     } else {
                         mostrarAlerta("Error", "No se pudo obtener el CIF de la protectora.");
                         return;
                     }
                     cargarVista("/org/example/proyecto/VistaPerrosProt.fxml", email);
-            } else {
+                } else {
                     mostrarAlerta("Error", "El usuario no tiene un rol válido.");
                 }
             } else {
@@ -231,7 +244,7 @@ public class InicioSesionControlador {
             Object controlador = fxmlLoader.getController();
 
             if (controlador instanceof PerrosCliControlador) {
-                ((PerrosCliControlador) controlador).inicializarPerros(email);
+                ((PerrosCliControlador) controlador).inicializar(usuario);
             } else if (controlador instanceof PerrosProtControlador) {
                 ((PerrosProtControlador) controlador).inicializarPerros(usuario);
             } else {

@@ -95,13 +95,39 @@ public class PerrosProtControlador {
 
     @FXML
     private void btnPerrosProtectora(ActionEvent event) {
-        cargarVista("/org/example/proyecto/VistaPerrosProt.fxml", btnPerrosProtectora);
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnPerrosProtectora.getScene().getWindow();
+
+            inicializarPerros(usuario);
+
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void btnNotificacionesProtectora(ActionEvent event) {
-        cargarVista("/org/example/proyecto/VistaNotProtNuevacita.fxml", btnNotificacionesProtectora);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotProtNuevacita.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnNotificacionesProtectora.getScene().getWindow();
+
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof NotProtNuevacitaControlador) {
+                ((NotProtNuevacitaControlador) controlador).setUsuario(usuario);
+            }
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     private void btnCitasProtectora(ActionEvent event) {
@@ -109,7 +135,6 @@ public class PerrosProtControlador {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaCitasProtec.fxml"));
             Parent root = fxmlLoader.load();
 
-            // Obtener controlador y pasar usuario
             Object controlador = fxmlLoader.getController();
             if (controlador instanceof CitasProtControlador) {
                 ((CitasProtControlador) controlador).setUsuario(usuario);
@@ -125,7 +150,20 @@ public class PerrosProtControlador {
 
     @FXML
     private void btnSobreNosotrosProtectora(ActionEvent event) {
-        cargarVista("/org/example/proyecto/VistaSobreNosotrosPro.fxml", btnSobreNosotrosProtectora);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaSobreNosotrosPro.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnSobreNosotrosProtectora.getScene().getWindow();
+            Object controlador = fxmlLoader.getController();
+            if (controlador instanceof SobreNosotrosProtControlador) {
+                ((SobreNosotrosProtControlador) controlador).setUsuario(usuario);
+            }
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
