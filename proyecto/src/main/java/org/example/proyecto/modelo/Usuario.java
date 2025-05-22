@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public class Usuario {
 
+
+
     public enum Rol {
         CLIENTE, PROTECTORA
     }

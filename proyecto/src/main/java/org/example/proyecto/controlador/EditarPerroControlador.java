@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import org.example.proyecto.dao.PerroDAO;
 import org.example.proyecto.dao.PerrosPatologiaDAO;
 import org.example.proyecto.modelo.Perro;
+import org.example.proyecto.modelo.Usuario;
 
 import java.io.File;
 
@@ -27,8 +28,16 @@ public class EditarPerroControlador {
     private Perro perro;
     private String imagePath;
 
+    // Añadido: para almacenar el usuario actual
+    private Usuario usuario;
+
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    // Añadido: setter para usuario
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public void setPerro(Perro perro) {
@@ -41,14 +50,14 @@ public class EditarPerroControlador {
     public void initialize() {
         ComboBoxSexo.getItems().addAll("M", "H");
         ComboBoxRaza.getItems().addAll(PerroDAO.obtenerRazas());
-        ComboBoxPatologias.getItems().addAll(PerrosPatologiaDAO.obtenerTodasPatologias()); // Asumiendo que tienes este método
+        ComboBoxPatologias.getItems().addAll(PerrosPatologiaDAO.obtenerTodasPatologias());
     }
 
     private void cargarDatosPerro() {
         if (perro != null) {
             txtNombre.setText(perro.getNombre());
             txtFechaNacimiento.setText(perro.getFechaNacimiento());
-            ComboBoxSexo.setValue(perro.getSexo().toString());
+            ComboBoxSexo.setValue(perro.getSexo() != null ? perro.getSexo().toString() : null);
             ComboBoxRaza.setValue(perro.getRaza());
 
             if (perro.getFoto() != null && !perro.getFoto().isEmpty()) {
@@ -108,6 +117,9 @@ public class EditarPerroControlador {
                 perro.setFoto(imagePath);
             }
 
+            // Aquí podrías usar el usuario para alguna lógica extra si quieres
+            // Ejemplo: registrar quién hizo la modificación
+
             // Actualizar datos en tabla Perros
             PerroDAO.actualizarPerro(perro);
 
@@ -117,7 +129,9 @@ public class EditarPerroControlador {
                     pathologyDescriptionArea.getText());
 
             mostrarMensajeExito();
-            stage.close();
+            if(stage != null) {
+                stage.close();
+            }
         }
     }
 

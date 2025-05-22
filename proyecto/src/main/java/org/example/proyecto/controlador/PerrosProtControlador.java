@@ -7,8 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+import org.example.proyecto.dao.EditarProtectoraDAO;
 import org.example.proyecto.dao.PerrosProtDAO;
 import org.example.proyecto.modelo.Perro;
+import org.example.proyecto.modelo.Protectoras;
 import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
@@ -25,7 +27,6 @@ public class PerrosProtControlador {
     @FXML private Button btnAñadirPerroProtectora;
     @FXML private Button btnVolverPerrosAtrasProtectora;
     @FXML private Button btnBotonAvanzarPerrosProtectora;
-
     @FXML private TextField txtNombrePro;
     @FXML private TextField txtRazaPro;
     @FXML private TextField txtSexoPro;
@@ -33,7 +34,6 @@ public class PerrosProtControlador {
     @FXML private TextField txtAdoptadoPro;
     @FXML private TextField txtProtectoraPro;
     @FXML private Button btnEditarPerroProtectora;
-
     @FXML private TextField txtNombrePro2;
     @FXML private TextField txtRazaPro2;
     @FXML private TextField txtSexoPro2;
@@ -45,6 +45,7 @@ public class PerrosProtControlador {
     private List<Perro> perros;
     private int indice = 0;
 
+    private String emailProtectora;
     private Usuario usuario;
 
     public void setUsuario(Usuario usuario) {
@@ -130,11 +131,12 @@ public class PerrosProtControlador {
     @FXML
     private void btnEditarPerfilProtectora(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaEditarPerfilProtectora.fxml"));
-            Parent root = loader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaEditarPerfilProtectora.fxml"));
+            Parent root = fxmlLoader.load();
+            EditarProtectoraControlador controlador = fxmlLoader.getController();
 
-            EditarProtectoraControlador controlador = loader.getController();
-            controlador.inicializarDatos(String.valueOf(usuario.getCifProtectora())); // Pasamos cif en vez de email
+            controlador.inicializarDatosPorCif(usuario.getCifProtectora());
+
 
             Stage stage = (Stage) btnEditarPerfilProtectora.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -142,6 +144,8 @@ public class PerrosProtControlador {
             e.printStackTrace();
         }
     }
+
+
 
     @FXML
     private void btnAñadirPerroProtectora(ActionEvent event) {

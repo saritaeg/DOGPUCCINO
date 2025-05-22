@@ -14,17 +14,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EditarProtectoraDAO {
-    public static Protectoras obtenerProtectoraPorEmail(String email) {
+    public static Protectoras obtenerProtectoraPorCif(String cif) {
         Protectoras protectora = null;
         String sql = """
         SELECT CIF, Nombre, Telefono, Correo_Electronico, Calle, Ciudad, Redes_Sociales, Fecha_Modificacion, Fecha_Alta
         FROM Protectoras
-        WHERE Correo_Electronico = ?
+        WHERE CIF = ?
     """;
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, email);
+            ps.setString(1, cif);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -46,6 +46,7 @@ public class EditarProtectoraDAO {
         }
         return protectora;
     }
+
     public static boolean actualizarProtectora(Protectoras protectora, String emailOriginal) {
         String sql = "UPDATE Protectoras SET Nombre=?, Telefono=?, Calle=?, Ciudad=?, Redes_Sociales=?, Fecha_Modificacion=?, Correo_Electronico=? WHERE Correo_Electronico=?";
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();

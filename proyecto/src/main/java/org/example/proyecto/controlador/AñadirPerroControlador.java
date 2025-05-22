@@ -203,29 +203,80 @@ public class AñadirPerroControlador {
 
 
     private boolean insertarPerro(String nombre, LocalDate fechaNacimiento, String sexo, String raza, String foto) {
-        String sql = "INSERT INTO Perros (ID, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Raza, CIF, Foto) " +
+        String insertarPerroSQL = "INSERT INTO Perros (ID, Nombre, Fecha_Nacimiento, Sexo, Adoptado, Fecha_alta, Fecha_modificacion, Raza, CIF, Foto) " +
                 "VALUES (perros_seq.nextval, ?, ?, ?, 'N', SYSDATE, SYSDATE, ?, ?, ?)";
+        String obtenerIdPerroSQL = "SELECT perros_seq.currval FROM dual";
+        String insertarPatologiaSQL = "MERGE INTO Patologias p USING (SELECT ? AS nombre FROM dual) src " +
+                "ON (p.Nombre = src.nombre) WHEN NOT MATCHED THEN INSERT (ID, Nombre) VALUES (patologias_seq.nextval, src.nombre)";
+        String obtenerIdPatologiaSQL = "SELECT ID FROM Patologias WHERE Nombre = ?";
+        String insertarRelacionSQL = "INSERT INTO Perros_Patologias (ID_PERROS, ID_PATOLOGIA, DESCRIPCION) VALUES (?, ?, ?)";
 
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+            conn.setAutoCommit(false);  // Transacción manual
 
-            pstmt.setString(1, nombre);
-            pstmt.setDate(2, Date.valueOf(fechaNacimiento));
-            pstmt.setString(3, sexo);
-            pstmt.setString(4, raza);
-            pstmt.setString(5, usuario.getCifProtectora());
-            pstmt.setString(6, foto);
+            int idPerro = -1;
+            int idPatologia = -1;
 
-            System.out.println("Insertando perro con CIF: " + String.valueOf(Sesion.getUsuario().getCifProtectora()));
+            // 1. Insertar perro
+            try (PreparedStatement ps = conn.prepareStatement(insertarPerroSQL)) {
+                ps.setString(1, nombre);
+                ps.setDate(2, Date.valueOf(fechaNacimiento));
+                ps.setString(3, sexo);
+                ps.setString(4, raza);
+                ps.setString(5, usuario.getCifProtectora());
+                ps.setString(6, foto);
+                ps.executeUpdate();
+            }
 
-            int filas = pstmt.executeUpdate();
-            return filas > 0;
+            // 2. Obtener ID del perro insertado
+            try (PreparedStatement ps = conn.prepareStatement(obtenerIdPerroSQL);
+                 ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    idPerro = rs.getInt(1);
+                }
+            }
+
+            // 3. Insertar patología si no existe
+            String nombrePatologia = pathologyComboBox.getValue();
+            String descripcionPatologia = pathologyDescriptionArea.getText();
+
+            if (nombrePatologia != null && !nombrePatologia.isBlank()) {
+                try (PreparedStatement ps = conn.prepareStatement(insertarPatologiaSQL)) {
+                    ps.setString(1, nombrePatologia);
+                    ps.executeUpdate();
+                }
+
+                // 4. Obtener ID de la patología
+                try (PreparedStatement ps = conn.prepareStatement(obtenerIdPatologiaSQL)) {
+                    ps.setString(1, nombrePatologia);
+                    try (ResultSet rs = ps.executeQuery()) {
+                        if (rs.next()) {
+                            idPatologia = rs.getInt("ID");
+                        }
+                    }
+                }
+
+                // 5. Insertar relación perro - patología con descripción
+                if (idPerro != -1 && idPatologia != -1) {
+                    try (PreparedStatement ps = conn.prepareStatement(insertarRelacionSQL)) {
+                        ps.setInt(1, idPerro);
+                        ps.setInt(2, idPatologia);
+                        ps.setString(3, descripcionPatologia);
+                        ps.executeUpdate();
+                    }
+                }
+            }
+
+            conn.commit();  // Confirmar transacción
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
+
+
 
 
 

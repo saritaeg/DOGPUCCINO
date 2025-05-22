@@ -51,24 +51,30 @@ public class EditarProtectoraControlador {
     private String emailProtectora;
     private String cifProtectora;
 
-    public void inicializarDatos(String email) {
-        this.emailProtectora = email;
 
-        String cif = EditarProtectoraDAO.obtenerCifProtectoraPorCorreo(emailProtectora);
-        if (cif != null) {
-            this.cifProtectora = cif;
-        } else {
-            System.err.println("No se pudo obtener el idProtectora para el correo: " + emailProtectora);
+
+
+
+    @FXML
+    private void btnCancelar(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) btnCancelar.getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        cargarDatosDesdeBD();
     }
+    public void inicializarDatosPorCif(String cif) {
+        this.cifProtectora = cif;
 
-
-    private void cargarDatosDesdeBD() {
-        Protectoras protectora = EditarProtectoraDAO.obtenerProtectoraPorEmail(emailProtectora);
+        Protectoras protectora = EditarProtectoraDAO.obtenerProtectoraPorCif(cif);
         if (protectora != null) {
-            this.cifProtectora = protectora.getCIF();
+            this.emailProtectora = protectora.getCorreoElectronico();
             txtCIF.setText(protectora.getCIF());
             txtNombre.setText(protectora.getNombre());
             txtCorreoElectronico.setText(protectora.getCorreoElectronico());
@@ -76,8 +82,28 @@ public class EditarProtectoraControlador {
             txtCiudad.setText(protectora.getCiudad());
             txtCalle.setText(protectora.getCalle());
             txtRedesSociales.setText(protectora.getRedesSociales());
+        } else {
+            System.err.println("No se pudo cargar la protectora con CIF: " + cif);
         }
     }
+
+
+
+    private void cargarDatosDesdeBD() {
+        Protectoras protectora = EditarProtectoraDAO.obtenerProtectoraPorCif(cifProtectora);
+        if (protectora != null) {
+            txtCIF.setText(protectora.getCIF());
+            txtNombre.setText(protectora.getNombre());
+            txtCorreoElectronico.setText(protectora.getCorreoElectronico());
+            txtTelefono.setText(protectora.getTelefono());
+            txtCiudad.setText(protectora.getCiudad());
+            txtCalle.setText(protectora.getCalle());
+            txtRedesSociales.setText(protectora.getRedesSociales());
+            this.emailProtectora = protectora.getCorreoElectronico(); // Se actualiza por si se cambia
+        }
+    }
+
+
 
     @FXML
     private void btnGuardarCambios(ActionEvent event) {
@@ -121,18 +147,4 @@ public class EditarProtectoraControlador {
         }
     }
 
-    @FXML
-    private void btnCancelar(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaPerrosProt.fxml"));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) btnCancelar.getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
