@@ -134,12 +134,53 @@ INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pitbull', SYSD
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Golden Retriever', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Beagle', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pastor Alemán', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Bulldog Francés', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pug', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Chihuahua', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Rottweiler', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Dálmata', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Doberman', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Border Collie', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Boxer', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Yorkshire Terrier', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Shih Tzu', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Cocker Spaniel', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Husky Siberiano', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Mastín Napolitano', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('San Bernardo', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Shar Pei', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Caniche', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Akita Inu', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Setter Irlandés', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Galgo Español', SYSDATE, SYSDATE);
+
 
 
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (1, 'Displasia', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (2, 'Alergias', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (4, 'Epilepsia', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (5, 'Leishmaniosis', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (3, 'Otitis', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (6, 'Sarna', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (7, 'Parvovirus', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (8, 'Moquillo', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (9, 'Cataratas', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (10, 'Artritis', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (11, 'Obesidad', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (12, 'Dermatitis', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (13, 'Gastroenteritis', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (14, 'Problemas renales', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (15, 'Problemas cardíacos', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (16, 'Hipotiroidismo', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (17, 'Otitis crónica', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (18, 'Tumores', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (19, 'Anemia', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (20, 'Tos de las perreras', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (21, 'Conjuntivitis', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (22, 'Infección urinaria', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (23, 'Problemas dentales', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (24, 'Enfermedad periodontal', SYSDATE, SYSDATE);
+
 
 create or replace trigger rolUsuarios
 before insert on USUARIOS
@@ -159,8 +200,8 @@ END;
 
 
 
-/*
 
+/*
    DROP TABLE solicitud_adopcion CASCADE CONSTRAINTS;
 DROP TABLE reservan CASCADE CONSTRAINTS;
 DROP TABLE perros_patologias CASCADE CONSTRAINTS;

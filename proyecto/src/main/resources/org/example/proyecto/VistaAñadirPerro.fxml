@@ -63,9 +63,30 @@
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
                                     <String fx:value="Labrador" />
-                                    <String fx:value="Pastor Alemán" />
+                                    <String fx:value="Pitbull" />
                                     <String fx:value="Golden Retriever" />
-                                    <String fx:value="Bulldog" />
+                                    <String fx:value="Beagle" />
+                                    <String fx:value="Pastor Alemán" />
+                                    <String fx:value="Bulldog Francés" />
+                                    <String fx:value="Pug" />
+                                    <String fx:value="Chihuahua" />
+                                    <String fx:value="Rottweiler" />
+                                    <String fx:value="Dálmata" />
+                                    <String fx:value="Doberman" />
+                                    <String fx:value="Border Collie" />
+                                    <String fx:value="Boxer" />
+                                    <String fx:value="Yorkshire Terrier" />
+                                    <String fx:value="Shih Tzu" />
+                                    <String fx:value="Cocker Spaniel" />
+                                    <String fx:value="Husky Siberiano" />
+                                    <String fx:value="Mastín Napolitano" />
+                                    <String fx:value="San Bernardo" />
+                                    <String fx:value="Shar Pei" />
+                                    <String fx:value="Caniche" />
+                                    <String fx:value="Akita Inu" />
+                                    <String fx:value="Setter Irlandés" />
+                                    <String fx:value="Galgo Español" />
+
                                 </FXCollections>
                             </items>
                         </ComboBox>
@@ -77,11 +98,31 @@
                     <ComboBox fx:id="pathologyComboBox" prefHeight="23.0" prefWidth="210.0">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
-                                <String fx:value="Ninguna" />
                                 <String fx:value="Displasia" />
                                 <String fx:value="Alergias" />
+                                <String fx:value="Otitis" />
                                 <String fx:value="Epilepsia" />
-                                <String fx:value="Otras" />
+                                <String fx:value="Leishmaniosis" />
+                                <String fx:value="Sarna" />
+                                <String fx:value="Parvovirus" />
+                                <String fx:value="Moquillo" />
+                                <String fx:value="Cataratas" />
+                                <String fx:value="Artritis" />
+                                <String fx:value="Obesidad" />
+                                <String fx:value="Dermatitis" />
+                                <String fx:value="Gastroenteritis" />
+                                <String fx:value="Problemas renales" />
+                                <String fx:value="Problemas cardíacos" />
+                                <String fx:value="Hipotiroidismo" />
+                                <String fx:value="Otitis crónica" />
+                                <String fx:value="Tumores" />
+                                <String fx:value="Anemia" />
+                                <String fx:value="Tos de las perreras" />
+                                <String fx:value="Conjuntivitis" />
+                                <String fx:value="Infección urinaria" />
+                                <String fx:value="Problemas dentales" />
+                                <String fx:value="Enfermedad periodontal" />
+
                             </FXCollections>
                         </items>
                     </ComboBox>

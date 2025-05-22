@@ -108,7 +108,7 @@ public class AñadirPerroControlador {
 
             PerrosProtControlador controlador = loader.getController();
             String cif = String.valueOf(Sesion.getUsuario().getCifProtectora());  // Obtener el CIF desde la sesión
-            controlador.inicializarPerros(usuario);     // Pasar el CIF al controlador
+            controlador.inicializarPerros(usuario);
 
             Stage stage = (Stage) btnVolverAtrasProtectora.getScene().getWindow();
             stage.setScene(new Scene(root));
