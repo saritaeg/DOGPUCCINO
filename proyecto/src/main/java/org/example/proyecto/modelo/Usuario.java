@@ -18,6 +18,7 @@ public class Usuario {
     private Integer idClientes;
     private String cifProtectora;
     private Clientes cliente;
+    private Protectoras protectora;
 
     public Usuario(Integer idUsuario, String contrasenia, Rol rol, LocalDate fechaAlta,
                    LocalDate fechaModificacion, Integer idClientes, String cifProtectora) {
@@ -40,6 +41,25 @@ public class Usuario {
         this.idClientes = idClientes;
         this.cifProtectora = cifProtectora;
         this.cliente = cliente;
+    }
+    public Usuario(Integer idUsuario, String contrasenia, Rol rol, LocalDate fechaAlta,
+                   LocalDate fechaModificacion, Integer idClientes, String cifProtectora, Protectoras protectora) {
+        this.idUsuario = idUsuario;
+        this.contrasenia = contrasenia;
+        this.rol = rol;
+        this.fechaAlta = fechaAlta;
+        this.fechaModificacion = fechaModificacion;
+        this.idClientes = idClientes;
+        this.cifProtectora = cifProtectora;
+        this.protectora = protectora;
+    }
+
+    public Protectoras getProtectora() {
+        return protectora;
+    }
+
+    public void setProtectora(Protectoras protectora) {
+        this.protectora = protectora;
     }
 
     public Clientes getCliente() {

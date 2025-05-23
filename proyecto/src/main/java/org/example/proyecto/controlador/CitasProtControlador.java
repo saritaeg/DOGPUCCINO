@@ -52,7 +52,7 @@ public class CitasProtControlador {
 
             PerrosProtControlador controlador = fxmlLoader.getController();
 
-            controlador.inicializarPerros(usuario);
+            controlador.initialize();
 
 
             Stage stage = (Stage) btnPerrosProtectora.getScene().getWindow();

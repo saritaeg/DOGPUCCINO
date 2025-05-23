@@ -1,6 +1,7 @@
 package org.example.proyecto.dao;
 
 import org.example.proyecto.modelo.Clientes;
+import org.example.proyecto.modelo.Protectoras;
 import org.example.proyecto.modelo.ResultadoLogin;
 import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.Contraseña;
@@ -169,9 +170,59 @@ public class UsuarioDAO {
         }
         return null;
     }
+    public static Usuario obtenerProtectoraPorCorreo(String correo) {
+        String sql = """
+        SELECT u.ID, u.Contrasenia, u.Rol, u.Fecha_Alta AS Fecha_Alta_Usuario,
+               u.Fecha_Modificacion AS Fecha_Mod_Usuario,
+               u.ID_Clientes, u.CIF_Protectoras,
+               p.CIF, p.Nombre, p.Correo_Electronico, p.Telefono,
+               p.Calle, p.Ciudad, p.REDES_SOCIALES,
+               p.Fecha_Alta AS Fecha_Alta_Protectora,
+               p.Fecha_Modificacion AS Fecha_Mod_Protectora
+        FROM Usuarios u
+        JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
+        WHERE p.Correo_Electronico = ?
+    """;
+
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, correo);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+
+                    int id = rs.getInt("ID");
+                    String contrasenia = rs.getString("Contrasenia");
+                    Usuario.Rol rol = Usuario.Rol.valueOf(rs.getString("Rol").toUpperCase());
+                    LocalDate fechaAltaUsuario = rs.getDate("Fecha_Alta_Usuario").toLocalDate();
+                    LocalDate fechaModUsuario = rs.getDate("Fecha_Mod_Usuario").toLocalDate();
+                    Integer idCliente = rs.getObject("ID_Clientes") != null ? rs.getInt("ID_Clientes") : null;
+                    String cif = rs.getString("CIF");
 
 
+                    Protectoras protectora = new Protectoras(
+                            rs.getString("CIF"),
+                            rs.getString("Nombre"),
+                            rs.getString("Correo_Electronico"),
+                            rs.getString("Telefono"),
+                            rs.getString("Calle"),
+                            rs.getString("Ciudad"),
+                            rs.getString("REDES_SOCIALES"),
+                            rs.getDate("Fecha_Alta_Protectora").toLocalDate(),
+                            rs.getDate("Fecha_Mod_Protectora").toLocalDate()
+                    );
 
+                    // Devuelve el usuario con su protectora
+                    return new Usuario(id, contrasenia, rol, fechaAltaUsuario, fechaModUsuario, idCliente, cif, protectora);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
 
 }

@@ -11,6 +11,7 @@ import org.example.proyecto.dao.EditarProtectoraDAO;
 import org.example.proyecto.dao.PerrosProtDAO;
 import org.example.proyecto.modelo.Perro;
 import org.example.proyecto.modelo.Protectoras;
+import org.example.proyecto.modelo.Sesion;
 import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
@@ -46,17 +47,18 @@ public class PerrosProtControlador {
     private int indice = 0;
 
     private String emailProtectora;
+
     private Usuario usuario;
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
-    public void inicializarPerros(Usuario usuario) {
-        this.usuario = usuario;
+    @FXML
+    public void initialize() {
+        this.usuario = Sesion.getUsuario();
         perros = PerrosProtDAO.obtenerPerrosProtectora(usuario.getCifProtectora());
         mostrarPerros();
+
     }
+
 
     private void mostrarPerros() {
         mostrarPerroEnPosicion(indice, txtNombrePro, txtRazaPro, txtSexoPro, txtFechaNacimientoPro, txtAdoptadoPro, txtProtectoraPro);
@@ -102,8 +104,6 @@ public class PerrosProtControlador {
 
             Stage stage = (Stage) btnPerrosProtectora.getScene().getWindow();
 
-            inicializarPerros(usuario);
-
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
@@ -118,10 +118,6 @@ public class PerrosProtControlador {
 
             Stage stage = (Stage) btnNotificacionesProtectora.getScene().getWindow();
 
-            Object controlador = fxmlLoader.getController();
-            if (controlador instanceof NotProtNuevacitaControlador) {
-                ((NotProtNuevacitaControlador) controlador).setUsuario(usuario);
-            }
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
