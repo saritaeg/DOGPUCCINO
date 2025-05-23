@@ -44,6 +44,12 @@ public class PerrosCliControlador {
     private String emailCliente;
 
     private Usuario usuario;
+    private Clientes clientes;
+
+    public void setCliente(Clientes cliente) {
+        this.clientes = cliente;
+    }
+
 
     @FXML
     public void initialize() {
@@ -116,6 +122,7 @@ public class PerrosCliControlador {
 
                 PerfilPerroControlador controlador = loader.getController();
                 controlador.setPerro(perros.get(pos));
+                controlador.setCliente(usuario.getCliente());
                 controlador.setEmailCliente(emailCliente);
 
                 Stage stage = (Stage) btnMasInformacion.getScene().getWindow();
@@ -211,10 +218,6 @@ public class PerrosCliControlador {
 
             Stage stage = (Stage) btnCitasCliente.getScene().getWindow();
 
-            Object controlador = fxmlLoader.getController();
-//            if (controlador instanceof CitasCliPasadasControlador) {
-//                ((CitasCliPasadasControlador) controlador).setUsuario(usuario);
-//            }
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
@@ -228,11 +231,6 @@ public class PerrosCliControlador {
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnNosotrosCliente.getScene().getWindow();
-
-            Object controlador = fxmlLoader.getController();
-            if (controlador instanceof SobreNosotrosControlador) {
-                ((SobreNosotrosControlador) controlador).setUsuario(usuario);
-            }
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();

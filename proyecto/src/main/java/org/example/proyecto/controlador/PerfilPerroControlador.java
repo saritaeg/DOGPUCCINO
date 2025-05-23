@@ -9,8 +9,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.example.proyecto.dao.SolicitudAdopcionDAO;
+import org.example.proyecto.modelo.Clientes;
 import org.example.proyecto.modelo.Perro;
 import org.example.proyecto.utils.ConexionBaseDatos;
 
@@ -34,6 +35,12 @@ public class PerfilPerroControlador {
     private Button btnAdopcion;
     @FXML
     private Button btnCita;
+
+    private Clientes clientes;
+
+    public void setCliente(Clientes cliente) {
+        this.clientes = cliente;
+    }
 
     @FXML
     private void btnMinimizar(ActionEvent event) {
@@ -64,8 +71,19 @@ public class PerfilPerroControlador {
     }
 
     @FXML
-    private void btnAdopcion(ActionEvent event) {
+    private boolean btnAdopcion(ActionEvent event) {
+        int idCliente = clientes.getIdCliente();
+        int idPerro = perro.getId();
 
+        boolean exito = SolicitudAdopcionDAO.registrarSolicitudAdopcion(idCliente, idPerro);
+
+        if (exito) {
+            System.out.println("Solicitud registrada correctamente.");
+        } else {
+            System.out.println("Error al registrar la solicitud.");
+        }
+
+        return exito;
     }
     @FXML
     private void btnCita(ActionEvent event) {

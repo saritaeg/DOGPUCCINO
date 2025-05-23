@@ -47,7 +47,7 @@ public class TramitarCitaControlador {
     public void setEmailCliente(String emailCliente) {
         this.emailCliente = emailCliente;
         emailTextField.setText(emailCliente);
-        emailTextField.setDisable(true); // para evitar que el usuario lo modifique
+        emailTextField.setDisable(true);
     }
 
     @FXML
