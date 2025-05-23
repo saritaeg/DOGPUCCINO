@@ -56,7 +56,7 @@ public class SobreNosotrosProtControlador {
 
             PerrosProtControlador controlador = fxmlLoader.getController();
 
-            controlador.inicializarPerros(usuario);
+            controlador.initialize();
 
 
             Stage stage = (Stage) btnPerros.getScene().getWindow();
