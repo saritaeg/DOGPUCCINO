@@ -6,7 +6,7 @@ public class Notificacion {
     private String idNotificacion;
     private String tipo;
     private String mensaje;
-    private String fechaEnvio;
+    private LocalDate fechaEnvio;
     private String idUsuario;
     private LocalDate fechaAlta;
     private LocalDate fechaModificacion;
@@ -16,10 +16,10 @@ public class Notificacion {
         this.idNotificacion = idNotificacion;
         this.tipo = tipo;
         this.mensaje = mensaje;
-        this.fechaEnvio = fechaEnvio;
         this.idUsuario = idUsuario;
         this.fechaAlta = fechaAlta;
         this.fechaModificacion = fechaModificacion;
+        this.fechaEnvio = LocalDate.parse(fechaEnvio);
     }
 
     public String getIdNotificacion() {
@@ -46,13 +46,17 @@ public class Notificacion {
         this.mensaje = mensaje;
     }
 
-    public String getFechaEnvio() {
+    public LocalDate getFechaEnvio() {
         return fechaEnvio;
     }
 
-    public void setFechaEnvio(String fechaEnvio) {
+    public void setFechaEnvio(LocalDate fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
+    public Notificacion() {
+        // Constructor vacío necesario para instanciar objetos sin parámetros
+    }
+
 
     public String getIdUsuario() {
         return idUsuario;

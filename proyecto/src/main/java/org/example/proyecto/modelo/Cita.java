@@ -80,4 +80,13 @@ public class Cita {
     public void setFechaModificacion(LocalDate fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
     }
+    private String nombrePerro;
+
+    public String getNombrePerro() {
+        return nombrePerro;
+    }
+
+    public void setNombrePerro(String nombrePerro) {
+        this.nombrePerro = nombrePerro;
+    }
 }

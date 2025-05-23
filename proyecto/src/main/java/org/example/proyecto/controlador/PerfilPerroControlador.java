@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import org.example.proyecto.dao.SolicitudAdopcionDAO;
 import org.example.proyecto.modelo.Clientes;
 import org.example.proyecto.modelo.Perro;
+import org.example.proyecto.modelo.Sesion;
+import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.ConexionBaseDatos;
 
 import java.io.IOException;
@@ -35,6 +37,7 @@ public class PerfilPerroControlador {
     private Button btnAdopcion;
     @FXML
     private Button btnCita;
+    private Usuario usuario;
 
     private Clientes clientes;
 
@@ -42,6 +45,11 @@ public class PerfilPerroControlador {
         this.clientes = cliente;
     }
 
+    @FXML
+    public void initialize() {
+        this.usuario = Sesion.getUsuario();
+
+    }
     @FXML
     private void btnMinimizar(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
