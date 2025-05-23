@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.example.proyecto.modelo.Sesion;
+import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
 
@@ -27,6 +29,14 @@ public class NotCliCambioEstadControlador {
     private Button btnCancelacionCita;
     @FXML
     private Button btnCambioEstado;
+
+    private Usuario usuario;
+
+    @FXML
+    public void initialize() {
+        this.usuario = Sesion.getUsuario();
+
+    }
 
     @FXML
     private void btnMinimizar(ActionEvent event) {

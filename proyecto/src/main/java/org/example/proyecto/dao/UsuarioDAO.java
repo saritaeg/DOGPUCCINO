@@ -1,5 +1,6 @@
 package org.example.proyecto.dao;
 
+import org.example.proyecto.modelo.Clientes;
 import org.example.proyecto.modelo.ResultadoLogin;
 import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.Contraseña;
@@ -113,6 +114,62 @@ public class UsuarioDAO {
         }
         return null;
     }
+    public static Usuario obtenerClientePorCorreo(String correo) {
+        String sql = """
+        SELECT u.ID, u.Contrasenia, u.Rol, u.Fecha_Alta AS Fecha_Alta_Usuario,
+               u.Fecha_Modificacion AS Fecha_Mod_Usuario,
+               u.ID_Clientes, u.CIF_Protectoras,
+               c.ID AS Cliente_ID, c.Nombre, c.Apellido1, c.Apellido2, c.Correo_Electronico,
+               c.Telefono, c.Ciudad, c.Calle, c.Fecha_Nacimiento, c.Fecha_Alta AS Fecha_Alta_Cliente,
+               c.Fecha_Modificacion AS Fecha_Mod_Cliente
+        FROM Usuarios u
+        LEFT JOIN Clientes c ON u.ID_Clientes = c.ID
+        LEFT JOIN Protectoras p ON u.CIF_Protectoras = p.CIF
+        WHERE c.Correo_Electronico = ? OR p.Correo_Electronico = ?
+    """;
+
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, correo);
+            stmt.setString(2, correo);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    int id = rs.getInt("ID");
+                    String contrasenia = rs.getString("Contrasenia");
+                    Usuario.Rol rol = Usuario.Rol.valueOf(rs.getString("Rol").toUpperCase());
+                    LocalDate fechaAltaUsuario = rs.getDate("Fecha_Alta_Usuario").toLocalDate();
+                    LocalDate fechaModUsuario = rs.getDate("Fecha_Mod_Usuario").toLocalDate();
+                    Integer idCliente = rs.getObject("ID_Clientes") != null ? rs.getInt("ID_Clientes") : null;
+                    String cif = rs.getString("CIF_Protectoras");
+
+                    Clientes cliente = null;
+                    if (idCliente != null) {
+                        cliente = new Clientes(
+                                rs.getInt("Cliente_ID"),
+                                rs.getString("Nombre"),
+                                rs.getString("Apellido1"),
+                                rs.getString("Apellido2"),
+                                rs.getString("Correo_Electronico"),
+                                rs.getString("Telefono"),
+                                rs.getString("Ciudad"),
+                                rs.getString("Calle"),
+                                rs.getDate("Fecha_Nacimiento").toLocalDate(),
+                                rs.getDate("Fecha_Alta_Cliente").toLocalDate(),
+                                rs.getDate("Fecha_Mod_Cliente").toLocalDate()
+                        );
+                    }
+
+                    return new Usuario(id, contrasenia, rol, fechaAltaUsuario, fechaModUsuario, idCliente, cif, cliente);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 
 

@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.example.proyecto.modelo.Sesion;
 import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
@@ -29,13 +30,12 @@ public class NotCliCancelacionControlador {
     @FXML
     private Button btnCambioEstado;
 
+
     private Usuario usuario;
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-    public void inicializarCalcelacionCli(Usuario usuario) {
-        this.usuario = usuario;
+    @FXML
+    public void initialize() {
+        this.usuario = Sesion.getUsuario();
 
     }
 
@@ -74,9 +74,6 @@ public class NotCliCancelacionControlador {
             Stage stage = (Stage) btnPerros.getScene().getWindow();
 
             Object controlador = fxmlLoader.getController();
-            if (controlador instanceof PerrosCliControlador) {
-                ((PerrosCliControlador) controlador).setUsuario(usuario);
-            }
 
             Scene scene = new Scene(root);
             stage.setScene(scene);

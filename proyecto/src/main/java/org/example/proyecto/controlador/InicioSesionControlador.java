@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.proyecto.dao.UsuarioDAO;
+import org.example.proyecto.modelo.Clientes;
 import org.example.proyecto.modelo.Sesion;
 import org.example.proyecto.modelo.SesionUsuario;
 import org.example.proyecto.modelo.Usuario;
@@ -99,11 +100,10 @@ public class InicioSesionControlador {
                 String nombre = obtenerNombre(email);
 
                 if ("CLIENTE".equalsIgnoreCase(rol)) {
-                    usuario = UsuarioDAO.obtenerUsuarioPorCorreo(email);
+                    usuario = UsuarioDAO.obtenerClientePorCorreo(email);
                     if (usuario != null) {
-
                         Sesion.setUsuario(usuario);
-                        SesionUsuario.getInstancia().setUsuario(usuario);
+
                     } else {
                         mostrarAlerta("Error", "No se pudo obtener el Nif del cliente.");
                         return;
@@ -243,9 +243,8 @@ public class InicioSesionControlador {
 
             Object controlador = fxmlLoader.getController();
 
-            if (controlador instanceof PerrosCliControlador) {
-                ((PerrosCliControlador) controlador).inicializar(usuario);
-            } else if (controlador instanceof PerrosProtControlador) {
+
+            if (controlador instanceof PerrosProtControlador) {
                 ((PerrosProtControlador) controlador).inicializarPerros(usuario);
             } else {
                 mostrarAlerta("Error", "Controlador desconocido para esta vista.");

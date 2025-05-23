@@ -127,6 +127,11 @@ create sequence usuario_seq
 CREATE SEQUENCE perros_seq
     START WITH 1
     INCREMENT BY 1;
+    
+create sequence patologias_seq
+ START WITH 1
+    INCREMENT BY 1;
+
 
 
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Labrador', SYSDATE, SYSDATE);

@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import org.example.proyecto.dao.PerrosCliDAO;
 import org.example.proyecto.modelo.Clientes;
 import org.example.proyecto.modelo.Perro;
+import org.example.proyecto.modelo.Sesion;
 import org.example.proyecto.modelo.Usuario;
 
 import java.io.FileInputStream;
@@ -44,17 +45,22 @@ public class PerrosCliControlador {
 
     private Usuario usuario;
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    @FXML
+    public void initialize() {
+        this.usuario = Sesion.getUsuario();
+        if (usuario != null) {
+            if (usuario.getCliente() != null) {
+                this.emailCliente = usuario.getCliente().getEmail();
+            }
+            cargarPerros();
+            mostrarPerros();
+        }
     }
-    public void inicializar(Usuario usuario) {
-        this.usuario = usuario;
-        cargarPerros();
-        mostrarPerros();
-    }
+
 
 
     private void cargarPerros() {
+
         perros = PerrosCliDAO.obtenerPerrosCliente(emailCliente);
     }
 
@@ -155,7 +161,6 @@ public class PerrosCliControlador {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaEditarPerfilCliente.fxml"));
             Parent root = loader.load();
-
             EditarPerfilCLiControlador controlador = loader.getController();
             controlador.inicializarDatos(emailCliente);
 
@@ -175,9 +180,7 @@ public class PerrosCliControlador {
             Stage stage = (Stage) btnPerrosCliente.getScene().getWindow();
 
             Object controlador = fxmlLoader.getController();
-            if (controlador instanceof PerrosCliControlador) {
-                ((PerrosCliControlador) controlador).setUsuario(usuario);
-            }
+            usuario = Sesion.getUsuario();
 
             stage.setScene(new Scene(root));
         } catch (IOException e) {
@@ -193,10 +196,7 @@ public class PerrosCliControlador {
 
             Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();
 
-            Object controlador = fxmlLoader.getController();
-            if (controlador instanceof NotCliCancelacionControlador) {
-                ((NotCliCancelacionControlador) controlador).setUsuario(usuario);
-            }
+
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
@@ -212,9 +212,9 @@ public class PerrosCliControlador {
             Stage stage = (Stage) btnCitasCliente.getScene().getWindow();
 
             Object controlador = fxmlLoader.getController();
-            if (controlador instanceof CitasCliPasadasControlador) {
-                ((CitasCliPasadasControlador) controlador).setUsuario(usuario);
-            }
+//            if (controlador instanceof CitasCliPasadasControlador) {
+//                ((CitasCliPasadasControlador) controlador).setUsuario(usuario);
+//            }
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
