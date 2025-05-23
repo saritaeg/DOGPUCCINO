@@ -178,6 +178,13 @@ public class PerrosProtControlador {
             e.printStackTrace();
         }
     }
+    public void inicializarPerros(Usuario usuario) {
+        this.usuario = usuario;
+        Sesion.setUsuario(usuario); // si Sesion lo necesita
+        this.perros = PerrosProtDAO.obtenerPerrosProtectora(usuario.getCifProtectora());
+        this.indice = 0;
+        mostrarPerros();
+    }
 
 
 

@@ -13,8 +13,8 @@
                 <Region HBox.hgrow="ALWAYS" />
                 <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−"/>
-                <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X"/>
+                <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" />
+                <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" />
             </HBox>
 
             <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
@@ -39,17 +39,17 @@
             <TableView fx:id="notificacionesTable" prefHeight="311.0" prefWidth="880.0">
 
                 <columns>
-                    <TableColumn fx:id="mensjaecliente" prefWidth="226.0" text="Cliente">
+                    <TableColumn fx:id="mensjaecliente" prefWidth="250.0" text="Cliente">
                         <cellValueFactory>
                             <PropertyValueFactory property="cliente" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn fx:id="mensajeColumna" minWidth="0.0" prefWidth="0.0" text="Mensaje">
+                    <TableColumn fx:id="mensajeColumna" minWidth="250" prefWidth="336.0" text="Mensaje">
                         <cellValueFactory>
                             <PropertyValueFactory property="mensaje" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn fx:id="fechaColumna" prefWidth="1091.0" text="Fecha de Envío">
+                    <TableColumn fx:id="fechaColumna" prefWidth="193.0" text="Fecha de Envío">
                         <cellValueFactory>
                             <PropertyValueFactory property="fechaEnvio" />
                         </cellValueFactory>
