@@ -180,7 +180,7 @@ public class PerrosProtControlador {
     }
     public void inicializarPerros(Usuario usuario) {
         this.usuario = usuario;
-        Sesion.setUsuario(usuario); // si Sesion lo necesita
+        Sesion.setUsuario(usuario);
         this.perros = PerrosProtDAO.obtenerPerrosProtectora(usuario.getCifProtectora());
         this.indice = 0;
         mostrarPerros();
@@ -229,12 +229,12 @@ public class PerrosProtControlador {
 
     @FXML
     private void btnEditarPerroProtectora(ActionEvent event) {
-        // Implementar edición para perro en índice 'indice'
+
     }
 
     @FXML
     private void btnEditarPerroProtectora2(ActionEvent event) {
-        // Implementar edición para perro en índice 'indice + 1'
+
     }
 
     private void cargarVista(String rutaFXML, Button botonReferencia) {

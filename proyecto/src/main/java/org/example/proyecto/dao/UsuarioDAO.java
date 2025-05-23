@@ -213,7 +213,6 @@ public class UsuarioDAO {
                             rs.getDate("Fecha_Mod_Protectora").toLocalDate()
                     );
 
-                    // Devuelve el usuario con su protectora
                     return new Usuario(id, contrasenia, rol, fechaAltaUsuario, fechaModUsuario, idCliente, cif, protectora);
                 }
             }

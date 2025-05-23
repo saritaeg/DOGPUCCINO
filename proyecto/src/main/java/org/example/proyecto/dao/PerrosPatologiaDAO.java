@@ -8,7 +8,7 @@ import java.util.List;
 
 public class PerrosPatologiaDAO {
 
-    // Obtiene la patología y descripción de un perro por su ID
+
     public static String[] obtenerPatologiaYDescripcionPorPerro(int idPerro) {
         String sql = """
             SELECT pa.Nombre, pp.Descripcion
@@ -32,10 +32,10 @@ public class PerrosPatologiaDAO {
             e.printStackTrace();
         }
 
-        return new String[]{null, null}; // No tiene patología registrada
+        return new String[]{null, null};
     }
 
-    // Actualiza o inserta la patología y descripción para un perro dado
+
     public static void actualizarPatologiaDescripcion(int idPerro, String nombrePatologia, String descripcion) {
         String sqlBuscarIdPatologia = "SELECT ID FROM Patologias WHERE Nombre = ?";
         String sqlActualizar = "UPDATE Perros_Patologias SET ID_Patologia = ?, Descripcion = ? WHERE ID_Perros = ?";
@@ -55,7 +55,6 @@ public class PerrosPatologiaDAO {
                 }
             }
 
-            // Intentar actualizar
             try (PreparedStatement pstmt = conn.prepareStatement(sqlActualizar)) {
                 pstmt.setInt(1, idPatologia);
                 pstmt.setString(2, descripcion);
@@ -63,7 +62,6 @@ public class PerrosPatologiaDAO {
                 int filasActualizadas = pstmt.executeUpdate();
 
                 if (filasActualizadas == 0) {
-                    // No existía registro, insertamos nuevo
                     try (PreparedStatement pstmtInsert = conn.prepareStatement(sqlInsertar)) {
                         pstmtInsert.setInt(1, idPerro);
                         pstmtInsert.setInt(2, idPatologia);
@@ -78,7 +76,6 @@ public class PerrosPatologiaDAO {
         }
     }
 
-    // Obtiene todas las patologías para llenar el ComboBox
     public static List<String> obtenerTodasPatologias() {
         List<String> patologias = new ArrayList<>();
         String sql = "SELECT Nombre FROM Patologias ORDER BY Nombre";

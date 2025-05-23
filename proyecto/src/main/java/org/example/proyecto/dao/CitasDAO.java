@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CitasDAO {
-    // Inserta una nueva cita en la base de datos
+
     public static boolean insertarCita(Cita cita) {
         String sql = "INSERT INTO Reservan (Cliente_ID, Perro_ID, Donacion, Hora, Fecha_cita, Estado, Fecha_alta, Fecha_modificacion) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -34,7 +34,6 @@ public class CitasDAO {
         }
     }
 
-    // Obtiene todas las citas de perros que pertenecen a una protectora por su CIF
     public static List<Cita> obtenerCitasPorProtectora(String cifProtectora) {
         List<Cita> citas = new ArrayList<>();
 

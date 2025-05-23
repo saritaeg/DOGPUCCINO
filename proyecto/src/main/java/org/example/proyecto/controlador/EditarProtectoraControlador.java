@@ -108,7 +108,7 @@ public class EditarProtectoraControlador {
             txtCiudad.setText(protectora.getCiudad());
             txtCalle.setText(protectora.getCalle());
             txtRedesSociales.setText(protectora.getRedesSociales());
-            this.emailProtectora = protectora.getCorreoElectronico(); // Se actualiza por si se cambia
+            this.emailProtectora = protectora.getCorreoElectronico();
         }
     }
 

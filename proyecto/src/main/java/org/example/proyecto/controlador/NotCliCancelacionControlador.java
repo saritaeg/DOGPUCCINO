@@ -53,7 +53,6 @@ public class NotCliCancelacionControlador {
     private void cargarNotificacionesCancelacion() {
         ObservableList<Notificacion> lista = FXCollections.observableArrayList();
 
-        // Consulta para obtener las notificaciones de tipo 'CancelacionCita' para el usuario actual
         String sql = "SELECT Fecha_envio, Mensaje FROM Notificaciones WHERE Usuario_id = ? AND Tipo = 'CancelacionCita' ORDER BY Fecha_envio DESC";
 
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();

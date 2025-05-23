@@ -107,8 +107,7 @@ public class AñadirPerroControlador {
             Parent root = loader.load();
 
             PerrosProtControlador controlador = loader.getController();
-            String cif = String.valueOf(Sesion.getUsuario().getCifProtectora());  // Obtener el CIF desde la sesión
-            controlador.initialize();
+            String cif = String.valueOf(Sesion.getUsuario().getCifProtectora());
 
             Stage stage = (Stage) btnVolverAtrasProtectora.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -212,12 +211,12 @@ public class AñadirPerroControlador {
         String insertarRelacionSQL = "INSERT INTO Perros_Patologias (ID_PERROS, ID_PATOLOGIA, DESCRIPCION) VALUES (?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
-            conn.setAutoCommit(false);  // Transacción manual
+            conn.setAutoCommit(false);
 
             int idPerro = -1;
             int idPatologia = -1;
 
-            // 1. Insertar perro
+
             try (PreparedStatement ps = conn.prepareStatement(insertarPerroSQL)) {
                 ps.setString(1, nombre);
                 ps.setDate(2, Date.valueOf(fechaNacimiento));
@@ -228,7 +227,7 @@ public class AñadirPerroControlador {
                 ps.executeUpdate();
             }
 
-            // 2. Obtener ID del perro insertado
+
             try (PreparedStatement ps = conn.prepareStatement(obtenerIdPerroSQL);
                  ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -236,7 +235,7 @@ public class AñadirPerroControlador {
                 }
             }
 
-            // 3. Insertar patología si no existe
+
             String nombrePatologia = pathologyComboBox.getValue();
             String descripcionPatologia = pathologyDescriptionArea.getText();
 
@@ -246,7 +245,7 @@ public class AñadirPerroControlador {
                     ps.executeUpdate();
                 }
 
-                // 4. Obtener ID de la patología
+
                 try (PreparedStatement ps = conn.prepareStatement(obtenerIdPatologiaSQL)) {
                     ps.setString(1, nombrePatologia);
                     try (ResultSet rs = ps.executeQuery()) {
@@ -256,7 +255,6 @@ public class AñadirPerroControlador {
                     }
                 }
 
-                // 5. Insertar relación perro - patología con descripción
                 if (idPerro != -1 && idPatologia != -1) {
                     try (PreparedStatement ps = conn.prepareStatement(insertarRelacionSQL)) {
                         ps.setInt(1, idPerro);
@@ -267,7 +265,7 @@ public class AñadirPerroControlador {
                 }
             }
 
-            conn.commit();  // Confirmar transacción
+            conn.commit();
             return true;
 
         } catch (SQLException e) {

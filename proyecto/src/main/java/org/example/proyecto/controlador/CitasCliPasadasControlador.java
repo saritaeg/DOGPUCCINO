@@ -94,7 +94,6 @@ public class CitasCliPasadasControlador {
         citasTable.setItems(citas);
     }
 
-    // Manejo de botones de navegación
     @FXML private void btnMinimizar(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setIconified(true);

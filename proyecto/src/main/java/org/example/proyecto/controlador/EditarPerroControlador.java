@@ -28,14 +28,12 @@ public class EditarPerroControlador {
     private Perro perro;
     private String imagePath;
 
-    // Añadido: para almacenar el usuario actual
     private Usuario usuario;
 
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
-    // Añadido: setter para usuario
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
@@ -117,13 +115,8 @@ public class EditarPerroControlador {
                 perro.setFoto(imagePath);
             }
 
-            // Aquí podrías usar el usuario para alguna lógica extra si quieres
-            // Ejemplo: registrar quién hizo la modificación
-
-            // Actualizar datos en tabla Perros
             PerroDAO.actualizarPerro(perro);
 
-            // Actualizar patología y descripción en tabla Perros_Patologias
             PerrosPatologiaDAO.actualizarPatologiaDescripcion(perro.getId(),
                     ComboBoxPatologias.getValue(),
                     pathologyDescriptionArea.getText());
