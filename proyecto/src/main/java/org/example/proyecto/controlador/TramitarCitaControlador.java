@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import org.example.proyecto.modelo.Cita;
 import org.example.proyecto.modelo.Perro;
 import org.example.proyecto.dao.CitasDAO;
+import org.example.proyecto.modelo.Sesion;
+import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.ConexionBaseDatos;
 
 import java.io.IOException;
@@ -39,6 +41,7 @@ public class TramitarCitaControlador {
 
     private Perro perro;
     private String emailCliente;
+    private Usuario usuario;
 
     public void setPerro(Perro perro) {
         this.perro = perro;
@@ -52,6 +55,7 @@ public class TramitarCitaControlador {
 
     @FXML
     public void initialize() {
+        this.usuario = Sesion.getUsuario();
         donacionChoiceBox.getItems().addAll("3€", "5€", "10€", "20€", "50€");
         donacionChoiceBox.setValue("3€");
         for (int h = 8; h <= 20; h++) {
@@ -147,7 +151,7 @@ public class TramitarCitaControlador {
 
     private void cerrarVentana() {
         Stage stage = (Stage) btnConfirmar.getScene().getWindow();
-        stage.close();
+
     }
 
     private int obtenerClienteIdPorEmail(String email) {

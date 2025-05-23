@@ -12,6 +12,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.proyecto.modelo.Perro;
+import org.example.proyecto.modelo.Sesion;
+import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.ConexionBaseDatos;
 
 import java.io.IOException;
@@ -34,7 +36,13 @@ public class PerfilPerroControlador {
     private Button btnAdopcion;
     @FXML
     private Button btnCita;
+    private Usuario usuario;
 
+    @FXML
+    public void initialize() {
+        this.usuario = Sesion.getUsuario();
+
+    }
     @FXML
     private void btnMinimizar(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
