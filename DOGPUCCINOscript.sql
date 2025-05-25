@@ -201,6 +201,12 @@ begin
 END;
 /
 
+create or replace trigger Notificacion_Adopcion
+after insert on Solicitud_Adopcion
+for each row
+declare
+    mensajeAdopcion
+
 
 
 

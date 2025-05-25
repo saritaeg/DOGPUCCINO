@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import org.example.proyecto.dao.PerfilPerroDAO;
 import org.example.proyecto.dao.SolicitudAdopcionDAO;
 import org.example.proyecto.modelo.Clientes;
 import org.example.proyecto.modelo.Perro;
@@ -121,38 +122,6 @@ public class PerfilPerroControlador {
     public void setEmailCliente(String emailCliente) {
         this.emailCliente = emailCliente;
     }
-    private String obtenerPatologiasPerro(int idPerro) {
-        StringBuilder sb = new StringBuilder();
-
-        try (Connection conn = ConexionBaseDatos.getInstance().getConnection()){
-            String sql = """
-            SELECT p.Nombre, pp.Descripcion
-            FROM Patologias p
-            JOIN Perros_Patologias pp ON p.ID = pp.ID_Patologia
-            WHERE pp.ID_Perros = ?
-        """;
-
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, idPerro);
-            ResultSet rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                String nombre = rs.getString("Nombre");
-                String descripcion = rs.getString("Descripcion");
-                sb.append("• ").append(nombre);
-                if (descripcion != null && !descripcion.isBlank()) {
-                    sb.append(" - ").append(descripcion);
-                }
-                sb.append("\n");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            sb.append("Error al cargar patologías.");
-        }
-
-        return sb.length() > 0 ? sb.toString() : "Ninguna";
-    }
 
     private void mostrarDatosPerro() {
         if (perro != null) {
@@ -162,7 +131,7 @@ public class PerfilPerroControlador {
                     + "Sexo: " + perro.getSexo() + "\n"
                     + "Fecha Nacimiento: " + perro.getFechaNacimiento());
 
-            txtPatologias.setText(obtenerPatologiasPerro(perro.getId()));
+            txtPatologias.setText(PerfilPerroDAO.obtenerPatologiasPerro(perro.getId()));
 
 
             Perro.Adoptado adoptado = perro.getAdoptado();

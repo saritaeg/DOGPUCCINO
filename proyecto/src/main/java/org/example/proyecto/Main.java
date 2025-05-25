@@ -20,6 +20,7 @@ public class Main extends Application {
         Scene scene = new Scene((Parent) FXMLLoader.load(fxmlLoader.getLocation()));
         stage.setTitle("DOPUCCINOO");
         stage.initStyle(StageStyle.UNDECORATED);
+        stage.setResizable(true);
         stage.setScene(scene);
         stage.show();
     }
