@@ -71,7 +71,6 @@ public class EditarClienteDAO {
 
             String hashedPassword = Contraseña.encriptarContrasenia(nuevaContrasena);
 
-            // 🔍 Imprime los valores antes de ejecutar
             System.out.println("Actualizando contraseña para ID: " + idCliente);
             System.out.println("Contraseña (hashed): " + hashedPassword);
 

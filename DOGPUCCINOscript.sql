@@ -192,6 +192,7 @@ INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (23, 
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (24, 'Enfermedad periodontal', SYSDATE, SYSDATE);
 
 
+//Disparadores
 create or replace trigger rolUsuarios
 before insert on USUARIOS
 for each row
@@ -225,21 +226,19 @@ begin
     begin 
         select id into idUsuarioProtectora
         from usuarios
-        where cif_protectoras= cifProtectora;
+        where cif_protectoras =: cifProtectora;
     end;
     begin
         select nombre into nombrePerro
         from perros
         where id= :new.perro_id;
-    end;
-        
+    end;   
     begin
         select nombre into nombreCliente
         from clientes
         where id = :new.cliente_id;
     end;
-  
-    
+
     mensajeAdopcion := 'Nueva solicitud de adopcion: Perro: ' || nombrePerro || ', cliente: ' || nombreCliente;
     
     if idUsuarioProtectora is not null then
@@ -249,6 +248,49 @@ begin
     end if;
 end;
 /
+
+create or replace trigger Notificacion_Cita
+AFTER INSERT ON Reservan
+FOR EACH ROW
+DECLARE
+    mensajeCita        VARCHAR2(100);
+    nombreCliente      VARCHAR2(20);
+    nombrePerro        VARCHAR2(20);
+    idUsuarioProtectora NUMBER;
+    cifProtectora      VARCHAR2(20);
+    tipoNotificacion   VARCHAR2(50) := 'Solicitud Cita';
+begin
+    begin
+        select cif into cifProtectora
+        from perros
+        WHERE id = :NEW.perro_id;
+    end;
+    begin
+        select id into idUsuarioProtectora
+        from usuarios
+        where cif_protectoras = cifProtectora;
+    end;
+    begin
+        select nombre into nombrePerro
+        from perros
+        WHERE id = :NEW.perro_id;
+    end;
+    begin
+        select nombre into nombreCliente
+        from clientes
+        WHERE id = :NEW.cliente_id;
+    end;
+
+    mensajeCita := 'Nueva solicitud de cita: Perro: ' || nombrePerro || ', Cliente: ' || nombreCliente;
+
+    IF idUsuarioProtectora IS NOT NULL THEN
+        INSERT INTO Notificaciones (id,tipo,mensaje,fecha_envio,usuario_id,fecha_alta,fecha_modificacion) 
+        VALUES (notificaciones_seq.NEXTVAL,tipoNotificacion,mensajeCita,SYSDATE,idUsuarioProtectora,SYSDATE,SYSDATE);
+    end IF;
+end;
+/
+
+
 
 
 
