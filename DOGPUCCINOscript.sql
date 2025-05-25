@@ -131,6 +131,11 @@ CREATE SEQUENCE perros_seq
 create sequence patologias_seq
  START WITH 1
     INCREMENT BY 1;
+    
+    create sequence notificaciones_seq
+ START WITH 1
+    INCREMENT BY 1;
+
 
 
 
@@ -205,7 +210,45 @@ create or replace trigger Notificacion_Adopcion
 after insert on Solicitud_Adopcion
 for each row
 declare
-    mensajeAdopcion
+    mensajeAdopcion varchar2(100);
+    nombreCliente varchar2(20);
+    nombrePerro varchar2(20);
+    idUsuarioProtectora number;
+    cifProtectora varchar2(20);
+    tipoNotificacion varchar2(50) := 'Solicitud Adopción';
+begin
+    begin 
+        select cif into cifProtectora
+        from perros
+        where id= : new.perro_id;
+    end;
+    begin 
+        select id into idUsuarioProtectora
+        from usuarios
+        where cif_protectoras= cifProtectora;
+    end;
+    begin
+        select nombre into nombrePerro
+        from perros
+        where id= :new.perro_id;
+    end;
+        
+    begin
+        select nombre into nombreCliente
+        from clientes
+        where id = :new.cliente_id;
+    end;
+  
+    
+    mensajeAdopcion := 'Nueva solicitud de adopcion: Perro: ' || nombrePerro || ', cliente: ' || nombreCliente;
+    
+    if idUsuarioProtectora is not null then
+        insert into Notificaciones (id,tipo,mensaje,fecha_envio,usuario_id,fecha_alta,fecha_modificacion)
+        values(notificaciones_seq.nextval,tipoNotificacion,mensajeAdopcion,SYSDATE,idUsuarioProtectora,SYSDATE,SYSDATE);
+        
+    end if;
+end;
+/
 
 
 
