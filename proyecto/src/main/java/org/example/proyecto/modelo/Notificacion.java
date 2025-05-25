@@ -53,8 +53,9 @@ public class Notificacion {
     public void setFechaEnvio(LocalDate fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
+
     public Notificacion() {
-        // Constructor vacío necesario para instanciar objetos sin parámetros
+
     }
 
 

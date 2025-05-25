@@ -192,7 +192,7 @@ INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (23, 
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (24, 'Enfermedad periodontal', SYSDATE, SYSDATE);
 
 
-//Disparadores
+
 create or replace trigger rolUsuarios
 before insert on USUARIOS
 for each row
@@ -292,10 +292,65 @@ end;
 
 
 
+CREATE OR REPLACE PROCEDURE rechazar_solicitudes (
+    idPerro IN NUMBER
+)
+IS
+BEGIN
+    UPDATE Solicitud_Adopcion
+    SET Estado = 'Denegada',
+        Fecha_modificacion = SYSDATE
+    WHERE Perro_ID = idPerro
+      AND Estado = 'Pendiente';
+
+    COMMIT;
+END;
+/
+
+
+CREATE OR REPLACE FUNCTION aceptar_solicitud (
+    idCliente IN NUMBER,
+    idPerro   IN NUMBER
+) RETURN VARCHAR2
+IS
+BEGIN
+
+    UPDATE Solicitud_Adopcion
+    SET Estado = 'Aceptada',
+        Fecha_modificacion = SYSDATE
+    WHERE Cliente_ID = idCliente
+      AND Perro_ID = idPerro;
+
+    UPDATE Perros
+    SET Adoptado = 'S',
+        Fecha_modificacion = SYSDATE
+    WHERE ID = idPerro;
+
+    rechazar_solicitudes (idPerro);
+
+    COMMIT;
+
+    RETURN 'Solicitud aceptada y otras rechazadas correctamente.';
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        RETURN 'Error: ' || SQLERRM;
+END;
+/
+ set SERVEROUTPUT on;
+ 
+ DECLARE
+    resultado VARCHAR2(1000); 
+BEGIN
+    resultado := aceptar_solicitud(241, 122);  
+    DBMS_OUTPUT.PUT_LINE(resultado);     
+END;
+/
 
 
 
-   DROP TABLE solicitud_adopcion CASCADE CONSTRAINTS;
+
+DROP TABLE solicitud_adopcion CASCADE CONSTRAINTS;
 DROP TABLE reservan CASCADE CONSTRAINTS;
 DROP TABLE perros_patologias CASCADE CONSTRAINTS;
 DROP TABLE patologias CASCADE CONSTRAINTS;
