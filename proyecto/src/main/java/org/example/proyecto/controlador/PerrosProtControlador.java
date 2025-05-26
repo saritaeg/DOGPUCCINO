@@ -113,7 +113,7 @@ public class PerrosProtControlador {
     @FXML
     private void btnNotificacionesProtectora(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotProtNuevacita.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotProtectora.fxml"));
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnNotificacionesProtectora.getScene().getWindow();
