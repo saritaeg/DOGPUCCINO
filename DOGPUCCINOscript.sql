@@ -94,7 +94,7 @@ CREATE TABLE Reservan (
     Donacion VARCHAR2(50),
     Hora NUMBER,
     Fecha_cita DATE,
-    Estado VARCHAR2(50),
+    Estado VARCHAR2(50)check (Estado in ('Aceptada', 'Denegada','Pendiente')),
     Fecha_alta DATE,
     Fecha_modificacion DATE,
     CONSTRAINT pk_reservan PRIMARY KEY (Cliente_ID, Perro_ID, Fecha_cita),
@@ -289,6 +289,89 @@ begin
     end IF;
 end;
 /
+
+
+create or replace trigger trgNotificacionSolicitudAdopcion
+after update on solicitud_adopcion
+for each row
+declare
+    idUsuarioCliente usuarios.id%type;
+    nombrePerro perros.nombre%type;
+    tipo varchar2(50) := 'Respuesta Solicitud Adopción';
+    mensaje varchar2(500);
+begin
+    if :old.estado <> :new.estado and 
+       (:new.estado = 'Aceptada' or :new.estado = 'Denegada') then
+
+        select nombre into nombrePerro
+        from perros
+        where id = :new.perro_id;
+
+        select id into idUsuarioCliente
+        from usuarios
+        where id_clientes = :new.cliente_id;
+
+        mensaje := 'Tu solicitud de adopción del perro "' || nombrePerro || '" ha sido ' || lower(:new.estado) || '.';
+
+        insert into notificaciones (id, tipo, mensaje, fecha_Envio, usuario_Id, fecha_Alta, fecha_Modificacion)
+        values (notificaciones_seq.nextval, tipo, mensaje, sysdate, idUsuarioCliente, sysdate, sysdate);
+
+        if :new.estado = 'Aceptada' then
+            update perros
+            set adoptado = 'S',
+                fecha_Modificacion = sysdate
+            where id = :new.perro_id;
+        end if;
+    end if;
+end;
+/
+create or replace trigger trgNotificacionReservan
+after update on reservan
+for each row
+declare
+    idUsuarioCliente usuarios.id%type;
+    nombrePerro perros.nombre%type;
+    tipo varchar2(50) := 'Respuesta Reserva Cita';
+    mensaje varchar2(500);
+begin
+    if :old.estado <> :new.estado and 
+       (:new.estado = 'Aceptada' or :new.estado = 'Denegada') then
+
+        select nombre into nombrePerro
+        from perros
+        where id = :new.perro_id;
+
+        select id into idUsuarioCliente
+        from usuarios
+        where id_clientes = :new.cliente_id;
+
+        mensaje := 'Tu reserva para el perro "' || nombrePerro || '" ha sido ' || lower(:new.estado) || '.';
+
+        insert into notificaciones (id, tipo, mensaje, fecha_Envio, usuario_Id, fecha_Alta, fecha_Modificacion)
+        values (notificaciones_seq.nextval, tipo, mensaje, sysdate, idUsuarioCliente, sysdate, sysdate);
+
+        if :new.estado = 'Aceptada' then
+            update perros
+            set adoptado = 'S',
+                fecha_Modificacion = sysdate
+            where id = :new.perro_id;
+        end if;
+    end if;
+end;
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
