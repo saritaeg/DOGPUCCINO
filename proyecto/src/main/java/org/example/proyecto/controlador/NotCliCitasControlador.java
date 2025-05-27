@@ -56,24 +56,29 @@ public class NotCliCitasControlador {
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
+
             ps.setInt(1, usuario.getIdUsuario());
             ps.setString(2, tipo);
 
+
             ResultSet rs = ps.executeQuery();
 
+            int filas = 0;
             while (rs.next()) {
                 Notificacion noti = new Notificacion();
                 noti.setMensaje(rs.getString("Mensaje"));
                 Date fechaSql = rs.getDate("Fecha_envio");
                 noti.setFechaEnvio(fechaSql != null ? fechaSql.toLocalDate() : null);
                 lista.add(noti);
+                filas++;
             }
-
             notificacionesTable.setItems(lista);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
     @FXML private void btnMinimizar(ActionEvent event) {
         ((Stage)((Node)event.getSource()).getScene().getWindow()).setIconified(true);

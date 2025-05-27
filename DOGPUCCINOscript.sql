@@ -446,3 +446,7 @@ DROP TABLE protectoras CASCADE CONSTRAINTS;
 DROP TABLE clientes CASCADE CONSTRAINTS;
 DROP TABLE Usuarios CASCADE CONSTRAINTS;
 
+SELECT Fecha_envio, Mensaje
+FROM Notificaciones
+WHERE Usuario_id = 55 AND Tipo = 'Respuesta Reserva Cita'
+ORDER BY Fecha_envio DESC;

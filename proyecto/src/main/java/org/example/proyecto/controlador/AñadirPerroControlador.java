@@ -169,35 +169,14 @@ public class AñadirPerroControlador {
 
         String rutaFoto = (rutaImagenDestino != null) ? rutaImagenDestino.toString() : null;
         String finalRutaFoto = rutaFoto;
-        Task<Boolean> task = new Task<Boolean>() {
-            @Override
-            protected Boolean call() {
-                System.out.println("Inicio inserción perro...");
-                boolean resultado = insertarPerro(nombre, fechaNacimiento, sexo, raza, finalRutaFoto);
-                System.out.println("Inserción perro terminada con resultado: " + resultado);
-                return resultado;
-            }
-        };
 
-        task.setOnSucceeded(e -> {
-            System.out.println("Operación finalizada con éxito");
-            boolean exito = task.getValue();
-            if (exito) {
-                mostrarAlerta("Éxito", "Perro añadido correctamente.");
-                limpiarCampos();
-            } else {
-                mostrarAlerta("Error", "No se pudo añadir el perro.");
-            }
-        });
+        if (insertarPerro(nombre, fechaNacimiento, sexo, raza, finalRutaFoto)) {
+            mostrarAlerta("Éxito", "Perro añadido correctamente.");
+            limpiarCampos();
+        } else {
+            mostrarAlerta("Error", "No se pudo añadir el perro. Verifica los datos e intenta de nuevo.");
+        }
 
-        task.setOnFailed(e -> {
-            System.out.println("Error en la operación");
-            Throwable ex = task.getException();
-            if (ex != null) ex.printStackTrace();
-            mostrarAlerta("Error BD", "Error al insertar el perro: " + (ex != null ? ex.getMessage() : "Error desconocido"));
-        });
-
-        new Thread(task).start();
     }
 
 
