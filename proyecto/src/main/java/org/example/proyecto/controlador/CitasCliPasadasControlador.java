@@ -123,7 +123,7 @@ public class CitasCliPasadasControlador {
     }
 
     @FXML private void btnNotificaciones(ActionEvent event) {
-        cambiarVista("/org/example/proyecto/VistaNotCliCancelacion.fxml", btnNotificaciones);
+        cambiarVista("/org/example/proyecto/VistaNotCliCitas.fxml", btnNotificaciones);
     }
 
     @FXML private void btnCitas(ActionEvent event) {

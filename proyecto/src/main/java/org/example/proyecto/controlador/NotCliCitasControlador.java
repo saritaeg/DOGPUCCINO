@@ -23,15 +23,15 @@ import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 
-public class NotCliCancelacionControlador {
+public class NotCliCitasControlador {
 
     @FXML private Button btnAtras;
     @FXML private Button btnPerros;
     @FXML private Button btnNotificaciones;
     @FXML private Button btnCitas;
     @FXML private Button btnSobreNosotros;
-    @FXML private Button btnCancelacionCita;
-    @FXML private Button btnCambioEstado;
+    @FXML private Button btnNotificaciónCitas;
+    @FXML private Button btnNotificaciónAdopcion;
 
     @FXML private TableView<Notificacion> notificacionesTable;
     @FXML private TableColumn<Notificacion, String> mensajeColumna;
@@ -46,7 +46,7 @@ public class NotCliCancelacionControlador {
         mensajeColumna.setCellValueFactory(new PropertyValueFactory<>("mensaje"));
         fechaColumna.setCellValueFactory(new PropertyValueFactory<>("fechaEnvio"));
 
-        cargarNotificaciones("CancelacionCita");
+        cargarNotificaciones("Respuesta Reserva Cita");
     }
 
     private void cargarNotificaciones(String tipo) {
@@ -56,24 +56,29 @@ public class NotCliCancelacionControlador {
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
+
             ps.setInt(1, usuario.getIdUsuario());
             ps.setString(2, tipo);
 
+
             ResultSet rs = ps.executeQuery();
 
+            int filas = 0;
             while (rs.next()) {
                 Notificacion noti = new Notificacion();
                 noti.setMensaje(rs.getString("Mensaje"));
                 Date fechaSql = rs.getDate("Fecha_envio");
                 noti.setFechaEnvio(fechaSql != null ? fechaSql.toLocalDate() : null);
                 lista.add(noti);
+                filas++;
             }
-
             notificacionesTable.setItems(lista);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
     @FXML private void btnMinimizar(ActionEvent event) {
         ((Stage)((Node)event.getSource()).getScene().getWindow()).setIconified(true);
@@ -92,7 +97,7 @@ public class NotCliCancelacionControlador {
     }
 
     @FXML private void btnNotificaciones(ActionEvent event) {
-        cambiarEscena(event, "/org/example/proyecto/VistaNotCliCancelacion.fxml");
+        cambiarEscena(event, "/org/example/proyecto/VistaNotCliCitas.fxml");
     }
 
     @FXML private void btnCitas(ActionEvent event) {
@@ -103,12 +108,12 @@ public class NotCliCancelacionControlador {
         cambiarEscena(event, "/org/example/proyecto/VistaSobreNosotrosCli.fxml");
     }
 
-    @FXML private void btnCancelacionCita(ActionEvent event) {
-        cambiarEscena(event, "/org/example/proyecto/VistaNotCliCancelacion.fxml");
+    @FXML private void btnNotificaciónCitas(ActionEvent event) {
+        cambiarEscena(event, "/org/example/proyecto/VistaNotCliCitas.fxml");
     }
 
-    @FXML private void btnCambioEstado(ActionEvent event) {
-        cambiarEscena(event, "/org/example/proyecto/VistaNotCliCambioestad.fxml");
+    @FXML private void btnNotificaciónAdopcion(ActionEvent event) {
+        cambiarEscena(event, "/org/example/proyecto/VistaNotCliAdopcion.fxml");
     }
 
     private void cambiarEscena(ActionEvent event, String recursoFxml) {

@@ -74,7 +74,7 @@ public class SobreNosotrosControlador {
     @FXML
     private void btnNotificaciones (ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCancelacion.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCitas.fxml"));
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnNotificaciones.getScene().getWindow();

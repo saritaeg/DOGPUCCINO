@@ -143,12 +143,12 @@ INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Labrador', SYS
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pitbull', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Golden Retriever', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Beagle', SYSDATE, SYSDATE);
-INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pastor Alem�n', SYSDATE, SYSDATE);
-INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Bulldog Franc�s', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pastor Aleman', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Bulldog Frances', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Pug', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Chihuahua', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Rottweiler', SYSDATE, SYSDATE);
-INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('D�lmata', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Dalmata', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Doberman', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Border Collie', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Boxer', SYSDATE, SYSDATE);
@@ -156,13 +156,13 @@ INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Yorkshire Terr
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Shih Tzu', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Cocker Spaniel', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Husky Siberiano', SYSDATE, SYSDATE);
-INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Mast�n Napolitano', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Mastin Napolitano', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('San Bernardo', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Shar Pei', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Caniche', SYSDATE, SYSDATE);
 INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Akita Inu', SYSDATE, SYSDATE);
-INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Setter Irland�s', SYSDATE, SYSDATE);
-INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Galgo Espa�ol', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Setter Irlandes', SYSDATE, SYSDATE);
+INSERT INTO Razas (Tipo, Fecha_alta, Fecha_modificacion) VALUES ('Galgo Espa�ol', SYSDATE, SYSDATE);
 
 
 
@@ -180,14 +180,14 @@ INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (11, 
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (12, 'Dermatitis', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (13, 'Gastroenteritis', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (14, 'Problemas renales', SYSDATE, SYSDATE);
-INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (15, 'Problemas card�acos', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (15, 'Problemas cardiacos', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (16, 'Hipotiroidismo', SYSDATE, SYSDATE);
-INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (17, 'Otitis cr�nica', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (17, 'Otitis cronica', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (18, 'Tumores', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (19, 'Anemia', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (20, 'Tos de las perreras', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (21, 'Conjuntivitis', SYSDATE, SYSDATE);
-INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (22, 'Infecci�n urinaria', SYSDATE, SYSDATE);
+INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (22, 'Infeccion urinaria', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (23, 'Problemas dentales', SYSDATE, SYSDATE);
 INSERT INTO Patologias (ID, Nombre, Fecha_alta, Fecha_modificacion) VALUES (24, 'Enfermedad periodontal', SYSDATE, SYSDATE);
 
@@ -249,6 +249,7 @@ begin
 end;
 /
 
+
 create or replace trigger Notificacion_Cita
 AFTER INSERT ON Reservan
 FOR EACH ROW
@@ -297,7 +298,7 @@ for each row
 declare
     idUsuarioCliente usuarios.id%type;
     nombrePerro perros.nombre%type;
-    tipo varchar2(50) := 'Respuesta Solicitud Adopción';
+    tipo varchar2(50) := 'Respuesta Solicitud Adopcion';
     mensaje varchar2(500);
 begin
     if :old.estado <> :new.estado and 
@@ -311,7 +312,7 @@ begin
         from usuarios
         where id_clientes = :new.cliente_id;
 
-        mensaje := 'Tu solicitud de adopción del perro "' || nombrePerro || '" ha sido ' || lower(:new.estado) || '.';
+        mensaje := 'Tu solicitud de adopcion del perro "' || nombrePerro || '" ha sido ' || lower(:new.estado) || '.';
 
         insert into notificaciones (id, tipo, mensaje, fecha_Envio, usuario_Id, fecha_Alta, fecha_Modificacion)
         values (notificaciones_seq.nextval, tipo, mensaje, sysdate, idUsuarioCliente, sysdate, sysdate);
@@ -413,7 +414,7 @@ BEGIN
 
     COMMIT;
 
-    RETURN 'Solicitud aceptada y otras rechazadas correctamente.';
+    RETURN 'Solicitud aceptada y otras rechazadas correctamente';
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
@@ -445,3 +446,7 @@ DROP TABLE protectoras CASCADE CONSTRAINTS;
 DROP TABLE clientes CASCADE CONSTRAINTS;
 DROP TABLE Usuarios CASCADE CONSTRAINTS;
 
+SELECT Fecha_envio, Mensaje
+FROM Notificaciones
+WHERE Usuario_id = 55 AND Tipo = 'Respuesta Reserva Cita'
+ORDER BY Fecha_envio DESC;
