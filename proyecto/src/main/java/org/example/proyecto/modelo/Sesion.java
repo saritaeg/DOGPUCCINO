@@ -3,6 +3,16 @@ package org.example.proyecto.modelo;
 public class Sesion {
     private static Usuario usuario;
 
+    private String cifProtectora;
+
+    public String getCifProtectora() {
+        return cifProtectora;
+    }
+
+    public void setCifProtectora(String cifProtectora) {
+        this.cifProtectora = cifProtectora;
+    }
+
 
     public static Usuario getUsuario() {
         return usuario;

@@ -32,6 +32,7 @@ public class NotProtNuevaadopControlador {
     @FXML private TableView<Notificacion> notificacionesTabla;
     @FXML private TableColumn<Notificacion, String> mensajeColumna;
     @FXML private TableColumn<Notificacion, LocalDate> fechaColumna;
+    @FXML private TableColumn<Notificacion, String> estadoColumna;
 
     private Usuario usuario;
 
@@ -41,19 +42,216 @@ public class NotProtNuevaadopControlador {
 
         mensajeColumna.setCellValueFactory(new PropertyValueFactory<>("mensaje"));
         fechaColumna.setCellValueFactory(new PropertyValueFactory<>("fechaEnvio"));
+        estadoColumna.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
-        cargarNotificaciones("NuevaAdopcion");
+        cargarNotificaciones();
+        // Listener para click en fila
+        notificacionesTabla.setRowFactory(tv -> {
+            TableRow<Notificacion> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (! row.isEmpty() && event.getClickCount() == 1) {
+                    Notificacion clickedNoti = row.getItem();
+                    mostrarDialogoAceptarDenegar(clickedNoti);
+                }
+            });
+            return row;
+        });
+    }
+    private void mostrarDialogoAceptarDenegar(Notificacion notificacion) {
+        if (notificacion.getEstado().equalsIgnoreCase("Pendiente")) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmar Solicitud");
+            alert.setHeaderText(null);
+            alert.setContentText("¿Quieres aceptar o denegar esta solicitud?");
+
+            ButtonType aceptar = new ButtonType("Aceptar");
+            ButtonType denegar = new ButtonType("Denegar");
+            ButtonType cancelar = new ButtonType("Cancelar", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            alert.getButtonTypes().setAll(aceptar, denegar, cancelar);
+
+            alert.showAndWait().ifPresent(response -> {
+                if (response == aceptar) {
+                    actualizarEstado(notificacion, "Aceptada");
+                } else if (response == denegar) {
+                    actualizarEstado(notificacion, "Denegada");
+                }
+            });
+        } else {
+            Alert info = new Alert(Alert.AlertType.INFORMATION);
+            info.setTitle("Información");
+            info.setHeaderText(null);
+            info.setContentText("Esta solicitud ya fue respondida.");
+            info.showAndWait();
+        }
+    }
+    private void actualizarEstado(Notificacion notificacion, String nuevoEstado) {
+        String tipo = notificacion.getTipo();
+
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection()) {
+            String sql = "";
+            PreparedStatement ps = null;
+
+            if (tipo.equals("Solicitud Adopción")) {
+
+                int clienteId = notificacion.getClienteId();
+                int perroId = notificacion.getPerroId();
+
+                sql = "UPDATE Solicitud_Adopcion SET Estado = ? WHERE Cliente_ID = ? AND Perro_ID = ?";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, nuevoEstado);
+                ps.setInt(2, clienteId);
+                ps.setInt(3, perroId);
+
+            } else if (tipo.equals("Solicitud Cita")) {
+
+                int clienteId = notificacion.getClienteId();
+                int perroId = notificacion.getPerroId();
+                LocalDate fechaCita = notificacion.getFechaCita();
+
+                sql = "UPDATE Reservan SET Estado = ? WHERE Cliente_ID = ? AND Perro_ID = ? AND Fecha_cita = ?";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, nuevoEstado);
+                ps.setInt(2, clienteId);
+                ps.setInt(3, perroId);
+                ps.setDate(4, Date.valueOf(fechaCita));
+            }
+
+            int filas = ps.executeUpdate();
+
+            if (filas > 0) {
+
+                notificacion.setEstado(nuevoEstado);
+                notificacionesTabla.refresh();
+                Alert exito = new Alert(Alert.AlertType.INFORMATION);
+                exito.setTitle("Estado actualizado");
+                exito.setHeaderText(null);
+                exito.setContentText("El estado se ha actualizado correctamente.");
+                exito.showAndWait();
+            } else {
+                throw new SQLException("No se encontró la solicitud para actualizar.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Error");
+            error.setHeaderText("No se pudo actualizar el estado");
+            error.setContentText(e.getMessage());
+            error.showAndWait();
+        }
     }
 
-    private void cargarNotificaciones(String tipo) {
+    private void manejarClicEnNotificacion(Notificacion notificacion) {
+        if (notificacion == null) return;
+
+        String tipo = notificacion.getTipo();
+        if (!tipo.equals("Solicitud Adopción") && !tipo.equals("Solicitud Cita")) {
+
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Gestionar Solicitud");
+        alert.setHeaderText(null);
+        alert.setContentText("¿Desea aceptar o denegar la solicitud?");
+
+        ButtonType btnAceptar = new ButtonType("Aceptar");
+        ButtonType btnDenegar = new ButtonType("Denegar");
+        ButtonType btnCancelar = new ButtonType("Cancelar", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(btnAceptar, btnDenegar, btnCancelar);
+
+        alert.showAndWait().ifPresent(response -> {
+            if (response == btnAceptar) {
+                actualizarEstadoSolicitud(notificacion, "Aceptada");
+            } else if (response == btnDenegar) {
+                actualizarEstadoSolicitud(notificacion, "Denegada");
+            }
+        });
+    }
+    private void actualizarEstadoSolicitud(Notificacion notificacion, String nuevoEstado) {
+
+        try (Connection conn = ConexionBaseDatos.getInstance().getConnection()) {
+            String sql = null;
+
+            if (notificacion.getTipo().equals("Solicitud Adopción")) {
+                sql = "UPDATE Solicitud_Adopcion SET Estado = ? WHERE Cliente_ID = ? AND Perro_ID = ?";
+            } else if (notificacion.getTipo().equals("Solicitud Cita")) {
+                sql = "UPDATE Reservan SET Estado = ? WHERE Cliente_ID = ? AND Perro_ID = ? AND Fecha_cita = ?";
+            }
+
+            if (sql == null) return;
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, nuevoEstado);
+
+            int clienteId = obtenerClienteId(notificacion);
+            int perroId = obtenerPerroId(notificacion);
+
+            ps.setInt(2, clienteId);
+            ps.setInt(3, perroId);
+
+            if (notificacion.getTipo().equals("Solicitud Cita")) {
+                java.sql.Date fechaCita = obtenerFechaCita(notificacion);
+                ps.setDate(4, fechaCita);
+            }
+
+            int filasActualizadas = ps.executeUpdate();
+            if (filasActualizadas > 0) {
+
+                notificacion.setEstado(nuevoEstado);
+                notificacionesTabla.refresh();
+            } else {
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR, "No se pudo actualizar el estado en la base de datos.");
+                errorAlert.show();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR, "Error al actualizar el estado: " + e.getMessage());
+            errorAlert.show();
+        }
+    }
+    private int obtenerClienteId(Notificacion notificacion) {
+        return 0;
+    }
+    private int obtenerPerroId(Notificacion notificacion) {
+        return 0;
+    }
+    private java.sql.Date obtenerFechaCita(Notificacion notificacion) {
+        return null;
+    }
+    private void cargarNotificaciones() {
         ObservableList<Notificacion> lista = FXCollections.observableArrayList();
-        String sql = "SELECT Fecha_envio, Mensaje FROM Notificaciones WHERE Usuario_id = ? AND Tipo = ? ORDER BY Fecha_envio DESC";
+
+        String sql =
+                "(" +
+                        "SELECT n.Fecha_envio, n.Mensaje, n.Tipo, sa.Estado " +
+                        "FROM Notificaciones n " +
+                        "JOIN Usuarios u ON n.Usuario_id = u.ID " +
+                        "JOIN ProtectoraS p ON u.CIF_Protectoras = p.CIF " +
+                        "JOIN Perros pe ON pe.CIF = p.CIF " +
+                        "JOIN Solicitud_Adopcion sa ON sa.Perro_ID = pe.ID " +
+                        "WHERE n.Tipo = 'Solicitud Adopción' AND p.CIF = ?" +
+                        ") " +
+                        "UNION ALL " +
+                        "(" +
+                        "SELECT n.Fecha_envio, n.Mensaje, n.Tipo, r.Estado " +
+                        "FROM Notificaciones n " +
+                        "JOIN Usuarios u ON n.Usuario_id = u.ID " +
+                        "JOIN ProtectoraS p ON u.CIF_Protectoras = p.CIF " +
+                        "JOIN Perros pe ON pe.CIF = p.CIF " +
+                        "JOIN Reservan r ON r.Perro_ID = pe.ID " +
+                        "WHERE n.Tipo = 'Solicitud Cita' AND p.CIF = ?" +
+                        ") " +
+                        "ORDER BY Fecha_envio DESC";
 
         try (Connection conn = ConexionBaseDatos.getInstance().getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, usuario.getIdUsuario());
-            ps.setString(2, tipo);
+            String cif = Sesion.getUsuario().getCifProtectora();
+            ps.setString(1, cif); // para Solicitud Adopción
+            ps.setString(2, cif); // para Solicitud Cita
 
             ResultSet rs = ps.executeQuery();
 
@@ -62,6 +260,9 @@ public class NotProtNuevaadopControlador {
                 noti.setMensaje(rs.getString("Mensaje"));
                 Date fechaSql = rs.getDate("Fecha_envio");
                 noti.setFechaEnvio(fechaSql != null ? fechaSql.toLocalDate() : null);
+                noti.setTipo(rs.getString("Tipo"));
+                noti.setEstado(rs.getString("Estado") != null ? rs.getString("Estado") : "Desconocido");
+
                 lista.add(noti);
             }
 
@@ -70,6 +271,12 @@ public class NotProtNuevaadopControlador {
             e.printStackTrace();
         }
     }
+
+
+
+
+
+
 
     @FXML private void btnMinimizar(ActionEvent event) {
         ((Stage)((Node)event.getSource()).getScene().getWindow()).setIconified(true);

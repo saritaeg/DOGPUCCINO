@@ -10,6 +10,17 @@ public class Notificacion {
     private String idUsuario;
     private LocalDate fechaAlta;
     private LocalDate fechaModificacion;
+    private int clienteId;     // para identificar la solicitud (Cliente_ID)
+    private int perroId;       // para identificar el perro (Perro_ID)
+    private LocalDate fechaCita;  // solo si aplica para citas
+
+    private String estado;
+
+
+
+
+    public Notificacion() {
+    }
 
     public Notificacion(String idNotificacion, String tipo, String mensaje, String fechaEnvio,
                         String idUsuario, LocalDate fechaAlta, LocalDate fechaModificacion) {
@@ -21,7 +32,13 @@ public class Notificacion {
         this.fechaModificacion = fechaModificacion;
         this.fechaEnvio = LocalDate.parse(fechaEnvio);
     }
+    public String getEstado() {
+        return estado;
+    }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     public String getIdNotificacion() {
         return idNotificacion;
     }
@@ -41,6 +58,29 @@ public class Notificacion {
     public String getMensaje() {
         return mensaje;
     }
+    public int getClienteId() {
+        return clienteId;
+    }
+
+    public void setClienteId(int clienteId) {
+        this.clienteId = clienteId;
+    }
+
+    public int getPerroId() {
+        return perroId;
+    }
+
+    public void setPerroId(int perroId) {
+        this.perroId = perroId;
+    }
+
+    public LocalDate getFechaCita() {
+        return fechaCita;
+    }
+
+    public void setFechaCita(LocalDate fechaCita) {
+        this.fechaCita = fechaCita;
+    }
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
@@ -53,11 +93,6 @@ public class Notificacion {
     public void setFechaEnvio(LocalDate fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
-
-    public Notificacion() {
-
-    }
-
 
     public String getIdUsuario() {
         return idUsuario;
@@ -82,4 +117,6 @@ public class Notificacion {
     public void setFechaModificacion(LocalDate fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
     }
+
+
 }

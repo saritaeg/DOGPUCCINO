@@ -24,7 +24,7 @@
                 <Button fx:id="btnSobreNosotrosProtectora" onAction="#btnSobreNosotrosProtectora" styleClass="tab-button" text="Sobre nosotros" />
             </HBox>
             <HBox alignment="CENTER" spacing="10" styleClass="tabs-bar">
-                <ToggleButton fx:id="btnSolicitudAdopcionProtectora" onAction="#btnSolicitudAdopcionProtectora" style="-fx-font-weight: bold;" styleClass="small-tab-button" text="SOLICITUD ADOPCIÓN" />
+                <ToggleButton fx:id="btnSolicitudAdopcionProtectora" onAction="#btnSolicitudAdopcionProtectora" style="-fx-font-weight: bold;" styleClass="small-tab-button" text="SOLICITUDES" />
             </HBox>
         </VBox>
     </top>
@@ -47,6 +47,11 @@
                     <TableColumn fx:id="fechaColumna" prefWidth="162.0" text="Fecha de Envío">
                         <cellValueFactory>
                             <PropertyValueFactory property="fechaEnvio" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="estadoColumna" prefWidth="162.0" text="Estado">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="estado" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>
