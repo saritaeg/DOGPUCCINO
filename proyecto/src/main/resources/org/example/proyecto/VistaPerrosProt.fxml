@@ -3,102 +3,142 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<BorderPane fx:id="root" prefHeight="600" prefWidth="800" stylesheets="@EstiloMenu.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.PerrosProtControlador">
+<BorderPane fx:id="root" prefHeight="600" prefWidth="800" stylesheets="@EstiloMenu.css"
+            xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.proyecto.controlador.PerrosProtControlador">
 
+    <!-- Barra con botones ventana arriba a la derecha -->
     <top>
-        <VBox spacing="10">
-            <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar" xmlns:fx="http://javafx.com/fxml">
-                <Button fx:id="btnVolverAtras" onAction="#btnVolverAtras" styleClass="back-button" text="←" />
-                <Region HBox.hgrow="ALWAYS" />
-                <Label prefHeight="37.0" prefWidth="227.0" styleClass="title" text="DOGPUCCINO" />
-                <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="btnEditarPerfilProtectora" mnemonicParsing="false" onAction="#btnEditarPerfilProtectora" prefHeight="23.0" prefWidth="113.0" styleClass="tab-button" text="Protectora">
-                    <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../imagenes/usuario.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-            </HBox>
-
-            <HBox alignment="CENTER" spacing="15" styleClass="tabs-bar">
-                <Button fx:id="btnNotificacionesProtectora" onAction="#btnNotificacionesProtectora" prefHeight="27.0" prefWidth="99.0" styleClass="tab-button" text="Notificaciones" />
-                <Button fx:id="btnPerrosProtectora" onAction="#btnPerrosProtectora" style="-fx-font-weight: bold;" styleClass="tab-button" text="_Perros" />
-   
-               <Button fx:id="btnAñadirPerroProtectora" onAction="#btnAñadirPerroProtectora" prefHeight="27.0" prefWidth="192.0" style="-fx-font-weight: bold;" styleClass="tab-button" text="AÑADIR PERRO +" />
-                <Button fx:id="btnCitasProtectora" onAction="#btnCitasProtectora" styleClass="tab-button" text="Citas" />
-                <Button fx:id="btnSobreNosotrosProtectora" onAction="#btnSobreNosotrosProtectora" prefWidth="110.0" styleClass="tab-button" text="Sobre nosotros" />
-
-            </HBox>
-        </VBox>
+        <HBox alignment="CENTER_RIGHT" spacing="5" styleClass="window-control-bar">
+            <padding>
+                <Insets top="5" right="5" bottom="5" left="5" />
+            </padding>
+            <Button fx:id="btnMinimizar" text="—" styleClass="window-control-button" onAction="#minimizarVentana" />
+            <Button fx:id="btnMaximizar" text="⬜" styleClass="window-control-button" onAction="#btnMaximizar" />
+            <Button fx:id="btnCerrar" text="✕" styleClass="window-control-button" onAction="#btnCerrar" />
+        </HBox>
     </top>
 
+    <!-- Contenedor que ocupa el centro y centra todo lo demás -->
     <center>
-        <VBox alignment="TOP_CENTER" spacing="15" styleClass="dog-list-wrapper">
+        <StackPane alignment="CENTER" prefWidth="800" prefHeight="600">
 
-            <HBox alignment="CENTER" prefHeight="363.0" prefWidth="679.0" spacing="20" styleClass="dog-list-container">
-                <Button fx:id="btnVolverPerrosAtrasProtectora" onAction="#btnVolverPerrosAtrasProtectora" styleClass="nav-button" text="❮" />
+            <VBox alignment="CENTER" spacing="20" prefWidth="700">
 
-                <VBox prefHeight="321.0" prefWidth="236.0" spacing="10" styleClass="dog-card">
-                    <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
-                        <image>
-                            <Image url="@dog1.png" />
-                        </image>
-                    </ImageView>
-                    <GridPane hgap="5" vgap="5">
-                        <Label text="Nombre:" GridPane.columnIndex="0" />
-                        <TextField fx:id="txtNombrePro" GridPane.columnIndex="1" />
+                <!-- Barra principal -->
+                <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="679.0" spacing="10" styleClass="top-bar">
+                    <Button fx:id="btnVolverAtras" onAction="#btnVolverAtras" styleClass="back-button" text="←" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label prefHeight="37.0" prefWidth="227.0" styleClass="title" text="DOGPUCCINO" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button fx:id="btnEditarPerfilProtectora" mnemonicParsing="false" onAction="#btnEditarPerfilProtectora"
+                            prefHeight="23.0" prefWidth="113.0" styleClass="tab-button" text="Protectora">
+                        <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../../imagenes/usuario.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </HBox>
 
-                        <Label text="Raza:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtRazaPro" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <!-- Barra de pestañas -->
+                <HBox alignment="CENTER" spacing="15" styleClass="tabs-bar">
+                    <Button fx:id="btnNotificacionesProtectora" onAction="#btnNotificacionesProtectora"
+                            prefHeight="27.0" prefWidth="99.0" styleClass="tab-button" text="Notificaciones" />
+                    <Button fx:id="btnPerrosProtectora" onAction="#btnPerrosProtectora" style="-fx-font-weight: bold;"
+                            styleClass="tab-button" text="_Perros" />
+                    <Button fx:id="btnAñadirPerroProtectora" onAction="#btnAñadirPerroProtectora"
+                            prefHeight="27.0" prefWidth="192.0" style="-fx-font-weight: bold;" styleClass="tab-button"
+                            text="AÑADIR PERRO +" />
+                    <Button fx:id="btnCitasProtectora" onAction="#btnCitasProtectora" styleClass="tab-button" text="Citas" />
+                    <Button fx:id="btnSobreNosotrosProtectora" onAction="#btnSobreNosotrosProtectora"
+                            prefWidth="110.0" styleClass="tab-button" text="Sobre nosotros" />
+                </HBox>
 
-                        <Label text="Sexo:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <TextField fx:id="txtSexoPro" prefHeight="23.0" prefWidth="146.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <!-- Contenido principal: listado perros y navegación -->
+                <VBox alignment="CENTER" spacing="15" styleClass="dog-list-wrapper">
 
-                        <Label prefHeight="15.0" prefWidth="142.0" text="Fecha nacimiento:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                        <TextField fx:id="txtFechaNacimientoPro" prefHeight="23.0" prefWidth="82.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <HBox alignment="CENTER" prefHeight="363.0" prefWidth="679.0" spacing="20" styleClass="dog-list-container">
 
-                        <Label text="Adoptado:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                        <TextField fx:id="txtAdoptadoPro" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="btnVolverPerrosAtrasProtectora" onAction="#btnVolverPerrosAtrasProtectora"
+                                styleClass="nav-button" text="❮" />
 
-                        <Label text="Protectora:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                        <TextField fx:id="txtProtectoraPro" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                    </GridPane>
-                    <Button fx:id="btnEditarPerroProtectora" onAction="#btnEditarPerroProtectora" styleClass="info-button" text="EDITAR" />
+                        <VBox prefHeight="321.0" prefWidth="236.0" spacing="10" styleClass="dog-card" alignment="CENTER">
+                            <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
+                                <image>
+                                    <Image url="@dog1.png" />
+                                </image>
+                            </ImageView>
+                            <GridPane hgap="5" vgap="5">
+                                <Label text="Nombre:" GridPane.columnIndex="0" />
+                                <TextField fx:id="txtNombrePro" GridPane.columnIndex="1" />
+
+                                <Label text="Raza:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtRazaPro" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                <Label text="Sexo:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <TextField fx:id="txtSexoPro" prefHeight="23.0" prefWidth="146.0" GridPane.columnIndex="1"
+                                           GridPane.rowIndex="2" />
+
+                                <Label prefHeight="15.0" prefWidth="142.0" text="Fecha nacimiento:" GridPane.columnIndex="0"
+                                       GridPane.rowIndex="3" />
+                                <TextField fx:id="txtFechaNacimientoPro" prefHeight="23.0" prefWidth="82.0"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                                <Label text="Adoptado:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                <TextField fx:id="txtAdoptadoPro" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                                <Label text="Protectora:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                <TextField fx:id="txtProtectoraPro" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                            </GridPane>
+                            <Button fx:id="btnEditarPerroProtectora" onAction="#btnEditarPerroProtectora" styleClass="info-button"
+                                    text="EDITAR" />
+                        </VBox>
+
+                        <VBox prefHeight="250.0" prefWidth="235.0" spacing="10" styleClass="dog-card" alignment="CENTER">
+                            <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
+                                <image>
+                                    <Image url="@dog2.png" />
+                                </image>
+                            </ImageView>
+                            <GridPane hgap="5" vgap="5">
+                                <Label text="Nombre:" GridPane.columnIndex="0" />
+                                <TextField fx:id="txtNombrePro2" GridPane.columnIndex="1" />
+
+                                <Label text="Raza:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtRazaPro2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                <Label text="Sexo:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <TextField fx:id="txtSexoPro2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                <Label prefHeight="15.0" prefWidth="144.0" text="Fecha nacimiento:" GridPane.columnIndex="0"
+                                       GridPane.rowIndex="3" />
+                                <TextField fx:id="txtFechaNacimientoPro2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                                <Label text="Adoptado:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                <TextField fx:id="txtAdoptadoPro2" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                                <Label text="Protectora:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                <TextField fx:id="txtProtectoraPro2" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                            </GridPane>
+                            <Button fx:id="btnEditarPerroProtectora2" onAction="#btnEditarPerroProtectora2"
+                                    styleClass="info-button" text="EDITAR" />
+                        </VBox>
+
+                        <Button fx:id="btnBotonAvanzarPerrosProtectora" onAction="#btnBotonAvanzarPerrosProtectora"
+                                styleClass="nav-button" text="❯" />
+                    </HBox>
                 </VBox>
 
-                <VBox prefHeight="250.0" prefWidth="235.0" spacing="10" styleClass="dog-card">
-                    <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
-                        <image>
-                            <Image url="@dog2.png" />
-                        </image>
-                    </ImageView>
-                    <GridPane hgap="5" vgap="5">
-                        <Label text="Nombre:" GridPane.columnIndex="0" />
-                        <TextField fx:id="txtNombrePro2" GridPane.columnIndex="1" />
+            </VBox>
 
-                        <Label text="Raza:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtRazaPro2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-
-                        <Label text="Sexo:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <TextField fx:id="txtSexoPro2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-
-                        <Label prefHeight="15.0" prefWidth="144.0" text="Fecha nacimiento:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                        <TextField fx:id="txtFechaNacimientoPro2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-
-                        <Label text="Adoptado:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                        <TextField fx:id="txtAdoptadoPro2" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-
-                        <Label text="Protectora:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                        <TextField fx:id="txtProtectoraPro2" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                    </GridPane>
-                    <Button fx:id="btnEditarPerroProtectora2" onAction="#btnEditarPerroProtectora2" styleClass="info-button" text="EDITAR" />
-                </VBox>
-                <Button fx:id="btnBotonAvanzarPerrosProtectora" onAction="#btnBotonAvanzarPerrosProtectora" styleClass="nav-button" text="❯" />
-            </HBox>
-        </VBox>
+        </StackPane>
     </center>
+
 </BorderPane>
+
+

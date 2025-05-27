@@ -1,11 +1,15 @@
 package org.example.proyecto.controlador;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.example.proyecto.dao.EditarProtectoraDAO;
 import org.example.proyecto.dao.PerrosProtDAO;
@@ -42,14 +46,59 @@ public class PerrosProtControlador {
     @FXML private TextField txtAdoptadoPro2;
     @FXML private TextField txtProtectoraPro2;
     @FXML private Button btnEditarPerroProtectora2;
-
+    @FXML private Button btnMinimizar;
+    @FXML private Button btnMaximizar;
+    @FXML private Button btnCerrar;
     private List<Perro> perros;
     private int indice = 0;
-
     private String emailProtectora;
-
     private Usuario usuario;
+    private double originalWidth;
+    private double originalHeight;
+    private double originalX;
+    private double originalY;
+    private boolean maximized = false;
 
+
+    public void minimizarVentana(ActionEvent event) {
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+
+    @FXML
+    private void btnMaximizar(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        if (!maximized) {
+            originalWidth = stage.getWidth();
+            originalHeight = stage.getHeight();
+            originalX = stage.getX();
+            originalY = stage.getY();
+
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX(screenBounds.getMinX());
+            stage.setY(screenBounds.getMinY());
+            stage.setWidth(screenBounds.getWidth());
+            stage.setHeight(screenBounds.getHeight());
+
+            maximized = true;
+            btnMaximizar.setText("❐");
+        } else {
+            stage.setX(originalX);
+            stage.setY(originalY);
+            stage.setWidth(originalWidth);
+            stage.setHeight(originalHeight);
+
+            maximized = false;
+            btnMaximizar.setText("⬜");
+        }
+    }
+
+    @FXML
+    private void btnCerrar(ActionEvent event) {
+        Platform.exit();
+    }
 
     @FXML
     public void initialize() {

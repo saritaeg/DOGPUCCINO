@@ -3,23 +3,26 @@
     -fx-font-family: 'Segoe UI', sans-serif;
 }
 
+/* Barra superior con botones */
+.header {
+    -fx-background-color: transparent;
+    -fx-padding: 10 15 10 10;
+}
 
+/* Título centrado */
 .titulo {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
     -fx-text-fill: #1F1F1F;
-
-}
-.header {
-    -fx-padding: 30 0 10 0;
 }
 
-
+/* Etiquetas de los inputs */
 .input-label {
     -fx-font-size: 14px;
     -fx-text-fill: #333333;
 }
 
+/* Campos de texto y datepicker */
 .input-field {
     -fx-pref-width: 320px;
     -fx-padding: 8 12;
@@ -31,6 +34,7 @@
     -fx-font-size: 13.5px;
 }
 
+/* Botón principal */
 .boton-principal {
     -fx-background-color: #ede4d3;
     -fx-text-fill: black;
@@ -46,6 +50,7 @@
     -fx-background-color: #e0d2b8;
 }
 
+/* Botón secundario */
 .boton-secundario {
     -fx-background-color: transparent;
     -fx-text-fill: #1f1f1f;
@@ -63,6 +68,7 @@
     -fx-background-color: #f3ede2;
 }
 
+/* Botones de barra superior (minimizar, maximizar, cerrar) */
 .boton-barra {
     -fx-background-color: transparent;
     -fx-text-fill: white;
@@ -78,4 +84,5 @@
     -fx-background-color: #d9cbb0;
     -fx-text-fill: white;
 }
+
 

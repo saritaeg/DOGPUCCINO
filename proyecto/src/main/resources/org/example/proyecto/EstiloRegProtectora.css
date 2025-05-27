@@ -3,18 +3,16 @@
     -fx-font-family: 'Segoe UI', sans-serif;
 }
 
-
 .titulo {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
     -fx-text-fill: #1F1F1F;
 }
 
-
 .cabecera {
-    -fx-padding: 20 0 10 0;
+    -fx-padding: 10 0 10 0;
+    -fx-background-color: transparent;
 }
-
 
 .input-label {
     -fx-font-size: 13px;
@@ -32,7 +30,6 @@
     -fx-font-size: 13px;
 }
 
-
 .boton-principal {
     -fx-background-color: #ede4d3;
     -fx-text-fill: black;
@@ -46,7 +43,6 @@
 .boton-principal:hover {
     -fx-background-color: #cebea3;
 }
-
 
 .boton-secundario {
     -fx-background-color: transparent;
@@ -79,4 +75,5 @@
     -fx-background-color: #d9cbb0;
     -fx-text-fill: white;
 }
+
 

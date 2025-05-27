@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.RegProtectoraControlador">
-    <stylesheets>
-        <URL value="@EstiloRegProtectora.css" />
-    </stylesheets>
-    <children>
-        <VBox alignment="TOP_CENTER" spacing="20" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+<BorderPane prefHeight="600" prefWidth="800" stylesheets="@EstiloRegProtectora.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.proyecto.controlador.RegProtectoraControlador">
 
-            <StackPane styleClass="cabecera">
-                <Label styleClass="titulo" text="Registrar Nueva Protectora" />
-   
-   
-               <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" StackPane.alignment="TOP_RIGHT">
-                   <StackPane.margin>
-                       <Insets right="10" top="10" />
-                   </StackPane.margin>
-               </Button>
-   
-               <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" StackPane.alignment="TOP_RIGHT">
-                   <StackPane.margin>
-                       <Insets right="50" top="10" />
-                   </StackPane.margin>
-               </Button>
-            </StackPane>
+    <!-- Barra superior con botones -->
+    <top>
+        <HBox alignment="TOP_RIGHT" spacing="10" styleClass="cabecera" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="btnMaximizar" onAction="#btnMaximizar" styleClass="boton-barra" text="⬜" />
+                <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" />
+                <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" />
+            </children>
+            <padding>
+                <Insets top="10" right="10" />
+            </padding>
+        </HBox>
+    </top>
 
-            <GridPane alignment="CENTER" hgap="30" maxWidth="700" vgap="15">
+    <!-- Centro: título + formulario -->
+    <center>
+        <VBox spacing="20" alignment="CENTER" maxWidth="800" BorderPane.alignment="CENTER">
+
+            <!-- Título -->
+            <Label styleClass="titulo" text="Registrar Nueva Protectora" />
+
+            <!-- FORMULARIO -->
+            <GridPane alignment="CENTER" hgap="30" vgap="15" maxWidth="700">
+                <columnConstraints>
+                    <ColumnConstraints />
+                    <ColumnConstraints />
+                </columnConstraints>
 
                 <VBox spacing="15" GridPane.columnIndex="0">
                     <Label styleClass="input-label" text="Nombre" />
@@ -42,36 +47,35 @@
                     <TextField fx:id="txtCIF" promptText="Ej: 29551116G" styleClass="input-field" />
 
                     <Label text="Calle" />
-                    <TextField fx:id="txtCalle" prefHeight="33.0" prefWidth="280.0" promptText="Nombre de la Calle" styleClass="input-field" />
+                    <TextField fx:id="txtCalle" promptText="Nombre de la Calle" styleClass="input-field" />
 
                     <Label styleClass="input-label" text="Redes Sociales" />
                     <TextField fx:id="txtRedes" promptText="Instagram, Twitter..." styleClass="input-field" />
                 </VBox>
 
                 <VBox spacing="15" GridPane.columnIndex="1">
-
                     <Label styleClass="input-label" text="Teléfono" />
                     <TextField fx:id="txtTelefono" promptText="000 000 000" styleClass="input-field" />
+
                     <Label styleClass="input-label" text="Correo electrónico" />
                     <TextField fx:id="txtCorreo" promptText="ejemplo@correo.com" styleClass="input-field" />
 
                     <Label text="Contraseña" />
-                    <PasswordField fx:id="txtContraseña" accessibleRole="PASSWORD_FIELD" prefHeight="17.0" prefWidth="280.0" promptText="*****" styleClass="input-field" />
-               <Label layoutX="10.0" layoutY="244.0" text="Repetir contraseña" />
-                    <PasswordField fx:id="txtConfirmarContraseña" accessibleRole="PASSWORD_FIELD" layoutX="10.0" layoutY="274.0" prefHeight="17.0" prefWidth="280.0" promptText="*****" styleClass="input-field" />
+                    <PasswordField fx:id="txtContraseña" promptText="*****" styleClass="input-field" />
+
+                    <Label text="Repetir contraseña" />
+                    <PasswordField fx:id="txtConfirmarContraseña" promptText="*****" styleClass="input-field" />
                 </VBox>
-            <columnConstraints>
-               <ColumnConstraints />
-               <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-               <RowConstraints />
-            </rowConstraints>
             </GridPane>
+
+            <!-- BOTONES -->
             <HBox alignment="CENTER" spacing="20">
                 <Button fx:id="btnRegistrar" onAction="#btnRegistrar" styleClass="boton-principal" text="Registrarse" />
                 <Button fx:id="btnVolver" onAction="#btnVolver" styleClass="boton-secundario" text="Volver" />
             </HBox>
+
         </VBox>
-    </children>
-</AnchorPane>
+    </center>
+</BorderPane>
+
+

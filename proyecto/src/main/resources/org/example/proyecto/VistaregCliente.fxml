@@ -4,29 +4,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600" prefWidth="800" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.RegClienteControlador">
-   <children>
-      <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1000.0" spacing="30" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <StackPane styleClass="header">
-            <Label styleClass="titulo" text="Registrar Nuevo Cliente" />
-   
-            <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" StackPane.alignment="TOP_RIGHT">
-               <StackPane.margin>
-                  <Insets right="50" top="10" />
-               </StackPane.margin>
-            </Button>
-   
-            <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" StackPane.alignment="TOP_RIGHT">
-               <StackPane.margin>
-                  <Insets right="10" top="10" />
-               </StackPane.margin>
-            </Button>
-         </StackPane>
+<BorderPane prefHeight="600" prefWidth="800" stylesheets="@EstiloRegCli.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.RegClienteControlador">
 
+   <top>
+      <HBox alignment="TOP_RIGHT" spacing="10" styleClass="header" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" />
+            <Button fx:id="btnMaximizar" onAction="#btnMaximizar" styleClass="boton-barra" text="⬜" />
+            <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" />
+         </children>
+         <padding>
+            <Insets bottom="10" left="10" right="15" top="10" />
+         </padding>
+      </HBox>
+   </top>
+
+   <center>
+      <VBox alignment="CENTER" maxWidth="900" spacing="30" BorderPane.alignment="CENTER">
+         <Label styleClass="titulo" text="Registrar Nuevo Cliente" />
 
          <GridPane alignment="CENTER" hgap="40" maxWidth="900" vgap="18">
+            <columnConstraints>
+               <ColumnConstraints hgrow="ALWAYS" />
+               <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
 
-            <VBox spacing="14" GridPane.columnIndex="0">
+            <VBox maxWidth="Infinity" spacing="14" GridPane.columnIndex="0">
                <Label styleClass="input-label" text="Nombre completo" />
                <TextField fx:id="txtNombre" promptText="Introduce tu nombre" styleClass="input-field" />
 
@@ -37,15 +40,15 @@
                <TextField fx:id="txtApellido2" promptText="Introduce tu segundo apellido" styleClass="input-field" />
 
                <Label styleClass="input-label" text="Fecha de nacimiento" />
-               <DatePicker fx:id="txtFechaNacimiento" prefHeight="33.0" prefWidth="319.0" promptText="dd/mm/aa" />
+               <DatePicker fx:id="txtFechaNacimiento" prefHeight="33.0" prefWidth="306.0" promptText="dd/mm/aa" />
 
                <Label styleClass="input-label" text="Provincia" />
                <TextField fx:id="txtProvincia" promptText="Introduce tu provincia" styleClass="input-field" />
             </VBox>
 
-            <VBox spacing="14" GridPane.columnIndex="1">
+            <VBox maxWidth="Infinity" spacing="14" GridPane.columnIndex="1">
                <Label styleClass="input-label" text="Tipo de vía" />
-               <ComboBox fx:id="txtTipoVia" prefHeight="34.0" prefWidth="320.0" />
+               <ComboBox fx:id="txtTipoVia" prefHeight="34.0" prefWidth="240.0" />
 
                <Label styleClass="input-label" text="Teléfono" />
                <TextField fx:id="txtTelefono" promptText="000 000 000" styleClass="input-field" />
@@ -59,19 +62,16 @@
                <Label styleClass="input-label" text="Confirmar contraseña" />
                <PasswordField fx:id="txtConfirmarContraseña" promptText="Repite la contraseña" styleClass="input-field" />
             </VBox>
-            <columnConstraints>
-               <ColumnConstraints />
-               <ColumnConstraints />
-            </columnConstraints>
             <rowConstraints>
                <RowConstraints />
             </rowConstraints>
-
          </GridPane>
+
          <HBox alignment="CENTER" spacing="25">
             <Button fx:id="btnRegistrarCliente" onAction="#btnRegistrarCliente" styleClass="boton-principal" text="Registrarse" />
             <Button fx:id="btnVolverCliente" onAction="#btnVolverCliente" styleClass="boton-secundario" text="Volver" />
          </HBox>
       </VBox>
-   </children>
-</AnchorPane>
+   </center>
+
+</BorderPane>
