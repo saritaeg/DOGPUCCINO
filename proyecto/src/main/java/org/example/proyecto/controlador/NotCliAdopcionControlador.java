@@ -14,7 +14,7 @@ import org.example.proyecto.modelo.Usuario;
 
 import java.io.IOException;
 
-public class NotCliCambioEstadControlador {
+public class NotCliAdopcionControlador {
     @FXML
     private Button btnAtras;
     @FXML
@@ -26,9 +26,9 @@ public class NotCliCambioEstadControlador {
     @FXML
     private Button btnSobreNosotros;
     @FXML
-    private Button btnCancelacionCita;
+    private Button btnNotificaciónCitas;
     @FXML
-    private Button btnCambioEstado;
+    private Button btnNotificaciónAdopcion;
 
     private Usuario usuario;
 
@@ -82,7 +82,7 @@ public class NotCliCambioEstadControlador {
     @FXML
     private void btnNotificaciones(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCambioestad.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliAdopcion.fxml"));
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnNotificaciones.getScene().getWindow();
@@ -125,12 +125,12 @@ public class NotCliCambioEstadControlador {
 
     }
     @FXML
-    private void btnCancelacionCita(ActionEvent event) {
+    private void btnNotificaciónCitas(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCancelacion.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCitas.fxml"));
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnCancelacionCita.getScene().getWindow();
+            Stage stage = (Stage) btnNotificaciónCitas.getScene().getWindow();
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -140,12 +140,12 @@ public class NotCliCambioEstadControlador {
 
     }
     @FXML
-    private void btnCambioEstado(ActionEvent event) {
+    private void btnNotificaciónAdopcion(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCambioestad.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliAdopcion.fxml"));
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) btnCambioEstado.getScene().getWindow();
+            Stage stage = (Stage) btnNotificaciónAdopcion.getScene().getWindow();
 
             Scene scene = new Scene(root);
             stage.setScene(scene);

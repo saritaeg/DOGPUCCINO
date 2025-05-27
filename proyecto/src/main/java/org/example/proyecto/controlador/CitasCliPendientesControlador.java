@@ -13,24 +13,11 @@ import org.example.proyecto.modelo.Cita;
 import org.example.proyecto.modelo.Sesion;
 import org.example.proyecto.modelo.Usuario;
 import org.example.proyecto.utils.ConexionBaseDatos;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-import org.example.proyecto.modelo.Cita;
-import org.example.proyecto.modelo.Sesion;
-import org.example.proyecto.modelo.Usuario;
-import org.example.proyecto.utils.ConexionBaseDatos;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -38,10 +25,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 public class CitasCliPendientesControlador {
     @FXML
@@ -143,7 +126,7 @@ public class CitasCliPendientesControlador {
     }
 
     @FXML private void btnNotificaciones(ActionEvent event) {
-        cambiarVista("/org/example/proyecto/VistaNotCliCancelacion.fxml", btnNotificaciones);
+        cambiarVista("/org/example/proyecto/VistaNotCliCitas.fxml", btnNotificaciones);
     }
 
     @FXML private void btnCitas(ActionEvent event) {

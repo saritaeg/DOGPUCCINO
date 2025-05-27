@@ -5,9 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,8 +16,6 @@ import org.example.proyecto.modelo.Perro;
 import org.example.proyecto.modelo.Sesion;
 import org.example.proyecto.modelo.Usuario;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -198,7 +194,7 @@ public class PerrosCliControlador {
     @FXML
     private void btnNotificacionesCliente(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCancelacion.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyecto/VistaNotCliCitas.fxml"));
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) btnNotificacionesCliente.getScene().getWindow();

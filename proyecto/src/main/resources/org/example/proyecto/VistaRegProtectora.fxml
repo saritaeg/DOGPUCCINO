@@ -33,7 +33,7 @@
 
                 <VBox spacing="15" GridPane.columnIndex="0">
                     <Label styleClass="input-label" text="Nombre" />
-                    <TextField fx:id="txtNombre" promptText="Nombre de la protectora" styleClass="input-field" />
+                    <TextField fx:id="txtNombre" promptText="Nombre de la protectora" styleClass="input-field" VBox.vgrow="ALWAYS" />
 
                     <Label styleClass="input-label" text="Ciudad" />
                     <TextField fx:id="txtCiudad" promptText="Provincia" styleClass="input-field" />

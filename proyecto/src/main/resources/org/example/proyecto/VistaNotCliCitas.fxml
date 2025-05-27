@@ -5,7 +5,7 @@
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="root" prefHeight="600" prefWidth="800" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.NotCliCancelacionControlador">
+<BorderPane fx:id="root" prefHeight="600" prefWidth="800" stylesheets="@EstiloNotificaciones.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyecto.controlador.NotCliCitasControlador">
 
     <top>
         <VBox spacing="10">
@@ -14,8 +14,8 @@
                 <Region HBox.hgrow="ALWAYS" />
                 <Label prefWidth="234.0" styleClass="title" text="DOGPUCCINO" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−"/>
-                <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X"/>
+                <Button fx:id="btnMinimizar" onAction="#btnMinimizar" styleClass="boton-barra" text="−" />
+                <Button fx:id="btnCerrar" onAction="#btnCerrar" styleClass="boton-barra" text="X" />
             </HBox>
 
             <HBox alignment="CENTER" layoutY="158.0" prefWidth="800" spacing="20" styleClass="button-container">
@@ -25,8 +25,8 @@
                 <Button fx:id="btnSobreNosotros" onAction="#btnSobreNosotros" styleClass="tab-button" text="Sobre nosotros" />
             </HBox>
             <HBox alignment="CENTER" spacing="10" styleClass="tabs-bar">
-                <Button fx:id="btnCancelacionCita" onAction="#btnCancelacionCita" style="-fx-font-weight: bold;" styleClass="small-tab-button" text="CANCELACIÓN CITA" />
-                <Button fx:id="btnCambioEstado" onAction="#btnCambioEstado" styleClass="small-tab-button" text="CAMBIO DE ESTADO" />
+                <Button fx:id="btnNotificaciónCitas" onAction="#btnNotificaciónCitas" style="-fx-font-weight: bold;" styleClass="small-tab-button" text="Notificación Citas" />
+                <Button fx:id="btnNotificaciónAdopcion" onAction="#btnNotificaciónAdopcion" styleClass="small-tab-button" text="Notificación Adopcion" />
             </HBox>
         </VBox>
     </top>
